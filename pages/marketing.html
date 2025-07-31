@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ข่าวสาร LCI - Lao Cement Industry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-red: #e63946;
+      --light-gray: #f0f2f5;
+      --medium-gray: #777;
+      --dark-text: #2c3e50;
+      --light-text: #444;
+      --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+      --hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    .page-wrapper {
+      font-family: 'Prompt', sans-serif;
+      background: var(--light-gray);
+      line-height: 1.8; 
+      color: var(--dark-text); 
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden; 
+    }
+
+    .popular-news-header-container {
+      width: 100%;
+      height: 60vh;
+      min-height: 300px; 
+      max-height: 500px; 
+      overflow: hidden;
+      position: relative; 
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25); 
+      border-bottom: 6px solid var(--primary-red); 
+    }
+
+    .popular-news-slider-content {
+      display: flex;
+      height: 100%;
+      transition: transform 0.7s ease-in-out; 
+    }
+
+    .popular-news-slide-item {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      background-color: #333; 
+    }
+
+    .popular-news-slide-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85); 
+      transition: transform 0.5s ease-out; 
+    }
+
+    .popular-news-slide-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .popular-news-image-overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent); 
+      padding: 3.125rem 2.5rem 1.875rem; 
+      color: #fff;
+    }
+
+    .popular-news-image-overlay h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem); 
+      font-weight: 700; 
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); 
+    }
+
+    .popular-news-image-overlay p {
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem); 
+      margin-top: 0.625rem; 
+      color: #f5f5f5;
+    }
+
+    .popular-news-arrow {
+      position: absolute; 
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7); 
+      border: 2px solid rgba(255, 255, 255, 0.3); 
+      color: white;
+      width: 3.4375rem; 
+      height: 3.4375rem; 
+      border-radius: 50%;
+      font-size: 2.2rem; 
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+      left: auto;
+      right: auto; 
+    }
+
+    .popular-news-arrow:hover {
+      background: var(--primary-red); 
+      border-color: var(--primary-red);
+      transform: translateY(-50%) scale(1.05); 
+    }
+
+    .popular-news-arrow.left {
+      left: 1.5625rem; 
+      right: auto; 
+    }
+
+    .popular-news-arrow.right {
+      right: 1.5625rem; 
+      left: auto; 
+    }
+
+    .popular-news-container {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 2.1875rem;
+      padding: 3.125rem 1.875rem; 
+      max-width: 1300px; 
+      margin: 2.5rem auto; 
+      align-items: flex-start;
+    }
+
+    .popular-news-main-content, .top-popular-news {
+      background: white;
+      border-radius: 1.125rem; 
+      padding: 2.1875rem 2.5rem; 
+      box-shadow: var(--card-shadow); 
+      transition: box-shadow 0.3s ease;
+    }
+
+    .popular-news-main-content:hover, .top-popular-news:hover {
+        box-shadow: var(--hover-shadow); 
+    }
+
+    .popular-news-main-content {
+      flex: 3; 
+      min-width: 900px; 
+      flex-grow: 1; 
+    }
+
+    .top-popular-news {
+      flex: 0.25; 
+      min-width: 200px; 
+      flex-grow: 1; 
+      padding: 1.5rem 1.5rem; 
+    }
+
+    .popular-news-main-content h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem); 
+      color: var(--primary-red);
+      margin-top: 0;
+      line-height: 1.4;
+      margin-bottom: 1.5625rem; 
+    }
+
+    .popular-news-main-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem; 
+      margin: 1.5625rem 0; 
+      display: block; 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    }
+
+    .popular-news-main-content .date {
+      font-size: 1rem; 
+      color: var(--medium-gray);
+      margin-bottom: 1.5625rem;
+      display: block; 
+    }
+
+    .popular-news-main-content p {
+      font-size: 1.05rem; 
+      line-height: 1.9;
+      color: var(--light-text);
+      margin-bottom: 1.2em; 
+      word-wrap: break-word; 
+    }
+      
+    .original-news-link {
+        display: inline-block;
+        margin-top: 1.875rem; 
+        padding: 0.75rem 1.25rem; 
+        background-color: var(--primary-red);
+        color: white;
+        text-decoration: none;
+        border-radius: 0.625rem; 
+        font-weight: 600; 
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3); 
+        white-space: nowrap; 
+    }
+
+    .original-news-link:hover {
+        background-color: #d12c3b;
+        transform: translateY(-2px); 
+        box-shadow: 0 6px 15px rgba(230, 57, 70, 0.45); 
+    }
+
+    .top-popular-news h3 {
+      font-size: 1.3rem; 
+      border-left: 0.4375rem solid var(--primary-red);
+      padding-left: 1rem; 
+      margin-bottom: 1.5rem; 
+      color: var(--dark-text);
+      font-weight: 700; 
+    }
+
+    .popular-news-item {
+      display: flex;
+      align-items: center; 
+      gap: 0.7rem; 
+      margin-bottom: 0.7rem; 
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      padding: 0.5rem; 
+      border-radius: 0.75rem;
+      background-color: #fff; 
+      border: 1px solid #f0f0f0; 
+    }
+
+    .popular-news-item:hover {
+      background-color: #f7f7f7; 
+      transform: translateY(-3px); 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+    }
+
+    .popular-news-item img {
+      width: 3rem; 
+      height: 3rem; 
+      object-fit: cover;
+      border-radius: 0.625rem; 
+      border: 1px solid #e0e0e0; 
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    }
+
+    .popular-news-item p {
+      margin: 0;
+      font-size: 0.8125rem; 
+      color: var(--light-text);
+      line-height: 1.3; 
+      font-weight: 500; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      display: -webkit-box; 
+      -webkit-line-clamp: 2; 
+      -webkit-box-orient: vertical; 
+    }
+
+    .share-icons {
+      margin-top: 1.25rem; 
+      margin-bottom: 1.5625rem; 
+      display: flex;
+      gap: 1.125rem; 
+      align-items: center;
+    }
+
+    .share-icons span {
+      font-size: 1.15rem; 
+      font-weight: 600; 
+      color: #555;
+      flex-shrink: 0; 
+    }
+
+    .share-icons a {
+      color: var(--primary-red);
+      font-size: 2rem; 
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .share-icons a:hover {
+      transform: translateY(-4px) scale(1.1); 
+    }
+
+    .share-icons a.facebook:hover { color: #1877F2; }
+    .share-icons a.twitter:hover { color: #1DA1F2; }
+    .share-icons a.line:hover { color: #00C300; }
+    .share-icons a.whatsapp:hover { color: #25D366; }
+
+
+
+
+    /* --- Responsive --- */
+    @media (max-width: 1024px) {
+      .popular-news-container {
+        flex-direction: column; 
+        padding: 2rem 1rem; 
+        margin: 1.5rem auto; 
+      }
+
+      .popular-news-main-content, .top-popular-news {
+        min-width: unset; 
+        width: 100%; 
+      }
+
+      .popular-news-main-content {
+        order: 1; 
+      }
+
+      .top-popular-news {
+        order: 2; 
+        padding: 1rem 1rem; 
+      }
+
+      .popular-news-image-overlay {
+        padding: 2rem 1.5rem 1rem; 
+      }
+
+      .popular-news-arrow {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.8rem;
+      }
+
+      .popular-news-arrow.left {
+        left: 1rem;
+      }
+
+      .popular-news-arrow.right {
+        right: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .popular-news-header-container {
+        height: 50vh; 
+      }
+
+      .popular-news-image-overlay h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+      }
+
+      .popular-news-image-overlay p {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+      }
+
+      .popular-news-main-content h2 {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+      }
+
+      .popular-news-main-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .original-news-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .share-icons {
+        gap: 0.8rem; 
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .share-icons a {
+        font-size: 1.8rem; 
+      }
+
+      .top-popular-news h3 {
+        font-size: 1.2rem;
+        padding-left: 0.8rem;
+      }
+
+      .popular-news-item img {
+        width: 2.5rem; 
+        height: 2.5rem; 
+      }
+
+      .popular-news-item p {
+        font-size: 0.75rem; 
+      }
+    }
+
+
+
+
+    
+    @media (max-width: 480px) {
+      .popular-news-header-container {
+        height: 40vh;
+        min-height: 250px;
+      }
+
+      .popular-news-image-overlay {
+        padding: 1.5rem 1rem 0.8rem;
+      }
+
+      .popular-news-image-overlay h1 {
+        font-size: clamp(1.2rem, 6vw, 1.6rem);
+      }
+
+      .popular-news-image-overlay p {
+        font-size: 0.75rem;
+      }
+
+      .popular-news-arrow {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.5rem;
+        left: 0.5rem;
+        right: 0.5rem;
+      }
+
+      .popular-news-container {
+        padding: 1rem 0.8rem;
+        gap: 1.5rem;
+      }
+
+      .popular-news-main-content {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .popular-news-main-content h2 {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .popular-news-main-content .date {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .popular-news-main-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .original-news-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.8rem;
+      }
+
+      .share-icons {
+        justify-content: center; 
+        gap: 0.6rem;
+      }
+
+      .share-icons a {
+        font-size: 1.5rem;
+      }
+
+      .top-popular-news {
+        padding: 1rem 0.8rem;
+      }
+
+      .top-popular-news h3 {
+        font-size: 1.1rem;
+        padding-left: 0.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .popular-news-item {
+        gap: 0.5rem;
+        padding: 0.4rem;
+      }
+
+      .popular-news-item img {
+        width: 2rem; 
+        height: 2rem; 
+      }
+
+      .popular-news-item p {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 3;
+      }
+    }
+
+  </style>
+
+
+
+
+
+<style>
+
+
+    /* - - - - - [Start] G E N E R A L Setting Style - - - - -  */
+    /* #region */
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul, ol {
+      list-style: none;
+    }
+    input, button, textarea, select {
+      font: inherit;
+    }
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.5s ease;
+    }
+    .cement-truck-animation img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .cement-truck-animation .pouring {
+      width: 20px;
+      height: 100px;
+      animation: pour 2s infinite ease-in-out;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    @keyframes pour {
+      0% { height: 0; opacity: 0.2; }
+      50% { height: 80px; opacity: 1; }
+      100% { height: 0; opacity: 0.2; }
+    }
+
+    .cement-truck-animation p {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      margin-top: 0px;
+    }
+
+    .to-heaven-btn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #b40000, #ff4d4d);
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      display: none; /* เริ่มต้นซ่อนไว้ */
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .to-heaven-btn:hover {
+      transform: translateY(-5px);
+      opacity: 0.9;
+    }
+
+
+    /* #endregion */
+    /* = = = = = [End] G E N E R A L Setting = = = = = */
+
+
+
+    /* - - - - - [Start] N A V I G A T I O N- - - - - */
+    /* #region */
+    .header-fixed-position {
+        width: 100%;
+        position: fixed;
+        top: 0; /* Ensure it's fixed to the top */
+        left: 0; /* Ensure it starts from the left */
+        z-index: 1000; /* Higher z-index to be on top of other content */
+    }
+
+    .NavOfPoonSingtoolayout {
+        background: linear-gradient(to right, #d70000, #5a0000);
+        font-family: 'Kanit', sans-serif;
+        display: flex; /* Use flex on this container */
+        align-items: center;
+        justify-content: space-between; /* Space out nav-header-mobile-wrapper and nav-list */
+        padding: 0 20px;
+        height: 8vh;
+        min-height: 50px; /* Add a min-height to ensure visibility on very small screens */
+    }
+
+    /* New: Main navigation container for flex properties */
+    .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%; /* Ensure it takes full width of parent */
+    }
+
+    /* New: Wrapper for logo and hamburger on mobile */
+    .nav-header-mobile-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Space between logo and hamburger */
+        width: auto; /* Default for desktop */
+    }
+
+    .nav-lci-above-group1 {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-logoLCI {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-img-logoLCI img {
+        width: 40px;
+        height: auto;
+    }
+
+    .nav-titlename-logoLCI h3 {
+        color: #fff;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .nav-list {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .nav-list li {
+        position: relative;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 14px 20px;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-list a:hover {
+        background-color: #bc1a1a;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #730202;
+        min-width: 160px;
+        z-index: 1000;
+    }
+
+    .dropdown-menu li a {
+        padding: 12px 16px;
+        color: white;
+        white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #a01616;
+    }
+
+    /* Hamburger Menu (Hidden by default on Desktop) */
+    .hamburger-menu {
+        display: none; /* Hidden on desktop */
+        flex-direction: column;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1100; /* Ensure hamburger is above other elements */
+    }
+
+    .hamburger-menu .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #fff; /* White bars for red background */
+        margin: 4px 0;
+        transition: 0.4s;
+    }
+
+    /* --- Responsive Adjustments for Mobile --- */
+    @media (max-width: 768px) {
+        .NavOfPoonSingtoolayout {
+            height: auto; /* Height adapts to content when menu is open */
+            flex-direction: column; /* Stack vertically */
+            align-items: flex-start; /* Align logo and menu to the start */
+            padding: 10px 20px;
+        }
+
+        .main-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav-header-mobile-wrapper {
+            width: 100%; /* Take full width on mobile */
+            justify-content: space-between; /* Space out logo and hamburger */
+            align-items: center;
+            min-height: 50px; /* Ensure this section has a minimum height */
+        }
+
+        .hamburger-menu {
+            display: flex; /* Show hamburger on mobile */
+        }
+
+        .nav-list {
+            display: none; /* Hide nav list by default on mobile */
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            background-color: #630101; /* Darker red for mobile menu background */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 10px;
+            padding-bottom: 10px; /* Add some bottom padding */
+        }
+
+        .nav-list.active {
+            display: flex; /* Show nav list when active */
+        }
+
+        .nav-list li {
+            margin: 10px 0; /* Space between list items */
+            width: 100%; /* Full width for list items */
+        }
+
+        .nav-list a {
+            font-size: 1.1rem;
+            padding: 12px 0; /* Adjust padding for mobile links */
+            display: block; /* Make links block level for better touch area */
+            width: 100%; /* Make link take full width of li */
+        }
+
+        .nav-list a:hover {
+            background-color: #a01616; /* Mobile hover color */
+        }
+
+        /* Hide dropdowns on mobile to simplify menu, or style them for mobile */
+        .nav-list .dropdown-menu {
+            position: static; /* Remove absolute positioning */
+            background-color: transparent; /* No background for sub-menu */
+            box-shadow: none;
+            width: auto;
+            padding: 0;
+            margin-top: 5px;
+            display: none; /* Keep hidden, will require JS to toggle for mobile dropdowns */
+        }
+
+        .nav-list .dropdown-menu li a {
+            padding: 8px 16px; /* Adjust padding for dropdown items */
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1); /* Slight background for sub-items */
+        }
+        .nav-list .dropdown-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger-menu.active .bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+    /* #endregion */
+    /* = = = = = [End] N A V I G A T I O N = = = = = */
+
+
+/* Mobile Styles (สำหรับหน้าจอ <= 768px) */
+@media (max-width: 480px) {
+
+  .above-content {
+    display: none;
+  }
+
+}
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  
+  .above-content {
+    display: none;
+  }
+
+}
+
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body class="page-wrapper">
+
+    <!-- base all website -->
+  <div id="preloader">
+    <div class="cement-truck-animation">
+      <img src="/assets/icons/lci-truck.gif" alt="">
+      <div class="pouring"></div>
+      <p>กำลังเทปูน กรุณารอสักครู่...</p>
+    </div>
+  </div>
+
+  <div class="header-fixed-position">     
+     
+        <!-- Navigation -->
+        <div class="NavOfPoonSingtoolayout">
+        <nav class="main-nav">
+            <div class="nav-header-mobile-wrapper"> <div class="nav-lci-above-group1">
+                    <a href="/">
+                        <div class="nav-logoLCI">
+                            <div class="nav-img-logoLCI">
+                            </div>
+                            <div class="nav-titlename-logoLCI">
+                                <h3>LCI-Thailand</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+
+            <ul class="nav-list">
+                <li><a href="/index.html">หน้าแรก</a></li>
+                <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                <li class="dropdown">
+                    <a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a>
+                    </li>
+                <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
+                <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+        </div>
+
+  </div>
+
+
+
+
+
+  <div class="popular-news-header-container">
+    <div class="popular-news-slider-content" id="sliderContent">
+    </div>
+
+    <button class="popular-news-arrow left" onclick="changeSlide(-1)">‹</button>
+    <button class="popular-news-arrow right" onclick="changeSlide(1)">›</button>
+  </div>
+
+  <div class="popular-news-container">
+    <div class="popular-news-main-content" id="date-content">
+      <p class="date">เลือกข่าวจากสไลด์ด้านบน หรือข่าวเพิ่มเติมด้านขวาเพื่อดูรายละเอียด</p>
+    </div>
+
+    <div class="top-popular-news">
+      <h3>ข่าวเพิ่มเติม</h3>
+      <div id="additionalNews">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => { 
+      fetch('https://script.google.com/macros/s/AKfycbwt54G3jR06oF7iRgZqN84-Id_zemQWD3guX3RPlOAnNWN20YcpaOvI5S4y0tbpVMcy/exec') 
+        .then(response => { 
+          if (!response.ok) { 
+            throw new Error('Network response was not ok ' + response.statusText); 
+          } 
+          return response.json(); 
+        }) 
+        .then(data => { 
+          allNewsData = data; 
+          generateNewsContent(allNewsData); 
+
+          if (allNewsData.length > 0) { 
+            const firstNews = allNewsData.sort((a, b) => new Date(b['date']) - new Date(a['date']))[0]; 
+            showContent( 
+                firstNews.title || 'ไม่มีชื่อข่าว', 
+                firstNews.detail || '', 
+                firstNews.link_banner || 'https://via.placeholder.com/1200x600?text=No+Image', 
+                formatDate(firstNews.date), 
+                firstNews.link_news || '#', 
+                firstNews.agency || '' 
+            ); 
+            startAutoSlide();  
+          } else {
+              document.getElementById('date-content').innerHTML = '<p>ไม่พบข่าวสาร</p>'; 
+              document.getElementById('additionalNews').innerHTML = '<p>ไม่พบข่าวสารเพิ่มเติม</p>'; 
+          }
+        }) 
+        .catch(error => { 
+          console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', error); 
+          document.getElementById('date-content').innerHTML = '<p>ไม่สามารถโหลดข่าวสารได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง</p>'; 
+          document.getElementById('additionalNews').innerHTML = '<p>ไม่สามารถโหลดข่าวสารเพิ่มเติมได้</p>'; 
+        }); 
+    }); 
+
+    let currentSlide = 0;
+    const slider = document.getElementById("sliderContent");
+    const additionalNewsContainer = document.getElementById("additionalNews");
+    let slides = [];
+    let autoSlideInterval;   
+    let allNewsData = [];
+
+    function formatDate(dateString) { 
+        if (!dateString) return ''; 
+        const date = new Date(dateString); 
+
+        const year = date.getFullYear();  
+        const month = date.toLocaleDateString('th-TH', { month: 'long' }); 
+        const day = date.getDate(); 
+        return `${day} ${month} ${year}`; 
+    } 
+
+    function generateNewsContent(data) { 
+      let sliderHtml = ''; 
+      let additionalNewsHtml = ''; 
+
+      data.sort((a, b) => new Date(b['date']) - new Date(a['date'])); 
+
+      data.forEach((newsItem) => { 
+        const formattedDate = formatDate(newsItem['date']); 
+        const bannerLink = newsItem['link_banner'] || 'https://via.placeholder.com/1200x600?text=No+Image'; // Default image
+        const newsTitle = newsItem['title'] || 'ไม่มีชื่อข่าว'; 
+        const newsDetail = newsItem['detail'] || 'ไม่มีรายละเอียดสำหรับข่าวนี้'; 
+        const newsLink = newsItem['link_news'] || '#'; 
+        const agency = newsItem['agency'] || 'ไม่ระบุหน่วยงาน'; 
+
+        sliderHtml += ` 
+          <div class="popular-news-slide-item" onclick="showContent( 
+            '${escapeHtml(newsTitle)}', 
+            '${escapeHtml(newsDetail)}', 
+            '${escapeHtml(bannerLink)}', 
+            '${escapeHtml(formattedDate)}', 
+            '${escapeHtml(newsLink)}', 
+            '${escapeHtml(agency)}' 
+          )"> 
+            <img src="${escapeHtml(bannerLink)}" alt="${escapeHtml(newsTitle)}"> 
+            <div class="popular-news-image-overlay"> 
+              <h1>${escapeHtml(newsTitle)}</h1> 
+              <p>${escapeHtml(formattedDate)} - ${escapeHtml(agency)}</p> 
+            </div> 
+          </div> 
+        `; 
+
+        additionalNewsHtml += ` 
+          <div class="popular-news-item" onclick="showContent( 
+            '${escapeHtml(newsTitle)}', 
+            '${escapeHtml(newsDetail)}', 
+            '${escapeHtml(bannerLink)}', 
+            '${escapeHtml(formattedDate)}', 
+            '${escapeHtml(newsLink)}', 
+            '${escapeHtml(agency)}' 
+          )"> 
+            <img src="${escapeHtml(bannerLink)}" alt="${escapeHtml(newsTitle)}"> 
+            <p>${escapeHtml(newsTitle)}</p> 
+          </div> 
+        `; 
+      }); 
+
+      slider.innerHTML = sliderHtml; 
+      additionalNewsContainer.innerHTML = additionalNewsHtml; 
+      slides = document.querySelectorAll(".popular-news-slide-item");  
+    } 
+
+    function escapeHtml(text) { 
+      if (typeof text !== 'string') text = String(text || '');
+      text = text.replace(/\r\n|\r|\n/g, '__BR_PLACEHOLDER__'); 
+      const map = { 
+        '&': '&amp;', 
+        '<': '&lt;', 
+        '>': '&gt;', 
+        '"': '&quot;',
+        "'": '&#039;' 
+      }; 
+      let escapedText = text.replace(/[&<>"']/g, function(m) { return map[m]; }); 
+      return escapedText.replace(/__BR_PLACEHOLDER__/g, '<br>'); 
+    } 
+
+    function changeSlide(n) { 
+      if (slides.length === 0) return; 
+      currentSlide = (currentSlide + n + slides.length) % slides.length; 
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`; 
+    } 
+
+    function startAutoSlide() { 
+      if (autoSlideInterval) { 
+        clearInterval(autoSlideInterval); 
+      } 
+      autoSlideInterval = setInterval(() => { 
+        changeSlide(1);   
+      }, 5000);  
+    } 
+
+    function getAgencyName(link) { 
+        if (!link) return "เว็บไซต์ต้นฉบับ"; 
+        if (link.includes("mgronline.com")) { 
+            return "MGR Online"; 
+        } else if (link.includes("matichon.co.th")) { 
+            return "มติชน"; 
+        } 
+        return "เว็บไซต์ต้นฉบับ"; 
+    } 
+
+    function shareContent(platform, title, url) { 
+        let shareUrl = ''; 
+        const shareLink = encodeURIComponent(url); 
+        const shareTitle = encodeURIComponent(title); 
+
+        switch (platform) { 
+            case 'facebook': 
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareLink}&quote=${shareTitle}`; 
+                break; 
+            case 'twitter': 
+                shareUrl = `https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareLink}`; 
+                break; 
+            case 'line': 
+                shareUrl = `https://social-plugins.line.me/lineit/share?url=${shareLink}&text=${shareTitle}`; 
+                break; 
+            case 'whatsapp': 
+                shareUrl = `https://api.whatsapp.com/send?text=${shareTitle}%20${shareLink}`; 
+                break; 
+            default: 
+                console.log('Unknown share platform'); 
+                return; 
+        } 
+        window.open(shareUrl, '_blank', 'width=600,height=400'); 
+    } 
+
+    function showContent(title, content, imageUrl, date, newsLink, agency) { 
+      const area = document.getElementById('date-content'); 
+      const urlToShare = newsLink && newsLink !== '#' ? newsLink : window.location.href; 
+      const encodedNewsTitle = encodeURIComponent(title); 
+
+      area.innerHTML = ` 
+        <h2>${title}</h2> 
+        <div class="share-icons"> 
+          <a href="#" onclick="event.preventDefault(); shareContent('facebook', '${encodedNewsTitle}', '${urlToShare}')" class="facebook"><i class="fab fa-facebook-f"></i></a> 
+          <a href="#" onclick="event.preventDefault(); shareContent('twitter', '${encodedNewsTitle}', '${urlToShare}')" class="twitter"><i class="fab fa-twitter"></i></a> 
+          <a href="#" onclick="event.preventDefault(); shareContent('line', '${encodedNewsTitle}', '${urlToShare}')" class="line"><i class="fab fa-line"></i></a> 
+          <a href="#" onclick="event.preventDefault(); shareContent('whatsapp', '${encodedNewsTitle}', '${urlToShare}')" class="whatsapp"><i class="fab fa-whatsapp"></i></a> 
+        </div> 
+        <p class="date">วันที่: ${date} - ${agency}</p> 
+        <img src="${imageUrl}" alt="${title}"> 
+        <p>${content}</p> 
+        ${newsLink && newsLink !== '#' ? `<a href="${newsLink}" target="_blank" class="original-news-link">อ่านข่าวต้นฉบับที่ ${getAgencyName(newsLink)}</a>` : ''} 
+      `; 
+    } 
+
+    
+
+
+     document.addEventListener("DOMContentLoaded", async () => { 
+        
+
+        // =============== PRELOADER ===================================
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.addEventListener('transitionend', () => {
+                    preloader.style.display = 'none';
+                }, { once: true });
+            }, 300);
+        }
+        // =============================================================
+
+        
+      });
+</script> 
+
+
+
+
+
+<!-- /navigationJS -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navList = document.querySelector('.nav-list');
+        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); // Get the main container
+
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+            // Optional: Toggle a class on the main container to adjust height/background if needed when menu is open
+            // mainNavContainer.classList.toggle('menu-open'); 
+        });
+
+        // Optional: Close menu when a link is clicked (good for UX on mobile)
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close if it's a mobile view (or if you want it to close on all clicks)
+                if (window.innerWidth <= 768) { 
+                    hamburgerMenu.classList.remove('active');
+                    navList.classList.remove('active');
+                    // mainNavContainer.classList.remove('menu-open');
+                }
+            });
+        });
+
+        // Optional: Close menu if window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburgerMenu.classList.remove('active');
+                navList.classList.remove('active');
+                // mainNavContainer.classList.remove('menu-open');
+            }
+        });
+
+        // Optional: Handle dropdowns for mobile if they are needed
+        // For mobile dropdowns, you would typically toggle a class on click instead of hover
+        const dropdownToggles = document.querySelectorAll('.dropdown > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    event.preventDefault(); // Prevent default link behavior
+                    const dropdownMenu = this.nextElementSibling;
+                    if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                        // Close other open dropdowns
+                        document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
+                            if (menu !== dropdownMenu) {
+                                menu.classList.remove('active');
+                            }
+                        });
+                        dropdownMenu.classList.toggle('active'); // Toggle visibility
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body> 
+</html>

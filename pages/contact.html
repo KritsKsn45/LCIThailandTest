@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่อเรา</title>
+
+
+
+    <style>
+        
+/* ====== [Start] C O N T A C T  VIEW ============ */
+/* #region */
+
+.ps-c-promo-banner {
+  background: linear-gradient(to right, #ff7513,#ff1313, #8f0000);
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+}
+.home-contact-con {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* contact form */
+.home-c-detail {
+  flex: 1 1 100%;
+  max-width: 40%;
+  margin: 40px auto; 
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  color: #333;
+  border-top: 6px solid #b40000;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.home-c-detail h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #b40000;
+  font-size: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+.home-c-detail form label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+.home-c-detail input,
+.home-c-detail textarea,
+.home-c-detail select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fdfdfd;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+.home-c-detail input:focus,
+.home-c-detail textarea:focus,
+.home-c-detail select:focus {
+  outline: none;
+  border-color: #b40000;
+  box-shadow: 0 0 0 2px rgba(212, 0, 0, 0.15);
+}
+.home-c-detail textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.home-c-export-btn {
+  margin-top: 30px;
+  width: 100%;
+  background: linear-gradient(to right, #d70000, #8f0000);
+  color: white;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.home-c-export-btn:hover {
+  background: linear-gradient(to right, #a90000, #600000);
+  transform: scale(1.015);
+}
+
+/* social block */
+.home-c-block {
+  padding: 40px;
+  flex: 1 1 55%;
+  max-width: 45%;
+}
+.contact-social-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.contact-social-card {
+  width: 300px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  position: relative;
+  margin: 20px auto;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+}
+.contact-card-banner img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+.contact-card-logo {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: #fff;
+}
+.contact-card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contact-card-detail {
+  padding: 60px 20px 20px;
+  text-align: center;
+}
+.contact-card-detail h3 {
+  margin: 0 0 8px;
+  font-size: 1.2em;
+  color: #333;
+}
+.contact-card-detail p {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 12px;
+}
+.contact-card-detail button {
+  padding: 8px 16px;
+  background: linear-gradient(to right, #ff6a00, #ee0979);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.contact-card-detail button:hover {
+  opacity: 0.9;
+}
+
+/* #endregion */
+/* = = = = = [End] C O N T A C T = = = = = */
+    
+    </style>
+</head>
+<body>
+    
+
+    <!-- Contact -->
+        <section class="ps-c-promo-banner" id="contact" style="position: relative; overflow: hidden;">
+    
+            <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                style="position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;"
+            >
+                <defs>
+                    <pattern id="cubePattern" patternUnits="userSpaceOnUse" width="30" height="52">
+                        <g transform="translate(15,0)">
+                            <polygon points="0,0 15,9 0,18 -15,9" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+                            <polygon points="0,0 15,9 15,27 0,18" fill="#ccc" stroke="#bbb" stroke-width="0.5"/>
+                            <polygon points="0,18 15,27 0,36 -15,27" fill="#eee" stroke="#bbb" stroke-width="0.5"/>
+                        </g>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#cubePattern)" />
+            </svg>
+
+            <div class="home-contact-con" style="position: relative; z-index: 1;">
+                <div class="home-c-detail">
+                    <h2>ติดต่อเรา</h2>
+                    <form>
+                        <label for="email">อีเมลผู้ติดต่อ</label>
+                        <input type="text" id="email" name="email" placeholder="example@email.com" required>
+
+                        <label for="name">ชื่อผู้ติดต่อ</label>
+                        <input type="text" id="name" name="name" required>
+                                    
+                        <label for="requestType">ประเภทของคำขอ</label>
+                        <select id="requestType" name="เรื่องที่จะติดต่อ" required>
+                        <option value="">-- เลือกหัวข้อ --</option>
+                        <option value="สอบถามข้อมูล">สอบถามข้อมูล</option>
+                        <option value="ขอใบเสนอราคา">ขอใบเสนอราคา</option>
+                        <option value="แจ้งปัญหา">แจ้งปัญหา</option>
+                        <option value="อื่นๆ">อื่นๆ</option>
+                        </select>
+
+                        <label for="address">รายละเอียด</label>
+                        <textarea id="detail" name="detail" required></textarea>
+
+                        <label for="price">เบอร์โทรติดต่อกลับ</label>
+                        <input type="number" id="tel" name="tel" min="0" required>
+
+                        <label for="preferredTime">เวลาที่สะดวกให้ติดต่อกลับ</label>
+                        <input type="time" id="preferredTime" name="preferredTime">
+                        
+                        <button type="button"  id="exportBtn" class="home-c-export-btn">เก็บเป็นภาพ</button>
+                    </form>
+                </div>
+
+                <div class="home-c-block">
+                    <h1 style="color: white;">สื่อโซเชียล</h1>
+                    <div class="contact-social-cards">
+
+                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
+                            <div class="contact-social-card">
+                                <div class="contact-card-banner">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
+                                </div>
+
+                                <div class="contact-card-logo">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
+                                </div>
+
+                                <div class="contact-card-detail">
+                                    <p>Facebook page</p>
+                                    <h3>ปูนสิงโต Lion Cement </h3>
+                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
+                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
+                            <div class="contact-social-card">
+                                <div class="contact-card-banner">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
+                                </div>
+
+                                <div class="contact-card-logo">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
+                                </div>
+
+                                <div class="contact-card-detail">
+                                    <p>Facebook page</p>
+                                    <h3>ปูนสิงโต Lion Cement </h3>
+                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
+                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h1 style="color: white;">โทรพูดคุย</h1>
+                    <div class="contact-social-cards">
+
+                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
+                            <div class="contact-social-card">
+                                <div class="contact-card-banner">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
+                                </div>
+
+                                <div class="contact-card-logo">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
+                                </div>
+
+                                <div class="contact-card-detail">
+                                    <p>Facebook page</p>
+                                    <h3>ปูนสิงโต Lion Cement </h3>
+                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
+                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
+                            <div class="contact-social-card">
+                                <div class="contact-card-banner">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
+                                </div>
+
+                                <div class="contact-card-logo">
+                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
+                                </div>
+
+                                <div class="contact-card-detail">
+                                    <p>Facebook page</p>
+                                    <h3>ปูนสิงโต Lion Cement </h3>
+                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
+                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>      
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>สรุปและยืนยันการสั่งซื้อ | YourSiteName</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.min.css">
+    
+    <link rel="stylesheet" href="/css/checkout.css">
+
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</head>
+<body>
+
+    <div class="checkout-wrapper"> 
+        <h1><i class="fas fa-shopping-cart"></i> ยืนยันการสั่งซื้อ</h1>
+
+        <div class="checkout-left"> 
+            <div class="order-summary-section">
+                <h2 class="section-title"><i class="fas fa-box"></i> รายการสินค้า</h2>
+                <div id="checkoutSummary" class="item-list">
+                </div>
+                <div class="summary-totals">
+                    <p><span>ราคารวมสินค้า (ไม่รวม VAT)</span><span id="subtotalExcludingVatDisplay"></span></p> 
+                    <p><span>( ค่าสินค้ารวมค่าจัดส่ง )</span></p>
+                    <p><span>ภาษีมูลค่าเพิ่ม (7%)</span><span id="vatAmountDisplay"></span></p><br>
+                    <p class="summary-totals-price"><span>ยอดชำระทั้งหมด (รวม VAT) </span><span id="grandTotalDisplay"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-right"> 
+            <div class="customer-info-section">
+                <h2 class="section-title"><i class="fas fa-user-check"></i> กรอกข้อมูลที่อยู่จัดส่ง</h2>
+                <div class="form-group">
+                    <label>พื้นที่:</label>
+                    <p id="selectedDeliveryArea" style="font-weight: bold; color: var(--text-color);"></p>
+                </div>
+                
+                <form id="customerOrderForm">
+                    <div class="form-group">
+                        <label for="customerName">ชื่อ-นามสกุล:</label>
+                        <input type="text" id="customerName" name="customerName" placeholder="เช่น สมชาย ใจดี" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerEmail">อีเมล:</label>
+                        <input type="email" id="customerEmail" name="customerEmail" placeholder="เช่น somchai1775@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerTaxID">เลขที่ผู้เสียภาษี (ถ้ามี):</label>
+                        <input type="text" id="customerTaxID" name="customerTaxID" placeholder="เช่น XXX-XXXXXXXX" >
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">เบอร์ติดต่อ:</label>
+                        <input type="text" id="customerPhone" name="customerPhone" placeholder="เช่น 08XXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">ที่อยู่ผู้ใช้:</label>
+                        <textarea id="customerAddress" name="customerAddress" placeholder="บ้านเลขที่, ถนน, ตำบล/แขวง, อำเภอ/เขต, จังหวัด, รหัสไปรษณีย์" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddressToSend">ที่อยู่ปลายทางสำหรับจัดส่ง:</label>
+                        <textarea id="customerAddressToSend" name="customerAddressToSend" placeholder="บ้านเลขที่, ถนน, ตำบล/แขวง, อำเภอ/เขต, จังหวัด, รหัสไปรษณีย์"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryNotes">ข้อความเพิ่มเติม</label>
+                        <textarea id="deliveryNotes" name="deliveryNotes" placeholder="เช่น ช่วงเวลาที่สะดวกรับสินค้า, รายละเอียดการจัดส่งเฉพาะ"></textarea>
+                    </div>
+
+                    <!-- <div class="payment-options-section" style="display: none;">
+                        <h2 class="section-title"><i class="fas fa-wallet"></i> เลือกช่องทางการชำระเงิน</h2>
+                        <div class="payment-options">
+                            <label class="payment-method">
+                                <input type="radio" name="paymentMethod" value="bankTransfer" checked>
+                                <span class="payment-method-label">โอนเงินผ่านธนาคาร</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="paymentMethod" value="promptPay">
+                                <span class="payment-method-label">พร้อมเพย์</span>
+                            </label>
+                        </div>
+                    </div> -->
+
+                    <button type="submit" class="btn-place-order" id="placeOrderBtn">
+                        <i class="fas fa-money-check-alt"></i> ดำเนินการต่อ
+                    </button>
+
+                    <div class="btn-goBack" id="placeOrderBtn">
+                        <a href="/pages/products/products_showall.html">                        
+                            <i class="fa-solid fa-arrow-left"></i> ยกเลิก
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+    // ประกาศตัวแปร itemsToCheckout และ deliveryAreaDisplayData ใน global scope
+    // เพื่อให้สามารถเข้าถึงได้จากหลายๆ ฟังก์ชัน (DOMContentLoaded และ submit event)
+    let itemsToCheckout = [];
+    let deliveryAreaDisplayData = { province: "", district: "" };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // ดึงข้อมูลสินค้าจาก localStorage (แต่ยังไม่ลบออกตอนนี้)
+        const buyNowItemData = localStorage.getItem("buyNowItem");
+        const checkoutCartData = localStorage.getItem("checkoutCartItems");
+
+        if (buyNowItemData) {
+            const parsedItem = JSON.parse(buyNowItemData);
+            itemsToCheckout = [parsedItem];
+            deliveryAreaDisplayData.province = parsedItem.province || "";
+            deliveryAreaDisplayData.district = parsedItem.district || "";
+        } else if (checkoutCartData) {
+            itemsToCheckout = JSON.parse(checkoutCartData);
+            if (itemsToCheckout.length > 0) {
+                deliveryAreaDisplayData.province = itemsToCheckout[0].province || "";
+                deliveryAreaDisplayData.district = itemsToCheckout[0].district || "";
+            }
+        }
+
+        const deliveryAreaDisplay = document.getElementById("selectedDeliveryArea");
+        if (deliveryAreaDisplayData.province && deliveryAreaDisplayData.district && deliveryAreaDisplayData.province !== "" && deliveryAreaDisplayData.district !== "") {
+            deliveryAreaDisplay.textContent = `${deliveryAreaDisplayData.province}, ${deliveryAreaDisplayData.district}`;
+        } else {
+            deliveryAreaDisplay.textContent = "ไม่ได้ระบุพื้นที่จัดส่ง (อาจต้องกลับไปเลือกสินค้าใหม่)";
+        }
+
+        if (itemsToCheckout.length > 0) {
+            renderCheckoutSummary(itemsToCheckout);
+        } else {
+            document.getElementById("checkoutSummary").innerHTML = `
+                <div class="empty-cart-message">
+                    <i class="fas fa-info-circle" style="margin-right: 10px;"></i> ไม่พบสินค้าสำหรับการสั่งซื้อ
+                </div>
+            `;
+            document.getElementById("subtotalExcludingVatDisplay").textContent = "0 บาท";
+            document.getElementById("vatAmountDisplay").textContent = "0 บาท";
+            document.getElementById("grandTotalDisplay").textContent = "0 บาท";
+            document.getElementById("placeOrderBtn").disabled = true;
+        }
+    });
+
+    function formatPrice(price) {
+        if (typeof price !== 'number' || isNaN(price)) {
+            return 'N/A';
+        }
+        return parseFloat(price.toFixed(2)).toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function renderCheckoutSummary(items) {
+        const summaryDiv = document.getElementById("checkoutSummary");
+        let html = "";
+        let totalIncludingVat = 0;
+
+        items.forEach(item => {
+            const quantity = (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1);
+            const pricePerUnitIncludingVat = parseFloat(item.price) || 0;
+            const itemTotalIncludingVat = pricePerUnitIncludingVat * quantity;
+
+            html += `
+                <div class="item">
+                    <img src="/assets/images/products/${item.image || ''}" alt="${item.name}" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-quantity-price">${formatPrice(pricePerUnitIncludingVat)} บาท/${item.unit || ''} x ${quantity} ${item.unit || ''}</div>
+                    </div>
+                    <div class="item-total">${formatPrice(itemTotalIncludingVat)} บาท</div>
+                </div>
+            `;
+            totalIncludingVat += itemTotalIncludingVat;
+        });
+
+        const totalExcludingVat = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat / 1.07;
+        const vatAmount = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat - totalExcludingVat;
+
+        summaryDiv.innerHTML = html;
+        document.getElementById("subtotalExcludingVatDisplay").textContent = `${formatPrice(totalExcludingVat)} บาท`;
+        document.getElementById("vatAmountDisplay").textContent = `${formatPrice(vatAmount)} บาท`;
+        document.getElementById("grandTotalDisplay").textContent = `${formatPrice(totalIncludingVat)} บาท`;
+
+        if (items.length > 0) {
+            document.getElementById("placeOrderBtn").disabled = false;
+        }
+    }
+
+    // ใช้การ submit form เพื่อให้ง่ายต่อการเก็บข้อมูลจากฟอร์มทั้งหมด
+    document.getElementById("customerOrderForm").addEventListener("submit", (event) => {
+        event.preventDefault(); 
+
+        const customerName = document.getElementById("customerName").value;
+        const customerEmail = document.getElementById("customerEmail").value;
+        const customerTaxID = document.getElementById("customerTaxID").value;
+        const customerPhone = document.getElementById("customerPhone").value;
+        const customerAddress = document.getElementById("customerAddress").value;
+        const customerAddressToSend = document.getElementById("customerAddressToSend").value;
+        const deliveryNotes = document.getElementById("deliveryNotes").value;
+        
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || 'bankTransfer'; 
+
+        // ตรวจสอบฟิลด์ที่จำเป็น
+        if (!customerName || !customerEmail || !customerPhone || !customerAddress) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'ข้อมูลไม่ครบถ้วน',
+                text: 'กรุณากรอกข้อมูลผู้ติดต่อและที่อยู่สำหรับออกบิลให้ครบถ้วน',
+                confirmButtonText: 'ตกลง'
+            });
+            return;
+        }
+
+        // ใช้ itemsToCheckout ที่เก็บไว้แล้ว
+        if (itemsToCheckout.length === 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'ไม่พบสินค้า',
+                text: 'ไม่พบสินค้าที่จะสั่งซื้อ กรุณาเลือกสินค้าก่อนดำเนินการ',
+                confirmButtonText: 'ตกลง'
+            });
+            return;
+        }
+
+        let totalIncludingVat = 0;
+        itemsToCheckout.forEach(item => {
+            const quantity = (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1);
+            totalIncludingVat += (parseFloat(item.price) || 0) * quantity;
+        });
+        
+        const totalExcludingVat = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat / 1.07;
+        const vatAmount = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat - totalExcludingVat;
+
+        const orderDetails = {
+            customer: {
+                name: customerName,
+                email: customerEmail,
+                taxId: customerTaxID,
+                phone: customerPhone,
+                billingAddress: customerAddress,
+                shippingAddress: customerAddressToSend,
+                notes: deliveryNotes,
+                deliveryProvince: deliveryAreaDisplayData.province,
+                deliveryDistrict: deliveryAreaDisplayData.district
+            },
+            items: itemsToCheckout.map(item => ({ 
+                id: item.id,
+                name: item.name,
+                image: item.image,
+                weight: item.weight,
+                price: parseFloat(item.price) || 0,
+                quantity: (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1),
+                unit: item.unit
+            })),
+            paymentMethod: paymentMethod,
+            subtotalExcludingVat: totalExcludingVat,
+            vatAmount: vatAmount,
+            grandTotalIncludingVat: totalIncludingVat,
+            timestamp: new Date().toISOString()
+        };
+
+        localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+
+        console.log("Order Details for Confirmation Page:", orderDetails);
+
+        localStorage.removeItem("checkoutCartItems");
+        localStorage.removeItem("buyNowItem");
+
+        Swal.fire({
+            html: `
+                <lottie-player
+                    src="/assets/lottie/Add To Cart success.json" 
+                    background="transparent"
+                    speed="1"
+                    style="width: 150px; height: 150px; margin: 0 auto;" 
+                    loop
+                    autoplay
+                ></lottie-player>
+            `,
+            title: 'สำเร็จ',
+            showConfirmButton: false, 
+            timer: 1800,
+            onOpen: (modal) => {
+            }
+        }).then(() => {
+            window.location.href = '/pages/order-confirmation.html';
+        });
+
+    });
+</script>
+
+</body>
+</html>

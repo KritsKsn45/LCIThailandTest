@@ -1,0 +1,155 @@
+.mobile-showing, .mobile-product-show {
+  display: none;
+}
+.nav-lci-above-group1 {
+  display: none;
+}
+
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .desktop-showing, .desktop-product-show {
+    display: none;
+  }
+  .mobile-showing {
+    display: block;
+  }
+}
+
+
+/* tablet responsive */
+@media (max-width: 1398px) {
+
+  /* Content Top [All Page] */
+  .above-content {
+    display: none;
+  }
+  .nav-lci-above-group1 {
+    display: block;
+  }
+  .lci-above-group2 {
+      display: none;
+  }
+
+
+
+  /* Navigation [All Page] */
+  .nav-list {
+    gap: 15px;
+  }
+  .nav-list a {
+    font-size: 13px;
+  }
+  .dropdown-menu {
+    min-width: auto;
+  }
+  
+
+
+  /* Footer [All Page] */
+  /* #region */
+  .footer-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 25px;
+  }
+  .footer-content > div {
+    flex: 1 1 calc(50% - 1rem);
+    box-sizing: border-box;
+  }
+  .footer-section {
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+  .footer-section a {
+    font-size: 18px;
+  }
+  .footer-section p {
+    font-size: 16px;
+  }
+  /* #endregion */
+
+
+
+  /* section About [Home Page] */
+  .h-a-container {
+    justify-content: center; 
+  }
+  .home-about-text-box {
+    margin: 0 auto;
+  }
+
+
+
+  .news-cards {
+    gap: 8px; /* ลดระยะห่างเฉพาะ desktop */
+    padding-left: 0; /* ลด padding ถ้าอยากให้เริ่มตรงกลางจริงๆ */
+    justify-content: center;
+  }
+
+  /* section Contact [Home Page] */
+  .home-contact-con {
+    display: flex;          
+    flex-direction: column; 
+    gap: 20px;             
+  }
+  .home-c-detail,
+  .home-c-block {
+    max-width: 80% !important; 
+    width: 100%;                
+    margin: 0 auto;
+    margin-top: 20px;           
+  }
+  .contact-social-cards {
+    justify-content: center; 
+  }
+  .contact-social-card {
+    flex: 1 1 45%;
+    margin: 10px;
+  }
+
+
+
+
+
+
+
+
+  /* advance filter [Show All Product Page] */
+  .pro-s-adv-filters-box {
+    display: none;
+  }
+
+
+
+  /* section Product [Show All Product Page] */
+  .filter-bar {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left: 0px;
+
+  }
+  .filter-bar h1 {
+    width: 100%;
+    text-align: center;
+  }
+  .filter-bar input,
+  .filter-bar select,
+  .filter-bar button {
+    flex: 1 1 45%;
+    min-width: 130px;
+    font-size: 14px;
+  }
+  .filter-bar button {
+    flex: 1 1 100%; 
+    margin-top: 5px;
+  }
+  .product-card {
+    width: calc((100% - 40px) / 3);
+  }
+
+
+  
+}

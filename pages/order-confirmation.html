@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยืนยันการสั่งซื้อ - LCI Thailand</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; 
+            color: #333;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+        
+        .buyagain-btn {
+            position: fixed;
+            bottom: 150px;
+            right: 70px;
+            z-index: 9999;
+            animation: jumpAnimation 3s ease-in-out infinite; 
+        }
+        .buyagain-btn a {
+            background: linear-gradient(45deg, #ffe4cf,#fa831b, #EE4D2D);
+            color: white; 
+            padding: 15px 30px; 
+            border-radius: 50px; 
+            text-decoration: none;
+            font-size: 1.2em; 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center;
+            justify-content: center; 
+            gap: 8px; 
+            cursor: pointer; 
+            box-shadow: 0 8px 20px rgba(238, 77, 45, 0.3); 
+            transition: all 0.3s ease;
+        }
+        .buyagain-btn a:hover {
+            background: linear-gradient(45deg, #EE4D2D, #FF6B6B); 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 25px rgba(238, 77, 45, 0.4);
+        }
+        .buyagain-btn a i {
+            font-size: 1.3em; 
+            margin-right: 5px; 
+        }
+        @keyframes jumpAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0); 
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-8px);
+            }
+        }
+
+
+
+        .page-header, .page-footer {
+            height: 80px;
+            background: linear-gradient(to right, #e53935, #b71c1c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .page-header {
+            margin-bottom: 30px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .page-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding: 20px 0;
+            height: auto;
+            min-height: 10px;
+            flex-direction: column;
+            margin-bottom: 0;
+        }
+        .page-footer button {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .billPO-container {
+            max-width: 1400px; 
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+            display: flex;
+            flex-direction: row;
+            min-height: 70vh; 
+            padding: 30px;
+            align-items: flex-start;
+            gap: 30px; 
+        }
+        .bill-po-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 2; 
+            padding-right: 20px;
+            /* border-right: 1px solid #eee; */
+        }
+        .bill-show-dl {
+            width: 100%;
+            max-width: 210mm;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); 
+            border-radius: 8px;
+            overflow: hidden; 
+        }
+        .bill-po-container-pdf {
+            position: relative; 
+            overflow: hidden;
+            max-width: 210mm;
+            min-height: 297mm;
+            padding: 10mm;
+            background-color: #ffffff;
+            border-radius: 0; 
+            box-shadow: none; 
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd; 
+            box-sizing: border-box;
+            font-size: 0.9em;
+            -webkit-user-select: none;  /* Safari */
+            -moz-user-select: none;     /* Firefox */
+            -ms-user-select: none;      /* Internet Explorer/Edge */
+            user-select: none;          /* Standard syntax */
+        }
+        .bill-po-container-pdf::before {
+            content: "LCI-THAILAND"; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg); 
+            font-size: 5em; 
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.8);
+            pointer-events: none; 
+            white-space: nowrap;
+            z-index: 0; 
+
+            background-image: url(''); 
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-size: 70%; 
+            opacity: 0.1; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif; 
+        }
+        .bill-po-container-pdf img {
+            -webkit-user-drag: none;
+            -moz-user-drag: none;
+            -ms-user-drag: none;
+            user-drag: none;
+        }
+        .bpc-box-top {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 15px;
+            border: 1px solid #ccc; 
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .bpcbt-l, .bpcbt-r {
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .bpcbt-l {
+            width: 55%;
+            border-right: 1px solid #ccc;
+        }
+        .bpcbt-r {
+            width: 45%;
+        }
+        .bpcbt-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #d32f2f; 
+            border-bottom: 2px solid #ef9a9a; 
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .bpcbt-l-content p, .bpcbt-r-b-content p {
+            margin: 5px 0;
+            font-size: 0.85em;
+            color: #555;
+        }
+        .bpcbt-l-content p strong, .bpcbt-r-b-content p strong {
+            color: #333;
+        }
+
+        .bpcbt-r-top {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+        .bpcbt-r-t-l {
+            width: 60%;
+            padding-right: 10px;
+        }
+        .bpcbt-r-t-l h1 {
+            font-size: 2em; 
+            color: #d32f2f;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .bpcbt-r-t-l h2 {
+            font-size: 1em;
+            color: #777;
+            margin: 0;
+            font-weight: 400;
+        }
+        .bpcbt-r-t-r {
+            width: 40%;
+            border-left: 1px solid #ccc;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .bpcbt-r-t-r p {
+            margin: 5px 0;
+            font-size: 0.85em;
+            color: #555;
+        }
+        .bpcbt-r-bottom {
+            padding-top: 5px;
+        }
+        .bpc-box-main {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .product-table th, .product-table td {
+            border: 1px solid #eee; 
+            padding: 8px 10px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.8em;
+            color: #444;
+        }
+        .product-table th {
+            background-color: #f8e8e8; 
+            font-weight: 600;
+            color: #882222;
+            padding: 10px 10px;
+        }
+        .product-table th span {
+            font-weight: 400;
+            color: #999;
+            display: block;
+            font-size: 0.75em;
+        }
+        .product-table tbody tr:nth-child(even) {
+            background-color: #fdfdfd; 
+        }
+        .product-table td:nth-child(2) { 
+            text-align: left;
+        }
+        .product-table td:last-child,
+        .product-table td:nth-last-child(2),
+        .product-table td:nth-last-child(3) { 
+            text-align: right;
+        }
+        .bpc-box-bottom {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        .bpc-b-b-l {
+            width: 60%;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+            background-color: #fcfcfc;
+        }
+        .bpc-b-b-l p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .bpc-b-b-l p strong {
+            color: #333;
+        }
+        .bpc-b-b-r {
+            width: 60%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #fcfcfc;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #eee;
+            align-items: baseline;
+        }
+        .summary-row:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .summary-row p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .total-row {
+            font-weight: bold;
+            font-size: 1.1em; 
+            color: #d32f2f; 
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        .total-in-words {
+            padding: 10px 0 0;
+            border-top: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        .total-text-thai {
+            margin: 0;
+            font-size: 0.95em;
+            color: #333;
+        }
+        .total-text-thai strong {
+            color: #d32f2f; 
+        }
+
+
+        .payment-section {
+            flex: 1; 
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            color: #343a40;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Kanit', sans-serif;
+
+        }
+        .payment-section h2 {
+            font-size: 2em; 
+            color: #b71c1c;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .payment-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #ef9a9a;
+            border-radius: 2px;
+        }
+        .payment-methods-container {
+            display: flex;
+            flex-direction: column; 
+            gap: 20px;
+            width: 100%;
+        }
+        .qr-payment-box,
+        .line-contact-box {
+            background-color: #fefefe;
+            border: 1px solid #f0f0f0;
+            border-radius: 10px;
+            padding: 25px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .qr-payment-box:hover,
+        .line-contact-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+        .qr-payment-box h3,
+        .line-contact-box h3 {
+            font-size: 1.5em; 
+            color: #d32f2f; 
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .qr-code-wrapper {
+            margin-bottom: 15px;
+            background-color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #eee; 
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+        .qr-code-img {
+            width: 150px; 
+            height: 150px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .qr-instruction {
+            font-size: 0.85em;
+            color: #777;
+            margin-top: 8px;
+        }
+        .bank-details {
+            background-color: #fefefe;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #f5f5f5; 
+        }
+        .bank-details p {
+            margin: 6px 0;
+            font-size: 1em;
+            line-height: 1.5;
+            color: #555;
+        }
+        .bank-details p strong {
+            color: #333;
+            font-weight: 700;
+        }
+        .payment-amount {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #555;
+            padding: 10px 0;
+            border-top: 1px dashed #eee;
+            width: 100%;
+            text-align: center;
+        }
+        .payment-amount strong#paymentAmountDisplay {
+            color: #d32f2f; 
+            font-size: 2em; 
+            font-weight: 700;
+            display: block;
+            margin-top: 5px;
+        }
+        .copy-account-btn,
+        .add-line-btn,
+        .download-button {
+            background: linear-gradient(to right, #d32f2f, #b71c1c); 
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+        }
+        .copy-account-btn:hover,
+        .add-line-btn:hover,
+        .download-button:hover {
+            background: linear-gradient(to right, #b71c1c, #9c1515); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .add-line-btn {
+            background: linear-gradient(to right, #00c300, #008a00); 
+        }
+
+        .add-line-btn:hover {
+            background: linear-gradient(to right, #008a00, #005600);
+        }
+        .line-contact-box p:last-of-type {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .bill-bottom-area {
+            width: 100%;
+            text-align: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .bill-bottom-area .download-button {
+            max-width: 300px; 
+            margin: 0 auto;
+        }
+
+
+        /* Custom SweetAlert Styles for Red Theme */
+        .swal2-popup {
+            border-radius: 12px !important; /* ขอบโค้งมนสวยงาม */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important; /* เพิ่มเงาให้ดูมีมิติ */
+        }
+
+        .swal2-title {
+            color: #333 !important; /* สีข้อความหัวข้อ */
+            font-weight: 600 !important;
+            font-size: 1.8em !important;
+            margin-bottom: 0.5em !important;
+        }
+
+        .swal2-html-container {
+            color: #555 !important; /* สีข้อความเนื้อหา */
+            font-size: 1.1em !important;
+            line-height: 1.5 !important;
+        }
+
+        /* Primary Button (Confirm Button) */
+        .swal2-confirm {
+            background-color: #e74c3c !important; /* สีแดงหลักสำหรับปุ่มยืนยัน */
+            color: #fff !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 1.1em !important;
+            padding: 10px 25px !important;
+            transition: background-color 0.3s ease !important;
+        }
+
+        .swal2-confirm:hover {
+            background-color: #c0392b !important; /* สีแดงเข้มขึ้นเมื่อ hover */
+        }
+
+        /* Secondary Button (Cancel Button) */
+        .swal2-cancel {
+            background-color: #f5f5f5 !important; /* สีเทาอ่อนสำหรับปุ่มยกเลิก */
+            color: #555 !important;
+            border: 1px solid #ccc !important;
+            border-radius: 8px !important;
+            font-size: 1.1em !important;
+            padding: 10px 25px !important;
+            margin-left: 10px !important; /* เพิ่มระยะห่างจากปุ่มยืนยัน */
+            transition: background-color 0.3s ease !important;
+        }
+
+        .swal2-cancel:hover {
+            background-color: #e0e0e0 !important; /* สีเทาเข้มขึ้นเมื่อ hover */
+        }
+
+        /* Success Icon Color (for the second alert) */
+        .swal2-success-circular-line-left,
+        .swal2-success-circular-line-right,
+        .swal2-success-fix,
+        .swal2-success-ring,
+        .swal2-success-line-tip,
+        .swal2-success-line-long {
+            background-color: #fff !important; /* ตรวจสอบให้แน่ใจว่าพื้นหลังของไอคอนสำเร็จเป็นสีขาว */
+        }
+
+        .swal2-success [class^=swal2-success-line] {
+            background-color: #28a745 !important; /* สีเขียวของเครื่องหมายถูก */
+        }
+
+        /* Question Icon (default blue/gray, you can customize if needed) */
+        /* .swal2-question {
+            color: #e74c3c !important; 
+        } */
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Responsive Adjustments */
+        /* tablet */
+        @media (max-width: 1476px) {
+            
+            .billPO-container {
+                display: flex;
+                align-items: center;
+            }
+            .bill-po-box {
+                width: 100%;
+                padding: 0;
+            }  
+            .bill-show-dl {
+                padding: 0;
+            }
+            .billPO-container {
+                flex-direction: column;
+                padding: 2px;
+            }
+            
+
+            .payment-section {
+                width: 100%;
+            }
+         
+        }
+
+        /* phone */
+        @media (max-width: 768px) {  
+             .buyagain-btn {
+                bottom: 190px;
+                right: 70px;
+            }
+            .buyagain-btn {
+                bottom: 80px; 
+                right: 20px; 
+            }
+            .buyagain-btn a {
+                padding: 12px 25px; 
+                font-size: 1em; 
+                border-radius: 40px; 
+            }
+            .buyagain-btn a i {
+                font-size: 1.1em; 
+            }             
+            .bpc-box-bottom {
+               margin-bottom: 80px;
+            }
+            .bill-po-container-pdf::before {
+                font-size: 2.5em;
+                background-size: 60%;
+            }
+
+        }
+
+        /* phone small*/
+        @media (max-width: 480px) {
+
+
+            .buyagain-btn {
+                bottom: 100px; 
+                right: 15px; 
+            }
+            .buyagain-btn a {
+                padding: 10px 20px;
+                font-size: 0.9em; 
+                border-radius: 30px; 
+            }
+            .buyagain-btn a i {
+                font-size: 1em; 
+            }
+            .page-footer button {
+                font-size: 0.6em;
+                opacity: 0.9;
+            }
+            .billPO-container {
+                gap: 0;
+                min-height: 100%;
+            }
+            .bill-po-box {            
+                flex: 0; 
+                padding-right: 0px;
+            }
+            .bill-show-dl {
+                height: auto;
+            }
+            .bill-po-container-pdf {
+                font-size: 0.7em; 
+                padding: 3mm;
+                min-height: 100%; 
+                gap: 0; 
+            }
+            .bill-po-container-pdf::before {
+                font-size: 1.8em; 
+                background-size: 70%;
+            }
+            .bpcbt-r-top {
+                flex-direction: column;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+            .bpcbt-l {
+                width: 45%;              
+            }
+            .bpcbt-r {
+                width: 55%;
+            }
+            .bpcbt-title {
+                font-size: 0.9em; 
+                padding-bottom: 3px;
+                margin-bottom: 8px;
+            }
+            .bpcbt-l-content p, .bpcbt-r-b-content p {
+                font-size: 0.7em; 
+                margin: 3px 0;
+            }
+            .bpcbt-r-t-l h1 {
+                font-size: 1.5em;
+            }
+            .bpcbt-r-t-l h2 {
+                font-size: 0.8em;
+            }
+            .bpcbt-r-t-r {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #ccc;
+                flex-direction: row;
+                padding-left: 0;
+                justify-content: space-around;
+            }
+            .bpcbt-r-t-r p {
+                font-size: 0.6em;
+                margin: 3px 0;
+            }
+            .bpcbt-r-bottom {
+                padding-top: 0px;
+            }
+            .bpc-box-main  {
+                flex: 0;
+            }
+            .product-table th, .product-table td {
+                font-size: 0.6em; 
+                padding: 4px 5px;
+            }
+            .product-table th span {
+                font-size: 0.65em;
+            }
+            .bpc-b-b-l {
+                width: 50%;
+            }
+            .bpc-b-b-l p {
+                font-size: 0.75em; 
+            }
+            .summary-row p {
+                font-size: 0.75em; 
+            }
+            .total-row {
+                font-size: 0.9em; 
+                padding-top: 8px;
+                margin-top: 8px;
+            }
+            .total-text-thai {
+                font-size: 0.8em; 
+            }
+            .payment-section {
+                padding: 15px; 
+            }
+            .payment-section h2 {
+                font-size: 1.5em; 
+                margin-bottom: 20px;
+            }
+            .qr-payment-box h3, .line-contact-box h3 {
+                font-size: 1.2em; 
+                margin-bottom: 15px;
+            }
+            .qr-code-img {
+                width: 120px; 
+                height: 120px;
+            }
+            .qr-instruction {
+                font-size: 0.75em;
+            }
+            .bank-details p {
+                font-size: 0.8em; 
+                margin: 4px 0;
+            }
+            .payment-amount {
+                font-size: 0.9em; 
+            }
+            .payment-amount strong#paymentAmountDisplay {
+                font-size: 1.5em; 
+            }
+            .copy-account-btn, .add-line-btn, .download-button {
+                font-size: 0.9em; 
+                padding: 10px 15px;
+                gap: 8px;
+            }
+            .line-contact-box p:last-of-type {
+                font-size: 0.8em; 
+                margin-bottom: 15px;
+            }
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+
+
+
+<section>
+    <div class="page-header">
+        ยืนยันการสั่งซื้อ
+    </div>
+
+    <div class="buyagain-btn" id="clearBillAndShopAgain">
+        <a href="/pages/products/products_showall.html"><i class="fas fa-shopping-cart"></i>ช็อปต่อ</a>
+    </div>
+
+
+
+
+    <div class="billPO-container">
+        
+        <div class="bill-po-box">
+            <div class="bill-show-dl"> 
+                   
+                <div class="bill-po-container-pdf" id="poSection"> 
+
+                    <div class="bpc-box-top">
+
+                        <div class="bpcbt-l">
+                            <h3 class="bpcbt-title">ผู้สั่งซื้อ / Customer</h3>
+                            <div class="bpcbt-l-content">
+                                <p><strong>ชื่อ:</strong> <span id="customer-name-po" contenteditable="false"></span></p>
+                                <p><strong>ที่อยู่:</strong> <span id="customer-address-po" contenteditable="false"></span></p>
+                                <p><strong>เลขผู้เสียภาษี:</strong> <span id="customer-tax-id-po" contenteditable="false"></span></p>
+                                <p><strong>ที่อยู่จัดส่ง:</strong> <span id="shipping-address-po" contenteditable="false"></span></p>
+                                <p><strong>อีเมล:</strong> <span id="customer-email-po" contenteditable="false"></span></p>
+                                <p><strong>เบอร์ติดต่อ:</strong> <span id="customer-tel-po" contenteditable="false"></span></p>
+                            </div>
+                        </div>
+
+                        <div class="bpcbt-r">
+                            <div class="bpcbt-r-top">
+                                <div class="bpcbt-r-t-l">
+                                    <h1>ใบสั่งซื้อ</h1>
+                                    <h2>Purchase Order</h2>
+                                </div>
+                                <div class="bpcbt-r-t-r">
+                                    <p>เลขที่/No. : <br><span id="po-number"></span></p>
+                                    <p>วันที่/Date : <br><span id="po-date"></span></p>
+                                </div>
+                            </div>
+                            <div class="bpcbt-r-bottom">
+                                <h3 class="bpcbt-title">ผู้ขาย / Seller</h3>
+                                <div class="bpcbt-r-b-content">
+                                    <p><strong>บริษัท:</strong> บริษัท แอลซีไอ 2025 (ไทยแลนด์) จำกัด</p>
+                                    <p><strong>ที่อยู่:</strong> 401 ถ.เทวาภิบาล  ต.ในเมือง อ.เมือง จ.ร้อยเอ็ด 45000</p>
+                                    <p><strong>เลขผู้เสียภาษี:</strong> 0455568000367</p>
+                                    <p><strong>เบอร์ติดต่อ:</strong> 093-5244411 , 043-512498</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="bpc-box-main">
+                        <table class="product-table">
+                            <thead>
+                                <tr>
+                                    <th>ลำดับ<br><span>Item</span></th>
+                                    <th>รายการสินค้า<br><span>Description</span></th>
+                                    <th>จำนวน<br><span>Quantity</span></th>
+                                    <th>หน่วย<br><span>Unit</span></th>
+                                    <th>ราคา/หน่วย<br><span>Unit Price</span></th>
+                                    <th>ส่วนลด<br><span>Discount</span></th>
+                                    <th>จำนวนเงิน<br><span>Amount</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="poProductList">
+                                </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bpc-box-bottom">
+
+                        <div class="bpc-b-b-l">
+                            <p><strong>ข้อความเพิ่มเติม:</strong> <span id="additional-message"></span></p>
+                        </div>
+
+                        <div class="bpc-b-b-r">
+                            <div class="summary-row">
+                                <p>ยอดสุทธิ (ไม่รวม Vat) / Pre-VAT Amount</p>
+                                <p id="subtotal-amount"></p>
+                            </div>
+                            <div class="summary-row">
+                                <p>ภาษีมูลค่าเพิ่ม / Vat 7%</p>
+                                <p id="vat-amount"></p>
+                            </div>
+                            <div class="summary-row total-row">
+                                <p>ราคารวม / Grand Total</p>
+                                <strong><p id="grand-total" style="color: red;"></p></strong>
+                            </div>
+                            <div class="total-in-words">
+                                <p class="total-text-thai"><strong><span id="grand-total-words" style="color: red;"></span></strong> </p>
+                            </div>
+                        </div>       
+
+                    </div> 
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="payment-section">
+            <h2>ช่องทางการชำระเงิน</h2>
+
+            <div class="payment-methods-container">
+                <div class="qr-payment-box">
+                    <h3>โอนเงินผ่าน Mobile Banking</h3>
+                    
+                    <div class="bank-details">
+                        <p><strong>ธนาคาร:</strong><span></span> ธนาคารกรุงไทย</p>
+                        <p><strong>ชื่อบัญชี:</strong> บจก.แอลซีไอ 2025 (ไทยแลนด์)</p>
+                        <p><strong>เลขที่บัญชี:</strong> 664-4-42390-6</p>
+                    </div>
+                    <div class="payment-amount">
+                        <p><strong>จำนวนเงินที่ต้องชำระ:</strong></p>
+                        <strong id="paymentAmountDisplay">0.00 บาท</strong>
+                    </div>
+                    <button class="copy-account-btn" onclick="copyAccountDetails()"><i class="far fa-copy"></i> คัดลอกรายละเอียดบัญชี</button>
+                </div>
+
+                <div class="line-contact-box">
+                    <h3>ติดต่อสอบถาม / แจ้งชำระเงิน</h3>
+                    <div class="qr-code-wrapper">
+                        <img src="https://qr-official.line.me/gs/M_709zzbhc_GW.png?ts=07301715&oat_content=url" alt="QR Code Line" class="qr-code-img">
+                        <p class="qr-instruction">สแกนเพื่อแอดไลน์ติดต่อ</p>
+                        <p class="qr-instruction">ปูนสิงโต Lion.LCI</p>
+                    </div>
+                    <p>แอดไลน์ Official Account ของเราเพื่อสอบถามเพิ่มเติมหรือแจ้งการชำระเงิน</p>
+                    <button class="add-line-btn" onclick="window.open('https://lin.ee/WtLGEVB', '_blank')"><i class="fab fa-line"></i> แอดไลน์เลย!</button>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+    
+
+
+
+
+    <div class="page-footer">
+        <button class="download-button" onclick="downloadPO()">
+            <i class="fas fa-file-pdf"></i> ดาวน์โหลดใบสั่งซื้อ (PDF)
+        </button>
+    </div>    
+
+</section>
+ 
+    
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
+
+
+<script src="/js/bill_management.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

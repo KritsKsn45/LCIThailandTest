@@ -1,0 +1,539 @@
+:root {
+    --primary-color: #E74C3C; /* แดงสดใส */
+    --secondary-color: #F8C471; /* สีส้มอมเหลือง (ปรับให้เข้ากับแดง) */
+    --danger-color: #C0392B; /* แดงเข้มขึ้นสำหรับเน้น */
+    --text-color: #333333; /* สีเทาเข้ม */
+    --light-gray: #F9F9F9; /* พื้นหลังเบาๆ */
+    --medium-gray: #DDDDDD;
+    --dark-gray: #666666;
+    --white-color: #FFFFFF; /* สีขาวหลัก */
+}
+
+/* SVG Pattern (ตัวอย่าง - สามารถปรับเปลี่ยนได้) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1; /* อยู่ด้านหลังเนื้อหา */
+    opacity: 0.5; /* ให้โปร่งแสงเล็กน้อย */
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--light-gray);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem; /* เพิ่ม padding ให้มีพื้นที่รอบๆ */
+}
+
+.checkout-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--white-color); /* พื้นหลังขาว */
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15); /* เงาเข้มขึ้นเล็กน้อย */
+    display: flex;
+    gap: 3rem; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    flex-wrap: wrap;
+    position: relative; /* สำหรับ SVG Overlay */
+    overflow: hidden; /* ซ่อนส่วนเกินของ SVG */
+}
+
+/* SVG Overlay สำหรับมุม */
+.checkout-wrapper::before,
+.checkout-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.checkout-wrapper::before { /* Top-right */
+    top: -50px;
+    right: -50px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E74C3C' fill-opacity='0.7' fill-rule='evenodd'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.checkout-wrapper::after { /* Bottom-left */
+    bottom: -50px;
+    left: -50px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E74C3C' fill-opacity='0.7' fill-rule='evenodd'%3E%3Crect width='100' height='100' rx='20'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    transform: rotate(45deg);
+}
+
+
+h1 {
+    font-size: 2.6rem; /* เพิ่มขนาดตัวอักษร */
+    margin-bottom: 2rem; /* เพิ่มช่องว่างด้านล่าง */
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    width: 100%;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h1::after { /* ขีดเส้นใต้สวยๆ */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.checkout-left, .checkout-right {
+    flex: 1;
+    min-width: 450px; /* เพิ่ม min-width เพื่อให้ดูดีในจอใหญ่ขึ้น */
+    position: relative; /* สำหรับ z-index */
+    z-index: 1; /* ให้เนื้อหาอยู่บน SVG Overlay */
+}
+
+.order-summary-section, .customer-info-section {
+    background-color: var(--white-color);
+    border: 1px solid var(--medium-gray); /* สีเส้นขอบอ่อนลง */
+    border-radius: 12px;
+    padding: 2rem; /* เพิ่ม padding */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* เงาเด่นขึ้นเล็กน้อย */
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title {
+    font-size: 1.8rem; /* เพิ่มขนาดตัวอักษร */
+    font-weight: 600;
+    color: var(--primary-color); /* สีเดียวกับหัวข้อหลัก */
+    margin-bottom: 1.5rem; /* เพิ่มช่องว่างด้านล่าง */
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title i {
+    color: var(--secondary-color); /* ไอคอนสีส้ม */
+}
+
+.item-list {
+    margin-bottom: 1.5rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0; /* เพิ่ม padding */
+    border-bottom: 1px solid var(--medium-gray); /* ใช้เส้นทึบแทนเส้นประ */
+    gap: 1rem;
+}
+
+.item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.item-image {
+    width: 70px; /* เพิ่มขนาดรูปภาพ */
+    height: 70px; /* เพิ่มขนาดรูปภาพ */
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 1px solid var(--medium-gray);
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-name {
+    font-weight: 600; /* ตัวหนาขึ้น */
+    font-size: 1.2rem; /* เพิ่มขนาดตัวอักษร */
+    color: var(--text-color);
+}
+
+.item-quantity-price {
+    font-size: 1rem; /* เพิ่มขนาดตัวอักษร */
+    color: var(--dark-gray);
+}
+
+.item-total {
+    font-weight: 700; /* ตัวหนามาก */
+    color: var(--primary-color);
+    font-size: 1.3rem; /* เพิ่มขนาดตัวอักษร */
+    white-space: nowrap;
+}
+
+.summary-totals {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem; /* เพิ่ม padding */
+    border-top: 2px solid var(--medium-gray); /* เส้นหนาขึ้น */
+}
+
+.summary-totals p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8rem 0; /* เพิ่มช่องว่าง */
+    font-size: 1.1rem; /* เพิ่มขนาดตัวอักษร */
+}
+
+.summary-totals p span:first-child {
+    color: var(--dark-gray);
+}
+
+.summary-totals-price span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--danger-color);
+}
+
+
+
+.customer-info-section label {
+    display: block;
+    margin-bottom: 0.6rem; /* เพิ่มช่องว่าง */
+    font-weight: 600; /* ตัวหนาขึ้น */
+    color: var(--text-color); /* สีเดียวกับ text-color */
+    font-size: 1rem;
+}
+.customer-info-section input[type="text"],
+.customer-info-section input[type="email"],
+.customer-info-section textarea {
+    width: 100%;
+    padding: 0.9rem; /* เพิ่ม padding */
+    margin-bottom: 1.2rem; /* เพิ่ม margin */
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    font-size: 1.1rem; /* เพิ่มขนาดตัวอักษร */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--light-gray); /* พื้นหลัง input */
+}
+
+.customer-info-section input:focus,
+.customer-info-section textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2); /* เพิ่มเงาเมื่อ focus */
+    outline: none;
+    background-color: var(--white-color); /* พื้นหลังขาวเมื่อ focus */
+}
+
+.customer-info-section textarea {
+    resize: vertical;
+    min-height: 100px; /* เพิ่มความสูงเริ่มต้น */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* เพิ่ม margin */
+}
+
+.btn-place-order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.3rem 2.5rem; /* เพิ่ม padding */
+    background: var(--primary-color); /* แดงหลัก */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3rem; /* เพิ่มขนาดตัวอักษร */
+    font-weight: 700; /* ตัวหนามาก */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4); /* เงาแดง */
+    margin-top: 2rem; /* เพิ่ม margin */
+    letter-spacing: 0.5px; /* เพิ่มระยะห่างตัวอักษร */
+}
+
+.btn-place-order:hover {
+    background: var(--danger-color); /* แดงเข้มขึ้น */
+    transform: translateY(-3px); /* เลื่อนขึ้นเล็กน้อย */
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+}
+
+.btn-goBack {
+    display: block; /* ทำให้เป็น block level เพื่อควบคุม margin ได้ง่าย */
+    text-align: center; /* จัดกลางเนื้อหาในปุ่ม (ไอคอน + ข้อความ) */
+    margin-top: 1.5rem; /* ระยะห่างจากปุ่มด้านบน */
+}
+
+.btn-goBack a {
+    display: inline-flex; /* ใช้ inline-flex เพื่อจัดเรียงไอคอนกับข้อความ */
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%; /* ทำให้ลิงก์เต็มความกว้างของ parent div */
+    padding: 1rem 2rem; /* padding ให้ปุ่มมีขนาดพอเหมาะ */
+    background-color: transparent; /* ไม่มีพื้นหลัง */
+    color: var(--primary-color); /* สีข้อความเป็นสีแดง */
+    border: 2px solid var(--primary-color); /* เส้นขอบสีแดง */
+    border-radius: 12px; /* มุมโค้งมน */
+    font-size: 1.2rem; /* ขนาดตัวอักษร */
+    font-weight: 600; /* ตัวหนา */
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    cursor: pointer;
+    transition: all 0.3s ease; /* transition เมื่อ hover */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* เงาเล็กน้อย */
+}
+
+.btn-goBack a:hover {
+    background-color: var(--primary-color); /* พื้นหลังสีแดงเมื่อ hover */
+    color: var(--white-color); /* ข้อความเป็นสีขาวเมื่อ hover */
+    transform: translateY(-2px); /* เลื่อนขึ้นเล็กน้อย */
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+}
+
+.btn-goBack i {
+    margin-right: 0; /* ไม่ต้องมี margin-right เพราะใช้ gap แล้ว */
+}
+/* --- สิ้นสุดปุ่ม "ย้อนกลับ" --- */
+
+
+.empty-cart-message {
+    text-align: center;
+    font-size: 1.3rem; /* เพิ่มขนาด */
+    color: var(--dark-gray);
+    padding: 3rem 0;
+    background-color: var(--light-gray);
+    border-radius: 10px;
+}
+
+
+/* --- Responsive Styles --- */
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+    .checkout-wrapper {
+        padding: 1rem;
+        border-radius: 10px;
+        gap: 1.5rem; /* ลด gap ระหว่างคอลัมน์ */
+        flex-direction: column; /* จัดเรียงคอลัมน์แนวตั้ง */
+    }
+    .checkout-left, .checkout-right {
+        min-width: unset; /* ลบ min-width ออกเพื่อให้ใช้ได้เต็มความกว้าง */
+        width: 100%; /* ให้เต็มความกว้างใน mobile */
+    }
+    .checkout-wrapper::before,
+    .checkout-wrapper::after {
+        width: 100px; /* ลดขนาด SVG Overlay */
+        height: 100px;
+        opacity: 0.08;
+    }
+    .checkout-wrapper::before {
+        top: -30px;
+        right: -30px;
+    }
+    .checkout-wrapper::after {
+        bottom: -30px;
+        left: -30px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    h1::after {
+        width: 60px; /* ลดขนาดเส้นใต้ */
+    }
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    .order-summary-section, .customer-info-section {
+        padding: 1.5rem; /* ลด padding ของ section */
+        margin-bottom: 1rem;
+    }
+    .item-image {
+        width: 50px; /* ลดขนาดรูปภาพสินค้า */
+        height: 50px;
+    }
+    .item-name {
+        font-size: 0.6rem;
+    }
+    .item-quantity-price {
+        font-size: 0.45rem;
+    }
+    .item-total {
+        font-size: 1.1rem;
+    }
+    .summary-totals {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+    .summary-totals p {
+        font-size: 0.9rem;
+        margin: 0.6rem 0;
+    }
+    .summary-totals strong {
+        font-size: 1.3rem;
+    }
+    .customer-info-section label {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    .customer-info-section input[type="text"],
+    .customer-info-section input[type="email"],
+    .customer-info-section textarea {
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .summary-totals-price span {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--danger-color);
+    }
+
+    .customer-info-section textarea {
+        min-height: 80px; 
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .btn-place-order {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .btn-goBack a {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+        margin-top: 1rem; /* ลด margin-top */
+    }
+    .empty-cart-message {
+        font-size: 1rem;
+        padding: 2rem 0;
+    }
+}
+
+
+
+
+
+
+
+/* Tablet & iPad (min-width: 481px and max-width: 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    body {
+        padding: 1rem;
+    }
+    .checkout-wrapper {
+        padding: 2rem; /* ปรับ padding ให้เหมาะสมกับ tablet */
+        border-radius: 14px;
+        flex-direction: column; /* จัดเรียงเป็นคอลัมน์เดียวใน Tablet/iPad */
+        gap: 2rem;
+    }
+    .checkout-left, .checkout-right {
+        min-width: unset; /* ลบ min-width ออก */
+        width: 100%; /* ให้เต็มความกว้าง */
+    }
+    .checkout-wrapper::before,
+    .checkout-wrapper::after {
+        width: 120px; /* ปรับขนาด SVG Overlay */
+        height: 120px;
+        opacity: 0.09;
+    }
+    .checkout-wrapper::before {
+        top: -40px;
+        right: -40px;
+    }
+    .checkout-wrapper::after {
+        bottom: -40px;
+        left: -40px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.8rem;
+    }
+    h1::after {
+        width: 70px;
+    }
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.6rem;
+    }
+    .order-summary-section, .customer-info-section {
+        padding: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    .item-image {
+        width: 60px;
+        height: 60px;
+    }
+    .item-name {
+        font-size: 1.1rem;
+    }
+    .item-quantity-price {
+        font-size: 1rem;
+    }
+    .item-total {
+        font-size: 1.2rem;
+    }
+    .summary-totals {
+        margin-top: 1.2rem;
+        padding-top: 1.2rem;
+    }
+    .summary-totals p {
+        font-size: 1rem;
+        margin: 0.7rem 0;
+    }
+    .summary-totals strong {
+        font-size: 1.4rem;
+    }
+    .customer-info-section label {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    .customer-info-section input[type="text"],
+    .customer-info-section input[type="email"],
+    .customer-info-section textarea {
+        padding: 0.8rem;
+        margin-bottom: 1.1rem;
+        font-size: 1rem;
+    }
+    .customer-info-section textarea {
+        min-height: 90px;
+    }
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+    .btn-place-order {
+        font-size: 1.2rem;
+        padding: 1.1rem 2rem;
+        margin-top: 1.8rem;
+    }
+    .btn-goBack a {
+        font-size: 1.1rem;
+        padding: 0.9rem 1.5rem;
+        margin-top: 1.2rem;
+    }
+}
