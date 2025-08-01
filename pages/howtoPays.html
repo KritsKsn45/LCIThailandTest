@@ -16,17 +16,18 @@
             font-family: 'Prompt', sans-serif;
         }
 
-        /* how-to-order-header  <!-- วิธีการสั่งซื้อ & วิธีการชำระเงิน -->*/
+        /* ========== HEADER SECTION ========== */
         .how-to-order-header-container {
             display: flex;
+            flex-wrap: wrap;
             width: 100%;
-            height: 60vh;
+            min-height: 400px;
         }
 
         .how-to-order-header {
-            width: 50%;
+            flex: 1 1 100%;
             background: #fff;
-            padding: 60px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -37,15 +38,17 @@
             font-size: 12px;
             color: #888;
             letter-spacing: 1.5px;
-            margin-bottom: 20px;
+            margin-top: 50px; 
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
 
         .how-to-order-header h1 {
-            font-size: 36px;
+            font-size: 28px;
             line-height: 1.4;
             margin-bottom: 20px;
             font-weight: 700;
+            word-break: break-word;
         }
 
         .highlight {
@@ -55,27 +58,26 @@
         }
 
         .how-to-order-header-img {
-            width: 50%;
-            position: relative;
-            background: url('/assets/images/banners/hto-1.jpg') no-repeat center center; /* Placeholder image path */
+            flex: 1 1 100%;
+            background: url('/images/bg-2.jpg') no-repeat center center;
             background-size: cover;
-            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+            height: 250px;
         }
 
-        /* how-to-order-container     <!-- ช่องทางการชำระเงิน -->*/
+        /* ========== CONTENT SECTION ========== */
         .how-to-order-container {
-            max-width: 1700px;
-            margin: auto;
+            max-width: 100%;
+            margin: 30px auto 0;
             text-align: center;
             font-family: 'Inter', sans-serif;
-            padding: 20px 60px;
+            padding: 20px 16px;
             color: #333;
             background: linear-gradient(180deg, #ed1b24, #6b0005);
-            margin-top: 30px;
+            overflow-x: hidden;
         }
 
         .how-to-order-container h2 {
-            color: #000000;
+            color: #000;
             font-size: 16px;
             font-weight: 700;
             text-transform: uppercase;
@@ -84,26 +86,28 @@
         }
 
         .how-to-order-container h3 {
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #fff;
         }
 
+        /* ========== STEP GRID ========== */
         .how-to-order-steps-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .how-to-order-step-card {
             background: white;
             border-radius: 16px;
-            padding: 32px 24px;
+            padding: 24px 20px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
             position: relative;
             text-align: left;
             transition: 0.3s ease;
+            overflow-wrap: break-word;
         }
 
         .how-to-order-step-card:hover {
@@ -112,7 +116,7 @@
         }
 
         .how-to-order-step-icon {
-            font-size: 36px;
+            font-size: 32px;
             color: #f44336;
             margin-bottom: 20px;
         }
@@ -142,7 +146,8 @@
             position: relative;
         }
 
-        /* how-to-order-payment-wrapper      <!-- ช่องทางการชำระเงิน -->*/
+
+        /* ========== PAYMENT ========== */
         .how-to-order-payment-wrapper {
             padding: 50px 20px;
             display: flex;
@@ -246,7 +251,7 @@
             text-align: center;
         }
 
-        /* payment-wrapper      <!-- ขั้นตอนการชำระเงิน -->*/
+        /* ========== PAYMENT PROCEDURE ========== */
         .payment-wrapper {
             padding: 50px;
             max-width: 1300px;
@@ -554,6 +559,26 @@
     }
 
     /* --- Responsive Adjustments for Mobile --- */
+
+    @media (max-width: 1024px) {
+            .how-to-order-payment-header h2 {
+                font-size: 30px;
+            }
+
+            .payment-header-title h1 {
+                font-size: 30px;
+            }
+
+            .payment-wrapper {
+                padding: 40px 20px;
+            }
+
+            .payment-card {
+                flex: 1 1 calc(45% - 20px);
+            }
+    }
+
+
     @media (max-width: 768px) {
         .NavOfPoonSingtoolayout {
             height: auto; /* Height adapts to content when menu is open */
@@ -640,31 +665,141 @@
         .hamburger-menu.active .bar:nth-child(3) {
             transform: translateY(-7px) rotate(-45deg);
         }
+
+        .how-to-order-payment-wrapper {
+            padding: 40px 15px;
+        }
+
+        .how-to-order-payment-header {
+            padding-left: 15px;
+        }
+
+        .how-to-order-payment-header h2 {
+            font-size: 26px;
+        }
+
+        .how-to-order-payment-procedure {
+            gap: 20px;
+        }
+
+        .how-to-order-payment-card {
+            max-width: 100%;
+            padding: 25px 20px;
+        }
+
+        .payment-header-title {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .payment-header-title h1 {
+            font-size: 26px;
+        }
+
+        .payment-subtitle {
+            font-size: 15px;
+        }
+
+        .payment-left-right {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .payment-grid {
+            flex: 1 1 100%;
+            gap: 15px;
+        }
+
+        .payment-card {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }  
     }
     /* #endregion */
     /* = = = = = [End] N A V I G A T I O N = = = = = */
 
 
-/* Mobile Styles (สำหรับหน้าจอ <= 768px) */
-@media (max-width: 480px) {
+    /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
+    @media (max-width: 480px) {
 
-  .above-content {
-    display: none;
-  }
+        .above-content {
+            display: none;
+        }
+        .how-to-order-payment-header h2 {
+            font-size: 22px;
+        }
 
-}
+        .how-to-order-payment-card h3 {
+            font-size: 18px;
+        }
 
+        .how-to-order-payment-card p {
+            font-size: 14px;
+        }
 
+        .payment-header h3 {
+            font-size: 16px;
+        }
 
+        .payment-header-title h1 {
+            font-size: 22px;
+        }
 
+        .payment-subtitle {
+            font-size: 14px;
+        }
 
-@media (min-width: 481px) and (max-width: 1024px) {
-  
-  .above-content {
-    display: none;
-  }
+        .payment-card h4 {
+            font-size: 15px;
+        }
 
-}
+        .payment-card p {
+            font-size: 13px;
+        }
+
+        .payment-wrapper {
+            padding: 30px 15px;
+        }  
+
+    }
+
+    @media (min-width: 768px) {
+        .how-to-order-steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .how-to-order-steps-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .how-to-order-header {
+            flex: 1 1 50%;
+            padding: 60px;
+        }
+
+        .how-to-order-header-img {
+            flex: 1 1 50%;
+            height: auto;
+            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .how-to-order-header-container {
+            flex-wrap: nowrap;
+            height: 60vh;
+        }
+
+        .how-to-order-header h1 {
+            font-size: 36px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+        .above-content {
+            display: none;
+        }
+    }
 
 
 
@@ -762,8 +897,8 @@
                 <div class="how-to-order-step-wrapper">
                     <div class="how-to-order-step-number">2</div>
                     <i class="fas fa-comments how-to-order-step-icon"></i>
-                    <div class="how-to-order-step-title">สอบถามข้อมูล</div>
-                    <div class="how-to-order-step-desc">สอบถามเพิ่มเติมหรือสั่งซื้อผ่าน LINE, หรือเบอร์โทร</div>
+                    <div class="how-to-order-step-title">เพิ่มสินค้าลงตะกร้า</div>
+                    <div class="how-to-order-step-desc">เพิ่มสินค้าที่ต้องการลงใส่ตะกร้าตามจำนวนที่ต้องการ</div>
                 </div>
             </div>
 
@@ -771,8 +906,8 @@
                 <div class="how-to-order-step-wrapper">
                     <div class="how-to-order-step-number">3</div>
                     <i class="fas fa-file-invoice how-to-order-step-icon"></i>
-                    <div class="how-to-order-step-title">ยืนยันและสรุปยอด</div>
-                    <div class="how-to-order-step-desc">ทางร้านจะสรุปรายการพร้อมแจ้งยอดชำระและช่องทางการโอน</div>
+                    <div class="how-to-order-step-title">ยืนยันคำสั่งซื้อ</div>
+                    <div class="how-to-order-step-desc">ใส่ที่อยู่จัดส่งและเลือกวิธีการชำระเงิน</div>
                 </div>
             </div>
 
@@ -798,7 +933,8 @@
                 <div class="how-to-order-step-wrapper">
                     <div class="how-to-order-step-number">6</div>
                     <i class="fas fa-truck-fast how-to-order-step-icon"></i>
-                    <div class="how-to-order-step-desc">จัดส่งสินค้าพร้อมแจ้งสถานะให้ลูกค้าได้</div>
+                    <div class="how-to-order-step-title">รอรับสินค้า</div>
+                    <div class="how-to-order-step-desc">จัดส่งสินค้ารวดเร็วถึงหน้าบ้าน</div>
                 </div>
             </div>
         </div>
@@ -815,16 +951,10 @@
     
             <a href="#" class="how-to-order-payment-card">
                 <div class="how-to-order-payment-icon">
-                    <img src="https://via.placeholder.com/80" alt=""> </div>
-                <h3>ธนาคาร1</h3>
-                <p>K+, SCB Easy, Krungthai NEXT</p>
-            </a>
-
-            <a href="#" class="how-to-order-payment-card">
-                <div class="how-to-order-payment-icon">
-                    <img src="https://via.placeholder.com/80" alt=""> </div>
-                <h3>ธนาคาร1</h3>
-                <p>K+, SCB Easy, Krungthai NEXT</p>
+                    <img src="https://raw.githubusercontent.com/casperstack/thai-banks-logo/master/icons/KTB.png" alt=""> </div>
+                <h3>ธนาคารกรุงไทย</h3>
+                <p>บัญชี: บจก.แอลซีไอ 2025 (ไทยแลนด์)</p>
+                <p>เลขที่บัญชี: 664-4-42390-6</p>
             </a>
         </div>
     </div>
@@ -842,28 +972,17 @@
             <div class="payment-left-right">
                 <div class="payment-grid">
                     <div class="payment-card">
-                        <i class="fa-solid fa-file-invoice"></i>                        
-                        <h4>1. สร้างใบสั่งซื้อ</h4>
-                        <p>กรอกรายละเอียดให้ครบถ้วน จากนั้นกดสร้างใบสั่งซื้อ</p>
+                        <i class="fa-solid fa-credit-card"></i>                        
+                        <h4>1. เลือกวิธีการชำระเงิน</h4>
+                        <p>เลือกวิธีการชำระเงินตามความต้องการ</p>
                     </div>
                     <div class="payment-card">
-                        <img src="https://via.placeholder.com/48" alt="2" /> <h4>2. แจ้งการชำระเงิน</h4>
-                        <p>แจ้งการชำระเงินผ่านทาง Line หรือระบบอัตโนมัติ</p>
+                        <i class="fas fa-receipt"></i>                        
+                        <h4>2. แจ้งการชำระเงิน</h4>
+                        <p>แจ้งการชำระเงินผ่านทาง Line พร้อมแนบหลักฐานการชำระเงิน</p>
                     </div>
                     <div class="payment-card">
-                        <img src="https://via.placeholder.com/48" alt="3" /> <h4>3. ยืนยันและสรุปยอด</h4>
-                        <p>ส่งใบสั่งซื้อและหลักฐานการโอนให้ทีมงาน</p>
-                    </div>
-                    <div class="payment-card">
-                        <img src="https://via.placeholder.com/48" alt="4" /> <h4>4. รอตรวจสอบข้อมูล</h4>
-                        <p>ทีมงานจะตรวจสอบข้อมูลทั้งหมดภายใน 24 ชม.</p>
-                    </div>
-                    <div class="payment-card">
-                        <img src="https://via.placeholder.com/48" alt="5" /> <h4>5. ทีมงานตรวจสอบยอด</h4>
-                        <p>หากข้อมูลครบถ้วน จะดำเนินการผลิตหรือจัดส่งต่อไป</p>
-                    </div>
-                    <div class="payment-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="6" />
+                        <i class="fas fa-check-circle"></i>  
                         <h4>6. ชำระเงินเสร็จสิ้น</h4>
                         <p>ขอบคุณที่ใช้บริการกับเรา!</p>
                     </div>
