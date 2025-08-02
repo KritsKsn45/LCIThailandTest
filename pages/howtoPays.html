@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     
-    <style>
+     <style>
         body {
             box-sizing: border-box;
             margin: 0;
@@ -59,7 +59,8 @@
 
         .how-to-order-header-img {
             flex: 1 1 100%;
-            background: url('/images/bg-2.jpg') no-repeat center center;
+            background: url('/assets/images/banners/h-ab-1.jpg') no-repeat center center;
+            background: url('/assets/images/banners/hto-1.jpg') no-repeat center center;
             background-size: cover;
             height: 250px;
         }
@@ -718,6 +719,200 @@
     /* #endregion */
     /* = = = = = [End] N A V I G A T I O N = = = = = */
 
+        /* ====== [Start] F O O T E R SECTION ============ */
+/* #region */
+.footer {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #8B0000, #d71e1e);
+  color: white;
+  overflow: hidden;
+  padding-top: 60px;
+}
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  opacity: 0.3;
+}
+.footer-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.5rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+  padding: 35px;
+}
+.footer-brand img.footer-logo-img {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+.footer-brand h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.footer p, .footer li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer a:hover {
+  color: #ffe6e6;
+}
+.footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-btn {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  color: #a30000;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.footer-btn:hover {
+  background: #ffe5e5;
+  transform: scale(1.05);
+}
+.footer-btn.line {
+  background: #06c755;
+  color: white;
+}
+.footer-map iframe {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.footer-bottom {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* #endregion */
+/* = = = = = [End] F O O T E R SECTION = = = = = */
+
+
+
+    /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
+    @media (max-width: 480px) {
+
+        .above-content {
+            display: none;
+        }
+        .how-to-order-payment-header h2 {
+            font-size: 22px;
+        }
+
+        .how-to-order-payment-card h3 {
+            font-size: 18px;
+        }
+
+        .how-to-order-payment-card p {
+            font-size: 14px;
+        }
+
+        .payment-header h3 {
+            font-size: 16px;
+        }
+
+        .payment-header-title h1 {
+            font-size: 22px;
+        }
+
+        .payment-subtitle {
+            font-size: 14px;
+        }
+
+        .payment-card h4 {
+            font-size: 15px;
+        }
+
+        .payment-card p {
+            font-size: 13px;
+        }
+
+        .payment-wrapper {
+            padding: 30px 15px;
+        }  
+
+    }
+
+    @media (min-width: 768px) {
+        .how-to-order-steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .how-to-order-steps-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .how-to-order-header {
+            flex: 1 1 50%;
+            padding: 60px;
+        }
+
+        .how-to-order-header-img {
+            flex: 1 1 50%;
+            height: auto;
+            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .how-to-order-header-container {
+            flex-wrap: nowrap;
+            height: 60vh;
+        }
+
+        .how-to-order-header h1 {
+            font-size: 36px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 1024px) {
+        .above-content {
+            display: none;
+        }
+    }
+
 
     /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
     @media (max-width: 480px) {
@@ -818,54 +1013,45 @@
     </div>
   </div>
 
- 
  <div class="header-fixed-position">     
-     
-        <!-- Navigation -->
-        <div class="NavOfPoonSingtoolayout">
-        <nav class="main-nav">
-            <div class="nav-header-mobile-wrapper"> <div class="nav-lci-above-group1">
-                    <a href="/">
-                        <div class="nav-logoLCI">
-                            <div class="nav-img-logoLCI">
+    <!-- Navigation -->
+    <div class="NavOfPoonSingtoolayout">
+            <nav class="main-nav">
+                <div class="nav-header-mobile-wrapper"> 
+                    <div class="nav-lci-above-group1">
+                        <a href="/">
+                            <div class="nav-logoLCI">
+                                <div class="nav-img-logoLCI">
+                                </div>
+                                <div class="nav-titlename-logoLCI">
+                                    <h3>LCI-Thailand</h3>
+                                </div>
                             </div>
-                            <div class="nav-titlename-logoLCI">
-                                <h3>LCI-Thailand</h3>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="hamburger-menu">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
                 </div>
-                <div class="hamburger-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-            </div>
 
-            <ul class="nav-list">
-                <li><a href="/index.html">หน้าแรก</a></li>
-                <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
-                <li class="dropdown">
-                    <a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a>
-                    </li>
-                <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
-                <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
-                <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
-            </ul>
-        </nav>
-        </div>
-
+                <ul class="nav-list">
+                    <li><a href="/index.html">หน้าแรก</a></li>
+                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
+                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+    </div>
   </div>
 
 
 
 
-
-
-
-
-
-
+    
     <div class="how-to-order-header-container">
         <div class="how-to-order-header">
             <h5>How to order and payment methods</h5>
@@ -897,6 +1083,7 @@
                 <div class="how-to-order-step-wrapper">
                     <div class="how-to-order-step-number">2</div>
                     <i class="fas fa-comments how-to-order-step-icon"></i>
+                    <i class="fas fa-cart-shopping how-to-order-step-icon"></i>
                     <div class="how-to-order-step-title">เพิ่มสินค้าลงตะกร้า</div>
                     <div class="how-to-order-step-desc">เพิ่มสินค้าที่ต้องการลงใส่ตะกร้าตามจำนวนที่ต้องการ</div>
                 </div>
@@ -993,6 +1180,77 @@
 
 
 
+
+    <!-- Footer content -->
+    <footer class="footer">
+        <svg class="footer-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 Q50,0 100,100 Z" fill="url(#footerGradient)" />
+            <defs>
+            <linearGradient id="footerGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8B0000" />
+                <stop offset="100%" stop-color="#FF4C4C" />
+            </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Main Footer Content -->
+        <div class="footer-overlay">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section footer-brand">
+                    <h2>LCI-Thailand</h2>
+                    <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
+                    <div class="footer-buttons">
+                        <a href="tel:093524441" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
+                        <a href="" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem;">เมนูหลัก</h3>
+                    <ul>
+                    <li><a href="/">หน้าแรก</a></li>
+                    <li><a href="/pages/products/products_showall.html">สินค้า</a></li>
+                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีการสั่งซื้อและวิธีการชำระเงิน</a></li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="footer-section footer-map">
+                    <h3 style="font-size: 1.5rem;">ที่ตั้งสำนักงาน</h3>
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.187358726801!2d103.66845000000001!3d16.05516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Liq4LiH4LmA4LiE4Lij4LiB4Li44LiV4Lin4Li04Liq4Li04Lia4LiHIOC4leC4m-C4o-C4tOC5gOC4meC4o-C5ieC4peC4suC4uOC4meC5gOC4o-C5gOC4meC4hOC4geC4seC5gOC4oeC4qg!5e0!3m2!1sth!2sth!4v1721822872723!5m2!1sth!2sth"
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
+                    <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
+                    <p style="color: white;">📞 093-524411 | 043-512498</p>
+                    <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p style="color: white;"> &copy; 2025 ปูนสิงโต - LCI Thailand - All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -1026,57 +1284,48 @@
 
 
 
+
 <!-- /navigationJS -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const hamburgerMenu = document.querySelector('.hamburger-menu');
         const navList = document.querySelector('.nav-list');
-        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); // Get the main container
+        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); 
 
         hamburgerMenu.addEventListener('click', function() {
             hamburgerMenu.classList.toggle('active');
             navList.classList.toggle('active');
-            // Optional: Toggle a class on the main container to adjust height/background if needed when menu is open
-            // mainNavContainer.classList.toggle('menu-open'); 
         });
 
-        // Optional: Close menu when a link is clicked (good for UX on mobile)
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                // Only close if it's a mobile view (or if you want it to close on all clicks)
                 if (window.innerWidth <= 768) { 
                     hamburgerMenu.classList.remove('active');
                     navList.classList.remove('active');
-                    // mainNavContainer.classList.remove('menu-open');
                 }
             });
         });
 
-        // Optional: Close menu if window is resized above mobile breakpoint
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 hamburgerMenu.classList.remove('active');
                 navList.classList.remove('active');
-                // mainNavContainer.classList.remove('menu-open');
             }
         });
 
-        // Optional: Handle dropdowns for mobile if they are needed
-        // For mobile dropdowns, you would typically toggle a class on click instead of hover
         const dropdownToggles = document.querySelectorAll('.dropdown > a');
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function(event) {
                 if (window.innerWidth <= 768) {
-                    event.preventDefault(); // Prevent default link behavior
+                    event.preventDefault(); 
                     const dropdownMenu = this.nextElementSibling;
                     if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-                        // Close other open dropdowns
                         document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
                             if (menu !== dropdownMenu) {
                                 menu.classList.remove('active');
                             }
                         });
-                        dropdownMenu.classList.toggle('active'); // Toggle visibility
+                        dropdownMenu.classList.toggle('active'); 
                     }
                 }
             });

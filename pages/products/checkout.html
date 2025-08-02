@@ -11,8 +11,8 @@
 
 
 
-    <style>
-        :root {
+<style>
+:root {
     --primary-color: #E74C3C; /* แดงสดใส */
     --secondary-color: #F8C471; /* สีส้มอมเหลือง (ปรับให้เข้ากับแดง) */
     --danger-color: #C0392B; /* แดงเข้มขึ้นสำหรับเน้น */
@@ -22,8 +22,6 @@
     --dark-gray: #666666;
     --white-color: #FFFFFF; /* สีขาวหลัก */
 }
-
-/* SVG Pattern (ตัวอย่าง - สามารถปรับเปลี่ยนได้) */
 body::before {
     content: '';
     position: fixed;
@@ -32,18 +30,15 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3C/g%3E%3C/svg%3E");
-    z-index: -1; /* อยู่ด้านหลังเนื้อหา */
-    opacity: 0.5; /* ให้โปร่งแสงเล็กน้อย */
+    z-index: -1; 
+    opacity: 0.5; 
 }
-
-
 * {
     box-sizing: border-box;
     font-family: 'Sarabun', sans-serif;
     margin: 0;
     padding: 0;
 }
-
 body {
     background: var(--light-gray);
     color: var(--text-color);
@@ -51,25 +46,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem; /* เพิ่ม padding ให้มีพื้นที่รอบๆ */
+    padding: 1.5rem; 
 }
-
 .checkout-wrapper {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    background: var(--white-color); /* พื้นหลังขาว */
+    background: var(--white-color); 
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15); /* เงาเข้มขึ้นเล็กน้อย */
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15); 
     display: flex;
-    gap: 3rem; /* เพิ่มช่องว่างระหว่างคอลัมน์ */
+    gap: 3rem; 
     flex-wrap: wrap;
-    position: relative; /* สำหรับ SVG Overlay */
-    overflow: hidden; /* ซ่อนส่วนเกินของ SVG */
+    position: relative; 
+    overflow: hidden; 
 }
-
-/* SVG Overlay สำหรับมุม */
 .checkout-wrapper::before,
 .checkout-wrapper::after {
     content: '';
@@ -79,27 +71,23 @@ body {
     opacity: 0.1;
     z-index: 0;
 }
-
-.checkout-wrapper::before { /* Top-right */
+.checkout-wrapper::before { 
     top: -50px;
     right: -50px;
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E74C3C' fill-opacity='0.7' fill-rule='evenodd'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
     border-radius: 50%;
 }
-
-.checkout-wrapper::after { /* Bottom-left */
+.checkout-wrapper::after { 
     bottom: -50px;
     left: -50px;
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E74C3C' fill-opacity='0.7' fill-rule='evenodd'%3E%3Crect width='100' height='100' rx='20'/%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
     transform: rotate(45deg);
 }
-
-
 h1 {
-    font-size: 2.6rem; /* เพิ่มขนาดตัวอักษร */
-    margin-bottom: 2rem; /* เพิ่มช่องว่างด้านล่าง */
+    font-size: 2.6rem; 
+    margin-bottom: 2rem;
     text-align: center;
     color: var(--primary-color);
     font-weight: 700;
@@ -107,8 +95,7 @@ h1 {
     position: relative;
     padding-bottom: 0.5rem;
 }
-
-h1::after { /* ขีดเส้นใต้สวยๆ */
+h1::after { 
     content: '';
     display: block;
     width: 80px;
@@ -117,118 +104,102 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
     margin: 0.5rem auto 0;
     border-radius: 2px;
 }
-
 .checkout-left, .checkout-right {
     flex: 1;
-    min-width: 450px; /* เพิ่ม min-width เพื่อให้ดูดีในจอใหญ่ขึ้น */
-    position: relative; /* สำหรับ z-index */
-    z-index: 1; /* ให้เนื้อหาอยู่บน SVG Overlay */
+    min-width: 450px; 
+    position: relative;
+    z-index: 1; 
 }
-
 .order-summary-section, .customer-info-section {
     background-color: var(--white-color);
-    border: 1px solid var(--medium-gray); /* สีเส้นขอบอ่อนลง */
+    border: 1px solid var(--medium-gray); 
     border-radius: 12px;
-    padding: 2rem; /* เพิ่ม padding */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* เงาเด่นขึ้นเล็กน้อย */
+    padding: 2rem; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
     margin-bottom: 1.5rem;
     position: relative;
 }
-
 .section-title {
-    font-size: 1.8rem; /* เพิ่มขนาดตัวอักษร */
+    font-size: 1.8rem; 
     font-weight: 600;
-    color: var(--primary-color); /* สีเดียวกับหัวข้อหลัก */
-    margin-bottom: 1.5rem; /* เพิ่มช่องว่างด้านล่าง */
+    color: var(--primary-color); 
+    margin-bottom: 1.5rem; 
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.75rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
-
 .section-title i {
-    color: var(--secondary-color); /* ไอคอนสีส้ม */
+    color: var(--primary-color); 
 }
-
 .item-list {
     margin-bottom: 1.5rem;
 }
-
 .item {
     display: flex;
     align-items: center;
-    padding: 1rem 0; /* เพิ่ม padding */
+    padding: 1rem 0; 
     border-bottom: 1px solid var(--medium-gray); /* ใช้เส้นทึบแทนเส้นประ */
     gap: 1rem;
 }
-
 .item:last-child {
     border-bottom: none;
     padding-bottom: 0;
 }
-
 .item-image {
-    width: 70px; /* เพิ่มขนาดรูปภาพ */
-    height: 70px; /* เพิ่มขนาดรูปภาพ */
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     border-radius: 8px;
     flex-shrink: 0;
     border: 1px solid var(--medium-gray);
 }
-
 .item-details {
     flex-grow: 1;
 }
-
 .item-name {
-    font-weight: 600; /* ตัวหนาขึ้น */
-    font-size: 1.2rem; /* เพิ่มขนาดตัวอักษร */
+    font-weight: 600; 
+    font-size: 1.2rem; 
     color: var(--text-color);
 }
-
 .item-quantity-price {
-    font-size: 1rem; /* เพิ่มขนาดตัวอักษร */
+    font-size: 1rem; 
     color: var(--dark-gray);
 }
-
 .item-total {
-    font-weight: 700; /* ตัวหนามาก */
+    font-weight: 700; 
     color: var(--primary-color);
-    font-size: 1.3rem; /* เพิ่มขนาดตัวอักษร */
+    font-size: 1rem; 
     white-space: nowrap;
 }
-
 .summary-totals {
     margin-top: 1.5rem;
-    padding-top: 1.5rem; /* เพิ่ม padding */
-    border-top: 2px solid var(--medium-gray); /* เส้นหนาขึ้น */
+    padding-top: 1.5rem; 
+    border-top: 2px solid var(--medium-gray); 
 }
-
 .summary-totals p {
     display: flex;
     justify-content: space-between;
-    margin: 0.8rem 0; /* เพิ่มช่องว่าง */
-    font-size: 1.1rem; /* เพิ่มขนาดตัวอักษร */
+    margin: 0.8rem 0; 
+    font-size: 1.1rem; 
 }
-
 .summary-totals p span:first-child {
     color: var(--dark-gray);
 }
-
 .summary-totals-price span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--danger-color);
+    color: var(--primary-color);
 }
 
 
 
 .customer-info-section label {
     display: block;
-    margin-bottom: 0.6rem; /* เพิ่มช่องว่าง */
-    font-weight: 600; /* ตัวหนาขึ้น */
-    color: var(--text-color); /* สีเดียวกับ text-color */
+    margin-bottom: 0.6rem; 
+    font-weight: 600; 
+    color: var(--text-color); 
     font-size: 1rem;
 }
 .customer-info-section input[type="text"],
@@ -566,6 +537,7 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
             <div class="order-summary-section">
                 <h2 class="section-title"><i class="fas fa-box"></i> รายการสินค้า</h2>
                 <div id="checkoutSummary" class="item-list">
+                    <!-- รายการสินค้า -->
                 </div>
                 <div class="summary-totals">
                     <p><span>ราคารวมสินค้า (ไม่รวม VAT)</span><span id="subtotalExcludingVatDisplay"></span></p> 
@@ -602,7 +574,7 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
                         <input type="text" id="customerPhone" name="customerPhone" placeholder="เช่น 08XXXXXXXX" required>
                     </div>
                     <div class="form-group">
-                        <label for="customerAddress">ที่อยู่ผู้ใช้:</label>
+                        <label for="customerAddress">ที่อยู่ผู้ซื้อ:</label>
                         <textarea id="customerAddress" name="customerAddress" placeholder="บ้านเลขที่, ถนน, ตำบล/แขวง, อำเภอ/เขต, จังหวัด, รหัสไปรษณีย์" required></textarea>
                     </div>
                     <div class="form-group">
@@ -614,20 +586,7 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
                         <textarea id="deliveryNotes" name="deliveryNotes" placeholder="เช่น ช่วงเวลาที่สะดวกรับสินค้า, รายละเอียดการจัดส่งเฉพาะ"></textarea>
                     </div>
 
-                    <!-- <div class="payment-options-section" style="display: none;">
-                        <h2 class="section-title"><i class="fas fa-wallet"></i> เลือกช่องทางการชำระเงิน</h2>
-                        <div class="payment-options">
-                            <label class="payment-method">
-                                <input type="radio" name="paymentMethod" value="bankTransfer" checked>
-                                <span class="payment-method-label">โอนเงินผ่านธนาคาร</span>
-                            </label>
-                            <label class="payment-method">
-                                <input type="radio" name="paymentMethod" value="promptPay">
-                                <span class="payment-method-label">พร้อมเพย์</span>
-                            </label>
-                        </div>
-                    </div> -->
-
+                   
                     <button type="submit" class="btn-place-order" id="placeOrderBtn">
                         <i class="fas fa-money-check-alt"></i> ดำเนินการต่อ
                     </button>
@@ -643,26 +602,21 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
     </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
-
-    <script>
-    // ประกาศตัวแปร itemsToCheckout และ deliveryAreaDisplayData ใน global scope
-    // เพื่อให้สามารถเข้าถึงได้จากหลายๆ ฟังก์ชัน (DOMContentLoaded และ submit event)
+<script>
+    
     let itemsToCheckout = [];
     let deliveryAreaDisplayData = { province: "", district: "" };
 
     document.addEventListener("DOMContentLoaded", () => {
-        // ดึงข้อมูลสินค้าจาก localStorage (แต่ยังไม่ลบออกตอนนี้)
         const buyNowItemData = localStorage.getItem("buyNowItem");
         const checkoutCartData = localStorage.getItem("checkoutCartItems");
 
         if (buyNowItemData) {
             const parsedItem = JSON.parse(buyNowItemData);
+          
+            parsedItem.qty = parsedItem.quantity;
             itemsToCheckout = [parsedItem];
             deliveryAreaDisplayData.province = parsedItem.province || "";
             deliveryAreaDisplayData.district = parsedItem.district || "";
@@ -703,22 +657,37 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
         return parseFloat(price.toFixed(2)).toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
+
     function renderCheckoutSummary(items) {
         const summaryDiv = document.getElementById("checkoutSummary");
         let html = "";
         let totalIncludingVat = 0;
 
         items.forEach(item => {
-            const quantity = (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1);
+            const quantity = item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1;
             const pricePerUnitIncludingVat = parseFloat(item.price) || 0;
             const itemTotalIncludingVat = pricePerUnitIncludingVat * quantity;
+
+            const qtyPerSet = parseInt(item.quantity) || 1;
+            const minimumQty = parseInt(item.minimum) || 1;
+            const unitLabel = item.unit || 'ชิ้น';
+
+            const setCount = Math.floor(quantity / qtyPerSet); // แก้ไขจาก Math.round
+            const setLabel = item.type === 'truck' ? 'รถบรรทุก' : 'รถบรรทุก'; 
+
+            const deliveryText = item.delivery || 'ไม่ระบุ';
 
             html += `
                 <div class="item">
                     <img src="/assets/images/products/${item.image || ''}" alt="${item.name}" class="item-image">
                     <div class="item-details">
                         <div class="item-name">${item.name}</div>
-                        <div class="item-quantity-price">${formatPrice(pricePerUnitIncludingVat)} บาท/${item.unit || ''} x ${quantity} ${item.unit || ''}</div>
+                        <div class="item-quantity-price">${formatPrice(pricePerUnitIncludingVat)} บาท/${unitLabel}</div>
+                        <div class="item-quantity-summary">
+                            <span class="set-count">จำนวน ${setCount} ${setLabel}</span>
+                            <span class="total-units">(รวม ${quantity} ${unitLabel})</span>
+                            <br>
+                        </div>
                     </div>
                     <div class="item-total">${formatPrice(itemTotalIncludingVat)} บาท</div>
                 </div>
@@ -739,108 +708,103 @@ h1::after { /* ขีดเส้นใต้สวยๆ */
         }
     }
 
-    // ใช้การ submit form เพื่อให้ง่ายต่อการเก็บข้อมูลจากฟอร์มทั้งหมด
     document.getElementById("customerOrderForm").addEventListener("submit", (event) => {
-        event.preventDefault(); 
+    event.preventDefault(); 
 
-        const customerName = document.getElementById("customerName").value;
-        const customerEmail = document.getElementById("customerEmail").value;
-        const customerTaxID = document.getElementById("customerTaxID").value;
-        const customerPhone = document.getElementById("customerPhone").value;
-        const customerAddress = document.getElementById("customerAddress").value;
-        const customerAddressToSend = document.getElementById("customerAddressToSend").value;
-        const deliveryNotes = document.getElementById("deliveryNotes").value;
-        
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || 'bankTransfer'; 
+    const customerName = document.getElementById("customerName").value;
+    const customerEmail = document.getElementById("customerEmail").value;
+    const customerTaxID = document.getElementById("customerTaxID").value;
+    const customerPhone = document.getElementById("customerPhone").value;
+    const customerAddress = document.getElementById("customerAddress").value;
+    const customerAddressToSend = document.getElementById("customerAddressToSend").value;
+    const deliveryNotes = document.getElementById("deliveryNotes").value;
+    
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || 'bankTransfer'; 
 
-        // ตรวจสอบฟิลด์ที่จำเป็น
-        if (!customerName || !customerEmail || !customerPhone || !customerAddress) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'ข้อมูลไม่ครบถ้วน',
-                text: 'กรุณากรอกข้อมูลผู้ติดต่อและที่อยู่สำหรับออกบิลให้ครบถ้วน',
-                confirmButtonText: 'ตกลง'
-            });
-            return;
-        }
-
-        // ใช้ itemsToCheckout ที่เก็บไว้แล้ว
-        if (itemsToCheckout.length === 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'ไม่พบสินค้า',
-                text: 'ไม่พบสินค้าที่จะสั่งซื้อ กรุณาเลือกสินค้าก่อนดำเนินการ',
-                confirmButtonText: 'ตกลง'
-            });
-            return;
-        }
-
-        let totalIncludingVat = 0;
-        itemsToCheckout.forEach(item => {
-            const quantity = (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1);
-            totalIncludingVat += (parseFloat(item.price) || 0) * quantity;
-        });
-        
-        const totalExcludingVat = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat / 1.07;
-        const vatAmount = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat - totalExcludingVat;
-
-        const orderDetails = {
-            customer: {
-                name: customerName,
-                email: customerEmail,
-                taxId: customerTaxID,
-                phone: customerPhone,
-                billingAddress: customerAddress,
-                shippingAddress: customerAddressToSend,
-                notes: deliveryNotes,
-                deliveryProvince: deliveryAreaDisplayData.province,
-                deliveryDistrict: deliveryAreaDisplayData.district
-            },
-            items: itemsToCheckout.map(item => ({ 
-                id: item.id,
-                name: item.name,
-                image: item.image,
-                weight: item.weight,
-                price: parseFloat(item.price) || 0,
-                quantity: (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1),
-                unit: item.unit
-            })),
-            paymentMethod: paymentMethod,
-            subtotalExcludingVat: totalExcludingVat,
-            vatAmount: vatAmount,
-            grandTotalIncludingVat: totalIncludingVat,
-            timestamp: new Date().toISOString()
-        };
-
-        localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
-
-        console.log("Order Details for Confirmation Page:", orderDetails);
-
-        localStorage.removeItem("checkoutCartItems");
-        localStorage.removeItem("buyNowItem");
-
+    if (!customerName || !customerEmail || !customerPhone || !customerAddress) {
         Swal.fire({
-            html: `
-                <lottie-player
-                    src="/assets/lottie/Add To Cart success.json" 
-                    background="transparent"
-                    speed="1"
-                    style="width: 150px; height: 150px; margin: 0 auto;" 
-                    loop
-                    autoplay
-                ></lottie-player>
-            `,
-            title: 'สำเร็จ',
-            showConfirmButton: false, 
-            timer: 1800,
-            onOpen: (modal) => {
-            }
-        }).then(() => {
-            window.location.href = '/pages/order-confirmation.html';
+            icon: 'warning',
+            title: 'ข้อมูลไม่ครบถ้วน',
+            text: 'กรุณากรอกข้อมูลผู้ติดต่อและที่อยู่สำหรับออกบิลให้ครบถ้วน',
+            confirmButtonText: 'ตกลง'
         });
+        return;
+    }
 
+    if (itemsToCheckout.length === 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'ไม่พบสินค้า',
+            text: 'ไม่พบสินค้าที่จะสั่งซื้อ กรุณาเลือกสินค้าก่อนดำเนินการ',
+            confirmButtonText: 'ตกลง'
+        });
+        return;
+    }
+
+    let totalIncludingVat = 0;
+    itemsToCheckout.forEach(item => {
+        const quantity = (item.quantity !== undefined && !isNaN(item.quantity)) ? item.quantity : (item.qty !== undefined && !isNaN(item.qty) ? item.qty : 1);
+        totalIncludingVat += (parseFloat(item.price) || 0) * quantity;
     });
+    
+    const totalExcludingVat = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat / 1.07;
+    const vatAmount = (totalIncludingVat === 0 || isNaN(totalIncludingVat)) ? 0 : totalIncludingVat - totalExcludingVat;
+
+    const orderDetails = {
+        customer: {
+            name: customerName,
+            email: customerEmail,
+            taxId: customerTaxID,
+            phone: customerPhone,
+            billingAddress: customerAddress,
+            shippingAddress: customerAddressToSend,
+            notes: deliveryNotes, 
+            deliveryProvince: deliveryAreaDisplayData.province,
+            deliveryDistrict: deliveryAreaDisplayData.district
+        },
+        items: itemsToCheckout.map(item => ({ 
+            id: item.id,
+            name: item.name,
+            image: item.image,
+            weight: item.weight,
+            price: parseFloat(item.price) || 0,             
+            quantity: (item.qty !== undefined && !isNaN(item.qty)) ? item.qty : (item.quantity !== undefined && !isNaN(item.quantity) ? item.quantity : 1),      
+            unit: item.unit,
+            delivery: item.delivery, 
+            type: item.type,
+            minimum: item.minimum
+        })),
+        paymentMethod: paymentMethod,
+        subtotalExcludingVat: totalExcludingVat,
+        vatAmount: vatAmount,
+        grandTotalIncludingVat: totalIncludingVat,
+        timestamp: new Date().toISOString()
+    };
+
+    localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+
+    console.log("Order Details for Confirmation Page:", orderDetails);
+
+    localStorage.removeItem("checkoutCartItems");
+    localStorage.removeItem("buyNowItem");
+    Swal.fire({
+        icon: 'success',
+        title: 'สำเร็จ',
+        text: 'ไปยังหน้าชำระเงิน...',
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading(); 
+        }
+    }).then(() => {
+        window.location.href = '/pages/order-confirmation.html';
+    });
+});
+
 </script>
+
+
 
 </body>
 </html>

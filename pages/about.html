@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>เกี่ยวกับเรา</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,12 +16,13 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
   <style>
+    
      * {
           margin: 0;
           padding: 0;
           box-sizing: border-box; 
           font-family: 'Prompt', sans-serif;
-          overflow-x: hidden; 
+          overflow-x: hidden;         
       }
 
     
@@ -1182,6 +1184,118 @@
     /* = = = = = [End] N A V I G A T I O N = = = = = */
 
     
+
+    /* ====== [Start] F O O T E R SECTION ============ */
+/* #region */
+.footer {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #8B0000, #d71e1e);
+  color: white;
+  overflow: hidden;
+  padding-top: 60px;
+}
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  opacity: 0.3;
+}
+.footer-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.5rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+  padding: 35px;
+}
+.footer-brand img.footer-logo-img {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+.footer-brand h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.footer p, .footer li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer a:hover {
+  color: #ffe6e6;
+}
+.footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-btn {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  color: #a30000;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.footer-btn:hover {
+  background: #ffe5e5;
+  transform: scale(1.05);
+}
+.footer-btn.line {
+  background: #06c755;
+  color: white;
+}
+.footer-map iframe {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.footer-bottom {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* #endregion */
+/* = = = = = [End] F O O T E R SECTION = = = = = */
+
+
 /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
 @media (max-width: 480px) {
 
@@ -1226,9 +1340,7 @@
     </div>
   </div>
 
-
-
-        <div class="above-content">
+  <div class="above-content">
             <div class="lci-above-group1">
                 <a href="/">
                     <div class="logoLCI">               
@@ -1282,42 +1394,41 @@
                     </div>
                 </div>
             </div>
-        </div>
+  </div>
 
      
         <!-- Navigation -->
-        <div class="NavOfPoonSingtoolayout">
-        <nav class="main-nav">
-            <div class="nav-header-mobile-wrapper"> <div class="nav-lci-above-group1">
-                    <a href="/">
-                        <div class="nav-logoLCI">
-                            <div class="nav-img-logoLCI">
+            <div class="NavOfPoonSingtoolayout">
+            <nav class="main-nav">
+                <div class="nav-header-mobile-wrapper"> 
+                    <div class="nav-lci-above-group1">
+                        <a href="/">
+                            <div class="nav-logoLCI">
+                                <div class="nav-img-logoLCI">
+                                </div>
+                                <div class="nav-titlename-logoLCI">
+                                    <h3>LCI-Thailand</h3>
+                                </div>
                             </div>
-                            <div class="nav-titlename-logoLCI">
-                                <h3>LCI-Thailand</h3>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="hamburger-menu">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
                 </div>
-                <div class="hamburger-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-            </div>
 
-            <ul class="nav-list">
-                <li><a href="/index.html">หน้าแรก</a></li>
-                <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
-                <li class="dropdown">
-                    <a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a>
-                    </li>
-                <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
-                <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
-                <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
-            </ul>
-        </nav>
-        </div>
+                <ul class="nav-list">
+                    <li><a href="/index.html">หน้าแรก</a></li>
+                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
+                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+            </div>
 
 
 
@@ -1339,7 +1450,7 @@
 
   <!-- ความเป็นมาของ LCI -->
   <div class="about-company-history-container" id="ความเป็นมาของ LCI">
-    <h2>LCI 2025 (THAILAND) <span class="highlight">CO.,LT</span></h2>
+    <h2>LCI 2025 (THAILAND) <span class="highlight">CO.,LTD</span></h2>
     <div class="about-company-history">
       <div class="about-company-history-text">
        <p>Lao Cement Industry (LCI) โรงงานผลิตปูนซีเมนต์ขนาดใหญ่ในประเทศลาว เป็นบริษัทลูกของ Power China Resources (PCR) ซึ่ง PCR ปัจจุบันเป็นบริษัทที่มีขนาดใหญ่ ลำดับที่ 285 ของโลก เป็นรัฐวิสาหกิจของรัฐบาลจีน ที่ลงทุนด้านพลังงาน เช่น เขื่อน โซล่าเซลล์ ฯ และอื่นๆ เช่น ก่อสร้างรถไฟฟ้า สนามบิน ฯ ทั่วโลก</p>
@@ -1534,6 +1645,75 @@
     </div>
   </div>
 
+
+
+<!-- Footer content -->
+    <footer class="footer">
+        <svg class="footer-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 Q50,0 100,100 Z" fill="url(#footerGradient)" />
+            <defs>
+            <linearGradient id="footerGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8B0000" />
+                <stop offset="100%" stop-color="#FF4C4C" />
+            </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Main Footer Content -->
+        <div class="footer-overlay">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section footer-brand">
+                    <h2>LCI-Thailand</h2>
+                    <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
+                    <div class="footer-buttons">
+                        <a href="tel:093524441" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
+                        <a href="" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem;">เมนูหลัก</h3>
+                    <ul>
+                    <li><a href="/">หน้าแรก</a></li>
+                    <li><a href="/pages/products/products_showall.html">สินค้า</a></li>
+                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีการสั่งซื้อและวิธีการชำระเงิน</a></li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="footer-section footer-map">
+                    <h3 style="font-size: 1.5rem;">ที่ตั้งสำนักงาน</h3>
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.187358726801!2d103.66845000000001!3d16.05516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Liq4LiH4LmA4LiE4Lij4LiB4Li44LiV4Lin4Li04Liq4Li04Lia4LiHIOC4leC4m-C4o-C4tOC5gOC4meC4o-C5ieC4peC4suC4uOC4meC5gOC4o-C5gOC4meC4hOC4geC4seC5gOC4oeC4qg!5e0!3m2!1sth!2sth!4v1721822872723!5m2!1sth!2sth"
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
+                    <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
+                    <p style="color: white;">📞 093-524411 | 043-512498</p>
+                    <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p style="color: white;"> &copy; 2025 ปูนสิงโต - LCI Thailand - All rights reserved.</p>
+        </div>
+
+    </footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>

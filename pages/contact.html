@@ -1,354 +1,1084 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ติดต่อเรา</title>
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        
-/* ====== [Start] C O N T A C T  VIEW ============ */
-/* #region */
+        * {
+            margin: 0;
+            font-family: 'Kanit', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            box-sizing: border-box;
+            padding: 0;
+        }
 
-.ps-c-promo-banner {
-  background: linear-gradient(to right, #ff7513,#ff1313, #8f0000);
+        .contactus-header-section {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background-image: url('/assets/images/banners/headbanner2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .contactus-header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 50%, rgba(139, 0, 0, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .content-header {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            animation: fadeInScale 1s ease-out forwards;
+        }
+
+        .content-header h1 {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .content-header h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #f0f0f0;
+            border-radius: 2px;
+        }
+
+        .contactus-header-title {
+            font-size: 1.2em;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+        }
+
+        .contactus-header-title a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .contactus-header-title a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .contactus-header-title span {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0 8px;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .contact-redline {
+            width: 100%;
+            height: 10vh;
+            background: linear-gradient(to right, #ff1313,#ff1313, #8f0000);        
+        }
+
+
+        .contact-section,
+        .contact-factory-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 80px 40px;
+            background-color: #ffffff;
+            gap: 60px;
+            flex-wrap: wrap;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+
+        .contact-info,
+        .contact-factory-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 550px;
+            padding: 0;
+        }
+
+        .contact-section-title,
+        .contact-factory-section-title {
+            font-size: 2.2em;
+            color: #cb2027;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-section-title::after,
+        .contact-factory-section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #cb2027;
+            border-radius: 2px;
+        }
+
+        .contact-location-name,
+        .contact-factory-location-name {
+            font-size: 1.6em;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .contact-address,
+        .contact-factory-address {
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .contact-details,
+        .contact-factory-details {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 50px;
+        }
+
+        .contact-details li,
+        .contact-factory-details li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .contact-details li i,
+        .contact-factory-details li i {
+            color: #cb2027;
+            font-size: 1.4em;
+            margin-right: 20px;
+            width: 30px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .contact-details li span a,
+        .contact-factory-details li span a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .contact-details li span a:hover,
+        .contact-factory-details li span a:hover {
+            color: #cb2027;
+            text-decoration: none;
+        }
+
+        .contact-details li span:first-of-type,
+        .contact-factory-details li span:first-of-type {
+            font-weight: 600;
+            margin-right: 15px;
+            color: #333;
+        }
+
+        .contact-details li span:last-of-type,
+        .contact-factory-details li span:last-of-type {
+            font-weight: 400;
+            color: #555;
+            word-break: break-word;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .btn-red {
+            background-color: #cb2027;
+            color: #ffffff;
+        }
+
+        .btn-red:hover {
+            background-color: #a81a20;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #cb2027;
+        }
+
+        .btn-google:hover {
+            background-color: #cb2027;
+            transform: translateY(-3px);
+            color: #ffffff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-google:hover i {
+            color: #ffffff;
+        }
+        
+        /* Map containers */
+        .map-container,
+        .map-factory-container {
+            flex: 1.5;
+            min-width: 350px;
+            max-width: 650px;
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            height: 0;
+            padding-bottom: 45%;
+            max-height: 350px;
+        }
+
+        .map-container iframe,
+        .map-factory-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+/* ====== [Start] F O O T E R SECTION ============ */
+/* #region */
+.footer {
   width: 100%;
-  overflow: hidden;
   position: relative;
-  padding: 20px;
+  background: linear-gradient(135deg, #8B0000, #d71e1e);
+  color: white;
+  overflow: hidden;
+  padding-top: 60px;
 }
-.home-contact-con {
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  opacity: 0.3;
+}
+.footer-overlay {
   position: relative;
   z-index: 1;
+  padding: 2rem 1.5rem;
+}
+.footer-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* contact form */
-.home-c-detail {
-  flex: 1 1 100%;
-  max-width: 40%;
-  margin: 40px auto; 
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  color: #333;
-  border-top: 6px solid #b40000;
-  font-size: 16px;
-  box-sizing: border-box;
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
-.home-c-detail h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #b40000;
-  font-size: 2rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+  padding: 35px;
 }
-.home-c-detail form label {
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #333;
+.footer-brand img.footer-logo-img {
+  width: 80px;
+  margin-bottom: 1rem;
 }
-.home-c-detail input,
-.home-c-detail textarea,
-.home-c-detail select {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  background: #fdfdfd;
-  transition: border 0.3s ease;
-  box-sizing: border-box;
-}
-.home-c-detail input:focus,
-.home-c-detail textarea:focus,
-.home-c-detail select:focus {
-  outline: none;
-  border-color: #b40000;
-  box-shadow: 0 0 0 2px rgba(212, 0, 0, 0.15);
-}
-.home-c-detail textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-.home-c-export-btn {
-  margin-top: 30px;
-  width: 100%;
-  background: linear-gradient(to right, #d70000, #8f0000);
+.footer-brand h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
   color: white;
-  padding: 14px;
-  font-size: 1.05rem;
-  font-weight: bold;
-  border: none;
+}
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: white;
+
+}
+.footer p, .footer li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer a:hover {
+  color: #ffe6e6;
+}
+.footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-btn {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  color: #a30000;
   border-radius: 10px;
-  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
-.home-c-export-btn:hover {
-  background: linear-gradient(to right, #a90000, #600000);
-  transform: scale(1.015);
+.footer-btn:hover {
+  background: #ffe5e5;
+  transform: scale(1.05);
 }
-
-/* social block */
-.home-c-block {
-  padding: 40px;
-  flex: 1 1 55%;
-  max-width: 45%;
-}
-.contact-social-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 20px;
-}
-.contact-social-card {
-  width: 300px;
-  max-width: 100%;
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  position: relative;
-  margin: 20px auto;
-  flex: 1 1 auto;
-  box-sizing: border-box;
-}
-.contact-card-banner img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-}
-.contact-card-logo {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  border: 4px solid #fff;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  background: #fff;
-}
-.contact-card-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.contact-card-detail {
-  padding: 60px 20px 20px;
-  text-align: center;
-}
-.contact-card-detail h3 {
-  margin: 0 0 8px;
-  font-size: 1.2em;
-  color: #333;
-}
-.contact-card-detail p {
-  font-size: 0.95em;
-  color: #666;
-  margin-bottom: 12px;
-}
-.contact-card-detail button {
-  padding: 8px 16px;
-  background: linear-gradient(to right, #ff6a00, #ee0979);
+.footer-btn.line {
+  background: #06c755;
   color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
 }
-.contact-card-detail button:hover {
-  opacity: 0.9;
+.footer-map iframe {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.footer-bottom {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 /* #endregion */
-/* = = = = = [End] C O N T A C T = = = = = */
-    
+/* = = = = = [End] F O O T E R SECTION = = = = = */
+
+/* - - - - - [Start] N A V I G A T I O N- - - - - */
+/* #region */
+.header-fixed-position {
+    width: 100%;
+    position: fixed;
+    top: 0; /* Ensure it's fixed to the top */
+    left: 0; /* Ensure it starts from the left */
+    z-index: 1000; /* Higher z-index to be on top of other content */
+}
+
+.NavOfPoonSingtoolayout {
+    background: linear-gradient(to right, #d70000, #5a0000);
+    font-family: 'Kanit', sans-serif;
+    display: flex; /* Use flex on this container */
+    align-items: center;
+    justify-content: space-between; /* Space out nav-header-mobile-wrapper and nav-list */
+    padding: 0 20px;
+    height: 8vh;
+    min-height: 50px; /* Add a min-height to ensure visibility on very small screens */
+}
+
+/* New: Main navigation container for flex properties */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure it takes full width of parent */
+}
+
+/* New: Wrapper for logo and hamburger on mobile */
+.nav-header-mobile-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and hamburger */
+    width: auto; /* Default for desktop */
+}
+
+.nav-lci-above-group1 {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logoLCI {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-img-logoLCI img {
+    width: 40px;
+    height: auto;
+}
+
+.nav-titlename-logoLCI h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-list li {
+    position: relative;
+}
+
+.nav-list a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list a:hover {
+    background-color: #bc1a1a;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #730202;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-menu li a {
+    padding: 12px 16px;
+    color: white;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #a01616;
+}
+
+/* Hamburger Menu (Hidden by default on Desktop) */
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1100; /* Ensure hamburger is above other elements */
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff; /* White bars for red background */
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 768px) {
+    .NavOfPoonSingtoolayout {
+        height: auto; /* Height adapts to content when menu is open */
+        flex-direction: column; /* Stack vertically */
+        align-items: flex-start; /* Align logo and menu to the start */
+        padding: 10px 20px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-header-mobile-wrapper {
+        width: 100%; /* Take full width on mobile */
+        justify-content: space-between; /* Space out logo and hamburger */
+        align-items: center;
+        min-height: 50px; /* Ensure this section has a minimum height */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    .nav-list {
+        display: none; /* Hide nav list by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #630101; /* Darker red for mobile menu background */
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 10px;
+        padding-bottom: 10px; /* Add some bottom padding */
+    }
+
+    .nav-list.active {
+        display: flex; /* Show nav list when active */
+    }
+
+    .nav-list li {
+        margin: 10px 0; /* Space between list items */
+        width: 100%; /* Full width for list items */
+    }
+
+    .nav-list a {
+        font-size: 1.1rem;
+        padding: 12px 0; /* Adjust padding for mobile links */
+        display: block; /* Make links block level for better touch area */
+        width: 100%; /* Make link take full width of li */
+    }
+
+    .nav-list a:hover {
+        background-color: #a01616; /* Mobile hover color */
+    }
+
+    /* Hide dropdowns on mobile to simplify menu, or style them for mobile */
+    .nav-list .dropdown-menu {
+        position: static; /* Remove absolute positioning */
+        background-color: transparent; /* No background for sub-menu */
+        box-shadow: none;
+        width: auto;
+        padding: 0;
+        margin-top: 5px;
+        display: none; /* Keep hidden, will require JS to toggle for mobile dropdowns */
+    }
+
+    .nav-list .dropdown-menu li a {
+        padding: 8px 16px; /* Adjust padding for dropdown items */
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0.1); /* Slight background for sub-items */
+    }
+    .nav-list .dropdown-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+/* #endregion */
+/* = = = = = [End] N A V I G A T I O N = = = = = */
+
+
+
+        /* --- Responsive Design --- */
+
+        @media (max-width: 1024px) {
+            .contact-section,
+            .contact-factory-section {
+                flex-direction: column;
+                align-items: center;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+
+            .contact-info,
+            .contact-factory-info,
+            .map-container,
+            .map-factory-container {
+                min-width: unset;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .contactus-header-section {
+                height: 300px;
+            }
+
+            .content-header h1 {
+                font-size: 3.5em;
+            }
+
+            .contactus-header-title {
+                font-size: 1em;
+            }
+
+            .map-container,
+            .map-factory-container {
+                padding-bottom: 56.25%;
+                max-height: 400px;
+            }
+        }
+
+        /* Mobile devices */
+        @media (max-width: 768px) {
+            .contact-section,
+            .contact-factory-section {
+                padding: 40px 15px;
+                margin: 20px auto;
+            }
+
+            .content-header h1 {
+                font-size: 2.8em;
+                letter-spacing: 1px;
+            }
+
+            .content-header h1::after {
+                width: 50px;
+                height: 3px;
+            }
+
+            .contactus-header-title {
+                font-size: 0.9em;
+            }
+
+            .contact-section-title,
+            .contact-factory-section-title {
+                font-size: 1.8em;
+            }
+
+            .contact-location-name,
+            .contact-factory-location-name {
+                font-size: 1.4em;
+            }
+
+            .contact-address,
+            .contact-factory-address {
+                font-size: 0.95em;
+            }
+
+            .contact-details li,
+            .contact-factory-details li {
+                display: flex;
+                flex-direction: row; 
+                align-items: center; 
+                flex-wrap: wrap; 
+                margin-bottom: 15px;
+            }
+
+            .contact-details li i,
+            .contact-factory-details li i {
+                margin-right: 15px;
+                margin-bottom: 0;
+            }
+
+            .contact-details li span:first-of-type,
+            .contact-factory-details li span:first-of-type {
+                margin-right: 5px;
+                white-space: nowrap; 
+            }
+
+            .contact-details li span:last-of-type,
+            .contact-factory-details li span:last-of-type {
+                display: inline; 
+                flex-direction: row;
+                gap: 5px;
+                flex-wrap: wrap;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .map-container,
+            .map-factory-container {
+                padding-bottom: 75%; 
+                max-height: 300px;
+            }
+        }
+
+        /* Smaller mobile devices */
+        @media (max-width: 480px) {
+            .contactus-header-section {
+                height: 250px;
+            }
+
+            .content-header h1 {
+                font-size: 2.2em;
+            }
+
+            .contactus-header-title {
+                font-size: 0.8em;
+            }
+
+            .contact-section,
+            .contact-factory-section {
+                padding: 30px 10px;
+                margin: 15px auto;
+                gap: 30px;
+            }
+
+            .contact-section-title,
+            .contact-factory-section-title {
+                font-size: 1.6em;
+            }
+
+            .contact-location-name,
+            .contact-factory-location-name {
+                font-size: 1.2em;
+            }
+
+            .contact-address,
+            .contact-factory-address {
+                font-size: 0.9em;
+            }
+
+            .contact-details li,
+            .contact-factory-details li {
+                font-size: 0.95em;
+            }
+
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.95em;
+            }
+
+            .map-container,
+            .map-factory-container {
+                padding-bottom: 85%;
+                max-height: 250px;
+            }
+        }
     </style>
+
+
 </head>
 <body>
-    
 
-    <!-- Contact -->
-        <section class="ps-c-promo-banner" id="contact" style="position: relative; overflow: hidden;">
-    
-            <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                style="position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;"
-            >
-                <defs>
-                    <pattern id="cubePattern" patternUnits="userSpaceOnUse" width="30" height="52">
-                        <g transform="translate(15,0)">
-                            <polygon points="0,0 15,9 0,18 -15,9" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
-                            <polygon points="0,0 15,9 15,27 0,18" fill="#ccc" stroke="#bbb" stroke-width="0.5"/>
-                            <polygon points="0,18 15,27 0,36 -15,27" fill="#eee" stroke="#bbb" stroke-width="0.5"/>
-                        </g>
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#cubePattern)" />
-            </svg>
-
-            <div class="home-contact-con" style="position: relative; z-index: 1;">
-                <div class="home-c-detail">
-                    <h2>ติดต่อเรา</h2>
-                    <form>
-                        <label for="email">อีเมลผู้ติดต่อ</label>
-                        <input type="text" id="email" name="email" placeholder="example@email.com" required>
-
-                        <label for="name">ชื่อผู้ติดต่อ</label>
-                        <input type="text" id="name" name="name" required>
-                                    
-                        <label for="requestType">ประเภทของคำขอ</label>
-                        <select id="requestType" name="เรื่องที่จะติดต่อ" required>
-                        <option value="">-- เลือกหัวข้อ --</option>
-                        <option value="สอบถามข้อมูล">สอบถามข้อมูล</option>
-                        <option value="ขอใบเสนอราคา">ขอใบเสนอราคา</option>
-                        <option value="แจ้งปัญหา">แจ้งปัญหา</option>
-                        <option value="อื่นๆ">อื่นๆ</option>
-                        </select>
-
-                        <label for="address">รายละเอียด</label>
-                        <textarea id="detail" name="detail" required></textarea>
-
-                        <label for="price">เบอร์โทรติดต่อกลับ</label>
-                        <input type="number" id="tel" name="tel" min="0" required>
-
-                        <label for="preferredTime">เวลาที่สะดวกให้ติดต่อกลับ</label>
-                        <input type="time" id="preferredTime" name="preferredTime">
-                        
-                        <button type="button"  id="exportBtn" class="home-c-export-btn">เก็บเป็นภาพ</button>
-                    </form>
-                </div>
-
-                <div class="home-c-block">
-                    <h1 style="color: white;">สื่อโซเชียล</h1>
-                    <div class="contact-social-cards">
-
-                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
-                            <div class="contact-social-card">
-                                <div class="contact-card-banner">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
+        <!-- Navigation -->
+        <div class="NavOfPoonSingtoolayout">
+            <nav class="main-nav">
+                <div class="nav-header-mobile-wrapper"> 
+                    <div class="nav-lci-above-group1">
+                        <a href="/">
+                            <div class="nav-logoLCI">
+                                <div class="nav-img-logoLCI">
                                 </div>
-
-                                <div class="contact-card-logo">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
-                                </div>
-
-                                <div class="contact-card-detail">
-                                    <p>Facebook page</p>
-                                    <h3>ปูนสิงโต Lion Cement </h3>
-                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
-                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
-                            <div class="contact-social-card">
-                                <div class="contact-card-banner">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
-                                </div>
-
-                                <div class="contact-card-logo">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
-                                </div>
-
-                                <div class="contact-card-detail">
-                                    <p>Facebook page</p>
-                                    <h3>ปูนสิงโต Lion Cement </h3>
-                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
-                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
+                                <div class="nav-titlename-logoLCI">
+                                    <h3>LCI-Thailand</h3>
                                 </div>
                             </div>
                         </a>
                     </div>
-
-                    <h1 style="color: white;">โทรพูดคุย</h1>
-                    <div class="contact-social-cards">
-
-                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
-                            <div class="contact-social-card">
-                                <div class="contact-card-banner">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
-                                </div>
-
-                                <div class="contact-card-logo">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
-                                </div>
-
-                                <div class="contact-card-detail">
-                                    <p>Facebook page</p>
-                                    <h3>ปูนสิงโต Lion Cement </h3>
-                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
-                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
-                                </div>
-                            </div>
-                        </a>
-                        
-                        <a href="https://www.facebook.com/profile.php?id=61572512984359">
-                            <div class="contact-social-card">
-                                <div class="contact-card-banner">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-6/476410345_122104018100750432_2112013131606491394_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFK_UtdugTowjwA1g4wQr02BQyT8opOAoYFDJPyik4ChkYfx1hFp6fJlC-kSAf7kp4s4bD_XKbpzjcbOWxql1jF&_nc_ohc=ahaS16i9X4EQ7kNvwG2htmo&_nc_oc=Adm6eh-fk4SWrvvwTgwKv-er7HOB06UClX-ySIa47Jy1gkGteEW1DOVfBopqXfqGa55nESDeC4rS0jD9z3y5nmoo&_nc_zt=23&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTTXAC7Q-IDuUcNpTlfmltxFCQNDc6JVi1Ws2AcYc9R4w&oe=6887BDEE" alt="Banner">
-                                </div>
-
-                                <div class="contact-card-logo">
-                                    <img src="https://scontent.fkkc2-1.fna.fbcdn.net/v/t39.30808-1/476212081_9106122952757745_3031330560465303739_n.jpg?stp=c0.0.244.244a_dst-jpg_s200x200_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGvZr5ejb7qNGIwPmeuyc2iwOzpS-jN1qfA7OlL6M3Wp0LS4dLDy5ZOAw-AKiW9tU7eXnuL8x5myMK4WbLTvobe&_nc_ohc=Y5yOWZGMxLoQ7kNvwF1C2zY&_nc_oc=Adk06c4vFyiOMs3cEYstlkDEYENbfwknivnPaABNc_3Q7fay2o387a2sDZzMNaHNtON_MyoBtG1CbxQUYcnrvm5S&_nc_zt=24&_nc_ht=scontent.fkkc2-1.fna&_nc_gid=_zj1dWkaoiEpb2wZdLIuUA&oh=00_AfTlkudJtUMKsv2Y44fTVYxhcXUqxtV_2Ezrc0OtEz5hag&oe=6887A013" alt="Logo">
-                                </div>
-
-                                <div class="contact-card-detail">
-                                    <p>Facebook page</p>
-                                    <h3>ปูนสิงโต Lion Cement </h3>
-                                    <p>แชร์ไลฟ์สไตล์ของคุณด้วยสินค้าคุณภาพ ✨</p>
-                                    <button><i class="fab fa-facebook"></i> ติดต่อ</button>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="hamburger-menu">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
                     </div>
                 </div>
 
-            </div>      
-        </section>
+                <ul class="nav-list">
+                    <li><a href="/index.html">หน้าแรก</a></li>
+                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
+                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+    <div class="contactus-header-section">
+        <div class="contactus-header-overlay"></div>
+        <div class="content-header">
+            <h1>ติดต่อเรา</h1>
+            <nav class="contactus-header-title">
+            </nav>
+        </div>
+    </div>
+
+    <div class="contact-redline">
+
+    </div>
+
+    <div class="contact-section">
+        <div class="contact-info">
+            <h2 class="contact-section-title">สำนักงานใหญ่</h2>
+            <h3 class="contact-location-name">บริษัท แอลซีไอ 2025 (ไทยแลนด์) จำกัด</h3>
+            <p class="contact-address">401 ถนนเทวาภิบาล ตำบลในเมือง อำเภอเมือง จังหวัดร้อยเอ็ด 45000</p>
+
+            <ul class="contact-details">
+                <li>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Telephone :</span>
+                    <span>
+                        <a href="tel:+66935244411">093-5244411</a> ,
+                        <a href="tel:+6643512498">043-512498</a>
+                    </span>
+                </li>
+                <li>
+                    <i class="fa-brands fa-line"></i> <span>Line :</span> <span>
+                        <a href="https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url" target="_blank" rel="noopener noreferrer">ปูนสิงโต Lion.LCI </a> </span>
+                </li>
+                <li>
+                    <i class="fa-brands fa-facebook-f"></i> <span>Facebook :</span> <span>
+                        <a href="https://www.facebook.com/profile.php?id=61572512984359" target="_blank" rel="noopener noreferrer">ปูนสิงโต Lion Cement</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>E-mail :</span>
+                    <span>
+                        <a href="mailto:Lion.lci2025@gmail.com">Lion.lci2025@gmail.com</a>
+                    </span>
+                </li>
+            </ul>
+
+            <div class="contact-buttons">
+                <a href="https://maps.app.goo.gl/Xs9nU5x3JjJyEkX46" class="btn btn-google">
+                    <i class="fa-brands fa-google"></i> GOOGLE MAP
+                </a>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30674.101410336574!2d103.65013744999999!3d16.05185325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Lio4Li54LiZ4Lii4LmM4Lij4Lix4Lia4Liq4Lij4LmJ4Liy4LiH4Lia4LmJ4Liy4LiZ4LmB4Lil4Liw4LiI4Lix4LiU4Liq4Lij4LijIOC5guC4m-C4o-C5gOC4ruC5ieC4suC4quC5jCBQcm9ob3VzZSBQcm9wZXJ0eQ!5e0!3m2!1sth!2sth!4v1753928858775!5m2!1sth!2sth"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+    </div>
+
+    <div class="contact-factory-section">
+        <div class="contact-factory-info">
+            <h2 class="contact-factory-section-title">โรงงาน</h2>
+            <h3 class="contact-factory-location-name">โรงงานผลิตปูนซีเมนต์ขนาดใหญ่ในประเทศลาว
+                <br>Lao Cement Industry (LCI)</h3>
+            <p class="contact-factory-address">ตั้งอยู่ที่ บ้านเหล่านาขาม เมืองมหาไชย แขวงคำม่วน ประเทศลาว. โรงงานนี้อยู่ทางตอนกลางของลาว ห่างจากจังหวัดนครพนมเพียง 45 กิโลเมตร และห่างจากประเทศเวียดนาม 180 กิโลเมตร. </p>
+            <div class="contact-buttons">
+                <a href="https://www.google.com/maps/place/Lao+Cement+Industry+Co.Ltd./@17.4552875,104.9902622,19z/data=!4m10!1m2!2m1!1z4LmC4Lij4LiH4LiH4Liy4LiZ4Lic4Lil4Li04LiV4Lib4Li54LiZ4LiL4Li14LmA4Lih4LiZ4LiV4LmM4LiC4LiZ4Liy4LiU4LmD4Lir4LiN4LmI4LmD4LiZ4Lib4Lij4Liw4LmA4LiX4Lio4Lil4Liy4LinIExhbyBDZW1lbnQgSW5kdXN0cnkgTENJIOC4l-C4teC5iOC4leC4seC5ieC4hw!3m6!1s0x313c0063f7d672bf:0x5df3810b8dbdae11!8m2!3d17.4552875!4d104.9914531!16s%2Fg%2F11dxdmr7nj?entry=ttu&g_ep=EgoyMDI1MDcyOC4wIKXMDSoASAFQAw%3D%3D" class="btn btn-google">
+                    <i class="fa-brands fa-google"></i> GOOGLE MAP
+                </a>
+            </div>
+        </div>
+        <div class="map-factory-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.5231185149271!2d104.99032657221375!3d17.455287500000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313c0063f7d672bf%3A0x5df3810b8dbdae11!2sLao%20Cement%20Industry%20Co.Ltd.!5e0!3m2!1sth!2sth!4v1753950570292!5m2!1sth!2sth"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+    </div>
+
+
+    <!-- Footer content -->
+    <footer class="footer">
+        <svg class="footer-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,100 Q50,0 100,100 Z" fill="url(#footerGradient)" />
+            <defs>
+            <linearGradient id="footerGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8B0000" />
+                <stop offset="100%" stop-color="#FF4C4C" />
+            </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Main Footer Content -->
+        <div class="footer-overlay">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section footer-brand">
+                    <h2>LCI-Thailand</h2>
+                    <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
+                    <div class="footer-buttons">
+                        <a href="tel:093524441" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
+                        <a href="" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem;">เมนูหลัก</h3>
+                    <ul>
+                    <li><a href="/">หน้าแรก</a></li>
+                    <li><a href="/pages/products/products_showall.html">สินค้า</a></li>
+                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีการสั่งซื้อและวิธีการชำระเงิน</a></li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="footer-section footer-map">
+                    <h3 style="font-size: 1.5rem;">ที่ตั้งสำนักงาน</h3>
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.187358726801!2d103.66845000000001!3d16.05516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Liq4LiH4LmA4LiE4Lij4LiB4Li44LiV4Lin4Li04Liq4Li04Lia4LiHIOC4leC4m-C4o-C4tOC5gOC4meC4o-C5ieC4peC4suC4uOC4meC5gOC4o-C5gOC4meC4hOC4geC4seC5gOC4oeC4qg!5e0!3m2!1sth!2sth!4v1721822872723!5m2!1sth!2sth"
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
+                    <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
+                    <p style="color: white;">📞 093-524411 | 043-512498</p>
+                    <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p style="color: white;"> &copy; 2025 ปูนสิงโต - LCI Thailand - All rights reserved.</p>
+        </div>
+
+    </footer>
 
 
 
 
+    <!-- /navigationJS -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navList = document.querySelector('.nav-list');
+        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); // Get the main container
 
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+            // Optional: Toggle a class on the main container to adjust height/background if needed when menu is open
+            // mainNavContainer.classList.toggle('menu-open'); 
+        });
 
+        // Optional: Close menu when a link is clicked (good for UX on mobile)
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close if it's a mobile view (or if you want it to close on all clicks)
+                if (window.innerWidth <= 768) { 
+                    hamburgerMenu.classList.remove('active');
+                    navList.classList.remove('active');
+                    // mainNavContainer.classList.remove('menu-open');
+                }
+            });
+        });
 
+        // Optional: Close menu if window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburgerMenu.classList.remove('active');
+                navList.classList.remove('active');
+                // mainNavContainer.classList.remove('menu-open');
+            }
+        });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Optional: Handle dropdowns for mobile if they are needed
+        // For mobile dropdowns, you would typically toggle a class on click instead of hover
+        const dropdownToggles = document.querySelectorAll('.dropdown > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    event.preventDefault(); // Prevent default link behavior
+                    const dropdownMenu = this.nextElementSibling;
+                    if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                        // Close other open dropdowns
+                        document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
+                            if (menu !== dropdownMenu) {
+                                menu.classList.remove('active');
+                            }
+                        });
+                        dropdownMenu.classList.toggle('active'); // Toggle visibility
+                    }
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -310,6 +310,10 @@
             margin: 0;
             font-size: 0.9em;
             color: #555;
+            width: 100%;
+            word-wrap: break-word;     
+            overflow-wrap: break-word; 
+            white-space: normal;       
         }
         .bpc-b-b-l p strong {
             color: #333;
@@ -895,7 +899,8 @@
                                 </tr>
                             </thead>
                             <tbody id="poProductList">
-                                </tbody>
+                                <!-- รายการสินค้า -->
+                            </tbody>
                         </table>
                     </div>
 
@@ -965,9 +970,6 @@
     </div> 
     
 
-
-
-
     <div class="page-footer">
         <button class="download-button" onclick="downloadPO()">
             <i class="fas fa-file-pdf"></i> ดาวน์โหลดใบสั่งซื้อ (PDF)
@@ -977,25 +979,19 @@
 </section>
  
     
-
-
-
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.all.min.js"></script>
 
-
 <script>
-
-        
+    
     /**
      * @description แปลงตัวเลขเป็นคำอ่านภาษาไทย (รวมถึงสตางค์)
      * @param {number} num - ตัวเลขที่ต้องการแปลง
      * @returns {string} - ข้อความคำอ่านภาษาไทย
      */
+
     function bahtText(num) {
         var num_string = num.toFixed(2).toString().split('.');
         var num_int = num_string[0];
@@ -1082,7 +1078,7 @@
                     title: 'คัดลอกสำเร็จ!', 
                    
                     showConfirmButton: false, 
-                    timer: 800, 
+                    timer: 500, 
                     timerProgressBar: true, 
                     customClass: {
                         container: 'swal2-custom-container',
@@ -1195,7 +1191,7 @@
                     title: 'ช็อปต่อกันได้เลยย!',
                     text: 'กำลังนำคุณกลับสู่หน้าสินค้า...',
                     showConfirmButton: false,
-                    timer: 1500 
+                    timer: 900 
                 }).then(() => {
                     window.location.href = '/pages/products/products_showall.html'; 
                 });
@@ -1203,76 +1199,92 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const shopAgainButton = document.getElementById('clearBillAndShopAgain');
-        if (shopAgainButton) {
-            shopAgainButton.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                clearBillAndRedirect();
-            });
-        }
+   document.addEventListener("DOMContentLoaded", () => {
+    const shopAgainButton = document.getElementById('clearBillAndShopAgain');
+    if (shopAgainButton) {
+        shopAgainButton.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            clearBillAndRedirect();
+        });
+    }
 
-        const expiryTime = 45 * 60 * 1000;
-        const now = new Date().getTime();
-        const orderData = JSON.parse(localStorage.getItem("orderDetails")) || {};
-        
-        const orderTimestamp = orderData.timestamp ? new Date(orderData.timestamp).getTime() : 0;
+    const expiryTime = 45 * 60 * 1000;
+    const now = new Date().getTime();
+    const orderData = JSON.parse(localStorage.getItem("orderDetails")) || {};
+    
+    const orderTimestamp = orderData.timestamp ? new Date(orderData.timestamp).getTime() : 0;
 
+    if (orderData && orderTimestamp && (now - orderTimestamp > expiryTime)) {
+        localStorage.removeItem("orderDetails");
+        Swal.fire({
+            icon: 'warning',
+            title: 'เซสชันหมดอายุ',
+            text: 'ข้อมูลการสั่งซื้อของคุณหมดอายุแล้ว กรุณาสั่งซื้อใหม่',
+            confirmButtonText: 'ตกลง'
+        }).then(() => {
+            window.location.href = '/pages/products/products_showall.html'; 
+        });
+        return;
+    }
 
-        if (orderData && orderTimestamp && (now - orderTimestamp > expiryTime)) {
-            localStorage.removeItem("orderDetails");
-            Swal.fire({
-                icon: 'warning',
-                title: 'เซสชันหมดอายุ',
-                text: 'ข้อมูลการสั่งซื้อของคุณหมดอายุแล้ว กรุณาสั่งซื้อใหม่',
-                confirmButtonText: 'ตกลง'
-            }).then(() => {
-                window.location.href = '/pages/products/products_showall.html'; 
-            });
-            return;
-        }
+    if (Object.keys(orderData).length > 0) {
+        document.getElementById("customer-name-po").textContent = orderData.customer.name || '-';
+        document.getElementById("customer-address-po").textContent = orderData.customer.billingAddress || '-';
+        document.getElementById("customer-tax-id-po").textContent = orderData.customer.taxId || '-';
+        document.getElementById("customer-email-po").textContent = orderData.customer.email || '-';
+        document.getElementById("customer-tel-po").textContent = orderData.customer.phone || '-';
+        document.getElementById("shipping-address-po").textContent = orderData.customer.shippingAddress || orderData.customer.billingAddress || '-';
+        document.getElementById("additional-message").textContent = orderData.customer.notes || '-';
 
-        if (Object.keys(orderData).length > 0) {
-            document.getElementById("customer-name-po").textContent = orderData.customer.name || '-';
-            document.getElementById("customer-address-po").textContent = orderData.customer.billingAddress || '-';
-            document.getElementById("customer-tax-id-po").textContent = orderData.customer.taxId || '-';
-            document.getElementById("customer-email-po").textContent = orderData.customer.email || '-';
-            document.getElementById("customer-tel-po").textContent = orderData.customer.phone || '-';
-            document.getElementById("shipping-address-po").textContent = orderData.customer.shippingAddress || orderData.customer.billingAddress || '-';
-            
-            // ตรวจสอบว่า amountToPay มีค่าก่อนใช้งาน
-            const amountToPayDisplay = document.getElementById('paymentAmountDisplay');
-            if (amountToPayDisplay) {
-                amountToPayDisplay.textContent = (orderData.grandTotalIncludingVat || 0).toLocaleString('th-TH', { minimumFractionDigits: 2 }) + ' บาท';
-            }
+        const orderDate = new Date(orderData.timestamp);
+        const year = orderDate.getFullYear();
+        const month = (orderDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = orderDate.getDate().toString().padStart(2, '0');
+        const randomNum = Math.floor(Math.random() * 9000) + 1000; 
+        document.getElementById("po-number").textContent = `PO-${year}${month}${day}-${randomNum}`;
+        document.getElementById("po-date").textContent = `${day}/${month}/${year}`;
 
+        let totalWithVat = 0;
 
-            // กำหนดเลขที่ PO และวันที่
-            const orderDate = new Date(orderData.timestamp);
-            const year = orderDate.getFullYear();
-            const month = (orderDate.getMonth() + 1).toString().padStart(2, '0');
-            const day = orderDate.getDate().toString().padStart(2, '0');
-            const randomNum = Math.floor(Math.random() * 9000) + 1000; // อาจสร้าง PO-number ที่เป็นเอกลักษณ์มากขึ้น
-            document.getElementById("po-number").textContent = `PO-${year}${month}${day}-${randomNum}`;
-            document.getElementById("po-date").textContent = `${day}/${month}/${year}`;
-
-            // แสดงรายการสินค้า
-            const poProductList = document.getElementById("poProductList");
+        const poProductList = document.getElementById("poProductList");
             if (poProductList) { 
                 let itemIndex = 1;
                 poProductList.innerHTML = ''; 
                 orderData.items.forEach(item => {
-                    const quantity = item.quantity;
+                    const quantity = parseInt(item.quantity) || 0;
                     const unitPrice = parseFloat(item.price) || 0;
                     const discount = 0; 
-                    const totalAmount = (unitPrice * quantity); 
+                    const totalAmount = (unitPrice * quantity);
+                    totalWithVat += totalAmount;                  
+                    const deliveryText = item.delivery || 'ไม่ระบุ';                   
+                    const qtyPerSet = parseInt(item.minimum) || 1; 
+                    const unitLabel = item.unit || 'ชิ้น';
+                    let setLabel = '';
+                    if (item.type === 'truck') {
+                        setLabel = 'รถบรรทุก';
+                    } else {
+                        setLabel = 'รถบรรทุก'; 
+                    }
+                    const setCount = Math.floor(quantity / qtyPerSet);
+
+                    let quantityText = '';
+                    if (!item.name.toLowerCase().includes('bulk')) {
+                        quantityText = `<br><small class="text-muted">(จำนวน: ${quantity.toLocaleString()} ${unitLabel})</small>`;
+                    }
 
                     const row = `
                         <tr>
                             <td>${itemIndex++}</td>
-                            <td>${item.name}</td>
-                            <td>${quantity.toLocaleString()}</td>
-                            <td>${item.unit || 'ชิ้น'}</td>
+                            <td>
+                                ${item.name}
+                                <br>
+                                <small class="text-muted">(${deliveryText})</small>
+                            </td>
+                            <td>
+                                ${setCount} ${setLabel} 
+                                ${quantityText}
+                            </td>
+                            <td>${unitLabel}</td>
                             <td>${unitPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                             <td>${discount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                             <td>${totalAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
@@ -1282,57 +1294,55 @@
                 });
             }
 
-            // แสดงสรุปยอดเงิน
-            const subtotal = orderData.subtotalExcludingVat || 0;
-            const vat = orderData.vatAmount || 0;
-            const grandTotal = orderData.grandTotalIncludingVat || 0;
+            const vatRate = 0.07;
+            const subtotal = totalWithVat / (1 + vatRate);
+            const vatAmount = totalWithVat - subtotal;
+            const grandTotal = totalWithVat;
 
             document.getElementById("subtotal-amount").textContent = subtotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
-            document.getElementById("vat-amount").textContent = vat.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
+            document.getElementById("vat-amount").textContent = vatAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
             document.getElementById("grand-total").textContent = grandTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
 
-            document.getElementById("grand-total-words").textContent = bahtText(grandTotal);
-
-            // สำหรับ Delivery Notes
-            document.getElementById("delivery-notes-po").textContent = orderData.customer.notes || '-';
-
-            // สำหรับ Method of Payment
-            const paymentMethodDisplay = document.getElementById("payment-method-po");
-            if (paymentMethodDisplay) {
-                let paymentMethodText = '';
-                switch (orderData.paymentMethod) {
-                    case 'bankTransfer':
-                        paymentMethodText = 'โอนเงินผ่านธนาคาร';
-                        break;
-                    case 'creditCard': 
-                        paymentMethodText = 'บัตรเครดิต/เดบิต';
-                        break;
-                    default:
-                        paymentMethodText = 'ไม่ระบุ';
-                }
-                paymentMethodDisplay.textContent = paymentMethodText;
+            const amountToPayDisplay = document.getElementById('paymentAmountDisplay');
+            if (amountToPayDisplay) {
+                amountToPayDisplay.textContent = grandTotal.toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' บาท';
             }
 
+            document.getElementById("grand-total-words").textContent = bahtText(newGrandTotal);
 
-        } else {
-            Swal.fire({
-                icon: 'info',
-                title: 'ไม่พบข้อมูลการสั่งซื้อ',
-                text: 'ไม่พบข้อมูลการสั่งซื้อล่าสุด กรุณาทำการสั่งซื้อสินค้าจากหน้าหลัก',
-                confirmButtonText: 'กลับสู่หน้าสินค้า'
-            }).then(() => {
-                window.location.href = '/pages/products/products_showall.html'; 
-            });
+        document.getElementById("grand-total-words").textContent = bahtText(grandTotal);
+
+        document.getElementById("delivery-notes-po").textContent = orderData.customer.notes || '-';
+
+        const paymentMethodDisplay = document.getElementById("payment-method-po");
+        if (paymentMethodDisplay) {
+            let paymentMethodText = '';
+            switch (orderData.paymentMethod) {
+                case 'bankTransfer':
+                    paymentMethodText = 'โอนเงินผ่านธนาคาร';
+                    break;
+                case 'creditCard': 
+                    paymentMethodText = 'บัตรเครดิต/เดบิต';
+                    break;
+                default:
+                    paymentMethodText = 'ไม่ระบุ';
+            }
+            paymentMethodDisplay.textContent = paymentMethodText;
         }
-    });
+    } else {
+        Swal.fire({
+            icon: 'info',
+            title: 'ไม่พบข้อมูลการสั่งซื้อ',
+            text: 'ไม่พบข้อมูลการสั่งซื้อล่าสุด กรุณาทำการสั่งซื้อสินค้าจากหน้าหลัก',
+            confirmButtonText: 'กลับสู่หน้าสินค้า'
+        }).then(() => {
+            window.location.href = '/pages/products/products_showall.html'; 
+        });
+    }
+});
+
 
 </script>
-
-
-
-
-
-
 
 </body>
 </html>

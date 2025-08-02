@@ -10,11 +10,12 @@
     <meta property="og:type" content="website" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ผลิตภัณฑ์-ปูนสิงโต</title>
-    <link rel="icon" type="image/png" href="assets/icons/favicon.ico">
-    <!-- <link rel="stylesheet" href="/css/product-poonsingto.css"> -->
+    <!-- <link rel="icon" type="image/png" href="assets/icons/favicon.ico"> -->
+    <!-- <link rel="stylesheet" href="css/product-poonsingto.css"> -->
 
-    <style>
-        /* - - - - - [Start] G E N E R A L Setting Style - - - - -  */
+<style>
+
+/* - - - - - [Start] G E N E R A L Setting Style - - - - -  */
 /* #region */
 
 *,
@@ -160,10 +161,6 @@ table {
 }
 /* #endregion */
 /* = = = = = [End] G E N E R A L Setting = = = = = */
-
-
-
-
 
 
 
@@ -385,10 +382,6 @@ table {
 
 
 
-
-
-
-
 /* - - - - - [Start] H E A D E R Product - - - - - */
 /* #region */
 .ps-product-custom-header {
@@ -439,16 +432,12 @@ table {
 
 
 
-
-
-
-
-
 /* - - - - - [Start] P R O D U C T B O X - - - - - */
 /* #region */
 
 
 /* product section width area */
+/* #region */
 .pro-s-product-showcase {
   padding: 40px 5%;
   background-color: #f4f4f4;
@@ -477,7 +466,6 @@ table {
 }
 
 
-
 /* how to use website */
 .pro-s-how-to-use-search {
   color: rgb(233, 0, 0);
@@ -488,8 +476,6 @@ table {
 }
 
 
-
-
 /* main box */
 .product-all-con {
   display: flex;
@@ -497,6 +483,7 @@ table {
   gap: 1.5rem;
   position: relative;
 }
+
 
 /* advance filter box */
 .pro-s-adv-filters-box {
@@ -517,11 +504,13 @@ table {
   min-width: 0;
 }
 
-
+/* #endregion */
 
 
 
 /* search bar filter - mobile */
+/* #region */
+
 .mobile-pro-s-filter-bar {
   display: block;
 }
@@ -627,14 +616,12 @@ table {
     .mobile-pro-s-filter-bar button:hover {
         background-color: #a10000;
     }
-
-
-
-
+/* #endregion */
 
 
 
 /* type filter products */
+/* #region */
 .pro-s-product-type-selector {
   margin-bottom: 30px;
 }
@@ -668,33 +655,31 @@ table {
   background-color: #ffffff;
   color: #db0000;
 }
-
+/* #endregion */
 
 
 
 /* Product cards desktop */
+/* #region */
 .p-c-product-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    /* เพิ่ม box-sizing สำหรับ desktop ด้วย เผื่อกรณีมีการปรับใช้ flex */
     box-sizing: border-box; 
 }
 .p-c-product-card {
     padding-top: 15px;
-    width: 280px; /* รักษาความกว้างคงที่สำหรับ desktop */
+    width: 280px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     overflow: hidden;
     background: #fff;
-    /* เพิ่ม flex-shrink และ flex-grow สำหรับ desktop */
     flex-shrink: 0; 
-    flex-grow: 1; /* อนุญาตให้การ์ดขยายเพื่อเติมพื้นที่หากมีที่ว่าง */
-    /* เพิ่ม max-width เพื่อให้แสดง 3 ชิ้นต่อแถวบนจอใหญ่ */
-    max-width: calc(33.333% - 14px); /* (14px = 20px gap / 3 card * 2 gaps) ให้แสดง 3 ชิ้นต่อแถว */
-    box-sizing: border-box; /* สำคัญมาก: รวม padding/border ใน width */
+    flex-grow: 1; 
+    max-width: calc(33.333% - 14px); 
+    box-sizing: border-box;
 }
 .p-c-product-card img {
     width: 100%;
@@ -761,6 +746,15 @@ table {
 .p-c-product-price p:last-child {
     margin-bottom: 0;
 }
+.m-p-c-product-price p {
+    margin-bottom: 0.25em; 
+}
+.m-p-c-product-price p:first-child {
+    margin-top: 0;
+}
+.m-p-c-product-price p:last-child {
+    margin-bottom: 0;
+}
 .hide-na-price-text strong {
     color: transparent; 
 }
@@ -785,7 +779,7 @@ table {
     cursor: pointer;
     transition: 0.2s;
     width: 100%;
-    box-sizing: border-box; /* สำคัญ */
+    box-sizing: border-box;
 }
 .p-c-buy-btn {
     background: linear-gradient(to right, #ffdfbc, #fac285 , #ffa600);
@@ -796,19 +790,27 @@ table {
     cursor: pointer;
     transition: 0.2s;
     width: 100%;
-    box-sizing: border-box; /* สำคัญ */
+    box-sizing: border-box;
 }
 .p-c-buy-btn:hover {
-    /* Add hover style if desired */
+  transform: scale(1.05);    
 }
-
+.p-c-add-cart-btn:hover {
+  transform: scale(1.05);    
+}
+.p-c-note {
+    text-align: center;
+    color: #888888;
+}
+/* #endregion */
 
 
 
 
 /* desktop cart product area */
+/* #region */
 .cart-section-container {
-  width: 500px;
+  width: 600px;
   background: #fdfdfd;
   position: fixed;
   top: 0;
@@ -856,69 +858,124 @@ table {
   -webkit-overflow-scrolling: touch; 
 }
 
+/* --- Card item layout --- */
 .cart-item {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-}
-.cart-item:last-child { 
-    border-bottom: none;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #e74c3c; /* เพิ่มเส้นสีแดงด้านซ้ายเพื่อความโดดเด่น */
 }
 .cart-item-horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 15px;
+}
+.cart-item-horizontal-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cart-item-horizontal-box-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.cart-img {
+    flex-shrink: 0;
 }
 .cart-img img {
-  width: 60px;
-  height: auto;
-  border-radius: 8px;
-  flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
 }
 .cart-info {
-  flex: 1;
-  min-width: 150px;
+    flex-grow: 1;
 }
 .cart-name {
-  font-weight: bold;
-  margin-bottom: 4px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
 }
 .cart-price {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 6px;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
 }
+
+/* --- Qty Control Styling --- */
 .qty-control {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 .qty-control button {
-  padding: 4px 8px;
-  background: #eee;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border: 1px solid red;
+    color: rgb(52, 52, 52);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
+.qty-control button:hover {
+    background-color: #c0392b;
+    color: white;
+}
+.truck-quantity-display {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    color: #4e4e4e;
+}
+
+.truck-quantity-display .truck-icon {
+    color: #e74c3c;
+    margin-right: 8px;
+}
+
+.bag-count {
+    font-size: 1em;
+    color: #777;
+    margin: 0 0 0 10px;
+    white-space: nowrap;
+}
+
+/* --- Remove Button --- */
 .cart-remove button {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+    background: rgb(194, 0, 0);
+    border: 1px solid #ccc;
+    color: #f6f6f6;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    max-width: 100%;
+    height: 100%;
 }
-.cart-remove:hover button {
-  background: #a71100;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
+
+.cart-remove button:hover {
+    background-color: #f7f7f7;
+    color: #e74c3c;
+    border-color: #e74c3c;
 }
+
+
 .cart-total-info {
     display: flex;
     flex-direction: column;
@@ -957,7 +1014,7 @@ table {
 }
 
 .primary-checkout-btn {
-    background: linear-gradient(to right, #d70000, #8f0000); /* ใช้สีแดงตามที่คุณมี */
+    background: linear-gradient(to right, #d70000, #8f0000); 
     color: white;
     border: none;
     padding: 12px 15px;
@@ -979,6 +1036,8 @@ table {
 .primary-checkout-btn i {
     font-size: 1.2em;
 }
+
+
 
 
 .empty-cart-state {
@@ -1047,18 +1106,18 @@ table {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
 .mobile-cart-btn {
   display: none;
 }
 
 
-/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* #endregion */
 
 
 
 
 /* popup product detail  */
+/* #region */
 .mobile-popup-close {
   display: none;
 }
@@ -1109,7 +1168,9 @@ body.no-scroll {
   color: #000000;
 }
 
-/* left box area */
+
+
+/* left box area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 .popup-left {
   flex: 1.3;
   min-width: 300px;
@@ -1161,11 +1222,19 @@ body.no-scroll {
   flex-direction: column;
   background-color: #f8f8f8;
   border-radius: 16px;
-  padding: 10px;
   gap: 1rem;
 }
 /* standard box */
 .p-l-b-standard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fff;
+  padding: 23px;
+  border-radius: 16px;
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+}
+.p-l-b-details {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1209,14 +1278,15 @@ body.no-scroll {
   background: #fff;
   padding: 23px;
   border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
 }
 
 
 
+/* right box area >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 .popup-right {
   flex: 1;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -1373,15 +1443,223 @@ body.no-scroll {
     overflow: hidden;
 }
 
-
-
-
-
 /* #endregion */
+
 /* = = = = = [End] P R O D U C T B O X = = = = = */
 
 
 
+/* - - - - - [Start] H O W T O B U Y  - - - - - */
+/* #region */
+
+/* ========== CONTENT SECTION ========== */
+        .how-to-buys-con {
+            flex-wrap: wrap;
+            width: 100%;
+            min-height: 400px;
+        }
+        .how-to-order-container {
+            width: 100%;
+            margin: 30px auto 0;
+            text-align: center;
+            padding: 3%;
+            color: #333;
+            background: linear-gradient(180deg, #ed1b24, #6b0005);
+            overflow-x: hidden;
+        }
+
+        .how-to-order-container h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .how-to-order-container h3 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+
+        /* ========== STEP GRID ========== */
+        .how-to-order-steps-grid {
+            /* display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px; */
+
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        .how-to-order-step-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            position: relative;
+            text-align: left;
+            transition: 0.3s ease;
+            overflow-wrap: break-word;
+            width: 400px;
+        }
+
+        .how-to-order-step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .how-to-order-step-icon {
+            font-size: 32px;
+            color: #f44336;
+            margin-bottom: 20px;
+        }
+
+        .how-to-order-step-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .how-to-order-step-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .how-to-order-step-number {
+            font-size: 60px;
+            font-weight: 900;
+            color: rgba(244, 67, 54, 0.307);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .how-to-order-step-wrapper {
+            position: relative;
+        }
+/* #endregion */
+/* = = = = = [End] H O W T O B U Y = = = = = */
+
+
+
+/* ====== [Start] F O O T E R SECTION ============ */
+/* #region */
+.footer {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #8B0000, #d71e1e);
+  color: white;
+  overflow: hidden;
+  padding-top: 60px;
+}
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 0;
+  opacity: 0.3;
+}
+.footer-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.5rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+  padding: 35px;
+}
+.footer-brand img.footer-logo-img {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+.footer-brand h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.footer p, .footer li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer a:hover {
+  color: #ffe6e6;
+}
+.footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-btn {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  color: #a30000;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.footer-btn:hover {
+  background: #ffe5e5;
+  transform: scale(1.05);
+}
+.footer-btn.line {
+  background: #06c755;
+  color: white;
+}
+.footer-map iframe {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.footer-bottom {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* #endregion */
+/* = = = = = [End] F O O T E R SECTION = = = = = */
 
 
 
@@ -1969,7 +2247,7 @@ body.no-scroll {
         margin-bottom: 3px; /* ลด margin */
     }
     .p-c-product-detail p {
-        font-size: 10px; /* ลดขนาด font รายละเอียด */
+        font-size: 9px; /* ลดขนาด font รายละเอียด */
         margin-bottom: 5px; /* ลด margin */
     }
 
@@ -2007,56 +2285,78 @@ body.no-scroll {
         padding: 8px 10px; /* ลด padding ปุ่ม */
         font-size: 0.9rem; /* ลดขนาด font ปุ่ม */
     }
-
-
+    .p-c-note {
+        text-align: center;
+        color: #888888;
+        font-size: 0.7rem;
+    }
 
 
 
     /* Cart section */
-    .cart-section-container {
-        width: 100%;
-    }
-    
-    .p-cart-title {
-        padding: 15px;
-        font-size: 1.2rem;
-    }
-    .products-carts-container, .p-cart-result {
-        padding: 15px;
-    }
-    .cart-img img {
-        width: 50px;
-    }
-    .cart-name {
-        font-size: 1rem;
-    }
-    .cart-price {
-        font-size: 0.85rem;
-    }
-    .qty-control {
-        flex-basis: 100%;
-        justify-content: flex-start;
-        margin-top: 10px;
-    }
-    .cart-item-horizontal {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-    .cart-remove {
-        align-self: flex-end;
-        margin-top: -30px;
-    }
-    .qty-control button, .cart-remove button {
-        padding: 4px 10px;
-        font-size: 14px;
-    }
-    .p-cart-result p {
-        font-size: 1rem;
-    }
-    .p-cart-result p strong {
-        font-size: 1.1rem;
-    }
+  .cart-section-container {
+    width: 100%;
+  }
+  .cart-item {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  .cart-item-horizontal {
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-item-horizontal-box {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
+  .cart-item-horizontal-box-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cart-img img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .cart-name {
+    font-size: 0.8em;
+  }
+
+  .cart-price {
+    font-size: 0.85em;
+  }
+
+  .qty-control {
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .qty-control button {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+  }
+
+  .truck-quantity-display {
+    font-size: 0.9em;
+    padding: 6px 10px;
+  }
+
+  .bag-count {
+    font-size: 0.9em;
+    margin-left: 6px;
+  }
+
+  .cart-remove button {
+    padding: 4px 8px;
+    font-size: 0.85em;
+    max-width: 100%;
+    height: 100%;
+  }
 
     /* cart btn  */
     .desktop-cart-btn {
@@ -2143,11 +2443,22 @@ body.no-scroll {
     }
 
 
+
+    .info-button h3 {
+        font-size: 18px;
+    }
+    .info-button i {
+        font-size: 18px;
+    }
+    .close-howto-tips {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .close-info-button h3 , i{
+        font-size: 20px;
+    }
 }
-
-
-
-
 
 
 
@@ -2463,129 +2774,6 @@ body.no-scroll {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* HOW IT WORKS */
-.ps-p-how-it-works {
-  background: #f9f9f9;
-  padding: 40px 20px;
-  text-align: center;
-}
-.ps-p-how-it-works h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-.ps-p-steps {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-.ps-p-step {
-  max-width: 280px;
-}
-.ps-p-step-icon {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-.ps-p-step h3 {
-  font-size: 20px;
-  margin: 10px 0 5px;
-}
-
-
-
-/* BENEFITS */
-.ps-p-benefits {
-  background: linear-gradient(to right, #ffefba, #ffffff);
-  padding: 40px 20px;
-  text-align: center;
-}
-.ps-p-benefits h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-.ps-p-benefit-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.ps-p-benefit-list li {
-  background: #fff;
-  padding: 15px 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-size: 18px;
-}
-
-
-
-
-/* NEWSLETTER SUBSCRIBE */
-.ps-p-newsletter-subscribe {
-  background: #e0f7fa;
-  padding: 40px 20px;
-  text-align: center;
-}
-.ps-p-newsletter-subscribe h2 {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-.ps-p-newsletter-subscribe p {
-  margin-bottom: 20px;
-}
-.ps-p-subscribe-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.ps-p-subscribe-form input {
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  width: 250px;
-}
-.ps-p-subscribe-form button {
-  padding: 10px 20px;
-  background: #00acc1;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.ps-p-subscribe-form button:hover {
-  background: #007c91;
-}
-
-
 /* ============================================================================
 ============================================================================
 ============================================================================
@@ -2653,13 +2841,7 @@ body.no-scroll {
   background-color: #005bb5;
 }
 
-
-
-    </style>
-
-
-
-
+</style>
 
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -2668,7 +2850,7 @@ body.no-scroll {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 
 </head>
 <body>
@@ -2682,20 +2864,13 @@ body.no-scroll {
   </div>
 </div>
 
-
-
-
-
-
-
-
 <!-- desktop view -->
 <div class="desktop-product-show">
 
         <!-- product header -->
         <header class="ps-product-custom-header">
             <div class="ps-product-header-top">
-                <h1 class="ps-product-lci">ผลิตภัณฑ์ปูนสิงโต</h1>
+                <h1 class="ps-product-lci">ผลิตภัณฑ์ LCI Thailand</h1>
             </div>
 
             <!-- Navigation -->
@@ -2723,16 +2898,13 @@ body.no-scroll {
                 <ul class="nav-list">
                     <li><a href="/index.html">หน้าแรก</a></li>
                     <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
-                    <li class="dropdown">
-                        <a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a>
-                        </li>
+                    <li><a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a></li>
+                    <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>                    
                     <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
-                    <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
                     <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
                 </ul>
             </nav>
             </div>
-            
 
             <!-- mobile search bar -->
             <div class="mobile-pro-s-filter-bar">
@@ -2763,76 +2935,103 @@ body.no-scroll {
                                 </div>
             </div>
             <!-- ----------------------------- -->
-
         </header>
         
-
-
-
         <main>
-
-
             <!-- Product -->
             <section class="pro-s-product-showcase pro-s-full-width"> 
-
                 <!-- how to use -->
                 <div>
                     <div>
                       <button id="toggleTipsBtn" class="info-button">
-                        <i class="fas fa-info-circle"></i> 
-                        <h3>กดเพื่ออ่านวิธีการใช้งาน*</h3>
+                        <h3><i class="fas fa-info-circle"></i> กดเพื่ออ่านวิธีการใช้งาน*</h3>
                       </button>
                     </div>
                     <div class="pro-s-how-to-use-search pro-s-hidden">
                         <p style="font-weight: 600;">ขั้นตอน</p>
                         <ul>
-                            <li>1. กรอกชื่อสินค้าที่ต้องการ หรือไม่ก็ได้</li>
-                            <li>2. ต้องเลือกจังหวัดที่ต้องการก่อน ถึงจะสามารถเลือกอำเภอได้</li>
-                            <li>3. เลือกอำเภอที่ต้องการ</li>
+                            <li>1. กรอกชื่อสินค้าที่ต้องการ</li>
+                            <li>2. เลือกจังหวัด*</li>
+                            <li>3. เลือกอำเภอ*</li>
                             <li>4. กดปุ่ม "ค้นหา" เพื่อแสดงข้อมูล</li>
                         </ul>
+                        <p style="color: red; font-weight: 500;">(หมายเหตุ * จำเป็น)</p>
+                        <!-- how to buys -->
+                        <section class="how-to-buys-con">
+
+                            <div class="how-to-order-container">
+                                <h2>How to Order</h2>
+                                <h3>ขั้นตอนในการสั่งซื้อสินค้า</h3>
+
+                                <div class="how-to-order-steps-grid">
+                                    <div class="how-to-order-step-card">
+                                        <div class="how-to-order-step-wrapper">
+                                            <div class="how-to-order-step-number">1</div>
+                                            <i class="fas fa-search how-to-order-step-icon"></i>
+                                            <div class="how-to-order-step-title">เลือกสินค้าที่ต้องการ</div>
+                                            <div class="how-to-order-step-desc">เลือกชมสินค้าผ่านเว็บไซต์ พร้อมรายละเอียดสินค้า</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="how-to-order-step-card">
+                                        <div class="how-to-order-step-wrapper">
+                                            <div class="how-to-order-step-number">2</div>
+                                            <i class="fas fa-comments how-to-order-step-icon"></i>
+                                            <div class="how-to-order-step-title">เพิ่มสินค้าลงตะกร้า</div>
+                                            <div class="how-to-order-step-desc">เพิ่มสินค้าที่ต้องการลงใส่ตะกร้าตามจำนวนที่ต้องการ</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="how-to-order-step-card">
+                                        <div class="how-to-order-step-wrapper">
+                                            <div class="how-to-order-step-number">3</div>
+                                            <i class="fas fa-file-invoice how-to-order-step-icon"></i>
+                                            <div class="how-to-order-step-title">ยืนยันคำสั่งซื้อ</div>
+                                            <div class="how-to-order-step-desc">ใส่ที่อยู่จัดส่งและเลือกวิธีการชำระเงิน</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="how-to-order-step-card">
+                                        <div class="how-to-order-step-wrapper">
+                                            <div class="how-to-order-step-number">4</div>
+                                            <i class="fas fa-credit-card how-to-order-step-icon"></i>
+                                            <div class="how-to-order-step-title">ชำระเงิน</div>
+                                            <div class="how-to-order-step-desc">โอนเงินเข้าบัญชีที่กำหนด และส่งหลักฐานการโอนให้ทีมงาน</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="how-to-order-step-card">
+                                        <div class="how-to-order-step-wrapper">
+                                            <div class="how-to-order-step-number">5</div>
+                                            <i class="fas fa-box-open how-to-order-step-icon"></i>
+                                            <div class="how-to-order-step-title">เตรียมจัดส่ง</div>
+                                            <div class="how-to-order-step-desc">ทีมงานตรวจสอบยอด เตรียมสินค้าอย่างดี</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="how-to-order-step-card">
+                                        <div class="how-to-order-step-wrapper">
+                                            <div class="how-to-order-step-number">6</div>
+                                            <i class="fas fa-truck-fast how-to-order-step-icon"></i>
+                                            <div class="how-to-order-step-title">รอรับสินค้า</div>
+                                            <div class="how-to-order-step-desc">จัดส่งสินค้ารวดเร็วถึงหน้าบ้าน</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="close-howto-tips">
+                                    <button id="ClosetoggleTipsBtn" class="close-info-button">                                       
+                                        <h3><i class="fa-regular fa-circle-xmark"></i> ปิดวิธีการใช้งาน</h3>
+                                    </button>
+                                </div>                          
+                            </div>
+                        </section>
                     </div>
                 </div>           
-                <!-- ----------------------------- -->
-                
+                <!-- ----------------------------- -->               
                 <!-- product filter buy -->
-                <div  class="product-all-con">
-
-                    <!-- adv. container -->
-                    <!-- <div class="pro-s-adv-filters-box">
-                      
-                      <div class="pro-s-adv-container">
-                                                                  
-                        <h3>ประเภท</h3>
-                        <div>
-                          <nav>
-                              <ul class="pro-s-adv-product-type-tabs">
-                                  <li class="pro-s-pd-adv-type active" onclick="switchType(this, 'all')">ทั้งหมด</li>
-                                  <li class="pro-s-pd-adv-type" onclick="switchType(this, 'bag')" >แบบถุง</li>
-                                  <li class="pro-s-pd-adv-type" onclick="switchType(this, 'truck')">แบบผง</li>
-                              </ul>
-                          </nav>
-                        </div>
-
-                        <h3>สินค้า</h3>
-                        <div class="pro-s-adv-advanced-filters">
-                          <div>
-                            <label><input type="radio" name="mixeddang" id="ปูนสิงโตแดง"> ปูนสิงโตแดง</label>
-                          </div>                        
-                          <div>
-                            <label><input type="radio" name="mixeddang" id="ปูนสิงโตเขียว"> ปูนสิงโตเขียว</label>
-                          </div>
-                        </div>
-                 
-                      </div>                   
-                    </div> -->
-
+                <div  class="product-all-con">         
                     <!-- product container -->
                     <div class="ps-product-container">
-
-                       
-
-
                       <!-- filter type -->
                       <div class="pro-s-product-type-selector">
                           <h3>ประเภท</h3>
@@ -2845,17 +3044,12 @@ body.no-scroll {
                           </nav>
                       </div>
                       <!-- ----------------------------- -->
-
-
-
                       <!-- Show product all -->               
                       <div id="productGrid" class="p-c-product-grid">
-                        <!-- create card auto --> 
+
                       </div>
-                      <!-- ----------------------------- -->
-                
-                    </div>
-                      
+                      <!-- ----------------------------- -->              
+                    </div>                     
                     <div>
                         <!-- Cart Slide-in Container -->
                         <div class="cart-section-container hidden" id="cartSection">
@@ -2868,14 +3062,14 @@ body.no-scroll {
 
                                 <div class="products-carts-container">
                                 <div id="cartItems">
-
+                                    <!-- การ์ดสินค้า -->
                                 </div>
                                 </div>
 
                                 <div class="p-cart-result">
                                     <div class="pcr-box">
                                         <div id="cartSummary">
-                                            
+                                            <!-- รายการสินค้า -->
                                         </div>
                                     </div>                        
                                 </div>
@@ -2925,76 +3119,85 @@ body.no-scroll {
                                 text-align: center; /* จัดตัวเลขให้อยู่ตรงกลาง */
                                 box-sizing: border-box; /* ให้ padding ไม่ดันขนาดออกไปนอก */
                             ">0</span>
-                    </button>                 
+                        </button>                
                         </div>
-                    </div>
-                    
-                    
+                    </div>                              
                 </div>               
                 <!-- ----------------------------- -->
-     
-                
+
             </section>
-            
-
-
-
-
-
-
-
-
-
-
-            <section class="ps-p-how-it-works">
-              <h2>สั่งซื้ออย่างไร?</h2>
-              <div class="ps-p-steps">
-                <div class="ps-p-step">
-                  <div class="ps-p-step-icon">🛒</div>
-                  <h3>เลือกสินค้า</h3>
-                  <p>ค้นหาสินค้าที่คุณต้องการจากหลากหลายหมวดหมู่</p>
-                </div>
-                <div class="ps-p-step">
-                  <div class="ps-p-step-icon">📦</div>
-                  <h3>ยืนยันคำสั่งซื้อ</h3>
-                  <p>ใส่ที่อยู่จัดส่งและเลือกวิธีการชำระเงิน</p>
-                </div>
-                <div class="ps-p-step">
-                  <div class="ps-p-step-icon">🚚</div>
-                  <h3>รอรับสินค้า</h3>
-                  <p>เราจะจัดส่งสินค้ารวดเร็วถึงหน้าบ้านคุณ</p>
-                </div>
-              </div>
-            </section>
-
-            <section class="ps-p-benefits">
-              <h2>ทำไมต้องเลือกเร?</h2>
-              <ul class="ps-p-benefit-list">
-                <li>🚚 ส่งฟรีทั่วประเทศ</li>
-                <li>💳 เก็บเงินปลายทาง</li>
-                <li>🛡️ รับประกันความพอใจ</li>
-                <li>📞 บริการลูกค้า 24 ชม.</li>
-              </ul>
-            </section>
-
-            <section class="ps-p-newsletter-subscribe">
-              <h2>สมัครรับข่าวสาร</h2>
-              <p>รับโปรโมชั่นและอัปเดตล่าสุดก่อนใคร</p>
-              <form class="ps-p-subscribe-form">
-                <input type="email" placeholder="กรอกอีเมลของคุณ" required />
-                <button type="submit">สมัครเลย</button>
-              </form>
-            </section>
-
         </main>
+
+        <!-- Footer content -->
+        <footer class="footer">
+                <svg class="footer-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0,100 Q50,0 100,100 Z" fill="url(#footerGradient)" />
+                    <defs>
+                    <linearGradient id="footerGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#8B0000" />
+                        <stop offset="100%" stop-color="#FF4C4C" />
+                    </linearGradient>
+                    </defs>
+                </svg>
+
+                <!-- Main Footer Content -->
+                <div class="footer-overlay">
+                    <div class="footer-content">
+                        <!-- Company Info -->
+                        <div class="footer-section footer-brand">
+                            <h2>LCI-Thailand</h2>
+                            <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
+                            <div class="footer-buttons">
+                                <a href="tel:093524441" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
+                                <a href="" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Links -->
+                        <div class="footer-section">
+                            <h3 style="font-size: 1.5rem;">เมนูหลัก</h3>
+                            <ul>
+                            <li><a href="/">หน้าแรก</a></li>
+                            <li><a href="/pages/products/products_showall.html">สินค้า</a></li>
+                            <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                            <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                            <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+                            <li><a href="/pages/howtoPays.html">วิธีการสั่งซื้อและวิธีการชำระเงิน</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="footer-section footer-map">
+                            <h3 style="font-size: 1.5rem;">ที่ตั้งสำนักงาน</h3>
+                            <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.187358726801!2d103.66845000000001!3d16.05516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Liq4LiH4LmA4LiE4Lij4LiB4Li44LiV4Lin4Li04Liq4Li04Lia4LiHIOC4leC4m-C4o-C4tOC5gOC4meC4o-C5ieC4peC4suC4uOC4meC5gOC4o-C5gOC4meC4hOC4geC4seC5gOC4oeC4qg!5e0!3m2!1sth!2sth!4v1721822872723!5m2!1sth!2sth"
+                            width="100%" 
+                            height="200" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="footer-section">
+                            <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
+                            <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
+                            <p style="color: white;">📞 093-524411 | 043-512498</p>
+                            <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p style="color: white;"> &copy; 2025 ปูนสิงโต - LCI Thailand - All rights reserved.</p>
+                </div>
+
+        </footer>
+
 </div>
     
-
-
-
-
-
-
 <!-- pop up สินค้า -->
 <div class="popup-product-detail hidden" id="productDetailPopup">
       <div class="popup-overlay" onclick="closeProductPopup()"></div>
@@ -3004,29 +3207,22 @@ body.no-scroll {
       </div>
 </div>
 
-
+<!-- zoom image สินค้า -->
 <div class="image-zoom-popup" id="imageZoomPopup">
-        <div class="image-zoom-content">
-            <span class="image-zoom-close-button" onclick="closeImageZoomPopup()">&times;</span>
-            <img id="zoomed-image" src="" alt="ภาพขยาย" class="zoomed-image">
-        </div>
+    <div class="image-zoom-content">
+        <span class="image-zoom-close-button" onclick="closeImageZoomPopup()">&times;</span>
+        <img id="zoomed-image" src="" alt="ภาพขยาย" class="zoomed-image">
+    </div>
 </div>
-
-
-
 
 <!-- mobile view -->
 <div class="mobile-product-show">
 
-
 </div>
     
 
-
 <!-- scripts area -->
-
 <script>
-
 
 // =============================================================
 // =============== GLOBAL VARIABLES ============================
@@ -3039,7 +3235,13 @@ const openCartBtn = document.getElementById("openCartBtn");
 const closeCartBtn = document.getElementById("closeCartBtn");
 const cartItemCountSpan = document.getElementById("cartItemCount");
 
-document.addEventListener("DOMContentLoaded", async () => { 
+document.addEventListener("DOMContentLoaded", async () => {
+
+    // =============== CART FUNCTIONS (ตัวอย่าง) ==================
+    // ตรวจสอบและเพิ่ม Event Listener สำหรับปุ่มตะกร้า
+    const openCartBtn = document.getElementById("openCartBtn"); // ต้องมีปุ่มนี้ใน HTML
+    const closeCartBtn = document.getElementById("closeCartBtn"); // ต้องมีปุ่มนี้ใน HTML
+    
     if (openCartBtn) {
         openCartBtn.addEventListener('click', toggleCartSection);
     }
@@ -3047,6 +3249,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         closeCartBtn.addEventListener('click', toggleCartSection);
     }
     updateCartUI();
+    // ==========================================================
+
 
     // =============== PRELOADER ===================================
     const preloader = document.getElementById("preloader");
@@ -3059,6 +3263,54 @@ document.addEventListener("DOMContentLoaded", async () => {
         }, 300);
     }
     // =============================================================
+
+
+    // =============== NAVIGATION MENU =================================
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navList = document.querySelector('.nav-list');
+
+    if (hamburgerMenu && navList) {
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    hamburgerMenu.classList.remove('active');
+                    navList.classList.remove('active');
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburgerMenu.classList.remove('active');
+                navList.classList.remove('active');
+            }
+        });
+
+        const dropdownToggles = document.querySelectorAll('.dropdown > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    event.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                        document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
+                            if (menu !== dropdownMenu) {
+                                menu.classList.remove('active');
+                            }
+                        });
+                        dropdownMenu.classList.toggle('active');
+                    }
+                }
+            });
+        });
+    }
+    // ===================================================================
+
 
     // =============== โหลดข้อมูลและตรวจสอบค่าพื้นที่ที่บันทึกไว้ =================
     await fetchData();
@@ -3087,7 +3339,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     option.textContent = district;
                     districtFilter.appendChild(option);
                 });
-                districtFilter.value = storedFilterState.district || ""; // ตั้งค่าอำเภอ
+                districtFilter.value = storedFilterState.district || "";
             }
             filterProducts();
         } else {
@@ -3098,10 +3350,63 @@ document.addEventListener("DOMContentLoaded", async () => {
             loadDistricts(provinceFilter.value);
             filterProducts();
         });
-        districtFilter.addEventListener("change", filterProducts); // เรียก filterProducts เมื่ออำเภอเปลี่ยน
+        districtFilter.addEventListener("change", filterProducts);
     }
+    // =============================================================
+
+
+    // =============== POPUP TIPS FUNCTIONALITY =========================
+    // ฟังก์ชันสำหรับซ่อนและแสดง Tips
+    const toggleTipsBtn = document.getElementById("toggleTipsBtn");
+    const closetoggleTipsBtn = document.getElementById("ClosetoggleTipsBtn");
+    const howToUse = document.querySelector(".pro-s-how-to-use-search");
+    const productShowcase = document.querySelector(".pro-s-product-showcase");
+
+    if (toggleTipsBtn && howToUse) {
+        toggleTipsBtn.addEventListener("click", () => {
+            howToUse.classList.toggle("pro-s-hidden");
+        });
+    }
+
+    if (closetoggleTipsBtn && howToUse && productShowcase) {
+        closetoggleTipsBtn.addEventListener("click", () => {
+            const isTipsVisible = !howToUse.classList.contains("pro-s-hidden");
+            howToUse.classList.toggle("pro-s-hidden");
+            if (isTipsVisible) {
+                productShowcase.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }
+        });
+    }
+    // ===================================================================
+
 });
 
+// =============== SWITCH TYPE =================================
+window.switchType = function (el, type) {
+    currentType = type;
+    document
+        .querySelectorAll(".pro-s-pd-type")
+        .forEach((tab) => tab.classList.remove("active"));
+    document.querySelectorAll(".pro-s-pd-adv-type").forEach((tab) => tab.classList.remove("active")); // เพิ่มเพื่อให้ทำงานกับ adv-type ด้วย
+
+    if (el) { 
+        el.classList.add("active");
+    }
+
+    const otherTypeTabs = document.querySelectorAll(`.pro-s-pd-type[onclick*="'${type}'"]`);
+    const otherAdvTypeTabs = document.querySelectorAll(`.pro-s-pd-adv-type[onclick*="'${type}'"]`);
+
+    otherTypeTabs.forEach(tab => tab.classList.add('active'));
+    otherAdvTypeTabs.forEach(tab => tab.classList.add('active'));
+
+
+    if (allData) { 
+        filterProducts();
+    }
+}
+
+
+// Cart System
 function toggleCartSection() {
     if (cartSection.classList.contains("hidden")) {
         cartSection.classList.remove("hidden");
@@ -3145,7 +3450,235 @@ function updateCartItemCount() {
     }
 }
 
+function updateCartUI() {
+    const cartItemsEl = document.getElementById("cartItems");
+    const cartSummaryEl = document.getElementById("cartSummary");
+    const checkoutBtn = document.querySelector("#cartSummary button");
+    const provinceFilter = document.getElementById("provinceFilter");
+    const districtFilter = document.getElementById("districtFilter");
+    const searchButton = document.querySelector('.pro-s-filter-bar button[onclick="filterProducts()"]');
 
+    const selectedProvince = provinceFilter ? provinceFilter.value : "ไม่ได้เลือก";
+    const selectedDistrict = districtFilter ? districtFilter.value : "ไม่ได้เลือก";
+
+    const deliveryAreaText = (selectedProvince && selectedDistrict) &&
+                             (selectedProvince !== "" && selectedDistrict !== "") ?
+                             `${selectedProvince}, ${selectedDistrict}` : "กรุณาเลือกพื้นที่จัดส่ง";
+
+    if (cart.length > 0) {
+        if (provinceFilter) provinceFilter.disabled = true;
+        if (districtFilter) districtFilter.disabled = true;
+        if (searchButton) searchButton.disabled = true;
+    } else {
+        if (provinceFilter) provinceFilter.disabled = false;
+        if (districtFilter) districtFilter.disabled = false;
+        if (searchButton) searchButton.disabled = false;
+    }
+
+    updateCartItemCount();
+    localStorage.setItem("currentCart", JSON.stringify(cart));
+
+    cartItemsEl.innerHTML = "";
+    let totalIncludingVatFromItems = 0;
+
+    if (cart.length === 0) {
+        cartItemsEl.innerHTML = `<div class="empty-cart-state"><i class="fas fa-shopping-basket" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i><p>ไม่มีสินค้าในตะกร้าของคุณ</p><a href="/pages/products/products_showall.html" class="back-to-shop-btn">เลือกซื้อสินค้า</a></div>`;
+        cartSummaryEl.innerHTML = `
+            <div><p style="font-size: 15px; color: #988383;" >พื้นที่จัดส่ง: ${deliveryAreaText}</p></div>
+            <p>ยอดสุทธิ (ไม่รวม VAT): 0 บาท</p>
+            <p><strong>ราคารวม: 0 บาท</strong></p>
+            <button disabled>ดำเนินการชำระเงิน</button>
+        `;
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        const itemEl = document.createElement("div");
+        itemEl.className = "cart-item";
+
+        const qtyPerSet = parseInt(item.quantity) || 1;
+        const minimumQty = parseInt(item.minimum) || 1;
+
+        const unitLabel = item.unit || 'ชิ้น';
+        const displayQty = item.qty;
+        
+        const setCount = Math.round(item.qty / qtyPerSet);
+
+        itemEl.innerHTML = `
+            <div class="cart-item-horizontal">
+                <div class="cart-item-horizontal-box">
+                    <div class="cart-item-horizontal-box-item">
+                        <div class="cart-img">
+                            <img src="/assets/images/products/${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-info">
+                            <div class="cart-name">${item.name}</div>
+                            <div class="cart-price">ราคา: ${parseFloat(item.price).toLocaleString()} บาท</div>
+                        </div>
+                    </div>
+                    <div class="cart-remove">
+                        <button onclick="removeFromCart(${index})"> <i class="fa-solid fa-trash"></i> ยกเลิก</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="qty-control">
+                        <button onclick="changeQty(${index}, false)">-</button>
+                        <div class="truck-quantity-display">
+                            <span class="truck-count">${setCount} ${item.type === 'truck' ? 'รถบรรทุก' : 'รถบรรทุก'}</span>
+                        </div>
+                        <button onclick="changeQty(${index}, true)">+</button>
+                        <p class="bag-count">( จำนวน ${displayQty} ${unitLabel} )</p>
+                    </div>
+                </div>
+            </div>`;
+        cartItemsEl.appendChild(itemEl);
+        totalIncludingVatFromItems += (parseFloat(item.price) || 0) * item.qty;
+    });
+
+    const totalExcludingVat = totalIncludingVatFromItems / 1.07;
+
+    cartSummaryEl.innerHTML = `
+        <p>ยอดสุทธิ (ไม่รวม VAT): ${totalExcludingVat.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</p>
+        <p><strong>ราคารวม: ${totalIncludingVatFromItems.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</strong></p>
+        <button onclick="checkoutCart()">ดำเนินการชำระเงิน</button>
+    `;
+
+    if (checkoutBtn) {
+        checkoutBtn.disabled = false;
+    }
+}
+
+function checkoutCart() {
+    localStorage.setItem("checkoutCartItems", JSON.stringify(cart));
+    
+    localStorage.removeItem("buyNowItem"); 
+
+    cart = [];
+    localStorage.removeItem("currentCart");
+    updateCartUI();
+
+    window.location.href = "/pages/products/checkout.html";
+}
+
+function addToCartWithQty(product, qty) {
+    const province = document.getElementById("provinceFilter").value;
+    const district = document.getElementById("districtFilter").value;
+
+    if (!province || !district) {
+        Swal.fire({
+            icon: "warning",
+            title: "กรุณาเลือกพื้นที่",
+            text: "คุณต้องเลือกจังหวัดและอำเภอก่อนที่จะเพิ่มสินค้าในตะกร้า",
+            confirmButtonText: "ตกลง",
+            confirmButtonColor: "#e74c3c",
+        });
+        return;
+    }
+
+    let parsedQty = parseInt(qty);
+    const minQuantity = parseInt(product.minimum) || 1;
+
+    if (isNaN(parsedQty) || parsedQty < minQuantity) {
+        Swal.fire({
+            icon: "warning",
+            title: "จำนวนสินค้าไม่ถูกต้อง",
+            text: `สำหรับสินค้า ${product.name} จำนวนขั้นต่ำคือ ${minQuantity} ${product.unit || 'ชิ้น'}.`,
+            confirmButtonText: "ตกลง",
+            confirmButtonColor: "#e74c3c",
+        });
+        return;
+    }
+
+    const existing = cart.find((item) => item.id === product.id);
+    if (existing) {
+        existing.qty += parsedQty;
+    } else {
+        cart.push({ ...product, qty: parsedQty, province: province, district: district });
+    }
+
+    updateCartUI();
+    showCart();
+
+    Swal.fire({
+        icon: 'success',
+        title: 'เพิ่มสินค้าลงตะกร้าแล้ว',
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+
+function addToCart(productData, quantityToAddFromPopup) {
+    const province = document.getElementById("provinceFilter").value;
+    const district = document.getElementById("districtFilter").value;
+  
+    if (!province || !district) {
+        Swal.fire({
+            icon: "warning",
+            title: "กรุณาเลือกพื้นที่ก่อน",
+            text: "คุณต้องเลือกจังหวัดและอำเภอก่อนที่จะเพิ่มสินค้าในตะกร้า",
+            confirmButtonText: "ตกลง",
+            confirmButtonColor: "#e74c3c",
+        });
+        return;
+    }
+
+    const minQuantityForProduct = parseInt(productData.minimum) || 1;
+    const qtyPerSet = parseInt(productData.quantity) || 1;
+
+    let finalQuantityToAdd = quantityToAddFromPopup;
+
+    if (!finalQuantityToAdd) {
+        finalQuantityToAdd = qtyPerSet;
+    } else {
+        if (finalQuantityToAdd < minQuantityForProduct) {
+            finalQuantityToAdd = minQuantityForProduct;
+        }
+    }
+
+    const existing = cart.find((item) => item.id === productData.id);
+    if (existing) {
+        existing.qty += finalQuantityToAdd;
+    } else {
+        cart.push({ ...productData, qty: finalQuantityToAdd, province: province, district: district });
+    }
+
+    updateCartUI();
+    showCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+    localStorage.setItem("currentCart", JSON.stringify(cart));
+}
+
+function changeQty(index, isIncrement) {
+    const item = cart[index];
+    if (!item) return;
+
+    const qtyPerSet = parseInt(item.quantity) || 1;
+    const minQty = parseInt(item.minimum) || 1;
+    
+    let newQty;
+    if (isIncrement) {
+        newQty = item.qty + qtyPerSet;
+    } else {
+        newQty = item.qty - qtyPerSet;
+    }
+
+    if (newQty >= minQty) {
+        item.qty = newQty;
+    } else if (newQty < minQty && newQty > 0) {
+        item.qty = minQty;
+    } else {
+        removeFromCart(index);
+        return;
+    }
+
+    updateCartUI();
+    localStorage.setItem("currentCart", JSON.stringify(cart));
+}
 
 function showProductPopup(product) {
     const popup = document.getElementById("productDetailPopup");
@@ -3201,7 +3734,35 @@ function showProductPopup(product) {
 
                   <div class="popup-left-box">
                     <div class="popup-left-box-con">
-                      <div class="p-l-b-standard">
+
+                      <div class="p-l-b-details">
+                        <div class="p-l-b-s-title">
+                          <p>คุณสมบัติ</p><hr>
+                        </div>
+                        <div class="plbs-con">
+                          <p>
+                            ${product.feature || ''}
+                          </p>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="popup-right">
+                    <div class="popup-add-v-detail">
+                      <h2>${product.name} ขนาด ${product.weight || ''}</h2>
+                      <p style="color:#555; font-size: 1.3rem;">${product.description || ''} ${product.typeWork || ''}</p>
+                      <div class="popup-right-price">
+                        <p class="popup-right-price-r"><strong>ราคา:</strong> ${displayPriceInPopup} บาท/${product.unit || ''}</p>
+                        <p><strong>พื้นที่:</strong> ${
+                            product.province || ''
+                        }, ${product.district || ''}</p>
+                      </div>
+                    </div>
+                    <div class="p-l-b-standard">
                         <div class="p-l-b-s-title">
                           <p >มาตรฐานอุตสาหกรรม</p><hr>
                         </div>
@@ -3224,20 +3785,9 @@ function showProductPopup(product) {
                             </div>
                           </div>
                         </div>
-                      </div>
+                    </div>
 
-                      <div class="p-l-b-standard">
-                        <div class="p-l-b-s-title">
-                          <p>คุณสมบัติ</p><hr>
-                        </div>
-                        <div class="plbs-con">
-                          <p>
-                            ${product.feature || ''}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="p-l-b-strength">
+                    <div class="p-l-b-strength">
                         <div class="p-l-b-s-title">
                           <p >ข้อมูลผลิตภัณฑ์</p><hr>
                         </div>
@@ -3248,39 +3798,6 @@ function showProductPopup(product) {
                             </p>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="popup-right">
-                    <div class="popup-add-v-detail">
-                      <h2>${product.name} ขนาด ${product.weight || ''}</h2>
-                      <p style="color:#555; font-size: 1.3rem;">${product.description || ''} ${product.typeWork || ''}</p>
-                      <div class="popup-right-price">
-                        <p class="popup-right-price-r"><strong>ราคา:</strong> ${displayPriceInPopup} บาท/${product.unit || ''}</p>
-                        <p><strong>พื้นที่จัดส่ง:</strong> ${
-                            product.province || ''
-                        }, ${product.district || ''}</p>
-                      </div>
-                    </div>
-
-                    <div class="popup-content">
-                        <h4>เลือกจำนวนสินค้า</h4>
-                        <div class="stepper">
-                          <label for="qtyInput">จำนวน:</label>
-                          <div class="stepper-controls">
-                            <button type="button" class="decrease">−</button>
-                            <input id="qtyInput" type="number" min="${minQuantity}" value="${initialQuantity}" />
-                            <button type="button" class="increase">+</button>
-                          </div>
-                          <p class="note">${minimumComment}</p>
-                        </div>
-                    </div>
-
-                    <div class="popup-action-buttons" style="display:flex; gap:15px; margin-top:20px;">
-                      <button class="popup-add-cart-btn"><i class="fa-solid fa-cart-arrow-down"></i> เพิ่มลงตะกร้า</button>
-                      <button class="popup-buy-now-btn"> ซื้อชิ้นเดียว</button>
                     </div>
                 </div>
 
@@ -3489,281 +4006,53 @@ function closeProductPopup() {
     }
 }
 
-function changeQty(index, delta) {
-    const item = cart[index];
-    const newQty = item.qty + delta;
-    const minQuantityForItem = item.type === "bag" ? 640 : (parseInt(item.minimum) || 1); // ตรวจสอบตรงนี้
-
-    if (newQty >= minQuantityForItem) {
-        item.qty = newQty;
-    } else {
-        Swal.fire({
-            icon: "warning",
-            title: "จำนวนสินค้าขั้นต่ำ",
-            text: `สำหรับสินค้า ${item.name} จำนวนขั้นต่ำคือ ${minQuantityForItem} ${item.unit || 'ชิ้น'}.`,
-            confirmButtonText: "ตกลง",
-            confirmButtonColor: "#e74c3c",
-        });
-    }
-    updateCartUI();
-    localStorage.setItem("currentCart", JSON.stringify(cart));
-}
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartUI();
-    localStorage.setItem("currentCart", JSON.stringify(cart));
-}
-
-function updateCartUI() {
-
-    const cartItemsEl = document.getElementById("cartItems");
-    const cartSummaryEl = document.getElementById("cartSummary");
-    const checkoutBtn = document.querySelector("#cartSummary button");
-    const provinceFilter = document.getElementById("provinceFilter");
-    const districtFilter = document.getElementById("districtFilter");
-    const searchButton = document.querySelector('.pro-s-filter-bar button[onclick="filterProducts()"]');
-
-    const selectedProvince = provinceFilter ? provinceFilter.value : "ไม่ได้เลือก";
-    const selectedDistrict = districtFilter ? districtFilter.value : "ไม่ได้เลือก";
-
-    const deliveryAreaText = (selectedProvince && selectedDistrict) &&
-                             (selectedProvince !== "" && selectedDistrict !== "") ?
-                             `${selectedProvince}, ${selectedDistrict}` : "กรุณาเลือกพื้นที่จัดส่ง";
-
-    if (cart.length > 0) {
-        if (provinceFilter) provinceFilter.disabled = true;
-        if (districtFilter) districtFilter.disabled = true;
-        if (searchButton) searchButton.disabled = true;
-    } else {
-        if (provinceFilter) provinceFilter.disabled = false;
-        if (districtFilter) districtFilter.disabled = false;
-        if (searchButton) searchButton.disabled = false;
-    }
-
-    updateCartItemCount();
-    localStorage.setItem("currentCart", JSON.stringify(cart));
-
-    cartItemsEl.innerHTML = "";
-    let totalIncludingVatFromItems = 0;
-
-    if (cart.length === 0) {
-        cartItemsEl.innerHTML = `<div class="empty-cart-state"><i class="fas fa-shopping-basket" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i><p>ไม่มีสินค้าในตะกร้าของคุณ</p><a href="/pages/products/products_showall.html" class="back-to-shop-btn">เลือกซื้อสินค้า</a></div>`;
-        cartSummaryEl.innerHTML = `
-            <div><p style="font-size: 15px; color: #988383;" >พื้นที่จัดส่ง: ${deliveryAreaText}</p></div>
-            <p>ยอดสุทธิ (ไม่รวม VAT): 0 บาท</p>
-            <p><strong>ราคารวม: 0 บาท</strong></p>
-            <button disabled>ดำเนินการชำระเงิน</button>
-        `;
-        updateCartItemCount();
-        return;
-    }
-
-    cart.forEach((item, index) => {
-        const itemEl = document.createElement("div");
-        itemEl.className = "cart-item";
-        itemEl.innerHTML = `
-            <div class="cart-item-horizontal">
-                
-                <div class="cart-img">
-                    <img src="/assets/images/products/${item.image}" alt="${item.name}">
-                </div>
-
-                <div class="cart-info">
-                    <div class="cart-name">${item.name}</div>
-                    <div class="cart-price">ราคา: ${parseFloat(item.price).toLocaleString()} บาท</div>
-                    <div class="qty-control">
-                        <button onclick="changeQty(${index}, -1)">-</button>
-                        <span>${item.qty}</span>
-                        <button onclick="changeQty(${index}, 1)">+</button>
-                    </div>
-                </div>
-
-                <div class="cart-remove">
-                    <button onclick="removeFromCart(${index})">ยกเลิก</button>
-                </div>
-            </div>`;
-        cartItemsEl.appendChild(itemEl);
-        totalIncludingVatFromItems += (parseFloat(item.price) || 0) * item.qty;
-    });
-
-    const totalExcludingVat = totalIncludingVatFromItems / 1.07;
-    const vatAmount = totalIncludingVatFromItems - totalExcludingVat;
-
-    cartSummaryEl.innerHTML = `
-        <div><p style="font-size: 15px; color: #988383;" >พื้นที่จัดส่ง: ${deliveryAreaText}</p></div>
-        <p>ยอดสุทธิ (ไม่รวม VAT): ${totalExcludingVat.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</p>
-        <p><strong>ราคารวม: ${totalIncludingVatFromItems.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} บาท</strong></p>
-        <button onclick="checkoutCart()">ดำเนินการชำระเงิน</button>
-    `;
-
-    if (checkoutBtn) {
-        checkoutBtn.disabled = false;
-    }
-
-    updateCartItemCount();
-    localStorage.setItem("currentCart", JSON.stringify(cart));
-}
-
-function checkoutCart() {
-    localStorage.setItem("checkoutCartItems", JSON.stringify(cart));
-    
-    localStorage.removeItem("buyNowItem"); 
-
-    cart = [];
-    localStorage.removeItem("currentCart");
-    updateCartUI();
-
-    window.location.href = "/pages/products/checkout.html";
-}
-
-function addToCart(productData, quantityToAddFromPopup) {
-    const province = document.getElementById("provinceFilter").value;
-    const district = document.getElementById("districtFilter").value;
-  
-    if (!province || !district) {
-        Swal.fire({
-            icon: "warning",
-            title: "กรุณาเลือกพื้นที่ก่อน",
-            text: "คุณต้องเลือกจังหวัดและอำเภอก่อนที่จะเพิ่มสินค้าในตะกร้า",
-            confirmButtonText: "ตกลง",
-            confirmButtonColor: "#e74c3c",
-        });
-        return;
-    }
-
-    const minQuantityForProduct = productData.type === "bag" ? 640 : (parseInt(productData.minimum) || 1);
-
-    let finalQuantityToAdd;
-
-    if (quantityToAddFromPopup !== undefined && !isNaN(parseInt(quantityToAddFromPopup))) {
-        finalQuantityToAdd = parseInt(quantityToAddFromPopup);
-        if (finalQuantityToAdd < minQuantityForProduct) {
-            finalQuantityToAdd = minQuantityForProduct;
-            console.warn(`Quantity adjusted to minimum from popup input. Original: ${quantityToAddFromPopup}, Adjusted: ${finalQuantityToAdd}`);
-        }
-    } else {
-        finalQuantityToAdd = minQuantityForProduct;
-        console.log(`Using default/minimum quantity for product: ${productData.name}, Quantity: ${finalQuantityToAdd}`);
-    }
-
-    const existing = cart.find((item) => item.id === productData.id);
-    if (existing) {
-        existing.qty += finalQuantityToAdd;
-    } else {
-        cart.push({ ...productData, qty: finalQuantityToAdd, province: province, district: district });
-    }
-
-    updateCartUI();
-
-    
-    
-    showCart();
-}
-
-function addToCartWithQty(product, qty) {
-    const province = document.getElementById("provinceFilter").value;
-    const district = document.getElementById("districtFilter").value;
-
-    if (!province || !district) {
-        Swal.fire({
-            icon: "warning",
-            title: "กรุณาเลือกพื้นที่จัดส่ง",
-            text: "คุณต้องเลือกจังหวัดและอำเภอก่อนที่จะเพิ่มสินค้าในตะกร้า",
-            confirmButtonText: "ตกลง",
-            confirmButtonColor: "#e74c3c",
-        });
-        return;
-    }
-
-    let parsedQty = parseInt(qty);
-    const minQuantity = product.type === "bag" ? 640 : (parseInt(product.minimum) || 1);
-
-    if (isNaN(parsedQty) || parsedQty < minQuantity) {
-        Swal.fire({
-            icon: "warning",
-            title: "จำนวนสินค้าไม่ถูกต้อง",
-            text: `สำหรับสินค้า ${product.name} จำนวนขั้นต่ำคือ ${minQuantity} ${product.unit || 'ชิ้น'}.`,
-            confirmButtonText: "ตกลง",
-            confirmButtonColor: "#e74c3c",
-        });
-        return;
-    }
-
-    const existing = cart.find((item) => item.id === product.id);
-    if (existing) {
-        existing.qty += parsedQty;
-    } else {
-        cart.push({ ...product, qty: parsedQty });
-    }
-
-    updateCartUI();
-
-    showCart();
-
-    Swal.fire({
-        icon: 'success',
-        title: 'เพิ่มสินค้าลงตะกร้าแล้ว',
-        showConfirmButton: false,
-        timer: 1500
-    });
-}
-
-function buyNowWithQty(product, qty) {
-    const province = document.getElementById("provinceFilter").value;
-    const district = document.getElementById("districtFilter").value;
-
-    if (!province || !district) {
-        Swal.fire({
-            icon: "warning",
-            title: "กรุณาเลือกพื้นที่จัดส่ง",
-            text: "คุณต้องเลือกจังหวัดและอำเภอก่อนที่จะดำเนินการ",
-            confirmButtonText: "ตกลง",
-            confirmButtonColor: "#e74c3c",
-        });
-        return;
-    }
-
-    let parsedQty = parseInt(qty);
-    const minQuantity = product.type === "bag" ? 640 : (parseInt(product.minimum) || 1);
-
-    if (isNaN(parsedQty) || parsedQty < minQuantity) {
-        Swal.fire({
-            icon: "warning",
-            title: "จำนวนสินค้าไม่ถูกต้อง",
-            text: `สำหรับสินค้า ${product.name} จำนวนขั้นต่ำคือ ${minQuantity} ${product.unit || 'ชิ้น'}.`,
-            confirmButtonText: "ตกลง",
-            confirmButtonColor: "#e74c3c",
-        });
-        return;
-    }
-
-    const itemToBuy = {
-        ...product,
-        quantity: parsedQty, // ใช้ 'quantity' เพื่อความสอดคล้องกับ checkout.html ที่อ่านจาก 'quantity'
-        province: province, // เพิ่มจังหวัด
-        district: district  // เพิ่มอำเภอ
-    };
-
-    // **สำคัญ**: ลบ checkoutCartItems ออก เพื่อให้มั่นใจว่าหน้า checkout จะไม่ใช้ข้อมูลตะกร้าเก่า
-    localStorage.removeItem("checkoutCartItems"); 
-    localStorage.setItem('buyNowItem', JSON.stringify(itemToBuy));
-
-    window.location.href = "/pages/products/checkout.html";
-}
-
-
-
+// card and filter data
 function filterProducts() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const province = document.getElementById("provinceFilter").value;
     const district = document.getElementById("districtFilter").value;
 
-    if (!province || !district) {
-        renderCards(allData.products, null, null); // แสดงสินค้าทั้งหมดหากไม่มีการเลือกพื้นที่
+    const dealerProvinces = ["กาฬสินธุ์", "อำนาจเจริญ", "บึงกาฬ", "เลย"];
+    const isDealerProvince = dealerProvinces.includes(province);
+
+    if (!province) {
+        renderCards(allData.products, null, null);
+        return;
+    }
+    
+    // ถ้าเป็นจังหวัดดีลเลอร์ ให้แสดง SweetAlert และหยุดการทำงาน
+    if (isDealerProvince) {
+        localStorage.setItem(
+            "filterState",
+            JSON.stringify({
+                province,
+                district: null,
+                searchInput,
+                currentType,
+            })
+        );
+        
+        Swal.fire({
+            icon: 'info',
+            title: '<span style="color: #ca0000;">พื้นที่นี้ต้องติดต่อดีลเลอร์</span>',
+            html: '<span style="color: #ca0000;">กรุณาติดต่อตัวแทนจำหน่ายในพื้นที่โดยตรง</span>',
+            confirmButtonText: 'รับทราบ',
+            background: '#ffffff', 
+            iconColor: '#ca0000', 
+            confirmButtonColor: '#ca0000', 
+            customClass: {
+                popup: 'my-red-alert-popup'
+            }
+        });
+
+        document.getElementById("productGrid").innerHTML = '';
         return;
     }
 
+    if (!district) {
+        return;
+    }
+    
     localStorage.setItem(
         "filterState",
         JSON.stringify({
@@ -3773,12 +4062,11 @@ function filterProducts() {
             currentType,
         })
     );
-
+    
     const priceData = allData.prices?.[province]?.[district];
-
     if (!priceData) {
         document.getElementById("productGrid").innerHTML =
-            "<p>ไม่พบข้อมูลราคาสำหรับพื้นที่นี้</p>"; // เปลี่ยนข้อความเป็น "ไม่พบข้อมูลราคา"
+            "<p>ไม่พบข้อมูลสินค้าสำหรับพื้นที่นี้</p>";
         return;
     }
 
@@ -3872,12 +4160,13 @@ function renderCards(products, priceData, areaInfo) {
                                 <div class="m-p-c-product-price">
                                     <p class="${priceVisibilityClass} "><span>฿ ${priceDisplayText} </span></p>
                                     <p class="m-p-c-product-value">( บรรจุ ${product.weight}/${product.unit} )</p>
+                                    <p> </p>
                                 </div>
                                 <div>
                                 </div>
 
                                 <div class="p-c-product-area">
-                                    <div><p >พื้นที่จัดส่ง: ${productData.province}, ${productData.district}</p></div>
+                                    <div><p >พื้นที่: ${productData.province}, ${productData.district}</p></div>
                                 </div>
                                 <div class="m-p-c-product-area">
                                     <div><p > ${productData.province}, ${productData.district}</p></div>
@@ -3887,7 +4176,9 @@ function renderCards(products, priceData, areaInfo) {
                             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                                 <button class="p-c-buy-btn" onclick='showProductPopup(${JSON.stringify(productData)})'><i class="fa-solid fa-magnifying-glass"></i> รายละเอียด</button>
                                 <button class="p-c-add-cart-btn"><i class="fa-solid fa-cart-arrow-down"></i> เพิ่มลงตะกร้า</button>
+                                <p class="p-c-note">( สั่งขั้นต่ำ 1 รถบรรทุก )</p>
                             </div>
+                            
                         </div>
             `;
         card.querySelector(".p-c-add-cart-btn").addEventListener("click", () => {
@@ -3895,7 +4186,7 @@ function renderCards(products, priceData, areaInfo) {
                 Swal.fire({
                     icon: "error",
                     title: "ไม่สามารถเพิ่มสินค้าได้",
-                    text: `สินค้านี้ ${product.name} ยังไม่มีข้อมูลราคาที่ถูกต้องสำหรับพื้นที่ที่คุณเลือก. กรุณาเลือกจังหวัดและอำเภอที่ต้องการ เพื่อดูราคาและดำเนินการต่อ.`,
+                    text: `กรุณาเลือกจังหวัดและอำเภอที่ต้องการ เพื่อดูราคาและดำเนินการต่อ.`,
                     confirmButtonText: "ตกลง",
                     confirmButtonColor: "#e74c3c",
                 }).then((result) => {
@@ -3912,32 +4203,6 @@ function renderCards(products, priceData, areaInfo) {
     });
 }
 
-
-
-
-// =============== SWITCH TYPE =================================
-window.switchType = function (el, type) {
-    currentType = type;
-    document
-        .querySelectorAll(".pro-s-pd-type")
-        .forEach((tab) => tab.classList.remove("active"));
-    document.querySelectorAll(".pro-s-pd-adv-type").forEach((tab) => tab.classList.remove("active")); // เพิ่มเพื่อให้ทำงานกับ adv-type ด้วย
-
-    if (el) { 
-        el.classList.add("active");
-    }
-
-    const otherTypeTabs = document.querySelectorAll(`.pro-s-pd-type[onclick*="'${type}'"]`);
-    const otherAdvTypeTabs = document.querySelectorAll(`.pro-s-pd-adv-type[onclick*="'${type}'"]`);
-
-    otherTypeTabs.forEach(tab => tab.classList.add('active'));
-    otherAdvTypeTabs.forEach(tab => tab.classList.add('active'));
-
-
-    if (allData) { 
-        filterProducts();
-    }
-}
 
 // =============== โหลดข้อมูล Products และ Prices ===================
 async function fetchData() {
@@ -3970,6 +4235,7 @@ async function fetchData() {
     }
 }
 
+
 // =============== โหลดอำเภอตามจังหวัดที่เลือก =====================
 function loadDistricts(selectedProvince) {
     const districtFilter = document.getElementById("districtFilter");
@@ -3985,80 +4251,7 @@ function loadDistricts(selectedProvince) {
     }
 }
 
-
-
-// ฟังก์ชั่น Pop Up ข้อมูลวิธีการ ==================================================
-document.getElementById("toggleTipsBtn").addEventListener("click", function () {
-  const howToUse = document.querySelector(".pro-s-how-to-use-search");
-  howToUse.classList.toggle("pro-s-hidden");
-});
-// =========================================================================
-
-
-
-
-
-
-// <!-- /navigationJS -->
-document.addEventListener('DOMContentLoaded', function() {
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
-        const navList = document.querySelector('.nav-list');
-        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); // Get the main container
-
-        hamburgerMenu.addEventListener('click', function() {
-            hamburgerMenu.classList.toggle('active');
-            navList.classList.toggle('active');
-            // Optional: Toggle a class on the main container to adjust height/background if needed when menu is open
-            // mainNavContainer.classList.toggle('menu-open'); 
-        });
-
-        // Optional: Close menu when a link is clicked (good for UX on mobile)
-        navList.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Only close if it's a mobile view (or if you want it to close on all clicks)
-                if (window.innerWidth <= 768) { 
-                    hamburgerMenu.classList.remove('active');
-                    navList.classList.remove('active');
-                    // mainNavContainer.classList.remove('menu-open');
-                }
-            });
-        });
-
-        // Optional: Close menu if window is resized above mobile breakpoint
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                hamburgerMenu.classList.remove('active');
-                navList.classList.remove('active');
-                // mainNavContainer.classList.remove('menu-open');
-            }
-        });
-
-        // Optional: Handle dropdowns for mobile if they are needed
-        // For mobile dropdowns, you would typically toggle a class on click instead of hover
-        const dropdownToggles = document.querySelectorAll('.dropdown > a');
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(event) {
-                if (window.innerWidth <= 768) {
-                    event.preventDefault(); // Prevent default link behavior
-                    const dropdownMenu = this.nextElementSibling;
-                    if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-                        // Close other open dropdowns
-                        document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
-                            if (menu !== dropdownMenu) {
-                                menu.classList.remove('active');
-                            }
-                        });
-                        dropdownMenu.classList.toggle('active'); // Toggle visibility
-                    }
-                }
-            });
-        });
-    });
-
 </script>
-
-
-
 
 </body>
 </html>

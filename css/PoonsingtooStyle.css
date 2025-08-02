@@ -483,7 +483,6 @@ table {
 /* ====== [Start] H E A D E R  Content ====== */
 /* #region */
 
-/* Base Styles - Header หลักทั้งหมดจะถูกซ่อนไว้ก่อนแล้วค่อยแสดงตาม Media Query */
 .header-title-page {
   width: 100%;
   padding: 20px;
@@ -492,7 +491,16 @@ table {
 .header-title-page-title {
   padding-top: 50px;
   display: flex;
+  flex-direction: column;
+  text-align: center;
   color: #ff0000;
+}
+.header-title-page-title  h1 {
+   font-size: 3rem; 
+}
+.header-title-page-title  p {
+   font-size: 1.3rem;
+   color: #3a3a3a; 
 }
 
 
@@ -786,7 +794,7 @@ table {
 }
 .home-section-title {
   color: #c00000;
-  font-size: 2.5rem;
+  font-size: 2.8em;
   font-weight: 600;
   text-align: center;
   margin-bottom: 40px;
@@ -813,6 +821,7 @@ table {
 }
 .home-product-info {
   padding: 16px;
+  text-align: center;
 }
 .home-product-title {
   font-size: 1.2em;
@@ -1141,7 +1150,7 @@ body.no-scroll {
 
 .home-std-section-title {
     font-size: 2.8em;
-    color: #333;
+    color: rgb(192, 0, 0);
     margin-bottom: 15px;
     font-weight: 700;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
@@ -1239,33 +1248,107 @@ body.no-scroll {
     line-height: 1.6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .home-std-section-title {
-        font-size: 2.2em;
-    }
-    .home-std-section-subtitle {
-        font-size: 1em;
-        margin-bottom: 40px;
-    }
-    .home-std-home-standard-section {
-        padding: 60px 0;
-    }
-    .home-std-capabilities-grid {
-        grid-template-columns: 1fr; /* จัดเรียงเป็นคอลัมน์เดียวบนมือถือ */
-    }
-    .home-std-capability-card {
-        padding: 25px;
-    }
-    .home-std-card-icon {
-        width: 70px;
-        height: 70px;
-    }
-    .home-std-card-icon svg {
-        width: 45px;
-        height: 45px;
-    }
+
+/* popup standard */
+
+.standard-popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* พื้นหลังทึบแสง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
 }
+
+.standard-popup-modal.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.standard-popup-content {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.standard-popup-modal.is-visible .standard-popup-content {
+    transform: scale(1);
+}
+
+.standard-popup-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #e74c3c;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.standard-popup-close-btn:hover {
+    transform: rotate(90deg);
+}
+
+.standard-popup-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.standard-popup-header-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.standard-popup-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #e74c3c;
+    margin: 0;
+}
+
+.standard-popup-body {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.standard-popup-body p {
+    margin-bottom: 15px;
+}
+
+.standard-popup-certificate-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+
+
 
 
 /* #endregion */
@@ -1405,6 +1488,22 @@ body.no-scroll {
 .news-link:hover {
   transform: scale(1.05);
 }
+
+.sort-btn {
+  padding: 8px 16px;
+  margin: 0 8px;
+  background: linear-gradient(to right, #d70000, #8f0000);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sort-btn:hover {
+  background: #b00000;
+}
+
 /* #endregion */
 /* = = = = = [End]  L C I - T H  News = = = = = */
 
@@ -1771,14 +1870,6 @@ th:nth-child(2), td:nth-child(2) {
 
 
 
-
-
-
-
-
-
-
-
 /* ====== [Start] M O B I L E  H E A D E R  Content ====== */
 /* #region */
 
@@ -1960,6 +2051,10 @@ th:nth-child(2), td:nth-child(2) {
 
 
 
+
+
+
+
 /* responsive nav bar burger 834px */
 
 
@@ -1986,8 +2081,7 @@ th:nth-child(2), td:nth-child(2) {
 
 
 
-/* Mobile Styles (สำหรับหน้าจอ <= 768px) */
-/* Mobile Styles (สำหรับหน้าจอ <= 768px) */
+/* Mobile Styles */
 @media (max-width: 480px) {
 
     .mobile-view {
@@ -2093,7 +2187,10 @@ th:nth-child(2), td:nth-child(2) {
         display: none;
     }
     .header-title-page-title h1 {
-        font-size: 25px;
+        font-size: 1.5rem;
+    }
+    .header-title-page-title p {
+        font-size: 16px;
     }
 
     /* --- */
@@ -2120,6 +2217,9 @@ th:nth-child(2), td:nth-child(2) {
     .m-about-detail {
         align-items: center;
         justify-items: center;
+    }
+    .m-about-detail h2{
+        color: rgb(192, 0, 0);
     }
     .m-about-detail a{
         align-items: center;
@@ -2539,18 +2639,85 @@ th:nth-child(2), td:nth-child(2) {
         padding: 10px; /* Adjust padding */
     }
     .image-zoom-content {
-        max-width: 95%; /* Make zoom popup wider */
-        padding: 10px; /* Smaller padding */
+        max-width: 95%; 
+        padding: 10px; 
     }
     .zoomed-image {
-        max-height: 70vh; /* Adjust zoomed image height */
+        max-height: 70vh; 
     }
     .image-zoom-close-button {
-        font-size: 24px; /* Smaller close button */
+        font-size: 24px; 
     }
 
 
+
+    /* standard area */
+    .home-std-section-title {
+        font-size: 2.2em;
+    }
+    .home-std-section-subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .home-std-home-standard-section {
+        padding: 60px 0;
+    }
+    .home-std-capabilities-grid {
+        grid-template-columns: 1fr; 
+    }
+    .home-std-capability-card {
+        padding: 25px;
+    }
+    .home-std-card-icon {
+        width: 70px;
+        height: 70px;
+    }
+    .home-std-card-icon svg {
+        width: 45px;
+        height: 45px;
+    }
+    .standard-popup-modal {
+        align-items: flex-start; /* จัดให้ content อยู่ด้านบนของหน้าจอ */
+        padding-top: 20px;
+    }
+    
+    .standard-popup-content {
+        width: 95%; /* ใช้พื้นที่หน้าจอมากขึ้น */
+        max-width: none;
+        padding: 15px; /* ลด padding */
+        border-radius: 10px;
+    }
+    
+    .standard-popup-close-btn {
+        top: 10px;
+        right: 10px;
+        font-size: 1.8em;
+    }
+    
+    .standard-popup-header {
+        flex-direction: column; /* เรียงไอคอนและหัวข้อในแนวตั้ง */
+        text-align: center;
+        gap: 10px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .standard-popup-header-img {
+        width: 60px; /* ลดขนาดรูปไอคอน */
+        height: 60px;
+    }
+    
+    .standard-popup-title {
+        font-size: 1.5em; /* ลดขนาดฟอนต์หัวข้อ */
+    }
+    
+    .standard-popup-body {
+        font-size: 0.9em; /* ลดขนาดฟอนต์เนื้อหา */
+    }
+
 }
+
+
 
 
 @media (min-width: 481px) and (max-width: 1024px) {
@@ -2768,6 +2935,9 @@ th:nth-child(2), td:nth-child(2) {
         font-size: 16px;
     }
 }
+
+
+
 
 
 @media (min-width: 481px) and (max-width: 1024px) {
