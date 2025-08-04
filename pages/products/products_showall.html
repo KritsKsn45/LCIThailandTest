@@ -439,8 +439,26 @@ table {
 /* product section width area */
 /* #region */
 .pro-s-product-showcase {
-  padding: 40px 5%;
-  background-color: #f4f4f4;
+    padding: 40px 5%;
+    background-color: #f4f4f4;
+    position: relative; /* สำคัญ: ต้องกำหนดเพื่อให้ ::before อ้างอิงตำแหน่งได้ */
+    overflow: hidden; /* ป้องกันภาพล้นขอบ */
+    z-index: 1; /* ทำให้เนื้อหาอยู่ด้านบน */
+}
+
+.pro-s-product-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/1350.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1; 
 }
 .pro-s-full-width {
   width: 100%;
@@ -1548,119 +1566,6 @@ body.no-scroll {
         }
 /* #endregion */
 /* = = = = = [End] H O W T O B U Y = = = = = */
-
-
-
-/* ====== [Start] F O O T E R SECTION ============ */
-/* #region */
-.footer {
-  width: 100%;
-  position: relative;
-  background: linear-gradient(135deg, #8B0000, #d71e1e);
-  color: white;
-  overflow: hidden;
-  padding-top: 60px;
-}
-.footer-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 0;
-  opacity: 0.3;
-}
-.footer-overlay {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 1.5rem;
-}
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 220px;
-  padding: 35px;
-}
-.footer-brand img.footer-logo-img {
-  width: 80px;
-  margin-bottom: 1rem;
-}
-.footer-brand h2 {
-  font-size: 1.8rem;
-  margin: 0 0 0.5rem;
-}
-.footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-.footer p, .footer li {
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-}
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
-.footer a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.footer a:hover {
-  color: #ffe6e6;
-}
-.footer-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.footer-btn {
-  padding: 0.6rem 1.2rem;
-  background: white;
-  color: #a30000;
-  border-radius: 10px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-.footer-btn:hover {
-  background: #ffe5e5;
-  transform: scale(1.05);
-}
-.footer-btn.line {
-  background: #06c755;
-  color: white;
-}
-.footer-map iframe {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-.footer-bottom {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* #endregion */
-/* = = = = = [End] F O O T E R SECTION = = = = = */
-
 
 
 
@@ -3078,48 +2983,48 @@ body.no-scroll {
                         
                         <!-- Cart button -->
                         <div style="position: fixed; bottom: 20px; right: 20px;  z-index: 5;">
-                        <button id="openCartBtn" 
-                            style="
-                                position: fixed; 
-                                bottom: 20px; 
-                                right: 20px; 
-                                background: linear-gradient(to right, #d70000, #8f0000);
-                                color: white; 
-                                padding: 15px 20px; 
-                                border-radius: 50px; 
-                                font-size: 1rem; 
-                                border: none; 
-                                box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
-                                z-index: 999; 
-                                cursor: pointer; 
-                                position: relative; /* สำหรับให้ span นับสินค้าจัดตำแหน่งได้ */
-                                display: flex; /* จัดให้ไอคอนและข้อความอยู่ตรงกลาง */
-                                align-items: center;
-                                gap: 8px; /* ระยะห่างระหว่างไอคอนและข้อความ */
-                            ">
-                            <div class="desktop-cart-btn">
-                                <i class="fa-solid fa-cart-plus"></i> ดูตะกร้า
-                            </div>
-                            <div class="mobile-cart-btn">
-                                <i class="fa-solid fa-cart-plus"></i> 
-                            </div>
-                        <span id="cartItemCount" 
-                            style="
-                                position: absolute; 
-                                top: -5px; 
-                                right: -5px; 
-                                background-color: #ffc107; 
-                                color: #333; 
-                                border-radius: 50%; 
-                                padding: 5px 8px; 
-                                font-size: 0.75rem; 
-                                font-weight: bold; 
-                                display: none; /* ซ่อนไว้ก่อน ถ้าไม่มีสินค้า */
-                                min-width: 24px; /* กำหนดความกว้างขั้นต่ำเพื่อไม่ให้เล็กเกินไป */
-                                text-align: center; /* จัดตัวเลขให้อยู่ตรงกลาง */
-                                box-sizing: border-box; /* ให้ padding ไม่ดันขนาดออกไปนอก */
-                            ">0</span>
-                        </button>                
+                            <button id="openCartBtn" 
+                                style="
+                                    position: fixed; 
+                                    bottom: 20px; 
+                                    right: 20px; 
+                                    background: linear-gradient(to right, #d70000, #8f0000);
+                                    color: white; 
+                                    padding: 15px 20px; 
+                                    border-radius: 50px; 
+                                    font-size: 1rem; 
+                                    border: none; 
+                                    box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+                                    z-index: 999; 
+                                    cursor: pointer; 
+                                    position: relative; /* สำหรับให้ span นับสินค้าจัดตำแหน่งได้ */
+                                    display: flex; /* จัดให้ไอคอนและข้อความอยู่ตรงกลาง */
+                                    align-items: center;
+                                    gap: 8px; /* ระยะห่างระหว่างไอคอนและข้อความ */
+                                ">
+                                <div class="desktop-cart-btn">
+                                    <i class="fa-solid fa-cart-plus"></i> ดูตะกร้า
+                                </div>
+                                <div class="mobile-cart-btn">
+                                    <i class="fa-solid fa-cart-plus"></i> 
+                                </div>
+                            <span id="cartItemCount" 
+                                style="
+                                    position: absolute; 
+                                    top: -5px; 
+                                    right: -5px; 
+                                    background-color: #ffc107; 
+                                    color: #333; 
+                                    border-radius: 50%; 
+                                    padding: 5px 8px; 
+                                    font-size: 0.75rem; 
+                                    font-weight: bold; 
+                                    display: none; /* ซ่อนไว้ก่อน ถ้าไม่มีสินค้า */
+                                    min-width: 24px; /* กำหนดความกว้างขั้นต่ำเพื่อไม่ให้เล็กเกินไป */
+                                    text-align: center; /* จัดตัวเลขให้อยู่ตรงกลาง */
+                                    box-sizing: border-box; /* ให้ padding ไม่ดันขนาดออกไปนอก */
+                                ">0</span>
+                            </button>                
                         </div>
                     </div>                              
                 </div>               
@@ -3128,73 +3033,7 @@ body.no-scroll {
             </section>
         </main>
 
-        <!-- Footer content -->
-        <footer class="footer">
-                <svg class="footer-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M0,100 Q50,0 100,100 Z" fill="url(#footerGradient)" />
-                    <defs>
-                    <linearGradient id="footerGradient" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#8B0000" />
-                        <stop offset="100%" stop-color="#FF4C4C" />
-                    </linearGradient>
-                    </defs>
-                </svg>
-
-                <!-- Main Footer Content -->
-                <div class="footer-overlay">
-                    <div class="footer-content">
-                        <!-- Company Info -->
-                        <div class="footer-section footer-brand">
-                            <h2>LCI-Thailand</h2>
-                            <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
-                            <div class="footer-buttons">
-                                <a href="tel:093524441" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
-                                <a href="" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Links -->
-                        <div class="footer-section">
-                            <h3 style="font-size: 1.5rem;">เมนูหลัก</h3>
-                            <ul>
-                            <li><a href="/">หน้าแรก</a></li>
-                            <li><a href="/pages/products/products_showall.html">สินค้า</a></li>
-                            <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
-                            <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
-                            <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
-                            <li><a href="/pages/howtoPays.html">วิธีการสั่งซื้อและวิธีการชำระเงิน</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Map -->
-                        <div class="footer-section footer-map">
-                            <h3 style="font-size: 1.5rem;">ที่ตั้งสำนักงาน</h3>
-                            <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.187358726801!2d103.66845000000001!3d16.05516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Liq4LiH4LmA4LiE4Lij4LiB4Li44LiV4Lin4Li04Liq4Li04Lia4LiHIOC4leC4m-C4o-C4tOC5gOC4meC4o-C5ieC4peC4suC4uOC4meC5gOC4o-C5gOC4meC4hOC4geC4seC5gOC4oeC4qg!5e0!3m2!1sth!2sth!4v1721822872723!5m2!1sth!2sth"
-                            width="100%" 
-                            height="200" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-
-                        <!-- Contact Info -->
-                        <div class="footer-section">
-                            <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
-                            <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
-                            <p style="color: white;">📞 093-524411 | 043-512498</p>
-                            <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p style="color: white;"> &copy; 2025 ปูนสิงโต - LCI Thailand - All rights reserved.</p>
-                </div>
-
-        </footer>
+       
 
 </div>
     
@@ -3230,6 +3069,8 @@ body.no-scroll {
 let allData = null;
 let currentType = "all";
 let cart = JSON.parse(localStorage.getItem("currentCart")) || [];
+let dealerData = null;
+
 const cartSection = document.getElementById("cartSection");
 const openCartBtn = document.getElementById("openCartBtn");
 const closeCartBtn = document.getElementById("closeCartBtn");
@@ -3238,9 +3079,8 @@ const cartItemCountSpan = document.getElementById("cartItemCount");
 document.addEventListener("DOMContentLoaded", async () => {
 
     // =============== CART FUNCTIONS (ตัวอย่าง) ==================
-    // ตรวจสอบและเพิ่ม Event Listener สำหรับปุ่มตะกร้า
-    const openCartBtn = document.getElementById("openCartBtn"); // ต้องมีปุ่มนี้ใน HTML
-    const closeCartBtn = document.getElementById("closeCartBtn"); // ต้องมีปุ่มนี้ใน HTML
+    const openCartBtn = document.getElementById("openCartBtn"); 
+    const closeCartBtn = document.getElementById("closeCartBtn"); 
     
     if (openCartBtn) {
         openCartBtn.addEventListener('click', toggleCartSection);
@@ -3379,6 +3219,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     // ===================================================================
 
+    await fetchDealerData();
+
+
+
+
 });
 
 // =============== SWITCH TYPE =================================
@@ -3405,7 +3250,6 @@ window.switchType = function (el, type) {
     }
 }
 
-
 // Cart System
 function toggleCartSection() {
     if (cartSection.classList.contains("hidden")) {
@@ -3413,12 +3257,22 @@ function toggleCartSection() {
         setTimeout(() => {
             cartSection.classList.add("show");
         }, 10);
+        document.addEventListener('keydown', handleEscapeKey);
     } else {
         cartSection.classList.remove("show");
         cartSection.addEventListener('transitionend', function handler() {
             cartSection.classList.add("hidden");
             cartSection.removeEventListener('transitionend', handler);
+            document.removeEventListener('keydown', handleEscapeKey);
         });
+    }
+}
+
+function handleEscapeKey(event) {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+        if (cartSection && cartSection.classList.contains("show")) {
+            toggleCartSection();
+        }
     }
 }
 
@@ -3528,7 +3382,7 @@ function updateCartUI() {
                             <span class="truck-count">${setCount} ${item.type === 'truck' ? 'รถบรรทุก' : 'รถบรรทุก'}</span>
                         </div>
                         <button onclick="changeQty(${index}, true)">+</button>
-                        <p class="bag-count">( จำนวน ${displayQty} ${unitLabel} )</p>
+                        <p class="bag-count">( จำนวน ${item.quantity} ${unitLabel}/รถ )</p>
                     </div>
                 </div>
             </div>`;
@@ -3705,260 +3559,106 @@ function showProductPopup(product) {
         )
         .join("");
 
-    const minQuantity = product.type === "bag" ? 640 : (parseInt(product.minimum) || 1);
-    const initialQuantity = minQuantity;
+    const isAvailableForSale = typeof product.price === 'number' && product.price > 0;
+    let priceDisplay;
 
-    const minimumComment = product.minimumcomment || '';
-
-    let displayPriceInPopup;
-    if (product.price === "N/A" || product.price === null || product.price === undefined || product.price === 0) {
-        displayPriceInPopup = "N/A";
-    } else if (product.type === "bag") {
-        displayPriceInPopup = product.price.toLocaleString();
+    if (isAvailableForSale) {
+        priceDisplay = `${product.price.toLocaleString()} บาท/${product.unit || ''}`;
     } else {
-        displayPriceInPopup = product.price.toLocaleString();
+        priceDisplay = `<span style="color: #c62828; font-weight: bold;">${product.price || 'ยังไม่เปิดขาย'}</span>`;
     }
 
     content.innerHTML = `<div class="popup-box-show">
-                <div class="popup-left">
-                  <div class="popup-left-boximg">
-                    <div>
-                      <img id="mainPopupImg" src="/assets/images/products/${images[0] || ''}" alt="ตัวอย่างสินค้า ${product.name}" style="cursor: zoom-in;">
-                    </div>
-                    <div>
-                      <div class="popup-thumbnails" >
+        <div class="popup-left">
+            <div class="popup-left-boximg">
+                <div>
+                    <img id="mainPopupImg" src="/assets/images/products/${images[0] || ''}" alt="ตัวอย่างสินค้า ${product.name}" style="cursor: zoom-in;">
+                </div>
+                <div>
+                    <div class="popup-thumbnails" >
                         ${thumbnailsHTML}
-                      </div>
                     </div>
-                  </div>
+                </div>
+            </div>
 
-                  <div class="popup-left-box">
-                    <div class="popup-left-box-con">
-
-                      <div class="p-l-b-details">
+            <div class="popup-left-box">
+                <div class="popup-left-box-con">
+                    <div class="p-l-b-details">
                         <div class="p-l-b-s-title">
-                          <p>คุณสมบัติ</p><hr>
+                            <p>คุณสมบัติ</p><hr>
                         </div>
                         <div class="plbs-con">
-                          <p>
-                            ${product.feature || ''}
-                          </p>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="popup-right">
-                    <div class="popup-add-v-detail">
-                      <h2>${product.name} ขนาด ${product.weight || ''}</h2>
-                      <p style="color:#555; font-size: 1.3rem;">${product.description || ''} ${product.typeWork || ''}</p>
-                      <div class="popup-right-price">
-                        <p class="popup-right-price-r"><strong>ราคา:</strong> ${displayPriceInPopup} บาท/${product.unit || ''}</p>
-                        <p><strong>พื้นที่:</strong> ${
-                            product.province || ''
-                        }, ${product.district || ''}</p>
-                      </div>
-                    </div>
-                    <div class="p-l-b-standard">
-                        <div class="p-l-b-s-title">
-                          <p >มาตรฐานอุตสาหกรรม</p><hr>
-                        </div>
-                        <div class="plbs-con">
-                          <div class="plbs-box">
-                            <a href="#">
-                              <img src="/assets/images/products/${product.standardImg1 || ''}" alt="">
-                            </a>
-                            <div class="popup-standard-logo-detail">
-                              <p>${product.standard1 || ''}</p>
-                            </div>
-                          </div>
-
-                          <div class="plbs-box">
-                            <a href="#">
-                              <img src="/assets/images/products/${product.standardImg2 || ''}" alt="">
-                            </a>
-                            <div class="popup-standard-logo-detail">
-                              <p>${product.standard2 || ''}</p>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-                    <div class="p-l-b-strength">
-                        <div class="p-l-b-s-title">
-                          <p >ข้อมูลผลิตภัณฑ์</p><hr>
-                        </div>
-                        <div class="plbs-con">
-                          <div>
-                            <p>
-                              ${product.detail || ''}
-                            </p>
-                          </div>
+                            <p>${product.feature || ''}</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="popup-close">
-                    <button class="popup-close-btn" onclick="closeProductPopup()">×</button>
+        <div class="popup-right">
+            <div class="popup-add-v-detail">
+                <h2>${product.name} ขนาด ${product.weight || ''}</h2>
+                <p style="color:#555; font-size: 1.3rem;">${product.description || ''} ${product.typeWork || ''}</p>
+                <div class="popup-right-price">
+                    <p class="popup-right-price-r">
+                        <strong>ราคา:</strong> ${priceDisplay}
+                    </p>
+                    <p><strong>พื้นที่:</strong> ${product.province || ''}, ${product.district || ''}</p>
                 </div>
-                <div class="mobile-popup-close">
-                    <button style="
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 8px;
-                        margin-top: 20px;
-                        background-color: white; /* เปลี่ยนเป็นพื้นหลังสีขาว */
-                        color: #D60000; /* เปลี่ยนสีข้อความเป็นสีแดง */
-                        border: 2px solid #D60000; /* เพิ่มเส้นขอบสีแดง 2px */
-                        padding: 10px 20px;
-                        border-radius: 8px;
-                        font-size: 16px;
-                        cursor: pointer;
-                        transition: all 0.3s ease; /* ใช้ transition กับ 'all' เพื่อให้ครอบคลุมการเปลี่ยนแปลงอื่นๆ */
-                        width: 100%;
-                        box-sizing: border-box;
-                    " class="popup-close-btn" onclick="closeProductPopup()">
-                        <i class="fa-solid fa-times"></i> ปิด
-                    </button>
+            </div>
+            
+            <div class="p-l-b-standard">
+                <div class="p-l-b-s-title">
+                    <p>มาตรฐานอุตสาหกรรม</p><hr>
                 </div>
-            </div>`;
+                <div class="plbs-con">
+                    <div class="plbs-box">
+                        <a href="#">
+                            <img src="/assets/images/products/${product.standardImg1 || ''}" alt="">
+                        </a>
+                        <div class="popup-standard-logo-detail">
+                            <p>${product.standard1 || ''}</p>
+                        </div>
+                    </div>
+                    <div class="plbs-box">
+                        <a href="#">
+                            <img src="/assets/images/products/${product.standardImg2 || ''}" alt="">
+                        </a>
+                        <div class="popup-standard-logo-detail">
+                            <p>${product.standard2 || ''}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-l-b-strength">
+                <div class="p-l-b-s-title">
+                    <p>ข้อมูลผลิตภัณฑ์</p><hr>
+                </div>
+                <div class="plbs-con">
+                    <div>
+                        <p>${product.detail || ''}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-close">
+            <button class="popup-close-btn" onclick="closeProductPopup()">×</button>
+        </div>
+        <div class="mobile-popup-close">
+            <button style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; background-color: white; color: #D60000; border: 2px solid #D60000; padding: 10px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease; width: 100%; box-sizing: border-box;" class="popup-close-btn" onclick="closeProductPopup()">
+                <i class="fa-solid fa-times"></i> ปิด
+            </button>
+        </div>
+    </div>`;
 
     popup.classList.remove("hidden");
 
-    // **เพิ่ม Event Listener สำหรับรูปภาพหลักเพื่อซูม**
     const mainPopupImg = document.getElementById('mainPopupImg');
     if (mainPopupImg) {
         mainPopupImg.addEventListener('click', () => {
             openImageZoomPopup(mainPopupImg.src);
-        });
-    }
-
-    const qtyInput = document.getElementById("qtyInput");
-    const btnIncrease = popup.querySelector(".increase");
-    const btnDecrease = popup.querySelector(".decrease");
-    const btnAddToCart = popup.querySelector(".popup-add-cart-btn");
-    const btnBuyNow = popup.querySelector(".popup-buy-now-btn");
-
-    if (btnIncrease && btnDecrease && qtyInput) {
-        btnIncrease.onclick = () => {
-            qtyInput.value = parseInt(qtyInput.value) + 1;
-        };
-
-        btnDecrease.onclick = () => {
-            const currentVal = parseInt(qtyInput.value);
-            if (currentVal > minQuantity) {
-                qtyInput.value = currentVal - 1;
-            } else {
-                qtyInput.value = minQuantity;
-                Swal.fire({
-                    icon: "warning",
-                    title: "จำนวนสินค้าขั้นต่ำ",
-                    text: `สำหรับสินค้านี้ (${product.name}) จำนวนขั้นต่ำคือ ${minQuantity} ${product.unit || 'ชิ้น'}.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                });
-            }
-        };
-
-        qtyInput.addEventListener("change", () => {
-            let currentVal = parseInt(qtyInput.value);
-
-            if (isNaN(currentVal) || currentVal < minQuantity) {
-                qtyInput.value = minQuantity;
-                Swal.fire({
-                    icon: "warning",
-                    title: "จำนวนสินค้าขั้นต่ำ",
-                    text: `สำหรับสินค้านี้ (${product.name}) ต้องสั่งขั้นต่ำ ${minQuantity} ${product.unit || 'ชิ้น'}.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                });
-            }
-        });
-
-        qtyInput.addEventListener("input", () => {
-            let currentVal = parseInt(qtyInput.value);
-            if (isNaN(currentVal) || currentVal < minQuantity) {
-                // ไม่ต้องแสดง Swal.fire ตรงนี้ซ้ำ เพราะจะถูกจัดการใน 'change' event หรือเมื่อกดปุ่ม
-            }
-        });
-    }
-
-    if (btnAddToCart) {
-        btnAddToCart.addEventListener('click', () => {
-            const quantity = parseInt(qtyInput.value);
-            if (quantity < minQuantity) {
-                qtyInput.value = minQuantity;
-                Swal.fire({
-                    icon: "warning",
-                    title: "จำนวนสินค้าไม่ถูกต้อง",
-                    text: `จำนวนที่ป้อน (${quantity}) ไม่ถึงขั้นต่ำ (${minQuantity}) สำหรับสินค้านี้ (${product.name}). ระบบจะปรับเป็น ${minQuantity}.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                });
-                return;
-            }
-
-            if (product.price === "N/A" || product.price === null || product.price === undefined || product.price === 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "ไม่สามารถเพิ่มสินค้าได้",
-                    text: `สินค้านี้ ${product.name} ยังไม่มีข้อมูลราคาที่ถูกต้องสำหรับพื้นที่ที่คุณเลือก.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        filterProducts(); // ถ้าฟังก์ชันนี้มีอยู่
-                        closeProductPopup();
-                    }
-                });
-            } else {
-                addToCart(product, quantity); // ต้องแน่ใจว่าฟังก์ชัน addToCart ถูกประกาศไว้
-                closeProductPopup();
-            }
-        });
-    }
-
-    if (btnBuyNow) {
-        btnBuyNow.addEventListener('click', () => {
-            const quantity = parseInt(qtyInput.value);
-            if (quantity < minQuantity) {
-                qtyInput.value = minQuantity;
-                Swal.fire({
-                    icon: "warning",
-                    title: "จำนวนสินค้าไม่ถูกต้อง",
-                    text: `จำนวนที่ป้อน (${quantity}) น้อยกว่าจำนวนขั้นต่ำ (${minQuantity}) สำหรับการสั่งสินค้านี้ (${product.name}). ระบบจะปรับเป็น ${minQuantity}.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                });
-                return;
-            }
-
-            if (product.price === "N/A" || product.price === null || product.price === undefined || product.price === 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "ไม่สามารถสั่งซื้อได้",
-                    text: `สินค้านี้ ${product.name} ยังไม่มีข้อมูลราคาที่ถูกต้องสำหรับพื้นที่ที่คุณเลือก.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        filterProducts(); // ถ้าฟังก์ชันนี้มีอยู่
-                        closeProductPopup();
-                    }
-                });
-            } else {
-                const itemToBuy = {
-                    ...product,
-                    quantity: quantity
-                };
-                localStorage.setItem('buyNowItem', JSON.stringify(itemToBuy));
-
-                window.location.href = '/pages/products/checkout.html';
-            }
         });
     }
 }
@@ -4006,21 +3706,63 @@ function closeProductPopup() {
     }
 }
 
+function showDealerAlert(dealerInfo) {
+    const dealerInfoHtml = `
+        <div style="text-align: left; margin: 0; padding: 20px; font-family: 'Sukhumvit Set', sans-serif;">
+            <p style="font-size: 1.1em; color: #ca0000; font-weight: bold; margin-bottom: 15px;">ข้อมูลตัวแทนจำหน่าย</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <i class="fas fa-user-tie" style="font-size: 1.2em; color: #ca0000; margin-right: 15px;"></i>
+                <p style="margin: 0;"><b>ชื่อผู้ติดต่อ:</b> ${dealerInfo.dealerName || '-'}</p>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <i class="fas fa-building" style="font-size: 1.2em; color: #ca0000; margin-right: 15px;"></i>
+                <p style="margin: 0;"><b>บริษัท:</b> ${dealerInfo.company || '-'}</p>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <i class="fas fa-phone-alt" style="font-size: 1.2em; color: #ca0000; margin-right: 15px;"></i>
+                <p style="margin: 0;"><b>เบอร์โทร:</b> <a href="tel:${dealerInfo.tel1}" style="color: #007bff; text-decoration: none;">${dealerInfo.tel1 || '-'}</a></p>
+            </div>
+            ${dealerInfo.tel2 ? `
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <i class="fas fa-phone-alt" style="font-size: 1.2em; color: #ca0000; margin-right: 15px;"></i>
+                <p style="margin: 0;"><b>เบอร์โทร 2:</b> <a href="tel:${dealerInfo.tel2}" style="color: #007bff; text-decoration: none;">${dealerInfo.tel2}</a></p>
+            </div>` : ''}
+            ${dealerInfo.email ? `
+            <div style="display: flex; align-items: center;">
+                <i class="fas fa-envelope" style="font-size: 1.2em; color: #ca0000; margin-right: 15px;"></i>
+                <p style="margin: 0;"><b>อีเมล:</b> <a href="mailto:${dealerInfo.email}" style="color: #007bff; text-decoration: none;">${dealerInfo.email}</a></p>
+            </div>` : ''}
+        </div>
+    `;
+
+    Swal.fire({
+        icon: 'info',
+        title: `<span style="color: #ca0000;">พื้นที่ ${dealerInfo.provinceName} ต้องติดต่อดีลเลอร์</span>`,
+        html: dealerInfoHtml,
+        confirmButtonText: 'รับทราบ',
+        background: '#ffffff',
+        iconColor: '#ca0000',
+        confirmButtonColor: '#ca0000',
+        customClass: {
+            popup: 'my-red-alert-popup'
+        }
+    });
+}
+
 // card and filter data
 function filterProducts() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
     const province = document.getElementById("provinceFilter").value;
     const district = document.getElementById("districtFilter").value;
 
-    const dealerProvinces = ["กาฬสินธุ์", "อำนาจเจริญ", "บึงกาฬ", "เลย"];
-    const isDealerProvince = dealerProvinces.includes(province);
+    const selectedDealer = dealerData?.dealers?.find(dealer => dealer.provinceName === province);
+    const isDealerProvince = !!selectedDealer;
 
     if (!province) {
         renderCards(allData.products, null, null);
         return;
     }
     
-    // ถ้าเป็นจังหวัดดีลเลอร์ ให้แสดง SweetAlert และหยุดการทำงาน
     if (isDealerProvince) {
         localStorage.setItem(
             "filterState",
@@ -4032,18 +3774,7 @@ function filterProducts() {
             })
         );
         
-        Swal.fire({
-            icon: 'info',
-            title: '<span style="color: #ca0000;">พื้นที่นี้ต้องติดต่อดีลเลอร์</span>',
-            html: '<span style="color: #ca0000;">กรุณาติดต่อตัวแทนจำหน่ายในพื้นที่โดยตรง</span>',
-            confirmButtonText: 'รับทราบ',
-            background: '#ffffff', 
-            iconColor: '#ca0000', 
-            confirmButtonColor: '#ca0000', 
-            customClass: {
-                popup: 'my-red-alert-popup'
-            }
-        });
+        showDealerAlert(selectedDealer);
 
         document.getElementById("productGrid").innerHTML = '';
         return;
@@ -4117,94 +3848,90 @@ function renderCards(products, priceData, areaInfo) {
     }
 
     products.forEach((product) => {
-
-        const price = priceData && priceData[product.id] !== undefined ? priceData[product.id] : "N/A";
+        const price = priceData && priceData[product.id] !== undefined ? priceData[product.id] : "xxx";
+        
+        const isAvailableForSale = typeof price === 'number';
 
         const productData = {
             ...product,
-            price: price !== "N/A" ? parseFloat(price) : 0,
+            price: isAvailableForSale ? price : 0, 
             province: areaInfo?.province || "",
             district: areaInfo?.district || "",
         };
 
         let priceDisplayText = '';
-        let priceVisibilityClass = '';
+        let buttonHtml = '';
 
-        if (productData.price !== 0) {
-            if (product.type === "bag") {
-                priceDisplayText = `<strong>${formatPrice(productData.price)}/${product.unit || ''}</strong>`;
-            } else {
-                priceDisplayText = `<strong> ${formatPrice(productData.price)}/${product.unit || ''}</strong>`;
-            }
+        if (isAvailableForSale) {
+            const unitText = product.unit || '';
+            const priceFormatted = formatPrice(productData.price);
+            priceDisplayText = `<strong>${priceFormatted}/${unitText}</strong>`;
+            buttonHtml = `<button class="p-c-add-cart-btn"><i class="fa-solid fa-cart-arrow-down"></i> เพิ่มลงตะกร้า</button>`;
         } else {
-            priceDisplayText = `<strong>N/A บาท/${product.unit || ''}</strong>`;
-            priceVisibilityClass = 'hide-na-price-text';
+            priceDisplayText = `<span style="font-weight: bold; color: #c62828;">${price}</span>`;
+            buttonHtml = `<button class="p-c-add-cart-btn disabled" disabled style="cursor: not-allowed; opacity: 0.6;"><i class="fa-solid fa-cart-arrow-down"></i> ยังไม่เปิดขาย</button>`;
         }
 
         const card = document.createElement("div");
         card.className = "p-c-product-card";
-        card.innerHTML = `<img src="/assets/images/products/${
-                product.image || ''
-            }" alt="${product.name}">
-                        <div class="p-c-product-info">
-                            <div class="pcpi-box">
-                                <div class="p-c-product-title"><p>${product.name}</p></div>
-                                <div class="pcpd-box">
-                                  <div class="p-c-product-detail"><p>${product.description || ''}</p></div>
-                                  <div class="p-c-product-detail"><p>${product.typeWork || ''}</p></div>
-                                </div>
-                                <div class="p-c-product-price">
-                                    <p class="${priceVisibilityClass} ">ราคา: <span> ${priceDisplayText} </span></p>
-                                    <p class="p-c-product-value">( บรรจุ ${product.weight}/${product.unit} )</p>
-                                </div>
-                                <div class="m-p-c-product-price">
-                                    <p class="${priceVisibilityClass} "><span>฿ ${priceDisplayText} </span></p>
-                                    <p class="m-p-c-product-value">( บรรจุ ${product.weight}/${product.unit} )</p>
-                                    <p> </p>
-                                </div>
-                                <div>
-                                </div>
-
-                                <div class="p-c-product-area">
-                                    <div><p >พื้นที่: ${productData.province}, ${productData.district}</p></div>
-                                </div>
-                                <div class="m-p-c-product-area">
-                                    <div><p > ${productData.province}, ${productData.district}</p></div>
-                                </div>
-
-                            </div>
-                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                                <button class="p-c-buy-btn" onclick='showProductPopup(${JSON.stringify(productData)})'><i class="fa-solid fa-magnifying-glass"></i> รายละเอียด</button>
-                                <button class="p-c-add-cart-btn"><i class="fa-solid fa-cart-arrow-down"></i> เพิ่มลงตะกร้า</button>
-                                <p class="p-c-note">( สั่งขั้นต่ำ 1 รถบรรทุก )</p>
-                            </div>
-                            
-                        </div>
-            `;
-        card.querySelector(".p-c-add-cart-btn").addEventListener("click", () => {
-            if (productData.price === 0) {
-                Swal.fire({
-                    icon: "error",
-                    title: "ไม่สามารถเพิ่มสินค้าได้",
-                    text: `กรุณาเลือกจังหวัดและอำเภอที่ต้องการ เพื่อดูราคาและดำเนินการต่อ.`,
-                    confirmButtonText: "ตกลง",
-                    confirmButtonColor: "#e74c3c",
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        filterProducts();
-                    }
-                });
-            } else {
-                addToCart(productData);
-            }
-        });
+        card.innerHTML = `
+            <img src="/assets/images/products/${product.image || ''}" alt="${product.name}">
+            <div class="p-c-product-info">
+                <div class="pcpi-box">
+                    <div class="p-c-product-title"><p>${product.name}</p></div>
+                    <div class="pcpd-box">
+                        <div class="p-c-product-detail"><p>${product.description || ''}</p></div>
+                        <div class="p-c-product-detail"><p>${product.typeWork || ''}</p></div>
+                    </div>
+                    <div class="p-c-product-price">
+                        <p>ราคา: <span> ${priceDisplayText} </span></p>
+                        <p class="p-c-product-value">( บรรจุ ${product.weight}/${product.unit2 || ''} )</p>
+                    </div>
+                    <div class="m-p-c-product-price">
+                        <p><span>฿ ${priceDisplayText} </span></p>
+                        <p class="m-p-c-product-value">( บรรจุ ${product.weight}/${product.unit1 || ''} )</p>
+                        <p> </p>
+                    </div>
+                    <div></div>
+                    <div class="p-c-product-area">
+                        <div><p >พื้นที่: ${productData.province}, ${productData.district}</p></div>
+                    </div>
+                    <div class="m-p-c-product-area">
+                        <div><p > ${productData.province}, ${productData.district}</p></div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <button class="p-c-buy-btn" onclick='showProductPopup(${JSON.stringify(productData)})'><i class="fa-solid fa-magnifying-glass"></i> รายละเอียด</button>
+                    ${buttonHtml} <p class="p-c-note">( สั่งขั้นต่ำ 1 รถบรรทุก )</p>
+                </div>
+            </div>
+        `;
+        
+        if (isAvailableForSale) {
+            card.querySelector(".p-c-add-cart-btn").addEventListener("click", () => {
+                if (productData.price === 0) { 
+                    Swal.fire({
+                        icon: "error",
+                        title: "ไม่สามารถเพิ่มสินค้าได้",
+                        text: `กรุณาเลือกจังหวัดและอำเภอที่ต้องการ เพื่อดูราคาและดำเนินการต่อ.`,
+                        confirmButtonText: "ตกลง",
+                        confirmButtonColor: "#e74c3c",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            filterProducts();
+                        }
+                    });
+                } else {
+                    addToCart(productData);
+                }
+            });
+        }
 
         grid.appendChild(card);
     });
 }
 
-
-// =============== โหลดข้อมูล Products และ Prices ===================
+// =============== โหลดข้อมูล Products และ Prices dealer ===================
 async function fetchData() {
     try {
         const [datasResponse, areaResponse] = await Promise.all([
@@ -4235,6 +3962,17 @@ async function fetchData() {
     }
 }
 
+async function fetchDealerData() {
+    try {
+        const response = await fetch('/poon-singto-dealer.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        dealerData = await response.json();
+    } catch (error) {
+        console.error('Error fetching dealer data:', error);
+    }
+}
 
 // =============== โหลดอำเภอตามจังหวัดที่เลือก =====================
 function loadDistricts(selectedProvince) {

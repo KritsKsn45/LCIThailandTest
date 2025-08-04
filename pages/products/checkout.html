@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.min.css">
     
 
-
-
 <style>
 :root {
     --primary-color: #E74C3C; /* แดงสดใส */
@@ -49,7 +47,7 @@ body {
     padding: 1.5rem; 
 }
 .checkout-wrapper {
-    max-width: 1200px;
+    max-width: 1500px;
     width: 100%;
     margin: 0 auto;
     background: var(--white-color); 
@@ -359,13 +357,16 @@ h1::after {
         height: 50px;
     }
     .item-name {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
     .item-quantity-price {
-        font-size: 0.45rem;
+        font-size: 0.6rem;
+    }
+    .set-count ,.total-units {
+        font-size: 0.6rem;
     }
     .item-total {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
     .summary-totals {
         margin-top: 1rem;
@@ -525,7 +526,7 @@ h1::after {
     </style>
 
 
-        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 <body>
@@ -657,7 +658,6 @@ h1::after {
         return parseFloat(price.toFixed(2)).toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
-
     function renderCheckoutSummary(items) {
         const summaryDiv = document.getElementById("checkoutSummary");
         let html = "";
@@ -672,7 +672,7 @@ h1::after {
             const minimumQty = parseInt(item.minimum) || 1;
             const unitLabel = item.unit || 'ชิ้น';
 
-            const setCount = Math.floor(quantity / qtyPerSet); // แก้ไขจาก Math.round
+            const setCount = Math.floor(quantity / qtyPerSet); 
             const setLabel = item.type === 'truck' ? 'รถบรรทุก' : 'รถบรรทุก'; 
 
             const deliveryText = item.delivery || 'ไม่ระบุ';
@@ -684,7 +684,7 @@ h1::after {
                         <div class="item-name">${item.name}</div>
                         <div class="item-quantity-price">${formatPrice(pricePerUnitIncludingVat)} บาท/${unitLabel}</div>
                         <div class="item-quantity-summary">
-                            <span class="set-count">จำนวน ${setCount} ${setLabel}</span>
+                            <span class="set-count">จำนวน ${setCount} ${setLabel}</span><br>
                             <span class="total-units">(รวม ${quantity} ${unitLabel})</span>
                             <br>
                         </div>
@@ -787,6 +787,7 @@ h1::after {
 
     localStorage.removeItem("checkoutCartItems");
     localStorage.removeItem("buyNowItem");
+    
     Swal.fire({
         icon: 'success',
         title: 'สำเร็จ',

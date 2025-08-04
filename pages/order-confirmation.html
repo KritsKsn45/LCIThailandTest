@@ -10,14 +10,17 @@
    
 
     <style>
-        body {
+       body {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5; 
             color: #333;
             line-height: 1.6;
             box-sizing: border-box;
+
+            background-color: #f0f1f2; 
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d8d9db' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zm0 36v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM12 34v-4h-2v4H6v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4H6v2h4v4h2V6h4V4h-4zm0 36v-4h-2v4H6v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
         }
         
         .buyagain-btn {
@@ -67,8 +70,8 @@
 
 
         .page-header, .page-footer {
-            height: 80px;
-            background: linear-gradient(to right, #e53935, #b71c1c);
+            height: 100%;
+            background: linear-gradient(to right, #f4726f, #9b1212, #e42724, #980c0c);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -93,30 +96,37 @@
             min-height: 10px;
             flex-direction: column;
             margin-bottom: 0;
+            z-index: 2;
         }
         .page-footer button {
             font-size: 0.9em;
             opacity: 0.9;
         }
+
+
+        
         .billPO-container {
             max-width: 1400px; 
             margin: 30px auto;
-            background-color: #ffffff;
+            background-color: #fefefe;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             min-height: 70vh; 
-            padding: 30px;
             align-items: flex-start;
-            gap: 30px; 
+            gap: 5rem; 
         }
         .bill-po-box {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex: 2; 
-            padding-right: 20px;
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+            border-radius: 12px;
+            background-color: rgb(48, 48, 48);
+            height: 100%;
+            padding-top: 45px;
+            padding-bottom: 55px;
             /* border-right: 1px solid #eee; */
         }
         .bill-show-dl {
@@ -367,10 +377,10 @@
 
         .payment-section {
             flex: 1; 
-            padding: 20px;
-            background-color: #ffffff;
+            padding: 3%;
+            background-color: #ffffff; 
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
             text-align: center;
             color: #343a40;
             box-sizing: border-box;
@@ -378,7 +388,25 @@
             flex-direction: column;
             align-items: center;
             font-family: 'Kanit', sans-serif;
+            width: 100%;
+            position: relative; 
+            z-index: 1; 
+            overflow: hidden; 
+        }
 
+        .payment-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/assets/images/1350.jpg'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 80%; 
+            opacity: 0.1; 
+            z-index: -1; 
         }
         .payment-section h2 {
             font-size: 2em; 
@@ -403,6 +431,7 @@
             flex-direction: column; 
             gap: 20px;
             width: 100%;
+            align-items: center;
         }
         .qr-payment-box,
         .line-contact-box {
@@ -428,6 +457,12 @@
             margin-bottom: 20px;
             font-weight: 600;
         }
+        .qr-payment-box {
+            width: 50vh;
+            text-align: center;
+            justify-content: center;
+        }
+       
         .qr-code-wrapper {
             margin-bottom: 15px;
             background-color: #fff;
@@ -452,7 +487,7 @@
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 20px;
-            text-align: left;
+            text-align: center;
             width: 100%;
             box-sizing: border-box;
             border: 1px solid #f5f5f5; 
@@ -484,8 +519,7 @@
             margin-top: 5px;
         }
         .copy-account-btn,
-        .add-line-btn,
-        .download-button {
+        .add-line-btn {
             background: linear-gradient(to right, #d32f2f, #b71c1c); 
             color: white;
             padding: 12px 25px;
@@ -499,6 +533,24 @@
             box-sizing: border-box;
             margin-top: auto; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+        }
+        .download-button {
+            background-color: transparent;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -518,6 +570,12 @@
         .add-line-btn:hover {
             background: linear-gradient(to right, #008a00, #005600);
         }
+        .line-box-area:hover {
+            transform: translateY(-2px);
+        }
+        .email-box-area:hover {
+            transform: translateY(-2px);
+        }
         .line-contact-box p:last-of-type {
             font-size: 1em;
             color: #555;
@@ -535,9 +593,41 @@
             max-width: 300px; 
             margin: 0 auto;
         }
+        .line-contact-box-area {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .space-area {
+            width: 100%;
+            height: 20vh;
+        }
+        .send-email-btn {
+            background: linear-gradient(to right, #d93025, #c72c21); 
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
+        .send-email-btn:hover {
+            background: linear-gradient(to right, #c72c21, #a9251c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
 
-        /* Custom SweetAlert Styles for Red Theme */
         .swal2-popup {
             border-radius: 12px !important; /* ขอบโค้งมนสวยงาม */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important; /* เพิ่มเงาให้ดูมีมิติ */
@@ -556,9 +646,8 @@
             line-height: 1.5 !important;
         }
 
-        /* Primary Button (Confirm Button) */
         .swal2-confirm {
-            background-color: #e74c3c !important; /* สีแดงหลักสำหรับปุ่มยืนยัน */
+            background-color: #e74c3c !important; 
             color: #fff !important;
             border: none !important;
             border-radius: 8px !important;
@@ -568,44 +657,147 @@
         }
 
         .swal2-confirm:hover {
-            background-color: #c0392b !important; /* สีแดงเข้มขึ้นเมื่อ hover */
+            background-color: #c0392b !important; 
         }
 
-        /* Secondary Button (Cancel Button) */
         .swal2-cancel {
-            background-color: #f5f5f5 !important; /* สีเทาอ่อนสำหรับปุ่มยกเลิก */
+            background-color: #f5f5f5 !important; 
             color: #555 !important;
             border: 1px solid #ccc !important;
             border-radius: 8px !important;
             font-size: 1.1em !important;
             padding: 10px 25px !important;
-            margin-left: 10px !important; /* เพิ่มระยะห่างจากปุ่มยืนยัน */
+            margin-left: 10px !important; 
             transition: background-color 0.3s ease !important;
         }
 
         .swal2-cancel:hover {
-            background-color: #e0e0e0 !important; /* สีเทาเข้มขึ้นเมื่อ hover */
+            background-color: #e0e0e0 !important; 
         }
 
-        /* Success Icon Color (for the second alert) */
         .swal2-success-circular-line-left,
         .swal2-success-circular-line-right,
         .swal2-success-fix,
         .swal2-success-ring,
         .swal2-success-line-tip,
         .swal2-success-line-long {
-            background-color: #fff !important; /* ตรวจสอบให้แน่ใจว่าพื้นหลังของไอคอนสำเร็จเป็นสีขาว */
+            background-color: #fff !important; 
         }
 
         .swal2-success [class^=swal2-success-line] {
-            background-color: #28a745 !important; /* สีเขียวของเครื่องหมายถูก */
+            background-color: #28a745 !important; 
         }
 
-        /* Question Icon (default blue/gray, you can customize if needed) */
-        /* .swal2-question {
-            color: #e74c3c !important; 
-        } */
 
+
+        .how-to-pays-area {
+            max-width: 100%;
+            background: linear-gradient(to right, #d70000, #8f0000);
+            position: relative;
+            overflow: hidden;
+            padding: 5%;
+        }
+
+        .how-to-pays-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e9ecef' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zm0 36v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM12 34v-4h-2v4H6v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4H6v2h4v4h2V6h4V4h-4zm0 36v-4h-2v4H6v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .how-to-pays-title {
+            font-family: 'Kanit', sans-serif;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 calc(25% - 30px); /* 4 cards per row on large screens */
+            min-width: 250px;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-icon {
+            margin-bottom: 20px;
+        }
+
+        .step-title {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .arrow-indicator {
+            position: absolute;
+            top: 50%;
+            right: -25px; /* Position it between cards */
+            transform: translateY(-50%);
+            color: #b71c1c;
+            font-size: 2em;
+        }
+
+        .arrow-indicator svg {
+            height: 40px;
+            width: 40px;
+        }
+
+        /* Hide arrow on the last card */
+        .step-card:last-of-type .arrow-indicator {
+            display: none;
+        }
 
 
 
@@ -642,35 +834,18 @@
                 width: 100%;
             }
          
-        }
-
-        /* phone */
-        @media (max-width: 768px) {  
-             .buyagain-btn {
-                bottom: 190px;
-                right: 70px;
+            .step-card {
+                flex: 1 1 calc(50% - 20px); /* 2 cards per row */
             }
-            .buyagain-btn {
-                bottom: 80px; 
-                right: 20px; 
-            }
-            .buyagain-btn a {
-                padding: 12px 25px; 
-                font-size: 1em; 
-                border-radius: 40px; 
-            }
-            .buyagain-btn a i {
-                font-size: 1.1em; 
-            }             
-            .bpc-box-bottom {
-               margin-bottom: 80px;
-            }
-            .bill-po-container-pdf::before {
-                font-size: 2.5em;
-                background-size: 60%;
+            .arrow-indicator {
+                display: none;
             }
 
+
+
         }
+
+        
 
         /* phone small*/
         @media (max-width: 480px) {
@@ -818,26 +993,43 @@
                 font-size: 0.8em; 
                 margin-bottom: 15px;
             }
+
+            .line-contact-box-area {
+                flex-direction: column;
+            }
+            .or-box-test p {
+                font-size: 55px;
+            }
+
+            .step-card {
+                flex: 1 1 100%; 
+            }
+            .qr-payment-box {
+                width: 100%;
+            }
+
+
         }
 
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
+
 <body>
+
+<div class="page-header">
+    <h2>สรุปการสั่งซื้อ</h2>
+</div>
+
 
 
 
 <section>
-    <div class="page-header">
-        ยืนยันการสั่งซื้อ
-    </div>
 
     <div class="buyagain-btn" id="clearBillAndShopAgain">
         <a href="/pages/products/products_showall.html"><i class="fas fa-shopping-cart"></i>ช็อปต่อ</a>
     </div>
-
-
 
 
     <div class="billPO-container">
@@ -935,10 +1127,12 @@
             
         </div>
 
+        
         <div class="payment-section">
             <h2>ช่องทางการชำระเงิน</h2>
 
             <div class="payment-methods-container">
+                
                 <div class="qr-payment-box">
                     <h3>โอนเงินผ่าน Mobile Banking</h3>
                     
@@ -955,29 +1149,109 @@
                 </div>
 
                 <div class="line-contact-box">
-                    <h3>ติดต่อสอบถาม / แจ้งชำระเงิน</h3>
-                    <div class="qr-code-wrapper">
-                        <img src="https://qr-official.line.me/gs/M_709zzbhc_GW.png?ts=07301715&oat_content=url" alt="QR Code Line" class="qr-code-img">
-                        <p class="qr-instruction">สแกนเพื่อแอดไลน์ติดต่อ</p>
-                        <p class="qr-instruction">ปูนสิงโต Lion.LCI</p>
+                    <h2>ติดต่อสอบถาม / แจ้งชำระเงิน</h2>
+                    <div class="line-contact-box-area">
+                        
+                        <div class="line-box-area">
+                            <div class="qr-code-wrapper">
+                                <img src="https://qr-official.line.me/gs/M_709zzbhc_GW.png?ts=07301715&oat_content=url" alt="QR Code Line" class="qr-code-img">
+                                <p class="qr-instruction">สแกนเพื่อแอดไลน์ติดต่อ</p>
+                                <p class="qr-instruction">ปูนสิงโต Lion.LCI</p>
+                            </div>
+                            <p>แอดไลน์ Official Account ของเราเพื่อสอบถามเพิ่มเติมหรือแจ้งการชำระเงิน</p>
+                            <button class="add-line-btn" onclick="window.open('https://lin.ee/WtLGEVB', '_blank')"><i class="fab fa-line"></i> แอดไลน์เลย!</button>
+                        </div>
+                        <div class="or-box-test">
+                            <p style="font-size: 25px;">หรือ</p>
+                        </div>
+                        <div class="email-box-area">
+                            <div class="qr-code-wrapper">
+                                <img src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/120px-Gmail_icon_%282020%29.svg.png" alt="Gmail Icon" class="qr-code-img">
+                                <p class="qr-instruction">หรือส่งข้อมูลให้เราที่อีเมลนี้</p>
+                                <p class="qr-instruction">Email: Lion.lci2025@gmail.com</p>
+                            </div>
+                            <p>ส่งข้อมูลการชำระเงินและใบสั่งซื้อ เพื่อให้เราดำเนินการจัดส่ง</p>
+                            <button class="send-email-btn" id="send-email-btn" onclick="sendEmailToLCI()">
+                                <i class="fas fa-envelope"></i> ส่งอีเมลเลย!
+                            </button>
+                        </div>
+
                     </div>
-                    <p>แอดไลน์ Official Account ของเราเพื่อสอบถามเพิ่มเติมหรือแจ้งการชำระเงิน</p>
-                    <button class="add-line-btn" onclick="window.open('https://lin.ee/WtLGEVB', '_blank')"><i class="fab fa-line"></i> แอดไลน์เลย!</button>
-                </div>
+                </div>  
+
             </div>
         </div>
 
     </div> 
-    
 
-    <div class="page-footer">
+</section>
+
+<section class="how-to-pays-area">
+        <h2 class="how-to-pays-title">ขั้นตอนการสั่งซื้อสินค้า</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </div>
+                <h4 class="step-title">ดาวน์โหลดใบสั่งซื้อ</h4>
+                <p class="step-description">ดาวน์โหลดเอกสารใบสั่งซื้อ (PDF) เพื่อใช้เป็นหลักฐานในการชำระเงินและแจ้งโอน</p>
+                
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                </div>
+                <h4 class="step-title">ชำระเงิน</h4>
+                <p class="step-description">ชำระเงินตามยอดที่ระบุในใบสั่งซื้อผ่าน QR Code หรือการโอนเงิน หรือหากต้องการสอบถามเพิ่มเติมสามารถติดต่อผ่าน LINE ได้ทันที</p>
+                
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </div>
+                <h4 class="step-title">แจ้งการชำระเงิน</h4>
+                <p class="step-description">ส่งใบสั่งซื้อพร้อมสลิปการโอนเงิน (หากชำระเงินแล้ว) ทาง LINE หรือ Email เพื่อให้เราตรวจสอบ</p>
+                
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck">
+                        <path d="M1 3h15v16H1V3z"></path>
+                        <rect x="5" y="19" width="4" height="2" rx="1"></rect>
+                        <rect x="15" y="19" width="4" height="2" rx="1"></rect>
+                        <path d="M19 19h2a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H19"></path>
+                    </svg>
+                </div>
+                <h4 class="step-title">รอรับสินค้า</h4>
+                <p class="step-description">หลังจากตรวจสอบการชำระเงินเรียบร้อยแล้ว ทีมงานจะดำเนินการจัดส่งสินค้าตามวันเวลาที่กำหนด</p>
+            </div>
+        </div>
+</section>
+
+ <section class="space-area"></section>
+
+ <div class="page-footer">
         <button class="download-button" onclick="downloadPO()">
             <i class="fas fa-file-pdf"></i> ดาวน์โหลดใบสั่งซื้อ (PDF)
         </button>
-    </div>    
-
-</section>
- 
+</div> 
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -991,6 +1265,111 @@
      * @param {number} num - ตัวเลขที่ต้องการแปลง
      * @returns {string} - ข้อความคำอ่านภาษาไทย
      */
+
+    let lastEmailTime = localStorage.getItem('lastEmailTime') || 0;
+    const cooldownPeriod = 180000;
+    let cooldownTimer;
+
+    function updateCooldownButton() {
+        const button = document.getElementById('send-email-btn');
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - lastEmailTime;
+        
+        if (elapsedTime >= cooldownPeriod) {
+            clearInterval(cooldownTimer);
+            button.disabled = false;
+            button.innerHTML = '<i class="fas fa-envelope"></i> ส่งอีเมลเลย!';
+            localStorage.removeItem('lastEmailTime');
+        } else {
+            const remainingTimeInSeconds = Math.ceil((cooldownPeriod - elapsedTime) / 1000);
+            const minutes = Math.floor(remainingTimeInSeconds / 60);
+            const seconds = remainingTimeInSeconds % 60;
+            
+            let timeMessage = '';
+            if (minutes > 0) {
+                timeMessage += `${minutes} นาที `;
+            }
+            timeMessage += `${seconds} วินาที`;
+
+            button.disabled = true;
+            button.innerHTML = `<i class="fas fa-envelope"></i> ส่งอีกครั้งใน (${timeMessage})`;
+        }
+    }
+
+    function sendEmailToLCI() {
+        const button = document.getElementById('send-email-btn');
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - lastEmailTime;
+
+        if (elapsedTime < cooldownPeriod) {
+            const remainingTimeInSeconds = Math.ceil((cooldownPeriod - elapsedTime) / 1000);
+            const minutes = Math.floor(remainingTimeInSeconds / 60);
+            const seconds = remainingTimeInSeconds % 60;
+            
+            let timeMessage = '';
+            if (minutes > 0) {
+                timeMessage += `${minutes} นาที `;
+            }
+            timeMessage += `${seconds} วินาที`;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'โปรดรอสักครู่',
+                html: `กรุณารอสักครู่ก่อนส่งอีเมลอีกครั้ง<br>สามารถส่งได้ในอีก <b>${timeMessage}</b>`,
+                confirmButtonColor: '#d32f2f', 
+                timer: 3000,
+                timerProgressBar: true
+            });
+            return; 
+        }
+        
+        lastEmailTime = currentTime;
+        localStorage.setItem('lastEmailTime', lastEmailTime);
+        cooldownTimer = setInterval(updateCooldownButton, 1000);
+
+        const recipient = 'kissana2145@gmail.com';
+        const subject = 'ส่งฟอร์มการสั่งสินค้า LCI-Thailand';
+        
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}`;
+        
+        window.open(gmailLink, '_blank');
+        
+        Swal.fire({
+            title: 'เปิดหน้าส่งอีเมลสำเร็จ!',
+            html: 'หากไม่เห็นหน้าต่าง กรุณาตรวจสอบ Pop-up blocker<br>ท่านสามารถแจ้งการชำระเงินพร้อมแนบหลักฐานได้ทันที',
+            icon: 'success',
+            confirmButtonText: 'รับทราบ',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            background: '#ffffff',
+            confirmButtonColor: '#b71c1c' 
+        });
+
+        Swal.fire({
+            icon: 'success',
+            title: 'ขอบคุณสำหรับการสั่งซื้อ!',
+            text: 'เราได้รับคำสั่งซื้อของคุณแล้ว และจะติดต่อกลับโดยเร็วที่สุด',
+            confirmButtonColor: '#b71c1c',
+            showCloseButton: true,
+            confirmButtonText: 'รับทราบ'
+        });
+    }
+
+    window.onload = function() {
+        if (localStorage.getItem('lastEmailTime')) {
+            lastEmailTime = parseInt(localStorage.getItem('lastEmailTime'));
+            const currentTime = new Date().getTime();
+            if (currentTime - lastEmailTime < cooldownPeriod) {
+                cooldownTimer = setInterval(updateCooldownButton, 1000);
+            } else {
+                localStorage.removeItem('lastEmailTime');
+            }
+        }
+    };
+
+
+
 
     function bahtText(num) {
         var num_string = num.toFixed(2).toString().split('.');
@@ -1060,7 +1439,6 @@
         
         return text;
     }
-
 
     document.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -1250,26 +1628,39 @@
             if (poProductList) { 
                 let itemIndex = 1;
                 poProductList.innerHTML = ''; 
+
                 orderData.items.forEach(item => {
                     const quantity = parseInt(item.quantity) || 0;
                     const unitPrice = parseFloat(item.price) || 0;
                     const discount = 0; 
                     const totalAmount = (unitPrice * quantity);
-                    totalWithVat += totalAmount;                  
-                    const deliveryText = item.delivery || 'ไม่ระบุ';                   
+                    totalWithVat += totalAmount; 
+                    const deliveryText = item.delivery || 'ไม่ระบุ'; 
                     const qtyPerSet = parseInt(item.minimum) || 1; 
-                    const unitLabel = item.unit || 'ชิ้น';
-                    let setLabel = '';
-                    if (item.type === 'truck') {
-                        setLabel = 'รถบรรทุก';
-                    } else {
-                        setLabel = 'รถบรรทุก'; 
-                    }
-                    const setCount = Math.floor(quantity / qtyPerSet);
 
-                    let quantityText = '';
-                    if (!item.name.toLowerCase().includes('bulk')) {
-                        quantityText = `<br><small class="text-muted">(จำนวน: ${quantity.toLocaleString()} ${unitLabel})</small>`;
+                    let setLabel = 'รถ'; 
+                    let unitLabel = item.unit || 'ชิ้น'; 
+
+                    let setCount;
+                    let quantityDisplay = ''; 
+
+                    const isBag = item.type === 'bag';
+                    const isBulk = item.name.toLowerCase().includes('bulk');
+
+                    if (isBulk) {
+                        setCount = Math.floor(quantity / 32); 
+                        unitLabel = 'ตัน'; 
+                        quantityDisplay = `<br><small class="text-muted">(32 ตัน/${setLabel})</small>`;
+                    } else if (isBag) {
+                        setCount = Math.floor(quantity / qtyPerSet);
+                        quantityDisplay = `<br><small class="text-muted">(640 ถุง/${setLabel})</small>`;
+                    } else {
+                        setCount = Math.floor(quantity / qtyPerSet);
+                        quantityDisplay = `<br><small class="text-muted">(จำนวน: ${quantity.toLocaleString()} ${unitLabel})</small>`;
+                    }
+
+                    if (isBag) {
+                        setLabel = 'รถ';
                     }
 
                     const row = `
@@ -1281,8 +1672,8 @@
                                 <small class="text-muted">(${deliveryText})</small>
                             </td>
                             <td>
-                                ${setCount} ${setLabel} 
-                                ${quantityText}
+                                ${item.quantity.toLocaleString()}
+                                ${quantityDisplay}
                             </td>
                             <td>${unitLabel}</td>
                             <td>${unitPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
@@ -1308,11 +1699,11 @@
                 amountToPayDisplay.textContent = grandTotal.toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' บาท';
             }
 
-            document.getElementById("grand-total-words").textContent = bahtText(newGrandTotal);
+            // document.getElementById("grand-total-words").textContent = bahtText(newGrandTotal);
 
         document.getElementById("grand-total-words").textContent = bahtText(grandTotal);
 
-        document.getElementById("delivery-notes-po").textContent = orderData.customer.notes || '-';
+        // document.getElementById("delivery-notes-po").textContent = orderData.customer.notes || '-';
 
         const paymentMethodDisplay = document.getElementById("payment-method-po");
         if (paymentMethodDisplay) {
@@ -1339,6 +1730,9 @@
             window.location.href = '/pages/products/products_showall.html'; 
         });
     }
+
+
+
 });
 
 

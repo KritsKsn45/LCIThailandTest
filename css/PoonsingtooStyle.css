@@ -146,6 +146,7 @@ table {
 /* = = = = = [End] G E N E R A L Setting = = = = = */
 
 
+
 /* - - - - - [Start] D E S K T O P Show Style - - - - -  */
 /* #region */
 .desktop-showing {
@@ -155,6 +156,7 @@ table {
 }
 /* #endregion */
 /* = = = = = [End] D E S K T O P Show Style = = = = = */
+
 
 
 /* - - - - - [Start] R E D L I N E section - - - - -  */
@@ -406,7 +408,7 @@ table {
         width: 100%; /* Take full width on mobile */
         justify-content: space-between; /* Space out logo and hamburger */
         align-items: center;
-        min-height: 50px; /* Ensure this section has a minimum height */
+        min-height: 50px; 
     }
 
     .hamburger-menu {
@@ -480,9 +482,9 @@ table {
 /* = = = = = [End] N A V I G A T I O N = = = = = */
 
 
+
 /* ====== [Start] H E A D E R  Content ====== */
 /* #region */
-
 .header-title-page {
   width: 100%;
   padding: 20px;
@@ -510,7 +512,7 @@ table {
     overflow: hidden;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
     padding-top: 0;
-    height: 70vh;
+    height: 80vh;
 }
 
 .ps-header-desktop {
@@ -521,16 +523,12 @@ table {
     height: 100%;
 }
 
-.swiper-container {
-    height: 100%;
-}
-
 .ps-banner-swiper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; /* แก้จาก 75vh เป็น 100% */
     z-index: 1;
 }
 
@@ -552,11 +550,16 @@ table {
 .ps-banner-imagepc {
     width: 100%;
     height: 100%;
-    object-fit: fill;
-    object-position: bottom;
+    object-fit: cover;          /* เติมเต็มกล่องโดยไม่บีบภาพ */
+    object-position: center;    /* โฟกัสกลางภาพ */
     filter: brightness(0.8);
     display: block;
+    min-width: 1000px;          /* ป้องกันการบีบภาพในหน้าจอแคบมาก */
 }
+
+
+
+
 
 .ps-banner-overlay {
     position: absolute;
@@ -577,7 +580,12 @@ table {
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px #000;
 }
-
+.ps-title2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px #000;
+}
 .ps-subtitle {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
@@ -2007,6 +2015,874 @@ th:nth-child(2), td:nth-child(2) {
     height: 120px;
 }
 
+/* #endregion */
+/* = = = = = [End]  H E A D E R  Content = = = = = */
+
+
+
+
+
+.m-ps-main-header,
+.mobile-view,
+.formobile,
+.forMobile,
+.m-home-about-section {
+    display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+
+    .m-ps-main-header,
+    .mobile-view,
+    .formobile,
+    .m-home-about-section,
+    .ps-header-mobile,
+    .headerformobile {
+        display: block;
+    }
+      .ps-main-header {
+        display: none;
+      }
+            .mobile-view {
+                display: block;
+                width: 100%;
+            }
+
+            .nav-lci-above-group1 {
+                display: block;
+            }
+            .formobile {
+                display: block;
+            }
+
+            .m-ps-main-header {
+                display: block;
+            }
+
+            /* ps-main-header for mobile */
+            .above-content {
+              display: none;
+            }
+            .ps-main-header,
+            .home-about-section {
+                display: none; 
+            }
+            
+            .headerformobile {
+                display: block;
+            }
+
+            .ps-header-mobile {
+                display: block; 
+                position: relative; 
+                color: #fff;
+                overflow: hidden;
+                width: 100%;
+                height: 100%; 
+            }
+
+            .to-heaven-btn {
+                right: 12px;
+                bottom: 12px;
+            }
+
+            .swiper-container {
+                height: 100%;
+            }
+            .ps-banner-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                filter: brightness(0.7); 
+                display: block;
+            }
+            .ps-header-mobile .ps-banner-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); /* ลดความเข้ม overlay ลงอีกสำหรับ Mobile (ปรับจาก 0.6 เป็น 0.4) */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 0 5%;
+                box-sizing: border-box;
+                z-index: 3;
+                color: white;
+            }
+            .ps-header-mobile .ps-title {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+                text-shadow: 2px 2px 4px #000;
+            }
+            .ps-header-mobile .ps-title2 {
+              font-size: 1.4rem;
+              margin-bottom: 0.5rem;
+              text-shadow: 2px 2px 4px #000;
+          }
+            .ps-header-mobile .ps-subtitle {
+                font-size: 0.8rem;
+                margin-bottom: 1.5rem;
+                color: white;
+            }
+           
+            .ps-header-mobile .ps-btn-group {
+                flex-direction: column;
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            .wave-mobile svg {
+                display: block;
+                width: 100%;
+                height: 80px;
+            }
+            .wave-mobile {
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                overflow: hidden;
+                line-height: 0;
+                z-index: 2;
+            }
+            .header-section-red-line {
+                display: none;
+            }
+            .header-title-page-title h1 {
+                font-size: 1.5rem;
+            }
+            .header-title-page-title p {
+                font-size: 16px;
+            }
+
+            /* --- */
+
+
+            /* about */
+            .home-about-section {
+                display: none;
+            }
+            .forMobile {
+                display: block;
+            }
+            .headerformobile {
+                display: block;
+            }
+
+            .m-home-about-section {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+            }
+            .m-about-detail {
+                align-items: center;
+                justify-items: center;
+            }
+            .m-about-detail h2{
+                color: rgb(192, 0, 0);
+            }
+            .m-about-detail a{
+                align-items: center;
+                justify-items: center;
+            }
+
+            /* --- */
+
+            /* product */
+            .home-product-showcase {
+                padding: 20px 15px; /* ลด padding รอบ section */
+            }
+
+            .home-product-container {
+                padding: 0; /* ลบ padding ของ container */
+            }
+
+            .home-section-title {
+                font-size: 2rem; /* ปรับขนาดตัวอักษรของหัวข้อ */
+                margin-bottom: 20px;
+            }
+
+            .home-product-grid {
+                grid-template-columns: 1fr 1fr; /* **แก้ไขตรงนี้** แสดง product card 2 คอลัมน์สำหรับมือถือ */
+                gap: 15px; /* ลดระยะห่างระหว่างการ์ดให้พอดี */
+            }
+
+            .home-product-card {
+                width: 100%; /* ทำให้การ์ดเต็มความกว้างในแต่ละคอลัมน์ */
+                max-width: unset; /* **แก้ไขตรงนี้** ลบ max-width เพื่อให้การ์ดปรับขนาดตามคอลัมน์ */
+                margin: 0; /* **แก้ไขตรงนี้** ลบ margin auto */
+                padding: 10px; /* ลด padding ภายใน card ให้พอดี */
+            }
+
+            .home-product-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                justify-items: center;
+            }
+
+            .home-product-info {
+                padding: 8px; /* ลด padding ของข้อมูลสินค้า */
+            }
+
+            .home-product-title {
+                font-size: 1.1rem; /* ปรับขนาดชื่อสินค้า */
+            }
+
+            .home-product-detail,
+            .home-product-unit,
+            .home-product-location {
+                font-size: 0.8rem; /* ปรับขนาดรายละเอียดสินค้า */
+            }
+
+            .home-buy-btn {
+                padding: 0.5rem 1rem; /* ปรับขนาดปุ่ม */
+                font-size: 0.8rem; /* ปรับขนาดตัวอักษรปุ่ม */
+            }
+
+            .home-product-popup-detail {
+                /* ปรับ padding ของ popup ที่นี่ถ้าต้องการสำหรับ mobile */
+                padding: 15px;
+            }
+
+            .hppd-box {
+                width: 95%; /* ปรับความกว้างของ box ใน popup ให้เกือบเต็มจอ */
+                max-width: 90vw; /* จำกัดความกว้างสูงสุด */
+                margin: 20px auto; /* จัดกึ่งกลางและเพิ่ม margin */
+            }
+
+            .hppd-close-button {
+                font-size: 2rem; /* ปรับขนาดปุ่มปิด */
+                top: 5px;
+                right: 10px;
+            }
+
+            .hppd-content {
+                flex-direction: column; /* เรียงเนื้อหาใน popup เป็นแนวตั้ง */
+                gap: 15px; /* ลดระยะห่างระหว่างส่วนต่างๆ */
+            }
+
+            .hppd-con-box {
+                flex-direction: column; /* เรียง content box เป็นแนวตั้ง */
+            }
+
+            .hppd-image-section {
+                width: 100%; /* ทำให้ส่วนรูปภาพเต็มความกว้าง */
+                padding-right: 0; /* ลบ padding */
+                border-right: none; /* ลบเส้นแบ่ง */
+                margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+                /* ปรับ padding ของ image-section สำหรับ mobile ถ้าจำเป็น */
+                padding: 15px; /* ลดจาก 25px */
+            }
+
+            .hppd-main-image-container {
+                height: 250px; /* ปรับความสูงของ container รูปภาพหลัก */
+            }
+
+            .hppd-main-image {
+                max-height: 250px; /* จำกัดความสูงของรูปภาพ */
+                left: 0; /* ปรับตำแหน่งรูปภาพให้พอดี */
+            }
+
+            .hppd-thumbnail-container {
+                justify-content: center; /* จัดกึ่งกลาง thumbnail */
+                margin-top: 10px;
+            }
+
+            .hppd-thumbnail-container img {
+                width: 60px; /* ปรับขนาด thumbnail */
+                height: 60px;
+            }
+
+            .hppd-info-box {
+                display: grid; /* ใช้ Grid เพื่อจัดเรียงข้อมูล */
+                grid-template-columns: 1fr 1fr; /* 2 คอลัมน์ */
+                gap: 10px; /* ระยะห่างระหว่างข้อมูล */
+                width: 100%; /* ทำให้ info box เต็มความกว้าง */
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            .info-item {
+                flex-direction: column; /* จัดเรียง label และ value เป็นแนวตั้ง */
+                align-items: flex-start; /* จัดชิดซ้าย */
+            }
+
+            .info-label {
+                font-size: 0.85rem;
+            }
+
+            .info-value {
+                font-size: 0.9rem;
+            }
+
+            .hppd-details-section {
+                width: 100%; /* ทำให้ส่วนรายละเอียดเต็มความกว้าง */
+                padding-left: 0; /* ลบ padding */
+            }
+
+            .product-title {
+                font-size: 1.8rem; /* ปรับขนาดชื่อผลิตภัณฑ์ใน popup */
+                text-align: center; /* จัดกึ่งกลางชื่อ */
+                margin-bottom: 10px;
+            }
+
+            .product-description-text,
+            .detail-text,
+            .feature-list li {
+                font-size: 0.95rem; /* ปรับขนาดข้อความรายละเอียด */
+                line-height: 1.5;
+            }
+
+            .box-title {
+                font-size: 1.2rem; /* ปรับขนาดหัวข้อในกล่องรายละเอียด */
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            .standard-icons img {
+                width: 40px; /* ปรับขนาดไอคอนมาตรฐาน */
+                height: 40px;
+                margin-right: 8px;
+            }
+
+            /* --- Global Popup Styles for Mobile (รวม home-product-popup-detail และ image-zoom-popup) --- */
+            body.no-scroll {
+                overflow: hidden; /* ยังคงให้ body ซ่อน scrollbar เมื่อ popup เปิด */
+            }
+
+            .home-product-popup-detail,
+            .image-zoom-popup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(0,0,0,0.7);
+                padding: 10px; /* ลด padding ลงเล็กน้อยสำหรับ mobile */
+                z-index: 10000; /* ให้ popup อยู่บนสุด */
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.0s ease 0.3s; /* visibility ให้เปลี่ยนทีหลัง opacity */
+            }
+
+            .home-product-popup-detail.is-visible,
+            .image-zoom-popup.is-visible {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.3s ease, visibility 0s ease 0s; /* visibility ให้เปลี่ยนทันที */
+            }
+
+            /* Style for Image Zoom Popup specific */
+            .image-zoom-content {
+                width: 95%; /* ใช้ค่าที่ปรับแล้วสำหรับ mobile */
+                max-width: 90vw;
+                max-height: 90vh;
+                background-color: #fff;
+                padding: 15px; /* ลด padding ลงเล็กน้อย */
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .zoomed-image {
+                max-width: 100%;
+                max-height: 85vh; /* จำกัดความสูงของรูปที่ซูม */
+                display: block;
+                object-fit: contain;
+            }
+            .image-zoom-close-button {
+                font-size: 2rem; /* ปรับขนาดปุ่มปิด */
+                top: 5px;
+                right: 10px;
+            }
+
+            .pro-s-product-showcase {
+                padding: 20px 3%; /* Reduced padding for smaller screens */
+            }
+
+            /* Main product layout */
+            .product-all-con {
+                flex-direction: column; /* Stack filter and products vertically */
+                gap: 1rem;
+            }
+
+            /* Advance filter box (hidden on mobile) */
+            .pro-s-adv-filters-box {
+                display: none;
+            }
+
+            /* Product container takes full width */
+            .ps-product-container {
+                width: 100%;
+            }
+
+            /* Search bar filter */
+            .pro-s-filter-bar {
+                flex-direction: column; /* Stack filter elements vertically */
+                align-items: stretch; /* Stretch items to full width */
+                margin-left: 0; /* Remove left margin */
+                margin-right: 0;
+                margin-top: 20px; /* Adjust top margin */
+                margin-bottom: 20px; /* Adjust bottom margin */
+                padding: 0 5%; /* Add some horizontal padding */
+                box-sizing: border-box; /* Include padding in width calculation */
+            }
+            .pro-s-filter-bar input,
+            .pro-s-filter-bar select,
+            .pro-s-filter-bar button {
+                width: 100%; /* Full width for inputs, selects, and buttons */
+                min-width: unset; /* Remove min-width constraint */
+                font-size: 14px; /* Slightly smaller font size */
+            }
+            .pro-s-filter-bar button {
+                margin-top: 10px; /* Add space between elements */
+                width: 100%; /* Ensure button also takes full width */
+            }
+            .pro-s-filter-bar select {
+                padding: 10px 15px; /* Adjust padding for better fit */
+                background-position: right 8px center; /* Adjust dropdown icon position */
+            }
+            .psfb-title {
+                display: block; /* Show title for filter bar on mobile */
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 1.5rem;
+                color: #d60000;
+                width: 100%;
+            }
+
+
+            /* Product type tabs */
+            .pro-s-product-type-tabs {
+                justify-content: flex-start; /* Align tabs to start */
+                overflow-x: auto; /* Enable horizontal scrolling for many tabs */
+                white-space: nowrap; /* Prevent wrapping of tabs */
+                padding-bottom: 10px; /* Space for scrollbar */
+            }
+            .pro-s-pd-type {
+                font-size: 0.9rem; /* Smaller font for tabs */
+                padding: 0.5rem 1rem;
+                flex-shrink: 0; /* Prevent tabs from shrinking */
+            }
+
+            /* Product cards */
+            .p-c-product-grid {
+                justify-content: center; /* Center cards on small screens */
+                gap: 15px; /* Reduce gap between cards */
+                padding: 0 5%; /* Add horizontal padding to the grid container */
+                grid-template-columns: 1fr 1fr; /* **แก้ไขตรงนี้** สำหรับ 2 ชิ้นต่อแถว */
+            }
+            .p-c-product-card {
+                width: 100%; /* Make cards full width on mobile */
+                max-width: unset; /* **แก้ไขตรงนี้** ลบ max-width เพื่อให้การ์ดปรับขนาดตามคอลัมน์ */
+                height: auto;
+            }
+            .p-c-product-card img {
+                height: 150px; /* **แก้ไขตรงนี้** ลดความสูงรูปภาพลงเล็กน้อยให้พอดี */
+            }
+            .p-c-product-title p {
+                font-size: 16px; /* **แก้ไขตรงนี้** ปรับขนาดฟอนต์ให้เล็กลง */
+            }
+            .p-c-product-detail p {
+                font-size: 12px; /* **แก้ไขตรงนี้** ปรับขนาดฟอนต์ให้เล็กลง */
+            }
+            .p-c-product-price, #priceVisibilityClass {
+                font-size: 30px; /* **แก้ไขตรงนี้** ปรับขนาดราคาให้เล็กลง */
+            }
+            .p-c-product-price span {
+                font-size: 18px; /* **แก้ไขตรงนี้** ปรับขนาดหน่วยให้เล็กลง */
+            }
+
+
+            /* Cart section */
+            .cart-section-container {
+                width: 100%; /* Cart takes full width on mobile */
+            }
+            .p-cart-title {
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+            .products-carts-container, .p-cart-result {
+                padding: 15px;
+            }
+            .cart-img img {
+                width: 50px;
+            }
+            .cart-name {
+                font-size: 1rem;
+            }
+            .cart-price {
+                font-size: 0.85rem;
+            }
+            .qty-control {
+                flex-basis: 100%; /* Force quantity controls to a new line if needed */
+                justify-content: flex-start; /* Align quantity controls to the left */
+                margin-top: 10px;
+            }
+            .cart-item-horizontal {
+                flex-direction: column; /* Stack cart item details vertically */
+                align-items: flex-start; /* Align items to the left */
+            }
+            .cart-remove {
+                align-self: flex-end; /* Push remove button to the right */
+                margin-top: -30px; /* Adjust position to be next to other elements */
+            }
+            .qty-control button, .cart-remove button {
+                padding: 4px 10px;
+                font-size: 14px;
+            }
+            .p-cart-result p {
+                font-size: 1rem;
+            }
+            .p-cart-result p strong {
+                font-size: 1.1rem;
+            }
+
+            /* Product Detail Popup */
+            .popup-product-detail {
+                padding: 10px; /* Smaller padding for the overall popup overlay */
+            }
+            .popup-box-show {
+                flex-direction: column; /* Stack content vertically */
+                max-width: 95%; /* Make popup wider on mobile */
+                padding: 15px; /* Adjust padding inside popup */
+                max-height: 95vh; /* Allow more vertical space */
+                gap: 1rem; /* Smaller gap between sections */
+            }
+            .popup-left, .popup-right {
+                min-width: auto; /* Remove min-width constraint */
+                width: 100%; /* Take full width */
+                padding: 15px; /* Adjust padding inside left/right boxes */
+            }
+            .popup-close {
+                top: 10px; /* Adjust close button position */
+                right: 10px;
+            }
+            .popup-close-btn {
+                font-size: 2.5rem; /* Smaller close button */
+            }
+            #mainPopupImg {
+                max-height: 250px; /* Adjust main image height */
+            }
+            .popup-thumbnails img {
+                width: 60px; /* Smaller thumbnails */
+                height: 60px;
+            }
+            .plbs-con {
+                flex-direction: row; /* Keep row for standard/strength boxes */
+                flex-wrap: wrap; /* Allow wrapping */
+                justify-content: center;
+                gap: 1rem;
+            }
+            .plbs-box {
+                flex: 1 1 80px; /* More flexible sizing for these boxes */
+                max-width: 100px; /* Limit max width */
+                font-size: 0.85rem; /* Smaller text */
+            }
+            .plbs-box img {
+                width: 60px; /* Smaller images within standard/strength boxes */
+            }
+            .popup-action-buttons {
+                flex-direction: column; /* Stack action buttons vertically */
+                gap: 10px; /* Smaller gap */
+            }
+            .popup-action-buttons button {
+                min-width: unset; /* Remove min-width */
+                width: 100%; /* Full width buttons */
+                font-size: 0.95rem; /* Smaller font */
+                padding: 10px; /* Adjust padding */
+            }
+            .image-zoom-content {
+                max-width: 95%; 
+                padding: 10px; 
+            }
+            .zoomed-image {
+                max-height: 70vh; 
+            }
+            .image-zoom-close-button {
+                font-size: 24px; 
+            }
+
+
+
+            /* standard area */
+            .home-std-section-title {
+                font-size: 2.2em;
+            }
+            .home-std-section-subtitle {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            .home-std-home-standard-section {
+                padding: 60px 0;
+            }
+            .home-std-capabilities-grid {
+                grid-template-columns: 1fr; 
+            }
+            .home-std-capability-card {
+                padding: 25px;
+            }
+            .home-std-card-icon {
+                width: 70px;
+                height: 70px;
+            }
+            .home-std-card-icon svg {
+                width: 45px;
+                height: 45px;
+            }
+            .standard-popup-modal {
+                align-items: flex-start; /* จัดให้ content อยู่ด้านบนของหน้าจอ */
+                padding-top: 20px;
+            }
+            
+            .standard-popup-content {
+                width: 95%; /* ใช้พื้นที่หน้าจอมากขึ้น */
+                max-width: none;
+                padding: 15px; /* ลด padding */
+                border-radius: 10px;
+            }
+            
+            .standard-popup-close-btn {
+                top: 10px;
+                right: 10px;
+                font-size: 1.8em;
+            }
+            
+            .standard-popup-header {
+                flex-direction: column; /* เรียงไอคอนและหัวข้อในแนวตั้ง */
+                text-align: center;
+                gap: 10px;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .standard-popup-header-img {
+                width: 60px; /* ลดขนาดรูปไอคอน */
+                height: 60px;
+            }
+            
+            .standard-popup-title {
+                font-size: 1.5em; /* ลดขนาดฟอนต์หัวข้อ */
+            }
+            
+            .standard-popup-body {
+                font-size: 0.9em; /* ลดขนาดฟอนต์เนื้อหา */
+            }
+
+
+
+
+            .home-why-choose-us h2 {
+              font-size: 1.6rem;
+             
+            }
+            .home-why-choose-us i {
+              font-size: 1.2rem;
+             
+            }
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 1024px) {
+    /* above */
+    .above-content {
+        display: none;
+    }
+    .lci-above-group1 {
+        padding-left: 0;
+        margin-bottom: 10px;
+    }
+    .lci-above-group2 {
+        display: none;
+    }
+    .detailLCI {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .telLCI,
+    .socialLCI {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-left: 0;
+        gap: 10px;
+    }
+    .LCIlocatation {
+        padding-left: 0;
+    }
+    .lcilocate {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .lcilocate h5 {
+        margin-bottom: 0;
+    }
+    .lcilocate a.gps-button {
+        margin-left: 0;
+    }
+    .nav-lci-above-group1 {
+        display: block;
+    }
+    .pshta-tablet-view {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .ps-main-header {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+        padding-top: 0;
+        height: 70vh; /* แก้ไข: เนื่องจากค่านี้ถูกเขียนทับ ให้ใช้ค่าที่ต้องการสุดท้าย */
+    }
+    .ps-header-title-area {
+        background: linear-gradient(to right, rgba(215, 0, 0, 0.7), rgba(90, 0, 0, 0.7));
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 100%;
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+        padding-right: 55%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .nav-list {
+        gap: 15px;
+    }
+    .nav-list a {
+        font-size: 13px;
+    }
+    .dropdown-menu {
+        min-width: auto;
+    }
+    .wave-tablet {
+        display: block;
+        z-index: 2;
+    }
+    .swiper-container {
+        height: 100%;
+    }
+    .ps-header-tablet {
+        display: block;
+        position: relative;
+        color: #fff;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    .ps-header-tablet .ps-banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 5%;
+        box-sizing: border-box;
+        z-index: 3;
+        color: white;
+    }
+    .ps-header-tablet .ps-title {
+        font-size: 2.5rem;
+    }
+    .ps-header-tablet .ps-subtitle {
+        font-size: 1.1rem;
+    }
+    .ps-header-tablet .ps-btn-group {
+        justify-content: center;
+    }
+    .pshta-tablet-view .ps-banner-overlay {
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center;
+    }
+    .h-a-container {
+        justify-content: center;
+    }
+    .home-about-text-box {
+        margin: 0 auto;
+    }
+    .news-cards {
+        gap: 8px;
+        padding-left: 0;
+        justify-content: center;
+    }
+    .home-contact-con {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .home-c-detail,
+    .home-c-block {
+        max-width: 80% !important;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .contact-social-cards {
+        justify-content: center;
+    }
+    .contact-social-card {
+        flex: 1 1 45%;
+        margin: 10px;
+    }
+    .footer-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem;
+        padding: 25px;
+    }
+    .footer-content > div {
+        flex: 1 1 calc(50% - 1rem);
+        box-sizing: border-box;
+    }
+    .footer-section {
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    .footer-section a {
+        font-size: 18px;
+    }
+    .footer-section p {
+        font-size: 16px;
+    }
+}
+
 @media (min-width: 1025px) {
     .ps-header-desktop {
         height: 100%;
@@ -2029,1137 +2905,6 @@ th:nth-child(2), td:nth-child(2) {
         align-items: flex-start;
     }
 }
-
-
-/* Hidden elements from previous code, consider removing if not used */
-.ps-top-section,
-.ps-top-banner,
-.ps-header-tablet{
-    display: none;
-}
-.ps-banner-overlay-product { 
-    display: none;
-}
-
-
-
-/* #endregion */
-/* = = = = = [End]  H E A D E R  Content = = = = = */
-
-
-
-
-
-
-
-
-
-
-/* responsive nav bar burger 834px */
-
-
-.m-ps-main-header {
-  display: none;
-}
-.mobile-view  {
-  display: none;
-}
-.formobile {
-  display: none;
-}
-
-
-
-.nav-lci-above-group1 {
-  display: none;
-}
-.pshta-tablet-view {
-  display: none;
-}
-
-
-
-
-
-/* Mobile Styles */
-@media (max-width: 480px) {
-
-    .mobile-view {
-        display: block;
-        width: 100%;
-    }
-
-    .above-content {
-        display: none;
-    }
-    .nav-lci-above-group1 {
-        display: block;
-    }
-    .formobile {
-        display: block;
-    }
-
-    .m-ps-main-header {
-        display: block;
-    }
-
-    /* ps-main-header for mobile */
-    .ps-main-header {
-        display: none;
-    }
-    .headerformobile {
-        display: block;
-    }
-
-    .ps-header-mobile {
-        display: block; /* นี่คือค่าที่ถูกต้องสำหรับ mobile */
-        position: relative; /* ใช้ค่านี้ตามที่คุณต้องการ */
-        color: #fff;
-        overflow: hidden;
-        width: 100%;
-        height: 100%; /* ทำให้ ps-header-mobile มีความสูงเท่ากับ ps-main-header */
-    }
-
-    .to-heaven-btn {
-        right: 12px;
-        bottom: 12px;
-    }
-
-    .swiper-container {
-        height: 100%;
-    }
-    .ps-banner-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* บนมือถือก็ให้ crop ตรงกลางเช่นกัน */
-        object-position: center;
-        filter: brightness(0.7); /* ลดความเข้ม overlay */
-        display: block;
-    }
-    .ps-header-mobile .ps-banner-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4); /* ลดความเข้ม overlay ลงอีกสำหรับ Mobile (ปรับจาก 0.6 เป็น 0.4) */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 5%;
-        box-sizing: border-box;
-        z-index: 3;
-        color: white;
-    }
-    .ps-header-mobile .ps-title {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-        text-shadow: 2px 2px 4px #000;
-    }
-    .ps-header-mobile .ps-subtitle {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        color: white;
-    }
-    .ps-header-mobile .ps-btn-group {
-        flex-direction: column;
-        gap: 0.5rem;
-        justify-content: center;
-    }
-    .wave-mobile svg {
-        display: block;
-        width: 100%;
-        height: 80px;
-    }
-    .wave-mobile {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        z-index: 2;
-    }
-    .header-section-red-line {
-        display: none;
-    }
-    .header-title-page-title h1 {
-        font-size: 1.5rem;
-    }
-    .header-title-page-title p {
-        font-size: 16px;
-    }
-
-    /* --- */
-
-
-    /* about */
-    .home-about-section {
-        display: none;
-    }
-    .forMobile {
-        display: block;
-    }
-    .headerformobile {
-        display: block;
-    }
-
-    .m-home-about-section {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding: 15px;
-    }
-    .m-about-detail {
-        align-items: center;
-        justify-items: center;
-    }
-    .m-about-detail h2{
-        color: rgb(192, 0, 0);
-    }
-    .m-about-detail a{
-        align-items: center;
-        justify-items: center;
-    }
-
-    /* --- */
-
-    /* product */
-    .home-product-showcase {
-        padding: 20px 15px; /* ลด padding รอบ section */
-    }
-
-    .home-product-container {
-        padding: 0; /* ลบ padding ของ container */
-    }
-
-    .home-section-title {
-        font-size: 2rem; /* ปรับขนาดตัวอักษรของหัวข้อ */
-        margin-bottom: 20px;
-    }
-
-    .home-product-grid {
-        grid-template-columns: 1fr 1fr; /* **แก้ไขตรงนี้** แสดง product card 2 คอลัมน์สำหรับมือถือ */
-        gap: 15px; /* ลดระยะห่างระหว่างการ์ดให้พอดี */
-    }
-
-    .home-product-card {
-        width: 100%; /* ทำให้การ์ดเต็มความกว้างในแต่ละคอลัมน์ */
-        max-width: unset; /* **แก้ไขตรงนี้** ลบ max-width เพื่อให้การ์ดปรับขนาดตามคอลัมน์ */
-        margin: 0; /* **แก้ไขตรงนี้** ลบ margin auto */
-        padding: 10px; /* ลด padding ภายใน card ให้พอดี */
-    }
-
-    .home-product-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        justify-items: center;
-    }
-
-    .home-product-info {
-        padding: 8px; /* ลด padding ของข้อมูลสินค้า */
-    }
-
-    .home-product-title {
-        font-size: 1.1rem; /* ปรับขนาดชื่อสินค้า */
-    }
-
-    .home-product-detail,
-    .home-product-unit,
-    .home-product-location {
-        font-size: 0.8rem; /* ปรับขนาดรายละเอียดสินค้า */
-    }
-
-    .home-buy-btn {
-        padding: 0.5rem 1rem; /* ปรับขนาดปุ่ม */
-        font-size: 0.8rem; /* ปรับขนาดตัวอักษรปุ่ม */
-    }
-
-    .home-product-popup-detail {
-        /* ปรับ padding ของ popup ที่นี่ถ้าต้องการสำหรับ mobile */
-        padding: 15px;
-    }
-
-    .hppd-box {
-        width: 95%; /* ปรับความกว้างของ box ใน popup ให้เกือบเต็มจอ */
-        max-width: 90vw; /* จำกัดความกว้างสูงสุด */
-        margin: 20px auto; /* จัดกึ่งกลางและเพิ่ม margin */
-    }
-
-    .hppd-close-button {
-        font-size: 2rem; /* ปรับขนาดปุ่มปิด */
-        top: 5px;
-        right: 10px;
-    }
-
-    .hppd-content {
-        flex-direction: column; /* เรียงเนื้อหาใน popup เป็นแนวตั้ง */
-        gap: 15px; /* ลดระยะห่างระหว่างส่วนต่างๆ */
-    }
-
-    .hppd-con-box {
-        flex-direction: column; /* เรียง content box เป็นแนวตั้ง */
-    }
-
-    .hppd-image-section {
-        width: 100%; /* ทำให้ส่วนรูปภาพเต็มความกว้าง */
-        padding-right: 0; /* ลบ padding */
-        border-right: none; /* ลบเส้นแบ่ง */
-        margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
-        /* ปรับ padding ของ image-section สำหรับ mobile ถ้าจำเป็น */
-        padding: 15px; /* ลดจาก 25px */
-    }
-
-    .hppd-main-image-container {
-        height: 250px; /* ปรับความสูงของ container รูปภาพหลัก */
-    }
-
-    .hppd-main-image {
-        max-height: 250px; /* จำกัดความสูงของรูปภาพ */
-        left: 0; /* ปรับตำแหน่งรูปภาพให้พอดี */
-    }
-
-    .hppd-thumbnail-container {
-        justify-content: center; /* จัดกึ่งกลาง thumbnail */
-        margin-top: 10px;
-    }
-
-    .hppd-thumbnail-container img {
-        width: 60px; /* ปรับขนาด thumbnail */
-        height: 60px;
-    }
-
-    .hppd-info-box {
-        display: grid; /* ใช้ Grid เพื่อจัดเรียงข้อมูล */
-        grid-template-columns: 1fr 1fr; /* 2 คอลัมน์ */
-        gap: 10px; /* ระยะห่างระหว่างข้อมูล */
-        width: 100%; /* ทำให้ info box เต็มความกว้าง */
-        padding: 15px;
-        box-sizing: border-box;
-    }
-
-    .info-item {
-        flex-direction: column; /* จัดเรียง label และ value เป็นแนวตั้ง */
-        align-items: flex-start; /* จัดชิดซ้าย */
-    }
-
-    .info-label {
-        font-size: 0.85rem;
-    }
-
-    .info-value {
-        font-size: 0.9rem;
-    }
-
-    .hppd-details-section {
-        width: 100%; /* ทำให้ส่วนรายละเอียดเต็มความกว้าง */
-        padding-left: 0; /* ลบ padding */
-    }
-
-    .product-title {
-        font-size: 1.8rem; /* ปรับขนาดชื่อผลิตภัณฑ์ใน popup */
-        text-align: center; /* จัดกึ่งกลางชื่อ */
-        margin-bottom: 10px;
-    }
-
-    .product-description-text,
-    .detail-text,
-    .feature-list li {
-        font-size: 0.95rem; /* ปรับขนาดข้อความรายละเอียด */
-        line-height: 1.5;
-    }
-
-    .box-title {
-        font-size: 1.2rem; /* ปรับขนาดหัวข้อในกล่องรายละเอียด */
-        margin-top: 15px;
-        margin-bottom: 8px;
-    }
-
-    .standard-icons img {
-        width: 40px; /* ปรับขนาดไอคอนมาตรฐาน */
-        height: 40px;
-        margin-right: 8px;
-    }
-
-    /* --- Global Popup Styles for Mobile (รวม home-product-popup-detail และ image-zoom-popup) --- */
-    body.no-scroll {
-        overflow: hidden; /* ยังคงให้ body ซ่อน scrollbar เมื่อ popup เปิด */
-    }
-
-    .home-product-popup-detail,
-    .image-zoom-popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0,0,0,0.7);
-        padding: 10px; /* ลด padding ลงเล็กน้อยสำหรับ mobile */
-        z-index: 10000; /* ให้ popup อยู่บนสุด */
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.0s ease 0.3s; /* visibility ให้เปลี่ยนทีหลัง opacity */
-    }
-
-    .home-product-popup-detail.is-visible,
-    .image-zoom-popup.is-visible {
-        opacity: 1;
-        visibility: visible;
-        transition: opacity 0.3s ease, visibility 0s ease 0s; /* visibility ให้เปลี่ยนทันที */
-    }
-
-    /* Style for Image Zoom Popup specific */
-    .image-zoom-content {
-        width: 95%; /* ใช้ค่าที่ปรับแล้วสำหรับ mobile */
-        max-width: 90vw;
-        max-height: 90vh;
-        background-color: #fff;
-        padding: 15px; /* ลด padding ลงเล็กน้อย */
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .zoomed-image {
-        max-width: 100%;
-        max-height: 85vh; /* จำกัดความสูงของรูปที่ซูม */
-        display: block;
-        object-fit: contain;
-    }
-    .image-zoom-close-button {
-        font-size: 2rem; /* ปรับขนาดปุ่มปิด */
-        top: 5px;
-        right: 10px;
-    }
-
-    .pro-s-product-showcase {
-        padding: 20px 3%; /* Reduced padding for smaller screens */
-    }
-
-    /* Main product layout */
-    .product-all-con {
-        flex-direction: column; /* Stack filter and products vertically */
-        gap: 1rem;
-    }
-
-    /* Advance filter box (hidden on mobile) */
-    .pro-s-adv-filters-box {
-        display: none;
-    }
-
-    /* Product container takes full width */
-    .ps-product-container {
-        width: 100%;
-    }
-
-    /* Search bar filter */
-    .pro-s-filter-bar {
-        flex-direction: column; /* Stack filter elements vertically */
-        align-items: stretch; /* Stretch items to full width */
-        margin-left: 0; /* Remove left margin */
-        margin-right: 0;
-        margin-top: 20px; /* Adjust top margin */
-        margin-bottom: 20px; /* Adjust bottom margin */
-        padding: 0 5%; /* Add some horizontal padding */
-        box-sizing: border-box; /* Include padding in width calculation */
-    }
-    .pro-s-filter-bar input,
-    .pro-s-filter-bar select,
-    .pro-s-filter-bar button {
-        width: 100%; /* Full width for inputs, selects, and buttons */
-        min-width: unset; /* Remove min-width constraint */
-        font-size: 14px; /* Slightly smaller font size */
-    }
-    .pro-s-filter-bar button {
-        margin-top: 10px; /* Add space between elements */
-        width: 100%; /* Ensure button also takes full width */
-    }
-    .pro-s-filter-bar select {
-        padding: 10px 15px; /* Adjust padding for better fit */
-        background-position: right 8px center; /* Adjust dropdown icon position */
-    }
-    .psfb-title {
-        display: block; /* Show title for filter bar on mobile */
-        text-align: center;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
-        color: #d60000;
-        width: 100%;
-    }
-
-
-    /* Product type tabs */
-    .pro-s-product-type-tabs {
-        justify-content: flex-start; /* Align tabs to start */
-        overflow-x: auto; /* Enable horizontal scrolling for many tabs */
-        white-space: nowrap; /* Prevent wrapping of tabs */
-        padding-bottom: 10px; /* Space for scrollbar */
-    }
-    .pro-s-pd-type {
-        font-size: 0.9rem; /* Smaller font for tabs */
-        padding: 0.5rem 1rem;
-        flex-shrink: 0; /* Prevent tabs from shrinking */
-    }
-
-    /* Product cards */
-    .p-c-product-grid {
-        justify-content: center; /* Center cards on small screens */
-        gap: 15px; /* Reduce gap between cards */
-        padding: 0 5%; /* Add horizontal padding to the grid container */
-        grid-template-columns: 1fr 1fr; /* **แก้ไขตรงนี้** สำหรับ 2 ชิ้นต่อแถว */
-    }
-    .p-c-product-card {
-        width: 100%; /* Make cards full width on mobile */
-        max-width: unset; /* **แก้ไขตรงนี้** ลบ max-width เพื่อให้การ์ดปรับขนาดตามคอลัมน์ */
-        height: auto;
-    }
-    .p-c-product-card img {
-        height: 150px; /* **แก้ไขตรงนี้** ลดความสูงรูปภาพลงเล็กน้อยให้พอดี */
-    }
-    .p-c-product-title p {
-        font-size: 16px; /* **แก้ไขตรงนี้** ปรับขนาดฟอนต์ให้เล็กลง */
-    }
-    .p-c-product-detail p {
-        font-size: 12px; /* **แก้ไขตรงนี้** ปรับขนาดฟอนต์ให้เล็กลง */
-    }
-    .p-c-product-price, #priceVisibilityClass {
-        font-size: 30px; /* **แก้ไขตรงนี้** ปรับขนาดราคาให้เล็กลง */
-    }
-    .p-c-product-price span {
-        font-size: 18px; /* **แก้ไขตรงนี้** ปรับขนาดหน่วยให้เล็กลง */
-    }
-
-
-    /* Cart section */
-    .cart-section-container {
-        width: 100%; /* Cart takes full width on mobile */
-    }
-    .p-cart-title {
-        padding: 15px;
-        font-size: 1.2rem;
-    }
-    .products-carts-container, .p-cart-result {
-        padding: 15px;
-    }
-    .cart-img img {
-        width: 50px;
-    }
-    .cart-name {
-        font-size: 1rem;
-    }
-    .cart-price {
-        font-size: 0.85rem;
-    }
-    .qty-control {
-        flex-basis: 100%; /* Force quantity controls to a new line if needed */
-        justify-content: flex-start; /* Align quantity controls to the left */
-        margin-top: 10px;
-    }
-    .cart-item-horizontal {
-        flex-direction: column; /* Stack cart item details vertically */
-        align-items: flex-start; /* Align items to the left */
-    }
-    .cart-remove {
-        align-self: flex-end; /* Push remove button to the right */
-        margin-top: -30px; /* Adjust position to be next to other elements */
-    }
-    .qty-control button, .cart-remove button {
-        padding: 4px 10px;
-        font-size: 14px;
-    }
-    .p-cart-result p {
-        font-size: 1rem;
-    }
-    .p-cart-result p strong {
-        font-size: 1.1rem;
-    }
-
-    /* Product Detail Popup */
-    .popup-product-detail {
-        padding: 10px; /* Smaller padding for the overall popup overlay */
-    }
-    .popup-box-show {
-        flex-direction: column; /* Stack content vertically */
-        max-width: 95%; /* Make popup wider on mobile */
-        padding: 15px; /* Adjust padding inside popup */
-        max-height: 95vh; /* Allow more vertical space */
-        gap: 1rem; /* Smaller gap between sections */
-    }
-    .popup-left, .popup-right {
-        min-width: auto; /* Remove min-width constraint */
-        width: 100%; /* Take full width */
-        padding: 15px; /* Adjust padding inside left/right boxes */
-    }
-    .popup-close {
-        top: 10px; /* Adjust close button position */
-        right: 10px;
-    }
-    .popup-close-btn {
-        font-size: 2.5rem; /* Smaller close button */
-    }
-    #mainPopupImg {
-        max-height: 250px; /* Adjust main image height */
-    }
-    .popup-thumbnails img {
-        width: 60px; /* Smaller thumbnails */
-        height: 60px;
-    }
-    .plbs-con {
-        flex-direction: row; /* Keep row for standard/strength boxes */
-        flex-wrap: wrap; /* Allow wrapping */
-        justify-content: center;
-        gap: 1rem;
-    }
-    .plbs-box {
-        flex: 1 1 80px; /* More flexible sizing for these boxes */
-        max-width: 100px; /* Limit max width */
-        font-size: 0.85rem; /* Smaller text */
-    }
-    .plbs-box img {
-        width: 60px; /* Smaller images within standard/strength boxes */
-    }
-    .popup-action-buttons {
-        flex-direction: column; /* Stack action buttons vertically */
-        gap: 10px; /* Smaller gap */
-    }
-    .popup-action-buttons button {
-        min-width: unset; /* Remove min-width */
-        width: 100%; /* Full width buttons */
-        font-size: 0.95rem; /* Smaller font */
-        padding: 10px; /* Adjust padding */
-    }
-    .image-zoom-content {
-        max-width: 95%; 
-        padding: 10px; 
-    }
-    .zoomed-image {
-        max-height: 70vh; 
-    }
-    .image-zoom-close-button {
-        font-size: 24px; 
-    }
-
-
-
-    /* standard area */
-    .home-std-section-title {
-        font-size: 2.2em;
-    }
-    .home-std-section-subtitle {
-        font-size: 1em;
-        margin-bottom: 40px;
-    }
-    .home-std-home-standard-section {
-        padding: 60px 0;
-    }
-    .home-std-capabilities-grid {
-        grid-template-columns: 1fr; 
-    }
-    .home-std-capability-card {
-        padding: 25px;
-    }
-    .home-std-card-icon {
-        width: 70px;
-        height: 70px;
-    }
-    .home-std-card-icon svg {
-        width: 45px;
-        height: 45px;
-    }
-    .standard-popup-modal {
-        align-items: flex-start; /* จัดให้ content อยู่ด้านบนของหน้าจอ */
-        padding-top: 20px;
-    }
-    
-    .standard-popup-content {
-        width: 95%; /* ใช้พื้นที่หน้าจอมากขึ้น */
-        max-width: none;
-        padding: 15px; /* ลด padding */
-        border-radius: 10px;
-    }
-    
-    .standard-popup-close-btn {
-        top: 10px;
-        right: 10px;
-        font-size: 1.8em;
-    }
-    
-    .standard-popup-header {
-        flex-direction: column; /* เรียงไอคอนและหัวข้อในแนวตั้ง */
-        text-align: center;
-        gap: 10px;
-        padding-bottom: 15px;
-        margin-bottom: 15px;
-    }
-    
-    .standard-popup-header-img {
-        width: 60px; /* ลดขนาดรูปไอคอน */
-        height: 60px;
-    }
-    
-    .standard-popup-title {
-        font-size: 1.5em; /* ลดขนาดฟอนต์หัวข้อ */
-    }
-    
-    .standard-popup-body {
-        font-size: 0.9em; /* ลดขนาดฟอนต์เนื้อหา */
-    }
-
-}
-
-
-
-
-@media (min-width: 481px) and (max-width: 1024px) {
-
-    /* above */
-    .above-content {
-        display: none;
-    }
-    .lci-above-group1 {
-        padding-left: 0;
-        margin-bottom: 10px;
-    }
-    .lci-above-group2 {
-        display: none;
-    }
-
-    .detailLCI {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .telLCI,
-    .socialLCI {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-left: 0;
-        gap: 10px;
-    }
-
-    .LCIlocatation {
-        padding-left: 0;
-    }
-
-    .lcilocate {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .lcilocate h5 {
-        margin-bottom: 0;
-    }
-
-    .lcilocate a.gps-button {
-        margin-left: 0;
-    }
-
-    .nav-lci-above-group1 {
-        display: block;
-    }
-
-    .pshta-tablet-view {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.5);
-    }
-    .ps-main-header {
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-        padding-top: 0;
-        height: 30vh;
-    }
-    .ps-header-title-area {
-        background: linear-gradient(to right, rgba(215, 0, 0, 0.7), rgba(90, 0, 0, 0.7));
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40%;
-        height: 100%;
-        z-index: 2;
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-        padding-right: 55%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .nav-list {
-        gap: 15px;
-    }
-
-    .nav-list a {
-        font-size: 13px;
-    }
-
-    .dropdown-menu {
-        min-width: auto;
-    }
-
-    .wave-tablet {
-        display: block;
-        z-index: 2;
-    }
-
-    .ps-main-header {
-        height: 70vh;
-        padding-top: 0;
-    }
-
-    .swiper-container {
-        height: 100%;
-    }
-
-    .ps-header-tablet {
-        display: block;
-        position: relative;
-        color: #fff;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
-
-    .ps-header-tablet .ps-banner-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 5%;
-        box-sizing: border-box;
-        z-index: 3;
-        color: white;
-    }
-
-    .ps-header-tablet .ps-title {
-        font-size: 2.5rem;
-    }
-
-    .ps-header-tablet .ps-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .ps-header-tablet .ps-btn-group {
-        justify-content: center;
-    }
-
-    .pshta-tablet-view .ps-banner-overlay {
-        padding-left: 5%;
-        padding-right: 5%;
-        text-align: center;
-    }
-
-    .h-a-container {
-        justify-content: center;
-    }
-
-    .home-about-text-box {
-        margin: 0 auto;
-    }
-
-    .news-cards {
-        gap: 8px;
-        padding-left: 0;
-        justify-content: center;
-    }
-
-    .home-contact-con {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .home-c-detail,
-    .home-c-block {
-        max-width: 80% !important;
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 20px;
-    }
-
-    .contact-social-cards {
-        justify-content: center;
-    }
-
-    .contact-social-card {
-        flex: 1 1 45%;
-        margin: 10px;
-    }
-
-    .footer-content {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2rem;
-        padding: 25px;
-    }
-
-    .footer-content>div {
-        flex: 1 1 calc(50% - 1rem);
-        box-sizing: border-box;
-    }
-
-    .footer-section {
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-    }
-
-    .footer-section a {
-        font-size: 18px;
-    }
-
-    .footer-section p {
-        font-size: 16px;
-    }
-}
-
-
-
-
-
-@media (min-width: 481px) and (max-width: 1024px) {
-
-    /* above */
-    .above-content {
-        display: none;
-    }
-    .lci-above-group1 {
-        padding-left: 0;
-        margin-bottom: 10px;
-    }
-    .lci-above-group2 {
-        display: none;
-    }
-
-    .detailLCI {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .telLCI,
-    .socialLCI {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-left: 0;
-        gap: 10px;
-    }
-
-    .LCIlocatation {
-        padding-left: 0;
-    }
-
-    .lcilocate {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .lcilocate h5 {
-        margin-bottom: 0;
-    }
-
-    .lcilocate a.gps-button {
-        margin-left: 0;
-    }
-
-    .nav-lci-above-group1 {
-        display: block;
-    }
-
-    .pshta-tablet-view {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.5);
-    }
-    .ps-main-header {
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-        padding-top: 0;
-        height: 30vh;
-    }
-    .ps-header-title-area {
-        background: linear-gradient(to right, rgba(215, 0, 0, 0.7), rgba(90, 0, 0, 0.7));
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40%;
-        height: 100%;
-        z-index: 2;
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-        padding-right: 55%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .nav-list {
-        gap: 15px;
-    }
-
-    .nav-list a {
-        font-size: 13px;
-    }
-
-    .dropdown-menu {
-        min-width: auto;
-    }
-
-    .wave-tablet {
-        display: block;
-        z-index: 2;
-    }
-
-    .ps-main-header {
-        height: 70vh;
-        padding-top: 0;
-    }
-
-    .swiper-container {
-        height: 100%;
-    }
-
-    .ps-header-tablet {
-        display: block;
-        position: relative;
-        color: #fff;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
-
-    .ps-header-tablet .ps-banner-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 5%;
-        box-sizing: border-box;
-        z-index: 3;
-        color: white;
-    }
-
-    .ps-header-tablet .ps-title {
-        font-size: 2.5rem;
-    }
-
-    .ps-header-tablet .ps-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .ps-header-tablet .ps-btn-group {
-        justify-content: center;
-    }
-
-    .pshta-tablet-view .ps-banner-overlay {
-        padding-left: 5%;
-        padding-right: 5%;
-        text-align: center;
-    }
-
-    .h-a-container {
-        justify-content: center;
-    }
-
-    .home-about-text-box {
-        margin: 0 auto;
-    }
-
-    .news-cards {
-        gap: 8px;
-        padding-left: 0;
-        justify-content: center;
-    }
-
-    .home-contact-con {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .home-c-detail,
-    .home-c-block {
-        max-width: 80% !important;
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 20px;
-    }
-
-    .contact-social-cards {
-        justify-content: center;
-    }
-
-    .contact-social-card {
-        flex: 1 1 45%;
-        margin: 10px;
-    }
-
-    .footer-content {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2rem;
-        padding: 25px;
-    }
-
-    .footer-content>div {
-        flex: 1 1 calc(50% - 1rem);
-        box-sizing: border-box;
-    }
-
-    .footer-section {
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-    }
-
-    .footer-section a {
-        font-size: 18px;
-    }
-
-    .footer-section p {
-        font-size: 16px;
-    }
-}
-
-
-
-
-
 
 
 
