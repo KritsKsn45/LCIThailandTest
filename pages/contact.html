@@ -15,7 +15,6 @@
             margin: 0;
             font-family: 'Kanit', sans-serif;
             line-height: 1.6;
-            color: #333;
             box-sizing: border-box;
             padding: 0;
         }
@@ -314,6 +313,196 @@
             border: none;
             border-radius: 8px;
         }
+
+           .follow-us-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  background-color: #e6e6e6;
+  padding: 20px 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.follow-us-container {
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  flex-grow: 1;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.text-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.insee-text {
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.follow-us-text {
+  font-size: 0.9rem;
+  line-height: 1.1;
+  margin: 0;
+  color: #7f8c8d;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-color: #e4002b;
+  color: #ffffff;
+  font-size: 2.2rem;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.icon-link img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.icon-link:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon-link.line:hover { background-color: #00C300; }
+.icon-link.facebook:hover { background-color: #1877F2; }
+.icon-link.youtube:hover { background-color: #FF0000; }
+.icon-link.linkedin:hover { background-color: #0A66C2; }
+.icon-link.email:hover { background-color: #EA4335; }
+
+/* ------- Call Center Styles ------- */
+
+.call-center-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', Arial, sans-serif;
+  overflow: hidden;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.call-center-header {
+  position: relative;
+  background-color: #e4002b;
+  color: #ffffff;
+  padding: 15px 10px 25px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.call-center-header::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #e4002b;
+}
+
+.call-center-header p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.call-center-header .call-center-label {
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.call-center-header .call-center-phone-number {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.qr-code-section {
+  padding: 20px 15px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.qr-code-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.call-center-social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+}
+
+.call-center-social-icons .contact-text {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-bottom: 3px;
+}
 
 /* ====== [Start] F O O T E R SECTION ============ */
 /* #region */
@@ -767,6 +956,68 @@
                 padding-bottom: 75%; 
                 max-height: 300px;
             }
+
+            .follow-us-wrapper {
+            padding: 15px 10px;
+        }
+
+        .content-container {
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .follow-us-container {
+            flex-direction: row; 
+            align-items: center;
+            justify-content: space-between; 
+            padding: 20px 15px;
+        }
+
+        .text-column {
+            margin-right: 0;
+            margin-bottom: 0; 
+            align-items: flex-start; 
+        }
+
+        .social-icons {
+            justify-content: flex-end; 
+            gap: 10px; 
+        }
+
+        .insee-text {
+            font-size: 1.6rem;
+        }
+
+        .follow-us-text {
+            font-size: 0.8rem;
+        }
+
+        .icon-link {
+            width: 50px; 
+            height: 50px;
+            font-size: 1.4rem;
+        }
+
+        .call-center-header {
+            font-size: 0.9rem;
+            padding: 12px 10px 20px;
+        }
+
+        .call-center-header .call-center-phone-number {
+            font-size: 1.4rem;
+        }
+
+        .qr-code-section {
+            padding: 15px 10px 8px;
+        }
+
+        .call-center-social-icons {
+            padding: 8px 10px 12px;
+        }
+
+        .call-center-social-icons .contact-text {
+            font-size: 0.8rem;
+        }
         }
 
         /* Smaller mobile devices */
@@ -820,6 +1071,38 @@
                 padding-bottom: 85%;
                 max-height: 250px;
             }
+
+            .follow-us-container {
+            flex-direction: column; /* Revert to column for very small screens */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .text-column {
+            margin-bottom: 15px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .social-icons {
+            justify-content: center; /* Center icons */
+        }
+
+        .icon-link {
+            width: 40px; /* Make icons even smaller */
+            height: 40px;
+            font-size: 1.2rem;
+        }
+
+        .insee-text {
+            font-size: 1.4rem;
+        }
+
+        .call-center-header .call-center-phone-number {
+            font-size: 1.2rem;
+        }
+
         }
     </style>
 
@@ -948,6 +1231,36 @@
                 referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
         </div>
+    </div>
+
+    <div class="follow-us-wrapper">
+        <div class="content-container">
+        <!-- Existing Follow Us Section -->
+        <div class="follow-us-container">
+            <div class="text-column">
+            <p class="insee-text">LCI</p>
+            <p class="follow-us-text">FOLLOW US</p>
+            </div>
+            <div class="social-icons">
+            <a href="https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url" class="icon-link line" title="Line">
+                <i class="fab fa-line"></i>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61572512984359" class="icon-link facebook" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="mailto:Lion.lci2025@gmail.com" class="icon-link email" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+            <a href="tel:093-524411" class="icon-link phone" title="โทร">
+                <i class="fas fa-phone"></i>
+            </a>
+
+            </div>
+        </div>
+  
     </div>
 
 
