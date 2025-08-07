@@ -31,12 +31,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.2/dist/sweetalert2.min.css">
     
    
-
-
-    
 </head>
 <body>
-
 
 <!-- base all website -->
 <div id="preloader">
@@ -47,11 +43,19 @@
   </div>
 </div>
 
-
-
 <!-- ปุ่ม Scroll to Top -->
 <div class="to-heaven-btn" id="scrollToTopBtn" title="ขึ้นด้านบน">
   ↑
+</div>
+
+<!-- promotion popup -->
+<div class="promotion-popup-wrapper">
+    <div class="promotion-popup-image-only">
+        <button class="promotion-popup-close-btn">&times;</button>
+        <a href="/pages/products/products_showall.html" class="promotion-image-link">
+            <img src="/assets/images/products/popuppromotion88_080868.jpg" alt="Promotion 8.8" class="promotion-image">
+        </a>
+    </div>
 </div>
 
 
@@ -79,12 +83,9 @@
                     <div class="telLCI">
                         <div class="tel-item"> 
                             <i class="fas fa-phone"></i>                    
-                            <h5><a href="tel:0935244411">093-5244411</a></h5> 
+                            <h5><a href="tel:+660900280018">090-028-0018</a></h5> 
                         </div>
-                        <div class="tel-item">
-                            <i class="fas fa-phone"></i>                    
-                            <h5><a href="tel:043512498">043-512498</a></h5>
-                        </div>
+                        
                     </div>
                     <div class="socialLCI">
                         <div class="social-item">
@@ -93,7 +94,7 @@
                         </div>
                         <div class="social-item">
                             <i class="fab fa-line"></i>
-                            <h5><a href="">Line: ปูนสิงโต Lion.LCI</a></h5>
+                            <h5><a href="https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url">Line: ปูนสิงโต Lion.LCI</a></h5>
                         </div>
                         <div class="social-item">
                             <i class="fab fa-facebook"></i>
@@ -178,7 +179,7 @@
                 <div class="ps-banner-overlay">
                     <h1 class="ps-title fadeInLeft-animation">ปูนตราสิงโต</h1>
                     <h1 class="ps-title2 fadeInLeft-animation">ปูนสร้างบ้าน คุณภาพสร้างเขื่อน</h1>
-                    <p class="ps-subtitle ">" LCI THAILAND ผลิตภัณฑ์คุณภาพ ในราคามิตรภาพ "</p>
+                    <p class="ps-subtitle ">" LCI THAILAND เราสร้างผลิตภัณฑ์คุณภาพ ในราคามิตรภาพ "</p>
                     <div class="ps-btn-group">
                         <a href="#products" class="ps-btn ps-btn-secondary">ผลิตภัณฑ์</a>
                         <!-- <a href="/pages/contact.html" class="ps-btn ps-btn-secondary">ติดต่อเรา</a> -->
@@ -236,7 +237,7 @@
                 <div class="ps-banner-overlay mobile-overlay">
                     <h1 class="ps-title">ปูนตราสิงโต</h1>
                     <h1 class="ps-title2">ปูนสร้างบ้าน คุณภาพสร้างเขื่อน</h1>
-                    <p class="ps-subtitle">" LCI THAILAND ผลิตภัณฑ์คุณภาพ ในราคามิตรภาพ "</p>
+                    <p class="ps-subtitle">" LCI THAILAND เราสร้างผลิตภัณฑ์คุณภาพ ในราคามิตรภาพ "</p>
                     <div class="ps-btn-group">
                         <a href="#products" class="ps-btn ps-btn-secondary">ปูนสิงโต</a>
                     </div>
@@ -436,8 +437,7 @@
 
                                 <div class="hppd-feature-box">
                                     <h3 class="box-title">คุณสมบัติเด่น</h3>
-                                    <ul id="product-features" class="feature-list">
-                                        </ul>
+                                    <ul id="product-features" class="feature-list"></ul>
                                 </div>
                                 
                                 <div class="hppd-detail-box">
@@ -465,7 +465,7 @@
         <section class="home-standard-section">
             <div class="home-std-container">
                 <h2 class="home-std-section-title">มาตรฐานและคุณภาพผลิตภัณฑ์</h2>
-                <p class="home-std-section-subtitle">เรามุ่งมั่นที่จะมอบบริการที่ดีที่สุด เพื่อความพึงพอใจสูงสุดของลูกค้า</p>
+                <p class="home-std-section-subtitle">เรามุ่งมั่นที่จะผลิตผลิตภัณฑ์ที่ดี มีคุณภาพ ในราคาที่คุ้มค่า</p>
 
                 <div class="home-std-capabilities-grid fadeIn-animation" >
                     <a href="#" class="home-std-card-link" data-popup-id="STPOPUP01">
@@ -474,7 +474,9 @@
                                 <img src="/assets/images/products/standard-poonst1.png" alt="มอก.15-2562" >
                             </div>
                             <h3 class="home-std-card-title">มอก.15-2562</h3>
-                            <p class="home-std-card-description">เราให้ความสำคัญกับความต้องการของลูกค้าเป็นอันดับแรกเสมอ เพื่อให้คุณได้รับสิ่งที่ดีที่สุด</p>
+                            <p class="home-std-card-description">
+                                ปูนเรามีมาตรฐาน <span style="color: red;">มอก.</span> <br> เพื่อให้คุณลูกค้ามั่นใจในคุณภาพ <br> และความปลอดภัยในการใช้งาน
+                            </p>
                         </div>
                     </a>
                     <a href="#" class="home-std-card-link" data-popup-id="STPOPUP02">
@@ -483,21 +485,27 @@
                                 <img src="/assets/images/products/standard-poonst2.png" alt="ISO 9001:2015">
                             </div>
                             <h3 class="home-std-card-title">ISO 9001:2015</h3>
-                            <p class="home-std-card-description">สินค้าและบริการของเราผ่านการคัดสรรและควบคุมคุณภาพอย่างเข้มงวด</p>
+                            <p class="home-std-card-description">
+                                โรงงานเรามีมาตรฐานสากลระบบการจัดการ <br> คุณภาพ <span style="color: red;">QMS</span>  เพื่อให้ลูกค้ามั่นใจในคุณภาพ <br> ผลิตภัณฑ์ และบริการของเรา
+                            </p>
                         </div>
                     </a>
                     <a href="#" class="home-std-card-link" data-popup-id="STPOPUP03">
                         <div class="home-std-capability-card">
                             <div class="home-std-card-icon">
-                                <img src="" alt="">
+                                <img src="/assets/images/products/standard-poonst3.png" alt="ISO 9001:2015">
                             </div>
                             <h3 class="home-std-card-title">คุณภาพปูนสิงโตแดง</h3>
-                            <p class="home-std-card-description">ทีมงานมืออาชีพพร้อมให้คำปรึกษาและแก้ไขปัญหาอย่างรวดเร็วและเป็นกันเอง</p>
+                            <p class="home-std-card-description">
+                                ปูนปอร์ตแลนด์เราเป็น <span style="color: red;">ปูนซีเมนต์แท้</span> <br> ไม่ผสมเถ้าลอย (Fly Ash) คุณภาพเทียบเท่า <br> <span style="color: red;">Type III</span>
+                            </p>
                         </div>
                     </a>
                 </div>
+
             </div>
 
+            <!-- standard popup -->
             <div class="standard-popup-modal" id="STPOPUP01">
                 <div class="standard-popup-content">
                     <button class="standard-popup-close-btn">&times;</button>
@@ -506,9 +514,73 @@
                         <h3 class="standard-popup-title">มอก.15-2562</h3>
                     </div>
                     <div class="standard-popup-body">
-                        <p>มาตรฐาน มอก.15-2562 เป็นมาตรฐานผลิตภัณฑ์อุตสาหกรรมปูนซีเมนต์ปอร์ตแลนด์ มีคุณสมบัติหลักคือ...</p>
-                        <img src="" alt="Certificate" class="standard-popup-certificate-img">
+                        <p>
+                            <span style="color: #ff0000;">มอก.15-2562</span> คือ มาตรฐานผลิตภัณฑ์อุตสาหกรรมสำหรับ <span style="text-decoration:underline; font-weight: 400;">ปูนซีเมนต์ปอร์ตแลนด์.</span> 
+                            มาตรฐานนี้กำหนดคุณสมบัติทางเคมีและทางฟิสิกส์ของปูนซีเมนต์ปอร์ตแลนด์ เพื่อให้ลูกค้ามั่นใจในคุณภาพและความปลอดภัยในการใช้งาน.
+                        </p>
+                        <div class="standard-popup-body-details">
+                            <p>รายละเอียดเพิ่มเติม</p>
+                            <div class="standard-popup-body-details-groupitems">
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>ประเภทของปูนซีเมนต์</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            มอก. 15-2562 เป็นมาตรฐานสำหรับปูนซีเมนต์ปอร์ตแลนด์ประเภท 1 
+                                            ซึ่งเป็นประเภทที่ใช้กันทั่วไปในงานก่อสร้าง.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>คุณสมบัติสำคัญ</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            มาตรฐานนี้จะระบุคุณสมบัติที่สำคัญของปูนซีเมนต์ เช่น ความละเอียด (fineness), 
+                                            ความอยู่ตัว (soundness), ระยะเวลาการก่อตัว (time of setting), 
+                                            และแรงอัด (compressive strength). 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>การนำไปใช้งาน</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            ปูนซีเมนต์ปอร์ตแลนด์ตามมาตรฐาน มอก. 15-2562 เหมาะสำหรับงานก่อสร้างทั่วไป 
+                                            เช่น งานอาคารคอนกรีตเสริมเหล็ก, สะพาน, ถนน, และงานคอนกรีตอัดแรง. 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>การควบคุมคุณภาพ</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            มาตรฐานนี้มีส่วนสำคัญในการควบคุมคุณภาพของปูนซีเมนต์ที่ผลิตและจำหน่ายในประเทศไทย 
+                                            เพื่อให้มั่นใจว่าผลิตภัณฑ์มีคุณภาพตามที่กำหนดและปลอดภัยในการใช้งาน
+                                        </p>
+                                    </div>
+                                </div>
+                             
+                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
 
@@ -520,27 +592,99 @@
                         <h3 class="standard-popup-title">ISO 9001:2015</h3>
                     </div>
                     <div class="standard-popup-body">
-                        <p>เราได้รับการรับรองมาตรฐาน ISO 9001:2015 ซึ่งเป็นระบบการจัดการคุณภาพระดับสากล...</p>
-                        <img src="" alt="Certificate" class="standard-popup-certificate-img">
+                        <p>
+                            <span style="color: #ff0000;">ISO 9001:2015</span> คือ มาตรฐานสากลสำหรับระบบการจัดการคุณภาพ (QMS) 
+                            ที่กำหนดข้อกำหนดเพื่อให้องค์กรสามารถส่งมอบผลิตภัณฑ์และบริการที่ตรงตาม
+                            ความต้องการของลูกค้าและข้อกำหนดทางกฎหมายและข้อบังคับที่เกี่ยวข้องได้อย่างสม่ำเสมอ 
+                            โดยมุ่งเน้นที่การปรับปรุงคุณภาพอย่างต่อเนื่องและความพึงพอใจของลูกค้า. 
+                        </p>
+                        <div class="standard-popup-body-details">
+                            <p>รายละเอียดเพิ่มเติม</p>
+                            <div class="standard-popup-body-details-groupitems">
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>ระบบการจัดการคุณภาพ (QMS)</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            ISO 9001:2015 เป็นมาตรฐานที่ช่วยให้องค์กรสร้างและปรับปรุง
+                                            ระบบการจัดการคุณภาพของตนเอง เพื่อให้มั่นใจว่ากระบวนการต่างๆ 
+                                            ได้รับการควบคุมและสามารถตรวจสอบได้. 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>ความสอดคล้องกับความต้องการของลูกค้า</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            มาตรฐานนี้มุ่งเน้นที่การส่งมอบผลิตภัณฑ์และบริการที่ตรงตามความต้องการของลูกค้าและข้อกำหนดทางกฎหมาย. 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>การปรับปรุงอย่างต่อเนื่อง</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            ISO 9001:2015 ส่งเสริมให้องค์กรมีการปรับปรุงคุณภาพอย่างต่อเนื่อง 
+                                            เพื่อเพิ่มความพึงพอใจของลูกค้าและเพิ่มประสิทธิภาพขององค์กร. 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>ข้อกำหนดทั่วไป</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            มาตรฐานนี้สามารถนำไปประยุกต์ใช้ได้กับองค์กรทุกประเภท ทุกขนาด และทุกภาคส่วน. 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="standard-popup-body-details-item">
+                                    <div>
+                                        <ul>
+                                            <li>โครงสร้างแบบ PDCA</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            มาตรฐาน ISO 9001:2015 มีโครงสร้างตามวงจร PDCA (Plan-Do-Check-Act) 
+                                            ซึ่งเป็นแนวทางการจัดการคุณภาพที่เน้นการวางแผน การปฏิบัติ การตรวจสอบ และการปรับปรุงอย่างต่อเนื่อง.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
 
             <div class="standard-popup-modal" id="STPOPUP03">
                 <div class="standard-popup-content">
                     <button class="standard-popup-close-btn">&times;</button>
-                    <div class="standard-popup-header">
-                        <img src="" alt="" class="standard-popup-header-img">
-                        <h3 class="standard-popup-title">คุณภาพปูนสิงโตแดง</h3>
-                    </div>
-                    <div class="standard-popup-body">
-                        <p>ปูนสิงโตแดงผลิตจากวัตถุดิบคุณภาพสูงและผ่านกระบวนการผลิตที่ทันสมัย เพื่อให้ได้ปูนที่มีคุณภาพดีที่สุด...</p>
+                    <div class="standard-popup-image">
+                        <img src="/assets/images/products/standard-poonst301.jpg" alt="ภาพรายละเอียด">
                     </div>
                 </div>
             </div>
 
         </section>
-
 
         <!-- LCI News -->
         <section class="home-lcinews-section">
@@ -565,7 +709,26 @@
                 <!-- <h2><i class="fas fa-star"></i>ทำไมต้องเลือกเรา</h2> -->
                 
                 <div class="home-features fadeIn-animation">
-                
+                    
+                    <div class="home-feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3><span class="home-highlight">มั่นใจ</span> ในคุณภาพ</h3>
+                        <p>ผลิตภัณฑ์เราคือ “<strong>ปูนคุณภาพ</strong> เพื่อโครงการระดับประเทศ”</p>
+                    </div>
+
+                    <div class="home-feature-card">
+                        <i class="fas fa-gem"></i>                         
+                        <h3><span class="home-highlight">คุ้ม</span> เกินราคา</h3>
+                        <p>ปูนปอร์ตแลนด์เราเป็น <strong>“ปูนซีเมนต์แท้”</strong>ไม่ผสมเถ้าลอย (Fly Ash) คุณภาพเทียบเท่า <br> <strong>Type III</strong></p>
+                    </div>
+
+                    <div class="home-feature-card">
+                        <i class="fas fa-award"></i>
+                        <h3><span class="home-highlight">มาตรฐาน</span> ระดับสากล</h3>
+                        <p>ได้รับรองมาตรฐาน <strong>มอก. (ไทย)</strong> และ <br><strong>ASTM / ISO 14000</strong></p>
+                    </div>
+
+
                     <div class="home-feature-card">
                         <i class="fas fa-globe-asia"></i>
                         <h3><span class="home-highlight">ความมั่นคง</span> ระดับโลก</h3>
@@ -581,7 +744,7 @@
                     <div class="home-feature-card">
                         <i class="fas fa-industry"></i>
                         <h3><span class="home-highlight">พลังการผลิต</span> ขนาดใหญ่</h3>
-                        <p>ปูนซีเมนต์มากกว่า 1 ล้านตัน/ปี, หินก่อสร้าง 2 ล้านตัน/ปี และปูนขาว 200,000 ตัน/ปี</p>
+                        <p>ปูนซีเมนต์มากกว่า <strong>1 ล้านตัน/ปี,</strong> หินก่อสร้าง <strong>2 ล้านตัน/ปี</strong> และปูนขาว <strong>2 แสนตัน/ปี</strong></p>
                     </div>
 
                     <div class="home-feature-card">
@@ -590,11 +753,7 @@
                         <p>เช่น เขื่อนน้ำเทิน, รถไฟลาว-จีน, ตึกสูงสุดในลาว, ถนน สะพาน และโครงการรัฐ/เอกชน</p>
                     </div>
 
-                    <div class="home-feature-card">
-                        <i class="fas fa-award"></i>
-                        <h3><span class="home-highlight">มาตรฐาน</span> ระดับสากล</h3>
-                        <p>ได้รับรองมาตรฐาน <strong>มอก. (ไทย)</strong> และ <strong>ASTM / ISO 14000</strong></p>
-                    </div>
+                    
 
                     <div class="home-feature-card">
                         <i class="fas fa-boxes"></i>
@@ -605,14 +764,10 @@
                     <div class="home-feature-card">
                         <i class="fas fa-store-alt"></i>
                         <h3><span class="home-highlight">พร้อมขยาย</span> สู่ไทย</h3>
-                        <p>เข้าสู่ <strong>Global House</strong> และร้านวัสดุก่อสร้างทั่วภาคอีสาน ผ่าน Dealer ท้องถิ่น</p>
+                        <p>ผลิตภัณฑ์เรามีจำหน่ายทั่ว <strong>ภาคอีสาน</strong> ทั้ง ช่องทางออนไลน์ ดีลเลอร์ และซุปเปอร์สโตร์</p>
                     </div>
 
-                    <div class="home-feature-card">
-                        <i class="fas fa-check-circle"></i>
-                        <h3><span class="home-highlight">มั่นใจ</span> ในคุณภาพ</h3>
-                        <p>ผลิตภัณฑ์เราคือ “<strong>ปูนคุณภาพ</strong> เพื่อโครงการระดับประเทศ”</p>
-                    </div>
+                    
 
                 </div>
 
@@ -652,8 +807,8 @@
                     <h2>LCI-Thailand</h2>
                     <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
                     <div class="footer-buttons">
-                        <a href="tel:093524441" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
-                        <a href="" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
+                        <a href="tel:0900280018" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
+                        <a href="https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
                     </div>
                 </div>
 
@@ -688,7 +843,7 @@
                 <div class="footer-section">
                     <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
                     <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
-                    <p style="color: white;">📞 093-524411 | 043-512498</p>
+                    <p style="color: white;">📞 090-028-0018</p>
                     <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
                 </div>
             </div>
@@ -711,7 +866,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+
+<!-- <script src="/js/PoonsingtooScript.js"></script> -->
+
+
 <script>
+
+
+function togglePopup(show) {
+    const popupWrapper = document.querySelector('.promotion-popup-wrapper');
+    if (popupWrapper) {
+        popupWrapper.style.display = show ? 'flex' : 'none';
+        
+        document.body.style.overflow = show ? 'hidden' : 'auto';
+
+        if (show) {
+            document.addEventListener('keydown', handleEscapeKey);
+        } else {
+            document.removeEventListener('keydown', handleEscapeKey);
+        }
+    }
+}
+
+function handleEscapeKey(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        togglePopup(false);
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
         
@@ -937,6 +1119,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ========================================================================================================
 
+
+        togglePopup(true);
+
+        const popupWrapper = document.querySelector('.promotion-popup-wrapper');
+        const closeBtn = document.querySelector('.promotion-popup-close-btn');
+        const popupContent = document.querySelector('.promotion-popup-image-only');
+
+        if (popupWrapper && closeBtn && popupContent) {
+            closeBtn.addEventListener('click', () => {
+                togglePopup(false);
+            });
+
+            popupWrapper.addEventListener('click', (e) => {
+                if (!popupContent.contains(e.target)) {
+                    togglePopup(false);
+                }
+            });
+        }
+        // ========================================================================================================
 });
     
 
@@ -951,7 +1152,7 @@ async function loadProductData() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         productDatas = await response.json();
-        console.log('Product data loaded:', productDatas);
+        // console.log('Product data loaded:', productDatas);
     } catch (error) {
         console.error('Error fetching product data:', error);
         Swal.fire({
@@ -1306,7 +1507,7 @@ fetch('https://script.google.com/macros/s/AKfycbwt54G3jR06oF7iRgZqN84-Id_zemQWD3
         <div class="news-content">
           <h2 class="news-title">${item['title'] || 'ไม่มีชื่อข่าว'}</h2>
           <p class="news-date">${formattedDate} - ${item['agency']}</p>
-          <a href="/pages/marketing.html" target="_blank" class="news-link">อ่านต่อ</a>
+          <a href="/pages/marketing.html?main=${item['main']}" target="_blank" class="news-link">อ่านต่อ</a>
         </div>
       `;
       list.appendChild(card);
@@ -1374,6 +1575,7 @@ const swiper = new Swiper('.swiper-container', {
 
 
 </script>
+
 
 </body>
 </html>

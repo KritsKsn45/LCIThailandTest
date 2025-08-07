@@ -330,6 +330,96 @@ table {
 
 
 
+/* - - - - - [Start] P R O M O T I O N   P O P U P - - - - -  */
+/* #region */
+
+.promotion-popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.promotion-popup-image-only {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    animation: popup-enter 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes popup-enter {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.promotion-popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    line-height: 1;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease;
+}
+
+.promotion-popup-close-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.promotion-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.promotion-image-link {
+    display: block;
+    line-height: 0; 
+}
+
+@media (max-width: 600px) {
+    .promotion-popup-image-only {
+        width: 95%;
+    }
+    .promotion-popup-close-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.5rem;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* #endregion */
+/* = = = = = [End] P R O M O T I O N   P O P U P = = = = = */
+
+
+
 /* - - - - - [Start] R E D L I N E section - - - - -  */
 /* #region */
 .section-red-line {
@@ -348,6 +438,7 @@ table {
 }
 /* #endregion */
 /* = = = = = [End] R E D L I N E section = = = = = */
+
 
 
 /* ====== [Start] A B O V E content ======== */
@@ -858,6 +949,10 @@ table {
 /* = = = = = [End]  H E A D E R  Content = = = = = */
 
 
+
+
+
+
 /* ===== [Start] A B O U T Overlay Layout ===== */
 /* #region */
 .home-about-section {
@@ -963,6 +1058,7 @@ table {
 }
 /* #endregion */
 /* = = = = = [End] A B O U T Overlay Layout = = = = = */
+
 
 
 /* ===== [Start] P R O D U C T S preview ====== */
@@ -1332,7 +1428,7 @@ body.no-scroll {
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
-    z-index: 2; /* ให้เนื้อหาอยู่ด้านบน pattern */
+    z-index: 2;
 }
 
 .home-std-section-title {
@@ -1366,28 +1462,28 @@ body.no-scroll {
     background-color: #ffffff;
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.327);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* สำคัญสำหรับ background pattern */
+    overflow: hidden; 
     position: relative;
-    z-index: 1; /* ให้การ์ดอยู่ด้านล่าง pattern ของตัวเอง */
+    z-index: 1; 
 }
 
 .home-std-capability-card::before {
     content: '';
     position: absolute;
-    top: -50px; /* Adjust as needed */
-    left: -50px; /* Adjust as needed */
+    top: -50px; 
+    left: -50px;
     width: 200px;
     height: 200px;
     background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="redGradientCard" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FF6B6B;stop-opacity:0.2" /><stop offset="100%" style="stop-color:%23FF0000;stop-opacity:0.2" /></linearGradient></defs><circle cx="25" cy="25" r="15" fill="url(%23redGradientCard)" /><circle cx="75" cy="75" r="15" fill="url(%23redGradientCard)" /></svg>') no-repeat;
     background-size: contain;
-    opacity: 0.1; /* ความทึบของ pattern */
-    z-index: -1; /* อยู่ด้านหลังเนื้อหาของการ์ด */
+    opacity: 0.1; 
+    z-index: -1; 
     transition: opacity 0.3s ease;
 }
 
@@ -1398,7 +1494,7 @@ body.no-scroll {
 }
 
 .home-std-capability-card:hover::before {
-    opacity: 0.2; /* ทำให้ pattern ชัดขึ้นเมื่อ hover */
+    opacity: 0.2;
 }
 
 .home-std-card-icon {
@@ -1408,14 +1504,14 @@ body.no-scroll {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFF0F0; /* สีพื้นหลังไอคอนอ่อนๆ */
+    background-color: #FFF0F0;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
 
 .home-std-capability-card:hover .card-icon {
-    background-color: #FFEDED; /* เปลี่ยนสีเมื่อ hover */
+    background-color: #FFEDED; 
 }
 
 .home-std-card-icon svg {
@@ -1437,64 +1533,67 @@ body.no-scroll {
 }
 
 
-/* popup standard */
 
+
+
+
+/* popup standard */
 .standard-popup-modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* พื้นหลังทึบแสง */
+    background-color: rgba(0, 0, 0, 0.7); 
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10000;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0.3s, opacity 0.3s;
+    transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    padding: 20px; 
+    box-sizing: border-box;
 }
-
 .standard-popup-modal.is-visible {
     visibility: visible;
     opacity: 1;
 }
-
 .standard-popup-content {
     background-color: #ffffff;
-    border-radius: 15px;
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 20px; 
+    padding: 30px; 
+    width: 100%;
+    max-width: 800px; 
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); 
     position: relative;
     transform: scale(0.9);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     text-align: left;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
-
 .standard-popup-modal.is-visible .standard-popup-content {
     transform: scale(1);
 }
-
 .standard-popup-close-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px; 
     background: none;
     border: none;
-    font-size: 2em;
-    color: #e74c3c;
+    font-size: 4em; 
+    color: #999; 
     cursor: pointer;
     line-height: 1;
     padding: 5px;
-    transition: transform 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
-
 .standard-popup-close-btn:hover {
-    transform: rotate(90deg);
+    color: #e74c3c;
+    transform: rotate(90deg) scale(1.1);
 }
-
 .standard-popup-header {
     display: flex;
     align-items: center;
@@ -1503,23 +1602,24 @@ body.no-scroll {
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
 }
-
 .standard-popup-header-img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px; 
     object-fit: contain;
+    border-radius: 10px;
 }
 
 .standard-popup-title {
-    font-size: 1.8em;
+    font-size: 2.2em;
     font-weight: 700;
-    color: #e74c3c;
+    color: #333; 
     margin: 0;
+    line-height: 1.2;
 }
 
 .standard-popup-body {
-    font-size: 1em;
-    line-height: 1.6;
+    font-size: 1.1em; 
+    line-height: 1.8; 
     color: #555;
 }
 
@@ -1527,16 +1627,79 @@ body.no-scroll {
     margin-bottom: 15px;
 }
 
-.standard-popup-certificate-img {
+.standard-popup-body-details {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.standard-popup-body-details > p { 
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #e74c3c; 
+    margin-bottom: 15px;
+}
+
+.standard-popup-body-details-groupitems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+}
+
+.standard-popup-body-details-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.standard-popup-body-details-item div:first-child p {
+    margin-bottom: 10px;
+}
+
+.standard-popup-body-details-item ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.standard-popup-body-details-item li {
+    color: #e74c3c; 
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px; 
+}
+
+.standard-popup-body-details-item li::before {
+    content: '\2022'; 
+    color: #e74c3c; 
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.standard-popup-body-details-item div:last-child p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.standard-popup-image {
+    width: 100%;
+    padding: 0; 
+    margin-top: 20px;
+    text-align: center;
+}
+
+.standard-popup-image img {
+    margin-top: 70px;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
 }
-
-
-
 
 
 /* #endregion */
@@ -2834,41 +2997,38 @@ th:nth-child(2), td:nth-child(2) {
                 padding-top: 20px;
             }
             
-            .standard-popup-content {
-                width: 95%; /* ใช้พื้นที่หน้าจอมากขึ้น */
-                max-width: none;
-                padding: 15px; /* ลด padding */
-                border-radius: 10px;
+
+
+           .standard-popup-content {
+                padding: 15px;
+                max-width: 100%;
             }
-            
             .standard-popup-close-btn {
+                font-size: 3em;
                 top: 10px;
                 right: 10px;
+            }
+            .standard-popup-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .standard-popup-header-img {
+                width: 80px;
+                height: 80px;
+            }
+            .standard-popup-title {
                 font-size: 1.8em;
             }
-            
-            .standard-popup-header {
-                flex-direction: column; /* เรียงไอคอนและหัวข้อในแนวตั้ง */
-                text-align: center;
-                gap: 10px;
-                padding-bottom: 15px;
-                margin-bottom: 15px;
-            }
-            
-            .standard-popup-header-img {
-                width: 60px; /* ลดขนาดรูปไอคอน */
-                height: 60px;
-            }
-            
-            .standard-popup-title {
-                font-size: 1.5em; /* ลดขนาดฟอนต์หัวข้อ */
-            }
-            
             .standard-popup-body {
-                font-size: 0.9em; /* ลดขนาดฟอนต์เนื้อหา */
+                font-size: 1em;
             }
-
-
+            .standard-popup-body-details-groupitems {
+                grid-template-columns: 1fr; 
+            }
+            .standard-popup-image {
+                margin-top: 70px;
+            }
 
 
             .home-why-choose-us h2 {
@@ -3047,6 +3207,7 @@ th:nth-child(2), td:nth-child(2) {
 
       .home-std-capabilities-grid {
           grid-template-columns: 1fr;
+          
       }
 
       .home-std-capability-card {
@@ -3088,6 +3249,17 @@ th:nth-child(2), td:nth-child(2) {
         font-size: 16px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 1025px) {
     .ps-header-desktop {

@@ -1,9 +1,114 @@
-    
-    /**
+ /**
      * @description แปลงตัวเลขเป็นคำอ่านภาษาไทย (รวมถึงสตางค์)
      * @param {number} num - ตัวเลขที่ต้องการแปลง
      * @returns {string} - ข้อความคำอ่านภาษาไทย
      */
+
+    let lastEmailTime = localStorage.getItem('lastEmailTime') || 0;
+    const cooldownPeriod = 180000;
+    let cooldownTimer;
+
+    function updateCooldownButton() {
+        const button = document.getElementById('send-email-btn');
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - lastEmailTime;
+        
+        if (elapsedTime >= cooldownPeriod) {
+            clearInterval(cooldownTimer);
+            button.disabled = false;
+            button.innerHTML = '<i class="fas fa-envelope"></i> ส่งอีเมลเลย!';
+            localStorage.removeItem('lastEmailTime');
+        } else {
+            const remainingTimeInSeconds = Math.ceil((cooldownPeriod - elapsedTime) / 1000);
+            const minutes = Math.floor(remainingTimeInSeconds / 60);
+            const seconds = remainingTimeInSeconds % 60;
+            
+            let timeMessage = '';
+            if (minutes > 0) {
+                timeMessage += `${minutes} นาที `;
+            }
+            timeMessage += `${seconds} วินาที`;
+
+            button.disabled = true;
+            button.innerHTML = `<i class="fas fa-envelope"></i> ส่งอีกครั้งใน (${timeMessage})`;
+        }
+    }
+
+    function sendEmailToLCI() {
+        const button = document.getElementById('send-email-btn');
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - lastEmailTime;
+
+        if (elapsedTime < cooldownPeriod) {
+            const remainingTimeInSeconds = Math.ceil((cooldownPeriod - elapsedTime) / 1000);
+            const minutes = Math.floor(remainingTimeInSeconds / 60);
+            const seconds = remainingTimeInSeconds % 60;
+            
+            let timeMessage = '';
+            if (minutes > 0) {
+                timeMessage += `${minutes} นาที `;
+            }
+            timeMessage += `${seconds} วินาที`;
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'โปรดรอสักครู่',
+                html: `กรุณารอสักครู่ก่อนส่งอีเมลอีกครั้ง<br>สามารถส่งได้ในอีก <b>${timeMessage}</b>`,
+                confirmButtonColor: '#d32f2f', 
+                timer: 3000,
+                timerProgressBar: true
+            });
+            return; 
+        }
+        
+        lastEmailTime = currentTime;
+        localStorage.setItem('lastEmailTime', lastEmailTime);
+        cooldownTimer = setInterval(updateCooldownButton, 1000);
+
+        const recipient = 'Lion.lci2025@gmail.com';
+        const subject = 'ส่งฟอร์มการสั่งสินค้า LCI-Thailand';
+        
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}`;
+        
+        window.open(gmailLink, '_blank');
+        
+        Swal.fire({
+            title: 'เปิดหน้าส่งอีเมลสำเร็จ!',
+            html: 'หากไม่เห็นหน้าต่าง กรุณาตรวจสอบ Pop-up blocker<br>ท่านสามารถแจ้งการชำระเงินพร้อมแนบหลักฐานได้ทันที',
+            icon: 'success',
+            confirmButtonText: 'รับทราบ',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+            background: '#ffffff',
+            confirmButtonColor: '#b71c1c' 
+        });
+
+        Swal.fire({
+            icon: 'success',
+            title: 'ขอบคุณสำหรับการสั่งซื้อ!',
+            text: 'เราได้รับคำสั่งซื้อของคุณแล้ว และจะติดต่อกลับโดยเร็วที่สุด',
+            confirmButtonColor: '#b71c1c',
+            showCloseButton: true,
+            confirmButtonText: 'รับทราบ'
+        });
+    }
+
+    window.onload = function() {
+        if (localStorage.getItem('lastEmailTime')) {
+            lastEmailTime = parseInt(localStorage.getItem('lastEmailTime'));
+            const currentTime = new Date().getTime();
+            if (currentTime - lastEmailTime < cooldownPeriod) {
+                cooldownTimer = setInterval(updateCooldownButton, 1000);
+            } else {
+                localStorage.removeItem('lastEmailTime');
+            }
+        }
+    };
+
+
+
+
     function bahtText(num) {
         var num_string = num.toFixed(2).toString().split('.');
         var num_int = num_string[0];
@@ -73,7 +178,6 @@
         return text;
     }
 
-
     document.addEventListener('contextmenu', event => event.preventDefault());
 
     function copyAccountDetails() {
@@ -90,7 +194,7 @@
                     title: 'คัดลอกสำเร็จ!', 
                    
                     showConfirmButton: false, 
-                    timer: 800, 
+                    timer: 500, 
                     timerProgressBar: true, 
                     customClass: {
                         container: 'swal2-custom-container',
@@ -203,7 +307,7 @@
                     title: 'ช็อปต่อกันได้เลยย!',
                     text: 'กำลังนำคุณกลับสู่หน้าสินค้า...',
                     showConfirmButton: false,
-                    timer: 1500 
+                    timer: 900 
                 }).then(() => {
                     window.location.href = '/pages/products/products_showall.html'; 
                 });
@@ -211,76 +315,105 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const shopAgainButton = document.getElementById('clearBillAndShopAgain');
-        if (shopAgainButton) {
-            shopAgainButton.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                clearBillAndRedirect();
-            });
-        }
+   document.addEventListener("DOMContentLoaded", () => {
+    const shopAgainButton = document.getElementById('clearBillAndShopAgain');
+    if (shopAgainButton) {
+        shopAgainButton.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            clearBillAndRedirect();
+        });
+    }
 
-        const expiryTime = 45 * 60 * 1000;
-        const now = new Date().getTime();
-        const orderData = JSON.parse(localStorage.getItem("orderDetails")) || {};
-        
-        const orderTimestamp = orderData.timestamp ? new Date(orderData.timestamp).getTime() : 0;
+    const expiryTime = 45 * 60 * 1000;
+    const now = new Date().getTime();
+    const orderData = JSON.parse(localStorage.getItem("orderDetails")) || {};
+    
+    const orderTimestamp = orderData.timestamp ? new Date(orderData.timestamp).getTime() : 0;
 
+    if (orderData && orderTimestamp && (now - orderTimestamp > expiryTime)) {
+        localStorage.removeItem("orderDetails");
+        Swal.fire({
+            icon: 'warning',
+            title: 'เซสชันหมดอายุ',
+            text: 'ข้อมูลการสั่งซื้อของคุณหมดอายุแล้ว กรุณาสั่งซื้อใหม่',
+            confirmButtonText: 'ตกลง'
+        }).then(() => {
+            window.location.href = '/pages/products/products_showall.html'; 
+        });
+        return;
+    }
 
-        if (orderData && orderTimestamp && (now - orderTimestamp > expiryTime)) {
-            localStorage.removeItem("orderDetails");
-            Swal.fire({
-                icon: 'warning',
-                title: 'เซสชันหมดอายุ',
-                text: 'ข้อมูลการสั่งซื้อของคุณหมดอายุแล้ว กรุณาสั่งซื้อใหม่',
-                confirmButtonText: 'ตกลง'
-            }).then(() => {
-                window.location.href = '/pages/products/products_showall.html'; 
-            });
-            return;
-        }
+    if (Object.keys(orderData).length > 0) {
+        document.getElementById("customer-name-po").textContent = orderData.customer.name || '-';
+        document.getElementById("customer-address-po").textContent = orderData.customer.billingAddress || '-';
+        document.getElementById("customer-tax-id-po").textContent = orderData.customer.taxId || '-';
+        document.getElementById("customer-email-po").textContent = orderData.customer.email || '-';
+        document.getElementById("customer-tel-po").textContent = orderData.customer.phone || '-';
+        document.getElementById("shipping-address-po").textContent = orderData.customer.shippingAddress || orderData.customer.billingAddress || '-';
+        document.getElementById("additional-message").textContent = orderData.customer.notes || '-';
 
-        if (Object.keys(orderData).length > 0) {
-            document.getElementById("customer-name-po").textContent = orderData.customer.name || '-';
-            document.getElementById("customer-address-po").textContent = orderData.customer.billingAddress || '-';
-            document.getElementById("customer-tax-id-po").textContent = orderData.customer.taxId || '-';
-            document.getElementById("customer-email-po").textContent = orderData.customer.email || '-';
-            document.getElementById("customer-tel-po").textContent = orderData.customer.phone || '-';
-            document.getElementById("shipping-address-po").textContent = orderData.customer.shippingAddress || orderData.customer.billingAddress || '-';
-            
-            // ตรวจสอบว่า amountToPay มีค่าก่อนใช้งาน
-            const amountToPayDisplay = document.getElementById('paymentAmountDisplay');
-            if (amountToPayDisplay) {
-                amountToPayDisplay.textContent = (orderData.grandTotalIncludingVat || 0).toLocaleString('th-TH', { minimumFractionDigits: 2 }) + ' บาท';
-            }
+        const orderDate = new Date(orderData.timestamp);
+        const year = orderDate.getFullYear();
+        const month = (orderDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = orderDate.getDate().toString().padStart(2, '0');
+        const randomNum = Math.floor(Math.random() * 9000) + 1000; 
+        document.getElementById("po-number").textContent = `PO-${year}${month}${day}-${randomNum}`;
+        document.getElementById("po-date").textContent = `${day}/${month}/${year}`;
 
+        let totalWithVat = 0;
 
-            // กำหนดเลขที่ PO และวันที่
-            const orderDate = new Date(orderData.timestamp);
-            const year = orderDate.getFullYear();
-            const month = (orderDate.getMonth() + 1).toString().padStart(2, '0');
-            const day = orderDate.getDate().toString().padStart(2, '0');
-            const randomNum = Math.floor(Math.random() * 9000) + 1000; // อาจสร้าง PO-number ที่เป็นเอกลักษณ์มากขึ้น
-            document.getElementById("po-number").textContent = `PO-${year}${month}${day}-${randomNum}`;
-            document.getElementById("po-date").textContent = `${day}/${month}/${year}`;
-
-            // แสดงรายการสินค้า
-            const poProductList = document.getElementById("poProductList");
+        const poProductList = document.getElementById("poProductList");
             if (poProductList) { 
                 let itemIndex = 1;
                 poProductList.innerHTML = ''; 
+
                 orderData.items.forEach(item => {
-                    const quantity = item.quantity;
+                    const quantity = parseInt(item.quantity) || 0;
                     const unitPrice = parseFloat(item.price) || 0;
                     const discount = 0; 
-                    const totalAmount = (unitPrice * quantity); 
+                    const totalAmount = (unitPrice * quantity);
+                    totalWithVat += totalAmount; 
+                    const deliveryText = item.delivery || 'ไม่ระบุ'; 
+                    const qtyPerSet = parseInt(item.minimum) || 1; 
+
+                    let setLabel = 'รถ'; 
+                    let unitLabel = item.unit || 'ชิ้น'; 
+
+                    let setCount;
+                    let quantityDisplay = ''; 
+
+                    const isBag = item.type === 'bag';
+                    const isBulk = item.name.toLowerCase().includes('bulk');
+
+                    if (isBulk) {
+                        setCount = Math.floor(quantity / 32); 
+                        unitLabel = 'ตัน'; 
+                        quantityDisplay = `<br><small class="text-muted">(32 ตัน/${setLabel})</small>`;
+                    } else if (isBag) {
+                        setCount = Math.floor(quantity / qtyPerSet);
+                        quantityDisplay = `<br><small class="text-muted">(640 ถุง/${setLabel})</small>`;
+                    } else {
+                        setCount = Math.floor(quantity / qtyPerSet);
+                        quantityDisplay = `<br><small class="text-muted">(จำนวน: ${quantity.toLocaleString()} ${unitLabel})</small>`;
+                    }
+
+                    if (isBag) {
+                        setLabel = 'รถ';
+                    }
 
                     const row = `
                         <tr>
                             <td>${itemIndex++}</td>
-                            <td>${item.name}</td>
-                            <td>${quantity.toLocaleString()}</td>
-                            <td>${item.unit || 'ชิ้น'}</td>
+                            <td>
+                                ${item.name}
+                                <br>
+                                <small class="text-muted">(${deliveryText})</small>
+                            </td>
+                            <td>
+                                ${item.quantity.toLocaleString()}
+                                ${quantityDisplay}
+                            </td>
+                            <td>${unitLabel}</td>
                             <td>${unitPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                             <td>${discount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
                             <td>${totalAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
@@ -290,46 +423,52 @@
                 });
             }
 
-            // แสดงสรุปยอดเงิน
-            const subtotal = orderData.subtotalExcludingVat || 0;
-            const vat = orderData.vatAmount || 0;
-            const grandTotal = orderData.grandTotalIncludingVat || 0;
+            const vatRate = 0.07;
+            const subtotal = totalWithVat / (1 + vatRate);
+            const vatAmount = totalWithVat - subtotal;
+            const grandTotal = totalWithVat;
 
             document.getElementById("subtotal-amount").textContent = subtotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
-            document.getElementById("vat-amount").textContent = vat.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
+            document.getElementById("vat-amount").textContent = vatAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
             document.getElementById("grand-total").textContent = grandTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' บาท';
 
-            document.getElementById("grand-total-words").textContent = bahtText(grandTotal);
-
-            // สำหรับ Delivery Notes
-            document.getElementById("delivery-notes-po").textContent = orderData.customer.notes || '-';
-
-            // สำหรับ Method of Payment
-            const paymentMethodDisplay = document.getElementById("payment-method-po");
-            if (paymentMethodDisplay) {
-                let paymentMethodText = '';
-                switch (orderData.paymentMethod) {
-                    case 'bankTransfer':
-                        paymentMethodText = 'โอนเงินผ่านธนาคาร';
-                        break;
-                    case 'creditCard': 
-                        paymentMethodText = 'บัตรเครดิต/เดบิต';
-                        break;
-                    default:
-                        paymentMethodText = 'ไม่ระบุ';
-                }
-                paymentMethodDisplay.textContent = paymentMethodText;
+            const amountToPayDisplay = document.getElementById('paymentAmountDisplay');
+            if (amountToPayDisplay) {
+                amountToPayDisplay.textContent = grandTotal.toLocaleString(undefined, { minimumFractionDigits: 2 }) + ' บาท';
             }
 
+            // document.getElementById("grand-total-words").textContent = bahtText(newGrandTotal);
 
-        } else {
-            Swal.fire({
-                icon: 'info',
-                title: 'ไม่พบข้อมูลการสั่งซื้อ',
-                text: 'ไม่พบข้อมูลการสั่งซื้อล่าสุด กรุณาทำการสั่งซื้อสินค้าจากหน้าหลัก',
-                confirmButtonText: 'กลับสู่หน้าสินค้า'
-            }).then(() => {
-                window.location.href = '/pages/products/products_showall.html'; 
-            });
+        document.getElementById("grand-total-words").textContent = bahtText(grandTotal);
+
+        // document.getElementById("delivery-notes-po").textContent = orderData.customer.notes || '-';
+
+        const paymentMethodDisplay = document.getElementById("payment-method-po");
+        if (paymentMethodDisplay) {
+            let paymentMethodText = '';
+            switch (orderData.paymentMethod) {
+                case 'bankTransfer':
+                    paymentMethodText = 'โอนเงินผ่านธนาคาร';
+                    break;
+                case 'creditCard': 
+                    paymentMethodText = 'บัตรเครดิต/เดบิต';
+                    break;
+                default:
+                    paymentMethodText = 'ไม่ระบุ';
+            }
+            paymentMethodDisplay.textContent = paymentMethodText;
         }
-    });
+    } else {
+        Swal.fire({
+            icon: 'info',
+            title: 'ไม่พบข้อมูลการสั่งซื้อ',
+            text: 'ไม่พบข้อมูลการสั่งซื้อล่าสุด กรุณาทำการสั่งซื้อสินค้าจากหน้าหลัก',
+            confirmButtonText: 'กลับสู่หน้าสินค้า'
+        }).then(() => {
+            window.location.href = '/pages/products/products_showall.html'; 
+        });
+    }
+
+
+
+});
