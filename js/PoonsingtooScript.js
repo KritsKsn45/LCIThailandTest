@@ -23,57 +23,6 @@ function handleEscapeKey(e) {
 
 document.addEventListener('DOMContentLoaded', function() {
         
-        const swiper = new Swiper('.hero-swiper', {
-            loop: true, 
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true,
-            },
-            autoplay: {
-                delay: 10000,
-                disableOnInteraction: false, 
-            },
-            speed: 1000, 
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            allowTouchMove: false, 
-            
-            on: {
-                init: function() {
-                    const activeImage = this.slides[this.activeIndex].querySelector('.hero-cement-image');
-                    if (activeImage) {
-                        activeImage.classList.add('zoom-active');
-                    }
-                },
-                slideChangeTransitionStart: function() {
-                    const prevImage = this.slides[this.previousIndex].querySelector('.hero-cement-image');
-                    if (prevImage) {
-                        prevImage.classList.remove('zoom-active');
-                        prevImage.classList.add('zoom-reset'); 
-                    }
-                },
-                slideChangeTransitionEnd: function() {
-                    const prevImage = this.slides[this.previousIndex].querySelector('.hero-cement-image');
-                    if (prevImage) {
-                        prevImage.classList.remove('zoom-reset');
-                    }
-                    
-                    const activeImage = this.slides[this.activeIndex].querySelector('.hero-cement-image');
-                    if (activeImage) {
-                        activeImage.classList.add('zoom-active');
-                    }
-                },
-                autoplayStop: function() {
-                    const activeImage = this.slides[this.activeIndex].querySelector('.hero-cement-image');
-                    if (activeImage) {
-                        activeImage.classList.remove('zoom-active');
-                    }
-                }
-            }
-        });
-
         // standard popup
         const cardLinks = document.querySelectorAll('.home-std-card-link');
         const closeButtons = document.querySelectorAll('.standard-popup-close-btn');
@@ -360,7 +309,7 @@ function displayProductDetails(productData) {
     
     const thumbnailContainer = document.getElementById('hppd-thumbnail-container');
     thumbnailContainer.innerHTML = '';
-    const images = ['image','image1', 'image2', 'image3'].map(key => productData[key]).filter(img => img);
+    const images = ['image','image1', 'image2', 'image3', 'image4'].map(key => productData[key]).filter(img => img);
     images.forEach(imgSrc => {
         const img = document.createElement('img');
         img.src = `/assets/images/products/${imgSrc}`;
