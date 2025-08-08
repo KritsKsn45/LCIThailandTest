@@ -291,12 +291,22 @@
 
         Swal.fire({
             title: 'ยืนยันการทำรายการ?',
-            text: 'ระบบจะทำการลบข้อมูลการสั่งซื้อ',
+            text: 'ระบบจะทำการลบข้อมูลการสั่งซื้อของคุณนะ',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonText: 'ใช่, ฉันจะไป',
-            cancelButtonText: 'ยกเลิก',
-            reverseButtons: true
+            confirmButtonText: 'ใช่, ไปช้อปกันเลย!', 
+            cancelButtonText: 'ไม่ดีกว่า',
+            reverseButtons: true,
+            customClass: {
+                popup: 'swal2-red-theme',
+                title: 'swal2-title-custom',
+                htmlContainer: 'swal2-html-container-custom',
+                confirmButton: 'swal2-confirm-button-custom',
+                cancelButton: 'swal2-cancel-button-custom'
+            },
+            iconColor: '#c62828',
+            confirmButtonColor: '#c62828',
+            cancelButtonColor: '#aaa' 
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem("orderDetails");
@@ -304,10 +314,17 @@
                 
                 Swal.fire({
                     icon: 'success',
-                    title: 'ช็อปต่อกันได้เลยย!',
+                    title: 'ช็อปต่อกันได้เลยย! 🎉',
                     text: 'กำลังนำคุณกลับสู่หน้าสินค้า...',
                     showConfirmButton: false,
-                    timer: 900 
+                    timer: 800,
+                    customClass: {
+                        popup: 'swal2-red-theme',
+                        title: 'swal2-title-custom',
+                        htmlContainer: 'swal2-html-container-custom'
+                    },
+                    iconColor: '#c62828',
+                    timerProgressBarColor: '#c62828'
                 }).then(() => {
                     window.location.href = '/pages/products/products_showall.html'; 
                 });
@@ -336,7 +353,14 @@
             icon: 'warning',
             title: 'เซสชันหมดอายุ',
             text: 'ข้อมูลการสั่งซื้อของคุณหมดอายุแล้ว กรุณาสั่งซื้อใหม่',
-            confirmButtonText: 'ตกลง'
+            confirmButtonText: 'ตกลง',
+            customClass: {
+                popup: 'swal2-red-theme',
+                title: 'swal2-title-custom',
+                htmlContainer: 'swal2-html-container-custom',
+                confirmButton: 'swal2-confirm-button-custom'
+            },
+            iconColor: '#c62828' 
         }).then(() => {
             window.location.href = '/pages/products/products_showall.html'; 
         });
@@ -386,9 +410,9 @@
                     const isBulk = item.name.toLowerCase().includes('bulk');
 
                     if (isBulk) {
-                        setCount = Math.floor(quantity / 32); 
+                        setCount = Math.floor(quantity / 33); 
                         unitLabel = 'ตัน'; 
-                        quantityDisplay = `<br><small class="text-muted">(32 ตัน/${setLabel})</small>`;
+                        quantityDisplay = `<br><small class="text-muted">(33 ตัน/${setLabel})</small>`;
                     } else if (isBag) {
                         setCount = Math.floor(quantity / qtyPerSet);
                         quantityDisplay = `<br><small class="text-muted">(640 ถุง/${setLabel})</small>`;
@@ -462,11 +486,19 @@
         Swal.fire({
             icon: 'info',
             title: 'ไม่พบข้อมูลการสั่งซื้อ',
-            text: 'ไม่พบข้อมูลการสั่งซื้อล่าสุด กรุณาทำการสั่งซื้อสินค้าจากหน้าหลัก',
-            confirmButtonText: 'กลับสู่หน้าสินค้า'
+            text: 'ไม่พบข้อมูลการสั่งซื้อล่าสุด กรุณาทำการสั่งซื้อสินค้าใหม่',
+            confirmButtonText: 'กลับสู่หน้าสินค้า',
+            customClass: {
+                popup: 'swal2-red-theme',
+                title: 'swal2-title-custom',
+                htmlContainer: 'swal2-html-container-custom',
+                confirmButton: 'swal2-confirm-button-custom'
+            },
+            iconColor: '#c62828' 
         }).then(() => {
             window.location.href = '/pages/products/products_showall.html'; 
         });
+
     }
 
 

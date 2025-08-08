@@ -701,6 +701,224 @@
 /* #endregion */
 /* = = = = = [End] F O O T E R SECTION = = = = = */
 
+    /* --- Responsive Adjustments for Mobile --- */
+    @media (max-width: 1024px) {
+       .popular-news-header-section {
+        height: 350px; 
+      }
+
+      .popular-news-header h1 {
+        font-size: 3.5em;
+        letter-spacing: 1.5px;
+      }
+
+      .popular-news-header h1::after {
+        width: 60px; 
+      }
+
+      .popular-news-header-title {
+        font-size: 1.1em;
+      }
+      .popular-news-container {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        margin: 1.5rem auto;
+      }
+
+      .popular-news-main-content,
+      .top-popular-news {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .popular-news-main-content {
+        order: 1;
+      }
+
+      .top-popular-news {
+        order: 2;
+        padding: 1rem 1rem;
+      }
+
+      .popular-news-image-overlay {
+        padding: 2rem 1.5rem 1rem;
+      }
+
+      .popular-news-arrow {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.8rem;
+      }
+
+      .popular-news-arrow.left {
+        left: 1rem;
+      }
+
+      .popular-news-arrow.right {
+        right: 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+        .NavOfPoonSingtoolayout {
+            height: auto; /* Height adapts to content when menu is open */
+            flex-direction: column; /* Stack vertically */
+            align-items: flex-start; /* Align logo and menu to the start */
+            padding: 10px 20px;
+        }
+
+        .main-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .nav-header-mobile-wrapper {
+            width: 100%; /* Take full width on mobile */
+            justify-content: space-between; /* Space out logo and hamburger */
+            align-items: center;
+            min-height: 50px; /* Ensure this section has a minimum height */
+        }
+
+        .hamburger-menu {
+            display: flex; /* Show hamburger on mobile */
+        }
+
+        .nav-list {
+            display: none; /* Hide nav list by default on mobile */
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            background-color: #630101; /* Darker red for mobile menu background */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 10px;
+            padding-bottom: 10px; /* Add some bottom padding */
+        }
+
+        .nav-list.active {
+            display: flex; /* Show nav list when active */
+        }
+
+        .nav-list li {
+            margin: 10px 0; /* Space between list items */
+            width: 100%; /* Full width for list items */
+        }
+
+        .nav-list a {
+            font-size: 1.1rem;
+            padding: 12px 0; /* Adjust padding for mobile links */
+            display: block; /* Make links block level for better touch area */
+            width: 100%; /* Make link take full width of li */
+        }
+
+        .nav-list a:hover {
+            background-color: #a01616; /* Mobile hover color */
+        }
+
+        /* Hide dropdowns on mobile to simplify menu, or style them for mobile */
+        .nav-list .dropdown-menu {
+            position: static; /* Remove absolute positioning */
+            background-color: transparent; /* No background for sub-menu */
+            box-shadow: none;
+            width: auto;
+            padding: 0;
+            margin-top: 5px;
+            display: none; /* Keep hidden, will require JS to toggle for mobile dropdowns */
+        }
+
+        .nav-list .dropdown-menu li a {
+            padding: 8px 16px; /* Adjust padding for dropdown items */
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.1); /* Slight background for sub-items */
+        }
+        .nav-list .dropdown-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger-menu.active .bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .popular-news-header-section {
+          height: 300px; 
+        }
+
+        .popular-news-header h1 {
+          font-size: 2.8em; 
+          margin-bottom: 10px;
+          letter-spacing: 1px;
+        }
+
+        .popular-news-header h1::after {
+          width: 50px; 
+          height: 3px;
+        }
+
+        .popular-news-header-title {
+          font-size: 1em; 
+          margin-top: 8px;
+        }
+
+        .popular-news-header-container {
+          height: 50vh;
+        }
+
+        .popular-news-image-overlay h1 {
+          font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .popular-news-image-overlay p {
+          font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .popular-news-main-content h2 {
+          font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        .popular-news-main-content p {
+          font-size: 0.95rem;
+          line-height: 1.7;
+        }
+
+        .original-news-link {
+          padding: 0.6rem 1rem;
+          font-size: 0.9rem;
+        }
+
+        .share-icons {
+          gap: 0.8rem;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .share-icons a {
+          font-size: 1.8rem;
+        }
+
+        .top-popular-news h3 {
+          font-size: 1.2rem;
+          padding-left: 0.8rem;
+        }
+
+        .popular-news-item img {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        .popular-news-item p {
+          font-size: 0.75rem;
+        }
+    }
+    /* #endregion */
+    /* = = = = = [End] N A V I G A T I O N = = = = = */
+
+
 
 
 /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
@@ -710,7 +928,146 @@
     display: none;
   }
 
+   .popular-news-header-section {
+    height: 250px; 
+    padding: 15px; 
+  }
+
+  .popular-news-header h1 {
+    font-size: 2em; 
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .popular-news-header h1::after {
+    width: 40px; 
+    height: 2px;
+  }
+
+  .popular-news-header-title {
+    font-size: 0.9em; 
+    margin-top: 5px;
+  }
+
+  .popular-news-header-title span {
+    margin: 0 5px; 
+  }
+
+   .popular-news-header-container {
+    height: 40vh;
+    min-height: 250px;
+  }
+
+  .popular-news-image-overlay {
+    padding: 1.5rem 1rem 0.8rem;
+  }
+
+  .popular-news-image-overlay h1 {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+  }
+
+  .popular-news-image-overlay p {
+    font-size: 0.75rem;
+  }
+
+  .popular-news-arrow {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .popular-news-container {
+    padding: 1rem 0.8rem;
+    gap: 1.5rem;
+  }
+
+  .popular-news-main-content {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .popular-news-main-content h2 {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .popular-news-main-content .date {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .popular-news-main-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .original-news-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .share-icons {
+    justify-content: flex-start; /* แก้ไข: เปลี่ยนจาก center เป็น flex-start */
+    gap: 0.6rem;
+  }
+
+  .share-icons span {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #555;
+    flex-shrink: 0;
+  }
+
+  .share-icons a {
+    font-size: 1.5rem;
+  }
+
+  .top-popular-news {
+    padding: 1rem 0.8rem;
+  }
+
+  .top-popular-news h3 {
+    font-size: 1.1rem;
+    padding-left: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .popular-news-item {
+    gap: 0.5rem;
+    padding: 0.4rem;
+  }
+
+  .popular-news-item img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .popular-news-item p {
+    font-size: 0.7rem;
+    -webkit-line-clamp: 3;
+  }
+
 }
+
+@media (max-width: 360px) {
+  .popular-news-header-section {
+    height: 200px; /* Minimum height for very small screens */
+  }
+
+  .popular-news-header h1 {
+    font-size: 1.6em; /* Smallest font size for h1 */
+  }
+
+  .popular-news-header h1::after {
+    width: 30px;
+  }
+
+  .popular-news-header-title {
+    font-size: 0.8em; /* Smallest font size for title */
+  }
+}
+
 
 
 @media (min-width: 481px) and (max-width: 1024px) {
@@ -720,6 +1077,9 @@
   }
 
 }
+
+
+
 
 </style>
 

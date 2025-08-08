@@ -1,4 +1,5 @@
-let itemsToCheckout = [];
+  
+        let itemsToCheckout = [];
         let deliveryAreaDisplayData = { province: "", district: "" };
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -100,6 +101,24 @@ let itemsToCheckout = [];
         }
 
 
+        // ฟังก์ชันสำหรับตรวจสอบอีเมลกับ Back-end ของคุณ
+        async function validateEmailAddress(email) {
+            try {
+                const response = await fetch('/api/validate-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email }),
+                });
+
+                const data = await response.json();
+                return data.isValid; 
+            } catch (error) {
+                console.error("Error validating email:", error);
+                return false; 
+            }
+        }
 
         document.getElementById("customerOrderForm").addEventListener("submit", (event) => {
             event.preventDefault(); 
@@ -215,9 +234,19 @@ let itemsToCheckout = [];
                 timer: 1000,
                 timerProgressBar: true,
                 didOpen: () => {
-                    Swal.showLoading(); 
-                }
+                    Swal.showLoading();
+                },
+                customClass: {
+                    popup: 'swal2-red-theme', 
+                    title: 'swal2-title-custom',
+                    htmlContainer: 'swal2-html-container-custom',
+                    confirmButton: 'swal2-confirm-button-custom'
+                },
+                iconColor: '#c62828',
+                timerProgressBar: true,
+                timerProgressBarColor: '#c62828' 
             }).then(() => {
                 window.location.href = '/pages/order-confirmation.html';
             });
         });
+

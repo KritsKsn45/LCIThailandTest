@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>วิธีการสั่งซื้อและวิธีการชำระเงิน</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     
-     <style>
-        body {
+    <style>
+        * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Prompt', sans-serif;
+            font-family: 'Kanit', sans-serif;
         }
 
         /* ========== HEADER SECTION ========== */
@@ -22,6 +27,7 @@
             flex-wrap: wrap;
             width: 100%;
             min-height: 400px;
+            font-family: 'Kanit', sans-serif;
         }
 
         .how-to-order-header {
@@ -59,8 +65,7 @@
 
         .how-to-order-header-img {
             flex: 1 1 100%;
-            background: url('/assets/images/banners/h-ab-1.jpg') no-repeat center center;
-            background: url('/assets/images/banners/hto-1.jpg') no-repeat center center;
+            background: url('/images/howtoPays/banner.jpg') no-repeat center center;
             background-size: cover;
             height: 250px;
         }
@@ -150,210 +155,300 @@
 
         /* ========== PAYMENT ========== */
         .how-to-order-payment-wrapper {
-            padding: 50px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      padding: 60px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        .how-to-order-payment-header {
-            text-align: left;
-            margin-bottom: 40px;
-            position: relative;
-            max-width: 1300px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 20px;
-        }
+    .how-to-order-payment-header {
+      text-align: left;
+      margin-bottom: 50px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 20px;
+    }
 
-        .how-to-order-payment-header h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #111;
-            display: inline-block;
-            position: relative;
-            padding-bottom: 10px;
-        }
+    .how-to-order-payment-header h3 {
+      font-weight: 600;
+      font-size: 22px;
+      color: #e61c1c;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
 
-        .how-to-order-payment-header h2::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 80px;
-            height: 4px;
-            background-color: #e61c1c;
-            border-radius: 2px;
-        }
+    .how-to-order-payment-header h2 {
+      font-size: 42px;
+      font-weight: 800;
+      color: #111;
+      position: relative;
+      padding-bottom: 12px;
+    }
 
-        .how-to-order-payment-header span {
-            color: #e61c1c;
-        }
+    .how-to-order-payment-header h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 90px;
+      height: 5px;
+      background-color: #e61c1c;
+      border-radius: 3px;
+      box-shadow: 0 3px 10px rgba(230, 28, 28, 0.5);
+    }
 
-        .how-to-order-payment-procedure {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            width: 100%;
-        }
+    .how-to-order-payment-header span {
+      color: #e61c1c;
+    }
 
-        .how-to-order-payment-procedure a {
-            text-decoration: none;
-            color: inherit;
-        }
+    .how-to-order-payment-procedure {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 20px 10px;
+    }
 
-        .how-to-order-payment-card {
-            background: #fff;
-            border-radius: 25px;
-            width: 100%;
-            max-width: 400px;
-            padding: 30px 25px;
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            text-align: left;
-            display: block;
-        }
+    .how-to-order-payment-card {
+      background: #ffffff;
+      border-radius: 20px;
+      flex: 1 1 300px;
+      min-width: 250px;
+      max-width: 320px;
+      padding: 25px 20px 30px;
+      box-shadow: 0 15px 30px rgba(230, 28, 28, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: center;
+      border: 3px solid #e61c1c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .how-to-order-payment-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 18px 35px rgba(255, 0, 0, 0.15);
-        }
+    .how-to-order-payment-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 45px rgba(230, 28, 28, 0.3);
+      border-color: #b71616;
+    }
 
-        .how-to-order-payment-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+    .how-to-order-payment-icon {
+      width: 100px;
+      height: 100px;
+      background: #fdecea;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(230, 28, 28, 0.12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
 
-        .how-to-order-payment-icon img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-        }
+    .how-to-order-payment-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-        .how-to-order-payment-card h3 {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #111;
-            text-align: center;
-        }
+    .how-to-order-payment-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 22px;
+      margin-bottom: 20px;
+    }
 
-        .how-to-order-payment-card p {
-            color: #666;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    .icon-detail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-        /* ========== PAYMENT PROCEDURE ========== */
-        .payment-wrapper {
-            padding: 50px;
-            max-width: 1300px;
-            margin: auto;
-        }
+    .icon-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+    }
 
-        .payment-header h3 {
-            color: #e61c1c;
-            font-size: 18px;
-            font-weight: 700;
-        }
+    .how-to-order-payment-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 14px;
+      color: #b71c1c;
+    }
 
-        .payment-header-title {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-top: 10px;
-        }
+    .how-to-order-payment-card p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
 
-        .payment-header-title h1 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #1a1a1a;
-        }
+    .payment-button {
+      padding: 10px 20px;
+      background-color: #e61c1c;
+      color: white;
+      border: 2px solid #b71616;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600; 
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(230, 28, 28, 0.45);
+      transition: all 0.3s ease;
+    }
 
-        .payment-subtitle {
-            font-size: 16px;
-            color: #555;
-            margin-top: 5px;
-        }
+    .payment-button:hover {
+      background-color: #b71616;
+      box-shadow: 0 8px 20px rgba(183, 22, 22, 0.7);
+      transform: translateY(-2px);
+    }
 
-        .payment-left-right {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
+    .payment-button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+      margin-top: auto;
+    }
 
-        .payment-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            flex: 1 1 50%;
-        }
+    .payment-button-wrapper {
+      margin-top: auto;
+    }
 
-        .payment-card {
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            flex: 1 1 calc(30% - 20px);
-            min-width: 240px;
-            max-width: 300px;
-            padding: 25px;
-            text-align: center;
-            transition: 0.3s;
-        }
+.social-main-container {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    background-color: #e6e6e6;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-        .payment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-        }
+/* Title Section */
+.text-column {
+    text-align: center;
+}
 
-        .payment-card img {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 15px;
-        }
+.insee-text {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #e4002b;
+    margin: 0;
+}
 
-        .payment-card h4 {
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #e61c1c;
-        }
+.follow-us-text {
+    font-size: 1.2rem;
+    color: #000000;
+    margin: 5px 0 0;
+}
 
-        .payment-card p {
-            font-size: 14px;
-            color: #555;
-        }
+/* Social Icons Section */
+.social-social-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
+.social-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
+.social-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
 
+.icon-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: #e4002b;
+    color: #ffffff;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.icon-link:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 
+.icon-link.line:hover { background-color: #00C300; }
+.icon-link.facebook:hover { background-color: #1877F2; }
+.icon-link.email:hover { background-color: #EA4335; }
+.icon-link.phone:hover { background-color: #2c3e50; }
 
+.social-insee-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #e4002b;
+    margin: 0;
+}
 
+.social-us-text {
+    font-size: 0.75rem;
+    color: #000000;
+    margin: 0;
+}
 
+/* QR Code Section */
+.qr-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 
+.qr-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e4002b;
+    margin: 0;
+    text-align: center;
+}
 
+.qr-code-img {
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.qr-code-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
 
-
-
-
-
-
-
-
+.qr-code-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
     </style>
+
+    
 
 <style>
 
@@ -577,26 +672,6 @@
     }
 
     /* --- Responsive Adjustments for Mobile --- */
-
-    @media (max-width: 1024px) {
-            .how-to-order-payment-header h2 {
-                font-size: 30px;
-            }
-
-            .payment-header-title h1 {
-                font-size: 30px;
-            }
-
-            .payment-wrapper {
-                padding: 40px 20px;
-            }
-
-            .payment-card {
-                flex: 1 1 calc(45% - 20px);
-            }
-    }
-
-
     @media (max-width: 768px) {
         .NavOfPoonSingtoolayout {
             height: auto; /* Height adapts to content when menu is open */
@@ -614,7 +689,9 @@
             width: 100%; /* Take full width on mobile */
             justify-content: space-between; /* Space out logo and hamburger */
             align-items: center;
-            min-height: 50px; /* Ensure this section has a minimum height */
+            min-height: 50px; /* Ensur-
+
+            e this section has a minimum height */
         }
 
         .hamburger-menu {
@@ -684,169 +761,10 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
-        .how-to-order-payment-wrapper {
-            padding: 40px 15px;
-        }
-
-        .how-to-order-payment-header {
-            padding-left: 15px;
-        }
-
-        .how-to-order-payment-header h2 {
-            font-size: 26px;
-        }
-
-        .how-to-order-payment-procedure {
-            gap: 20px;
-        }
-
-        .how-to-order-payment-card {
-            max-width: 100%;
-            padding: 25px 20px;
-        }
-
-        .payment-header-title {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .payment-header-title h1 {
-            font-size: 26px;
-        }
-
-        .payment-subtitle {
-            font-size: 15px;
-        }
-
-        .payment-left-right {
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .payment-grid {
-            flex: 1 1 100%;
-            gap: 15px;
-        }
-
-        .payment-card {
-            flex: 1 1 100%;
-            max-width: 100%;
-        }  
     }
     /* #endregion */
     /* = = = = = [End] N A V I G A T I O N = = = = = */
 
-        /* ====== [Start] F O O T E R SECTION ============ */
-/* #region */
-.footer {
-  width: 100%;
-  position: relative;
-  background: linear-gradient(135deg, #8B0000, #d71e1e);
-  color: white;
-  overflow: hidden;
-  padding-top: 60px;
-}
-.footer-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  z-index: 0;
-  opacity: 0.3;
-}
-.footer-overlay {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 1.5rem;
-}
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 220px;
-  padding: 35px;
-}
-.footer-brand img.footer-logo-img {
-  width: 80px;
-  margin-bottom: 1rem;
-}
-.footer-brand h2 {
-  font-size: 1.8rem;
-  margin: 0 0 0.5rem;
-}
-.footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-.footer p, .footer li {
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-}
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
-.footer a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.footer a:hover {
-  color: #ffe6e6;
-}
-.footer-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.footer-btn {
-  padding: 0.6rem 1.2rem;
-  background: white;
-  color: #a30000;
-  border-radius: 10px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-.footer-btn:hover {
-  background: #ffe5e5;
-  transform: scale(1.05);
-}
-.footer-btn.line {
-  background: #06c755;
-  color: white;
-}
-.footer-map iframe {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-.footer-bottom {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* #endregion */
-/* = = = = = [End] F O O T E R SECTION = = = = = */
-
-
 
     /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
     @media (max-width: 480px) {
@@ -866,36 +784,54 @@
             font-size: 14px;
         }
 
-        .payment-header h3 {
-            font-size: 16px;
-        }
-
-        .payment-header-title h1 {
-            font-size: 22px;
-        }
-
-        .payment-subtitle {
-            font-size: 14px;
-        }
-
-        .payment-card h4 {
-            font-size: 15px;
-        }
-
-        .payment-card p {
-            font-size: 13px;
-        }
-
-        .payment-wrapper {
-            padding: 30px 15px;
-        }  
-
     }
 
     @media (min-width: 768px) {
         .how-to-order-steps-grid {
             grid-template-columns: repeat(2, 1fr);
         }
+
+        .social-main-container {
+        flex-direction: row; /* เปลี่ยนเป็นแนวนอนสำหรับหน้าจอที่กว้างขึ้น */
+        justify-content: space-around; /* จัดช่องไฟระหว่างส่วนประกอบ */
+        gap: 50px;
+        padding: 50px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .social-social-section {
+        flex-direction: row; /* เปลี่ยนเป็นแนวนอนสำหรับส่วนของไอคอน */
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .social-icons-container {
+        gap: 20px;
+    }
+
+    .icon-link {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .insee-text {
+        font-size: 2.5rem;
+    }
+
+    .follow-us-text {
+        font-size: 1.2rem;
+    }
+
+    .qr-heading {
+        font-size: 1.2rem;
+    }
+
+    .qr-code-img {
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
     }
 
     @media (min-width: 1024px) {
@@ -930,96 +866,27 @@
         }
     }
 
+    @media (max-width: 768px) {
+      .how-to-order-payment-header h2 {
+        font-size: 28px;
+      }
 
-    /* Mobile Styles (สำหรับหน้าจอ <= 768px) */
+    }
+
     @media (max-width: 480px) {
+      .how-to-order-payment-header {
+        padding-left: 10px;
+      }
 
-        .above-content {
-            display: none;
-        }
-        .how-to-order-payment-header h2 {
-            font-size: 22px;
-        }
-
-        .how-to-order-payment-card h3 {
-            font-size: 18px;
-        }
-
-        .how-to-order-payment-card p {
-            font-size: 14px;
-        }
-
-        .payment-header h3 {
-            font-size: 16px;
-        }
-
-        .payment-header-title h1 {
-            font-size: 22px;
-        }
-
-        .payment-subtitle {
-            font-size: 14px;
-        }
-
-        .payment-card h4 {
-            font-size: 15px;
-        }
-
-        .payment-card p {
-            font-size: 13px;
-        }
-
-        .payment-wrapper {
-            padding: 30px 15px;
-        }  
-
+      .how-to-order-payment-header h2 {
+        font-size: 24px;
+      }
+      
     }
-
-    @media (min-width: 768px) {
-        .how-to-order-steps-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .how-to-order-steps-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .how-to-order-header {
-            flex: 1 1 50%;
-            padding: 60px;
-        }
-
-        .how-to-order-header-img {
-            flex: 1 1 50%;
-            height: auto;
-            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
-        }
-
-        .how-to-order-header-container {
-            flex-wrap: nowrap;
-            height: 60vh;
-        }
-
-        .how-to-order-header h1 {
-            font-size: 36px;
-        }
-    }
-
-    @media (min-width: 481px) and (max-width: 1024px) {
-        .above-content {
-            display: none;
-        }
-    }
-
-
 
 
 
 </style>
-
-
 
 </head>
 <body>
@@ -1032,42 +899,48 @@
     </div>
   </div>
 
+ 
  <div class="header-fixed-position">     
-    <!-- Navigation -->
-    <div class="NavOfPoonSingtoolayout">
-            <nav class="main-nav">
-                <div class="nav-header-mobile-wrapper"> 
-                    <div class="nav-lci-above-group1">
-                        <a href="/">
-                            <div class="nav-logoLCI">
-                                <div class="nav-img-logoLCI">
-                                </div>
-                                <div class="nav-titlename-logoLCI">
-                                    <h3>LCI-Thailand</h3>
-                                </div>
+     
+        <!-- Navigation -->
+        <div class="NavOfPoonSingtoolayout">
+        <nav class="main-nav">
+            <div class="nav-header-mobile-wrapper"> <div class="nav-lci-above-group1">
+                    <a href="/">
+                        <div class="nav-logoLCI">
+                            <div class="nav-img-logoLCI">
                             </div>
-                        </a>
-                    </div>
-                    <div class="hamburger-menu">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
+                            <div class="nav-titlename-logoLCI">
+                                <h3>LCI-Thailand</h3>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
 
-                <ul class="nav-list">
-                    <li><a href="/index.html">หน้าแรก</a></li>
-                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
-                    <li><a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a></li>
-                    <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
-                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
-                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
-                </ul>
-            </nav>
-    </div>
+            <ul class="nav-list">
+                <li><a href="/index.html">หน้าแรก</a></li>
+                <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
+                <li class="dropdown">
+                    <a href="/pages/products/products_showall.html">ผลิตภัณฑ์</a>
+                    </li>
+                <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
+                <li><a href="/pages/howtoPays.html">วิธีสั่งซื้อ</a></li>
+                <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+        </div>
+
   </div>
 
-    
+
+ 
+
     <div class="how-to-order-header-container">
         <div class="how-to-order-header">
             <h5>How to order and payment methods</h5>
@@ -1098,7 +971,6 @@
             <div class="how-to-order-step-card">
                 <div class="how-to-order-step-wrapper">
                     <div class="how-to-order-step-number">2</div>
-                    <i class="fas fa-comments how-to-order-step-icon"></i>
                     <i class="fas fa-cart-shopping how-to-order-step-icon"></i>
                     <div class="how-to-order-step-title">เพิ่มสินค้าลงตะกร้า</div>
                     <div class="how-to-order-step-desc">เพิ่มสินค้าที่ต้องการลงใส่ตะกร้าตามจำนวนที่ต้องการ</div>
@@ -1143,125 +1015,120 @@
         </div>
     </div>
 
-    <!-- ช่องทางการชำระเงิน -->
-    <div class="how-to-order-payment-wrapper">
-        <div class="how-to-order-payment-header">
-            <h3>Payment</h3>
-            <h2><span>ช่องทางการ</span> ชำระเงิน</h2>
-        </div>
-
-        <div class="how-to-order-payment-procedure">
-    
-            <a href="#" class="how-to-order-payment-card">
-                <div class="how-to-order-payment-icon">
-                    <img src="https://raw.githubusercontent.com/casperstack/thai-banks-logo/master/icons/KTB.png" alt=""> </div>
-                <h3>ธนาคารกรุงไทย</h3>
-                <p>บัญชี: บจก.แอลซีไอ 2025 (ไทยแลนด์)</p>
-                <p>เลขที่บัญชี: 664-4-42390-6</p>
-            </a>
-        </div>
-    </div>
-
     <!-- ขั้นตอนการชำระเงิน -->
-    <div class="payment-wrapper">
-        <div class="payment-header">
-            <h3>Payment Procedure</h3>
-            <div class="payment-header-title">
-                <div>
-                    <h1>ขั้นตอนการชำระเงิน</h1>
+    <div class="how-to-order-payment-wrapper">
+    <div class="how-to-order-payment-header">
+      <h3>Payment Procedure</h3>
+      <h2><span>ขั้นตอน</span> การชำระเงิน</h2>
+    </div>
+
+    <div class="how-to-order-payment-procedure">
+      <!-- Card 1 -->
+      <div class="how-to-order-payment-card">
+        <h3>ชำระเงิน</h3>
+        <p>ชำระเงินตามยอดที่ระบุในใบสั่งซื้อผ่าน QR Code หรือการโอนเงิน หรือหากต้องการสอบถามเพิ่มเติมสามารถติดต่อผ่าน LINE ได้ทันที</p>
+        <div class="how-to-order-payment-icon">
+          <img src="https://raw.githubusercontent.com/casperstack/thai-banks-logo/master/icons/KTB.png" alt="ธนาคารกรุงไทย" />
+        </div>
+        <h3>ธนาคารกรุงไทย</h3>
+        <p>บัญชี: บจก.แอลซีไอ 2025 (ไทยแลนด์)<br>เลขที่บัญชี: 664-4-42390-6</p>
+        <div class="payment-button-wrapper">
+          <button class="payment-button" onclick="copyAccountNumber()">คัดลอกเลขบัญชี</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="how-to-order-payment-card">
+        <h3>แจ้งการชำระเงิน</h3>
+        <p>ส่งใบสั่งซื้อพร้อมสลิปการโอนเงิน (หากชำระเงินแล้ว) ทาง LINE หรือ Email เพื่อให้เราตรวจสอบ</p>
+        <div class="how-to-order-payment-icons">
+          <div class="icon-detail">
+            <div class="how-to-order-payment-icon">
+              <img src="https://qr-official.line.me/gs/M_709zzbhc_GW.png?ts=07301715&oat_content=url" alt="LINE QR Code" />
+            </div>
+            <h3>Line</h3>
+            <p>ปูนสิงโต Lion.LCI</p>
+          </div>
+          <div class="icon-detail">
+            <div class="how-to-order-payment-icon">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/120px-Gmail_icon_%282020%29.svg.png" alt="Gmail" />
+            </div>
+            <h3>G-mail</h3>
+            <p>Lion.lci2025
+                <br>@gmail.com</p>
+          </div>
+        </div>
+        <div class="payment-button-group">
+          <button class="payment-button" onclick="openLineChat()">ส่งสลิปทาง LINE</button>
+          <button class="payment-button" onclick="openEmailClient()">ส่งสลิปทาง Email</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="how-to-order-payment-card">
+        <h3>รอรับสินค้า</h3>
+        <p>หลังจากตรวจสอบการชำระเงินเรียบร้อยแล้ว ทีมงานจะดำเนินการจัดส่งสินค้าตามวันเวลาที่กำหนด</p>
+        <div class="how-to-order-payment-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="ตรวจสอบสถานะ" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="social-main-container">
+    <div class="social-social-section">
+        <div class="text-column">
+            <p class="insee-text">LCI</p>
+            <p class="follow-us-text">FOLLOW US</p>
+        </div>
+        
+        <div class="social-icons-container">
+            <div class="social-icon-wrapper">
+                <a href="https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url" class="icon-link line" title="Line">
+                    <i class="fab fa-line"></i>
+                </a>
+                <div class="social-text-column">
+                    <p class="social-insee-text">Line</p>
                 </div>
             </div>
 
-            <div class="payment-left-right">
-                <div class="payment-grid">
-                    <div class="payment-card">
-                        <i class="fa-solid fa-credit-card"></i>                        
-                        <h4>1. เลือกวิธีการชำระเงิน</h4>
-                        <p>เลือกวิธีการชำระเงินตามความต้องการ</p>
-                    </div>
-                    <div class="payment-card">
-                        <i class="fas fa-receipt"></i>                        
-                        <h4>2. แจ้งการชำระเงิน</h4>
-                        <p>แจ้งการชำระเงินผ่านทาง Line พร้อมแนบหลักฐานการชำระเงิน</p>
-                    </div>
-                    <div class="payment-card">
-                        <i class="fas fa-check-circle"></i>  
-                        <h4>6. ชำระเงินเสร็จสิ้น</h4>
-                        <p>ขอบคุณที่ใช้บริการกับเรา!</p>
-                    </div>
+            <div class="social-icon-wrapper">
+                <a href="https://www.facebook.com/profile.php?id=61572512984359" class="icon-link facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <div class="social-text-column">
+                    <p class="social-insee-text">Facebook</p>
+                </div>
+            </div>
+
+            <div class="social-icon-wrapper">
+                <a href="mailto:Lion.lci2025@gmail.com" class="icon-link email" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <div class="social-text-column">
+                    <p class="social-insee-text">E-mail</p>
+                </div>
+            </div>
+
+            <div class="social-icon-wrapper">
+                <a href="tel:090-028-0018" class="icon-link phone" title="โทร">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <div class="social-text-column">
+                    <p class="social-insee-text">Telephone</p>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <!-- Footer content -->
-    <footer class="footer">
-        <svg class="footer-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,100 Q50,0 100,100 Z" fill="url(#footerGradient)" />
-            <defs>
-            <linearGradient id="footerGradient" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#8B0000" />
-                <stop offset="100%" stop-color="#FF4C4C" />
-            </linearGradient>
-            </defs>
-        </svg>
-
-        <!-- Main Footer Content -->
-        <div class="footer-overlay">
-            <div class="footer-content">
-                <!-- Company Info -->
-                <div class="footer-section footer-brand">
-                    <h2>LCI-Thailand</h2>
-                    <p style="color: white;"> “ ผลิตภัณฑ์เรา มีมาตรฐานสากล <br>และได้มาตรฐานอุตสาหกรรมของไทย “</p>
-                    <div class="footer-buttons">
-                        <a href="tel:0900280018" class="footer-btn" style="color: red;">📞 โทรหาเรา</a>
-                        <a href="https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url" class="footer-btn line"><i class="fab fa-line"></i> แชท LINE</a>
-                    </div>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="footer-section">
-                    <h3 style="font-size: 1.5rem;">เมนูหลัก</h3>
-                    <ul>
-                    <li><a href="/">หน้าแรก</a></li>
-                    <li><a href="/pages/products/products_showall.html">สินค้า</a></li>
-                    <li><a href="/pages/about.html">เกี่ยวกับเรา</a></li>
-                    <li><a href="/pages/marketing.html">ข่าวสาร</a></li>
-                    <li><a href="/pages/contact.html">ติดต่อเรา</a></li>
-                    <li><a href="/pages/howtoPays.html">วิธีการสั่งซื้อและวิธีการชำระเงิน</a></li>
-                    </ul>
-                </div>
-
-                <!-- Map -->
-                <div class="footer-section footer-map">
-                    <h3 style="font-size: 1.5rem;">ที่ตั้งสำนักงาน</h3>
-                    <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.187358726801!2d103.66845000000001!3d16.05516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3117fdb02f0d92c3%3A0x57e0c7ce40fe7875!2z4Liq4LiH4LmA4LiE4Lij4LiB4Li44LiV4Lin4Li04Liq4Li04Lia4LiHIOC4leC4m-C4o-C4tOC5gOC4meC4o-C5ieC4peC4suC4uOC4meC5gOC4o-C5gOC4meC4hOC4geC4seC5gOC4oeC4qg!5e0!3m2!1sth!2sth!4v1721822872723!5m2!1sth!2sth"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h3 style="font-size: 1.5rem;">ติดต่อเรา</h3>
-                    <p style="color: white;">ที่ตั้งสำนักงาน: 401 ถนนเทวาภิบาล ต.ในเมือง อ.เมืองร้อยเอ็ด จ.ร้อยเอ็ด 45000</p>
-                    <p style="color: white;">📞 090-028-0018</p>
-                    <p style="color: white;">✉️ Lion.lci2025@gmail.com</p>
-                </div>
-            </div>
+    
+    <div class="qr-code-container">
+        <p class="qr-heading">ติดต่อสอบถามเพิ่มเติม</p>
+        <div class="qr-code-img">
+            <img src="https://qr-official.line.me/gs/M_709zzbhc_GW.png?ts=07301715&oat_content=url" alt="LINE QR Code" />
         </div>
+    </div>
+</div>
 
-        <div class="footer-bottom">
-            <p style="color: white;"> &copy; 2025 ปูนสิงโต - LCI Thailand - All rights reserved.</p>
-        </div>
-
-    </footer>
 
 
 
@@ -1269,12 +1136,86 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 
-<!-- <script src="/js/howtopay.js"></script> -->
+<script>
+    function copyAccountNumber() {
+      const accountNumber = "664-4-42390-6";
+      const tempInput = document.createElement('input');
+      document.body.appendChild(tempInput);
+      tempInput.value = accountNumber;
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showCustomAlert("คัดลอกเลขบัญชีเรียบร้อยแล้ว: " + accountNumber);
+      } catch (err) {
+        showCustomAlert("ไม่สามารถคัดลอกเลขบัญชีได้");
+      } finally {
+        document.body.removeChild(tempInput);
+      }
+    }
 
+    function openLineChat() {
+      const lineUrl = "https://line.me/R/ti/p/@709zzbhc?ts=07301715&oat_content=url"; 
+      window.open(lineUrl, '_blank');
+    }
+
+    function openEmailClient() {
+      const emailAddress = "Lion.lci2025@gmail.com"; 
+      const emailSubject = "แจ้งการชำระเงิน";
+      const emailBody = "สวัสดีครับ,\n\nผมต้องการแจ้งการชำระเงินสำหรับการสั่งซื้อ...";
+      const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoUrl, '_blank');
+    }
+
+    function showCustomAlert(message) {
+        const alertBox = document.createElement('div');
+        alertBox.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 25px 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            font-size: 18px;
+            max-width: 350px;
+            line-height: 1.4;
+            border: 2px solid #e61c1c;
+        `;
+        alertBox.innerHTML = `
+            <p>${message}</p>
+            <button style="
+                margin-top: 20px;
+                padding: 10px 25px;
+                background-color: #e61c1c;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                transition: background-color 0.3s ease;
+            " onmouseover="this.style.backgroundColor='#b71616'" onmouseout="this.style.backgroundColor='#e61c1c'">
+                ตกลง
+            </button>
+        `;
+        document.body.appendChild(alertBox);
+
+        alertBox.querySelector('button').onclick = () => {
+            document.body.removeChild(alertBox);
+        };
+    }
+
+    
+</script>
 
 <script>
     
-    document.addEventListener("DOMContentLoaded", async () => { 
+     document.addEventListener("DOMContentLoaded", async () => { 
         
 
         // =============== PRELOADER ===================================
@@ -1289,29 +1230,35 @@
         }
         // =============================================================
 
-
         const hamburgerMenu = document.querySelector('.hamburger-menu');
         const navList = document.querySelector('.nav-list');
-        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); 
+        const mainNavContainer = document.querySelector('.NavOfPoonSingtoolayout'); // Get the main container
 
         hamburgerMenu.addEventListener('click', function() {
             hamburgerMenu.classList.toggle('active');
             navList.classList.toggle('active');
+            // Optional: Toggle a class on the main container to adjust height/background if needed when menu is open
+            // mainNavContainer.classList.toggle('menu-open'); 
         });
 
+        // Optional: Close menu when a link is clicked (good for UX on mobile)
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                // Only close if it's a mobile view (or if you want it to close on all clicks)
                 if (window.innerWidth <= 768) { 
                     hamburgerMenu.classList.remove('active');
                     navList.classList.remove('active');
+                    // mainNavContainer.classList.remove('menu-open');
                 }
             });
         });
 
+        // Optional: Close menu if window is resized above mobile breakpoint
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 hamburgerMenu.classList.remove('active');
                 navList.classList.remove('active');
+                // mainNavContainer.classList.remove('menu-open');
             }
         });
 
@@ -1319,24 +1266,22 @@
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function(event) {
                 if (window.innerWidth <= 768) {
-                    event.preventDefault(); 
+                    event.preventDefault(); // Prevent default link behavior
                     const dropdownMenu = this.nextElementSibling;
                     if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                        // Close other open dropdowns
                         document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
                             if (menu !== dropdownMenu) {
                                 menu.classList.remove('active');
                             }
                         });
-                        dropdownMenu.classList.toggle('active'); 
+                        dropdownMenu.classList.toggle('active'); // Toggle visibility
                     }
                 }
             });
-        });     
-    });
-
-
+        });
+      });
 </script>
-
 
 </body>
 </html>

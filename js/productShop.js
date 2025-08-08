@@ -1,4 +1,5 @@
 
+
 // =============================================================
 // =============== GLOBAL VARIABLES ============================
 
@@ -481,6 +482,7 @@ function showProductPopup(product) {
         product.image1,
         product.image2,
         product.image3,
+        product.image4,
     ].filter((img, index, self) => img && self.indexOf(img) === index);
 
     const thumbnailsHTML = images
@@ -689,6 +691,8 @@ function showDealerAlert(dealerInfo) {
     });
 }
 
+
+
 // card and filter data
 function filterProducts() {
     const searchInput = document.getElementById("searchInput").value.toLowerCase();
@@ -698,8 +702,18 @@ function filterProducts() {
     const selectedDealer = dealerData?.dealers?.find(dealer => dealer.provinceName === province);
     const isDealerProvince = !!selectedDealer;
 
-    if (!province) {
-        renderCards(allData.products, null, null);
+    const isAreaSelected = !!province && !!district;
+
+    if (!isAreaSelected && !isDealerProvince) {
+        // กรณีที่ยังไม่ได้เลือกพื้นที่ (จังหวัดหรืออำเภอ)
+        const filteredProducts = allData.products.filter((p) => {
+            const text = `${p.name} ${p.description}`.toLowerCase();
+            return (
+                (!searchInput || text.includes(searchInput)) &&
+                (currentType === "all" || p.type === currentType)
+            );
+        });
+        renderCards(filteredProducts, null, { province: null, district: null });
         return;
     }
     
@@ -719,11 +733,8 @@ function filterProducts() {
         document.getElementById("productGrid").innerHTML = '';
         return;
     }
-
-    if (!district) {
-        return;
-    }
     
+    // โค้ดส่วนนี้จะทำงานเมื่อเลือกทั้งจังหวัดและอำเภอแล้วเท่านั้น
     localStorage.setItem(
         "filterState",
         JSON.stringify({
@@ -759,25 +770,6 @@ function filterProducts() {
     });
 }
 
-function formatPrice(price) {
-    if (typeof price !== 'number' || isNaN(price)) {
-        return price;
-    }
-
-    if (price === 0) {
-        return "0 บาท";
-    }
-
-    if (price < 1000000) {
-        return price.toLocaleString() + " บาท";
-    }
-    else {
-        const millions = price / 1000000;
-        const formattedMillions = parseFloat(millions.toFixed(1));
-        return `${formattedMillions} ล้านบาท`;
-    }
-}
-
 function renderCards(products, priceData, areaInfo) {
     const grid = document.getElementById("productGrid");
     grid.innerHTML = "";
@@ -787,15 +779,24 @@ function renderCards(products, priceData, areaInfo) {
         return;
     }
 
+    const isAreaSelected = areaInfo && areaInfo.province && areaInfo.district;
+    
     products.forEach((product) => {
-        const priceInfo = priceData && priceData[product.id] !== undefined ? priceData[product.id] : "ยังไม่เปิดขาย";
-        
-        const currentPrice = typeof priceInfo === 'object' && priceInfo !== null ? priceInfo.price : priceInfo;
-        const isAvailableForSale = typeof currentPrice === 'number';
+        let priceInfo;
+        let isAvailableForSale = false;
+
+        if (!isAreaSelected) {
+            priceInfo = "รอเลือกพื้นที่ ฯ";
+            isAvailableForSale = false;
+        } else {
+            priceInfo = priceData && priceData[product.id] !== undefined ? priceData[product.id] : "ยังไม่เปิดขาย";
+            const currentPrice = typeof priceInfo === 'object' && priceInfo !== null ? priceInfo.price : priceInfo;
+            isAvailableForSale = typeof currentPrice === 'number';
+        }
 
         const productData = {
             ...product,
-            price: isAvailableForSale ? currentPrice : 0, 
+            price: isAvailableForSale && typeof priceInfo === 'object' ? priceInfo.price : 0, 
             province: areaInfo?.province || "",
             district: areaInfo?.district || "",
         };
@@ -842,14 +843,14 @@ function renderCards(products, priceData, areaInfo) {
 
             } else {
                 const unitText = product.unit || '';
-                const priceFormatted = formatPrice(currentPrice);
+                const priceFormatted = formatPrice(priceInfo);
                 priceDisplayText = `<strong class="promo-price">${priceFormatted}/${unitText}</strong>`;
             }
             buttonHtml = `<button class="p-c-add-cart-btn"><i class="fa-solid fa-cart-arrow-down"></i> เพิ่มลงตะกร้า</button>`;
 
         } else {
             priceDisplayText = `<span style="font-weight: bold; color: #c62828;">${priceInfo}</span>`;
-            buttonHtml = `<button class="p-c-add-cart-btn disabled" disabled style="cursor: not-allowed; opacity: 0.6;"><i class="fa-solid fa-cart-arrow-down"></i> ยังไม่เปิดขาย</button>`;
+            buttonHtml = `<button class="p-c-add-cart-btn disabled" disabled style="cursor: not-allowed; opacity: 0.6;"><i class="fa-solid fa-cart-arrow-down"></i> ${priceInfo}</button>`;
         }
 
         const card = document.createElement("div");
@@ -879,10 +880,10 @@ function renderCards(products, priceData, areaInfo) {
                     </div>
                     <div></div>
                     <div class="p-c-product-area">
-                        <div><p>พื้นที่: ${productData.province}, ${productData.district}</p></div>
+                        <div><p>พื้นที่: ${areaInfo?.province || ''}, ${areaInfo?.district || ''}</p></div>
                     </div>
                     <div class="m-p-c-product-area">
-                        <div><p> ${productData.province}, ${productData.district}</p></div>
+                        <div><p> ${areaInfo?.province || ''}, ${areaInfo?.district || ''}</p></div>
                     </div>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0.5rem;">
@@ -895,10 +896,10 @@ function renderCards(products, priceData, areaInfo) {
         grid.appendChild(card);
         
         const now = new Date().getTime();
-        if (priceInfo.promotionFinishTime) {
+        if (priceInfo && typeof priceInfo === 'object' && priceInfo.promotionFinishTime) {
             const finishTime = new Date(priceInfo.promotionFinishTime).getTime();
             if (now < finishTime) {
-                 startCountdownTimer(`countdown-${product.id}-${areaInfo?.province}-${areaInfo?.district}`, priceInfo.promotionFinishTime, card);
+                startCountdownTimer(`countdown-${product.id}-${areaInfo?.province}-${areaInfo?.district}`, priceInfo.promotionFinishTime);
             } else {
                 const countdownElement = document.getElementById(`countdown-${product.id}-${areaInfo?.province}-${areaInfo?.district}`);
                 if (countdownElement) {
@@ -929,6 +930,24 @@ function renderCards(products, priceData, areaInfo) {
     });
 }
 
+function formatPrice(price) {
+    if (typeof price !== 'number' || isNaN(price)) {
+        return price;
+    }
+
+    if (price === 0) {
+        return "0 บาท";
+    }
+
+    if (price < 1000000) {
+        return price.toLocaleString() + " บาท";
+    }
+    else {
+        const millions = price / 1000000;
+        const formattedMillions = parseFloat(millions.toFixed(1));
+        return `${formattedMillions} ล้านบาท`;
+    }
+}
 
 function startCountdownTimer(elementId, finishTime) {
     const countdownElement = document.getElementById(elementId);
@@ -1021,3 +1040,4 @@ function loadDistricts(selectedProvince) {
         });
     }
 }
+
