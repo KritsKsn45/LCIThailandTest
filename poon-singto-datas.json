@@ -1757,12 +1757,12 @@
     "ยโสธร": {
       "เมืองยโสธร": {
         "PSDB01": {
-          "price": 138,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 148
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 96,
@@ -1791,12 +1791,12 @@
       },
       "เลิงนกทา": {
         "PSDB01": {
-          "price": 135,
+          "price": 130,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 145
+          "oldprice": 140
         },
         "PSDB02": {
           "price": 93,
@@ -1825,12 +1825,12 @@
       },
       "ไทยเจริญ": {
         "PSDB01": {
-          "price": 135,
+          "price": 132,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 145
+          "oldprice": 142
         },
         "PSDB02": {
           "price": 94,
@@ -1859,12 +1859,12 @@
       },
       "กุดชุม": {
         "PSDB01": {
-          "price": 135,
+          "price": 132,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 145
+          "oldprice": 142
         },
         "PSDB02": {
           "price": 94,
@@ -1893,12 +1893,12 @@
       },
       "ทรายมูล": {
         "PSDB01": {
-          "price": 137,
+          "price": 134,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 147
+          "oldprice": 144
         },
         "PSDB02": {
           "price": 97,
@@ -1927,12 +1927,12 @@
       },
       "ป่าติ้ว": {
         "PSDB01": {
-          "price": 137,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 147
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 97,
@@ -1961,12 +1961,12 @@
       },
       "คำเขื่อนแก้ว": {
         "PSDB01": {
-          "price": 141,
+          "price": 139,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 151
+          "oldprice": 149
         },
         "PSDB02": {
           "price": 100,
@@ -1995,12 +1995,12 @@
       },
       "มหาชนะชัย": {
         "PSDB01": {
-          "price": 142,
+          "price": 140,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 152
+          "oldprice": 150
         },
         "PSDB02": {
           "price": 102,
@@ -3003,12 +3003,12 @@
       },
       "โนนคูณ": {
         "PSDB01": {
-          "price": 143,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 153
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -3037,12 +3037,12 @@
       },
       "เบญจลักษ์": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -3071,12 +3071,12 @@
       },
       "น้ำเกลี้ยง": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -3105,12 +3105,12 @@
       },
       "บึงบูรพ์": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -3139,12 +3139,12 @@
       },
       "กันทรลักษ์": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -3173,12 +3173,12 @@
       },
       "ศรีรัตนะ": {
         "PSDB01": {
-          "price": 144,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -3207,12 +3207,12 @@
       },
       "พยุห์": {
         "PSDB01": {
-          "price": 145,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -3241,12 +3241,12 @@
       },
       "วังหิน": {
         "PSDB01": {
-          "price": 145,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -3275,12 +3275,12 @@
       },
       "อุทุมพรพิสัย": {
         "PSDB01": {
-          "price": 145,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -3309,12 +3309,12 @@
       },
       "โพธิ์ศรีสุวรรณ": {
         "PSDB01": {
-          "price": 146,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -3343,12 +3343,12 @@
       },
       "เมืองจันทร์": {
         "PSDB01": {
-          "price": 146,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -3377,12 +3377,12 @@
       },
       "ห้วยทับทัน": {
         "PSDB01": {
-          "price": 146,
+          "price": 144,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 154
         },
         "PSDB02": {
           "price": 103,
@@ -3411,12 +3411,12 @@
       },
       "ไพรบึง": {
         "PSDB01": {
-          "price": 146,
+          "price": 144,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 154
         },
         "PSDB02": {
           "price": 104,
@@ -3445,12 +3445,12 @@
       },
       "ขุขันธ์": {
         "PSDB01": {
-          "price": 146,
+          "price": 144,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 154
         },
         "PSDB02": {
           "price": 104,
@@ -3479,12 +3479,12 @@
       },
       "ขุนหาญ": {
         "PSDB01": {
-          "price": 147,
+          "price": 145,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 157
+          "oldprice": 155
         },
         "PSDB02": {
           "price": 105,
@@ -3513,12 +3513,12 @@
       },
       "ปรางค์กู่": {
         "PSDB01": {
-          "price": 147,
+          "price": 145,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 157
+          "oldprice": 155
         },
         "PSDB02": {
           "price": 105,
@@ -3547,12 +3547,12 @@
       },
       "ภูสิงห์": {
         "PSDB01": {
-          "price": 148,
+          "price": 146,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 158
+          "oldprice": 156
         },
         "PSDB02": {
           "price": 105,
@@ -4731,12 +4731,12 @@
     "อำนาจเจริญ": {
       "เมืองอำนาจเจริญ": {
         "PSDB01": {
-          "price": 136,
+          "price": 132,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 146
+          "oldprice": 142
         },
         "PSDB02": {
           "price": 96,
@@ -4765,12 +4765,12 @@
       },
       "ชานุมาน": {
         "PSDB01": {
-          "price": 134,
+          "price": 130,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 144
+          "oldprice": 140
         },
         "PSDB02": {
           "price": 95,
@@ -4799,12 +4799,12 @@
       },
       "เสนางคนิคม": {
         "PSDB01": {
-          "price": 136,
+          "price": 132,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 146
+          "oldprice": 142
         },
         "PSDB02": {
           "price": 95,
@@ -4833,12 +4833,12 @@
       },
       "ลืออำนาจ": {
         "PSDB01": {
-          "price": 138,
+          "price": 134,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 148
+          "oldprice": 144
         },
         "PSDB02": {
           "price": 97,
@@ -4867,12 +4867,12 @@
       },
       "ปทุมราชวงศา": {
         "PSDB01": {
-          "price": 139,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 149
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 98,
@@ -4901,12 +4901,12 @@
       },
       "หัวตะพาน": {
         "PSDB01": {
-          "price": 139,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 149
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 98,
@@ -4935,12 +4935,12 @@
       },
       "พนา": {
         "PSDB01": {
-          "price": 139,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 149
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 98,
@@ -5653,12 +5653,12 @@
     "อุบลราชธานี": {
       "เมืองอุบลราชธานี": {
         "PSDB01": {
-          "price": 142,
+          "price": 140,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 152
+          "oldprice": 150
         },
         "PSDB02": {
           "price": 99,
@@ -5687,12 +5687,12 @@
       },
       "เขมราฐ": {
         "PSDB01": {
-          "price": 136,
+          "price": 132,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 146
+          "oldprice": 142
         },
         "PSDB02": {
           "price": 96,
@@ -5721,12 +5721,12 @@
       },
       "นาตาล": {
         "PSDB01": {
-          "price": 138,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 148
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 96,
@@ -5755,12 +5755,12 @@
       },
       "โพธิ์ไทร": {
         "PSDB01": {
-          "price": 138,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 148
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 96,
@@ -5789,12 +5789,12 @@
       },
       "ม่วงสามสิบ": {
         "PSDB01": {
-          "price": 138,
+          "price": 135,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 148
+          "oldprice": 145
         },
         "PSDB02": {
           "price": 97,
@@ -5823,12 +5823,12 @@
       },
       "กุดข้าวปุ้น": {
         "PSDB01": {
-          "price": 138,
+          "price": 136,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 148
+          "oldprice": 146
         },
         "PSDB02": {
           "price": 97,
@@ -5857,12 +5857,12 @@
       },
       "ตระการพืชผล": {
         "PSDB01": {
-          "price": 141,
+          "price": 139,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 151
+          "oldprice": 149
         },
         "PSDB02": {
           "price": 99,
@@ -5891,12 +5891,12 @@
       },
       "เขื่องใน": {
         "PSDB01": {
-          "price": 142,
+          "price": 140,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 152
+          "oldprice": 150
         },
         "PSDB02": {
           "price": 100,
@@ -5925,12 +5925,12 @@
       },
       "วารินชำราบ": {
         "PSDB01": {
-          "price": 142,
+          "price": 140,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 152
+          "oldprice": 150
         },
         "PSDB02": {
           "price": 100,
@@ -5959,12 +5959,12 @@
       },
       "เหล่าเสือโก้ก": {
         "PSDB01": {
-          "price": 142,
+          "price": 140,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 152
+          "oldprice": 150
         },
         "PSDB02": {
           "price": 100,
@@ -5993,12 +5993,12 @@
       },
       "ศรีเมืองใหม่": {
         "PSDB01": {
-          "price": 143,
+          "price": 141,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 153
+          "oldprice": 151
         },
         "PSDB02": {
           "price": 101,
@@ -6027,12 +6027,12 @@
       },
       "สว่างวีระวงศ์": {
         "PSDB01": {
-          "price": 143,
+          "price": 141,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 153
+          "oldprice": 151
         },
         "PSDB02": {
           "price": 101,
@@ -6061,12 +6061,12 @@
       },
       "ดอนมดแดง": {
         "PSDB01": {
-          "price": 143,
+          "price": 141,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 153
+          "oldprice": 151
         },
         "PSDB02": {
           "price": 101,
@@ -6095,12 +6095,12 @@
       },
       "สำโรง": {
         "PSDB01": {
-          "price": 143,
+          "price": 141,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 153
+          "oldprice": 151
         },
         "PSDB02": {
           "price": 101,
@@ -6129,12 +6129,12 @@
       },
       "นาเยีย": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -6163,12 +6163,12 @@
       },
       "พิบูลมังสาหาร": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -6197,12 +6197,12 @@
       },
       "เดชอุดม": {
         "PSDB01": {
-          "price": 144,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 154
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -6231,12 +6231,12 @@
       },
       "ตาลสุม": {
         "PSDB01": {
-          "price": 145,
+          "price": 142,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 152
         },
         "PSDB02": {
           "price": 102,
@@ -6265,12 +6265,12 @@
       },
       "สิรินธร": {
         "PSDB01": {
-          "price": 145,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -6299,12 +6299,12 @@
       },
       "ทุ่งศรีอุดม": {
         "PSDB01": {
-          "price": 145,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -6333,12 +6333,12 @@
       },
       "โขงเจียม": {
         "PSDB01": {
-          "price": 145,
+          "price": 143,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 155
+          "oldprice": 153
         },
         "PSDB02": {
           "price": 103,
@@ -6367,12 +6367,12 @@
       },
       "บุณฑริก": {
         "PSDB01": {
-          "price": 146,
+          "price": 144,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 154
         },
         "PSDB02": {
           "price": 103,
@@ -6401,12 +6401,12 @@
       },
       "น้ำขุ่น": {
         "PSDB01": {
-          "price": 146,
+          "price": 144,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 156
+          "oldprice": 154
         },
         "PSDB02": {
           "price": 104,
@@ -6435,12 +6435,12 @@
       },
       "น้ำยืน": {
         "PSDB01": {
-          "price": 147,
+          "price": 144,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 157
+          "oldprice": 154
         },
         "PSDB02": {
           "price": 104,
@@ -6469,12 +6469,12 @@
       },
       "นาจะหลวย": {
         "PSDB01": {
-          "price": 148,
+          "price": 146,
           "promotionType": "discount",
           "promotionTag": "promotion",
           "promotionStartTime": "2025-08-08T08:07",
           "promotionFinishTime": "2025-08-15T00:00",
-          "oldprice": 158
+          "oldprice": 156
         },
         "PSDB02": {
           "price": 105,

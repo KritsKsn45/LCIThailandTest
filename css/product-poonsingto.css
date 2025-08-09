@@ -88,13 +88,13 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #fff; 
+        background-color: #fff; /* หรือสีพื้นหลังของ preloader */
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 9999;
-        opacity: 1; 
-        transition: opacity 0.5s ease-out;
+        opacity: 1; /* เริ่มต้นด้วย opacity 1 */
+        transition: opacity 0.5s ease-out; /* เพิ่ม transition */
     }
     .cement-truck-animation img {
     width: 200px;
@@ -135,7 +135,7 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     z-index: 999;
-    display: none;
+    display: none; /* เริ่มต้นซ่อนไว้ */
     transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -256,24 +256,22 @@
         background-color: #a01616;
     }
 
-    /* Hamburger Menu (Hidden by default on Desktop) */
     .hamburger-menu {
-        display: none; /* Hidden on desktop */
+        display: none; 
         flex-direction: column;
         cursor: pointer;
         padding: 10px;
-        z-index: 1100; /* Ensure hamburger is above other elements */
+        z-index: 1; 
     }
 
     .hamburger-menu .bar {
         width: 25px;
         height: 3px;
-        background-color: #fff; /* White bars for red background */
+        background-color: #fff;
         margin: 4px 0;
         transition: 0.4s;
     }
 
-    /* --- Responsive Adjustments for Mobile --- */
     @media (max-width: 768px) {
         .NavOfPoonSingtoolayout {
             height: auto; /* Height adapts to content when menu is open */
@@ -973,7 +971,7 @@
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.20);
-    z-index: 4;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     }
@@ -2361,7 +2359,7 @@
         .p-c-add-cart-btn,
         .p-c-buy-btn {
             padding: 8px 10px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         .p-c-note {
             text-align: center;
@@ -2376,17 +2374,33 @@
             top: 5px; 
         }
         .countdown-timer {
-            font-size: 7px; 
+            font-size: 6px; 
             padding: 5px;
         }
+        .promo-tag {
+            font-size: 8px;
+        }
+        .promo-tag i.fas.fa-fire {
+            font-size: 7px;
+            color: #ffde00; 
+            animation: fire-pulse 1s infinite alternate; 
+        }
+        .preorder-tag {
+            font-size: 7px;
+        }
         .discount-box {
-            color: red;
+            color: rgba(255, 0, 0, 0.771);
         }
 
 
 
 
-        /* Cart section */
+    /* Cart section */
+   
+
+    .cart-section-container.show {
+        transform: translateX(0);
+    }
     .cart-section-container {
         width: 100%;
     }
@@ -2933,4 +2947,3 @@
     .product-detail-page button:hover {
     background-color: #005bb5;
     }
-

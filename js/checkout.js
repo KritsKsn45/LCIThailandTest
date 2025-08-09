@@ -101,28 +101,9 @@
         }
 
 
-        // ฟังก์ชันสำหรับตรวจสอบอีเมลกับ Back-end ของคุณ
-        async function validateEmailAddress(email) {
-            try {
-                const response = await fetch('/api/validate-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email: email }),
-                });
-
-                const data = await response.json();
-                return data.isValid; 
-            } catch (error) {
-                console.error("Error validating email:", error);
-                return false; 
-            }
-        }
-
         document.getElementById("customerOrderForm").addEventListener("submit", (event) => {
             event.preventDefault(); 
-
+            
             const customerName = document.getElementById("customerName").value.trim();
             const customerEmail = document.getElementById("customerEmail").value.trim();
             const customerTaxID = document.getElementById("customerTaxID").value.trim();
@@ -250,3 +231,38 @@
             });
         });
 
+
+
+        document.getElementById("cancelOrderBtn").addEventListener("click", (event) => {
+            event.preventDefault(); 
+
+            Swal.fire({
+                title: 'คุณต้องการยกเลิกคำสั่งซื้อ?',
+                text: "การยกเลิกจะทำให้ข้อมูลสินค้าถูกลบทั้งหมด",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#c62828', 
+                cancelButtonColor: '#757575', 
+                confirmButtonText: 'ใช่, ต้องการยกเลิก!',
+                cancelButtonText: 'ไม่, ไม่ยกเลิก',
+                reverseButtons: true,
+                customClass: {
+                    popup: 'swal2-modern-theme',
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.removeItem("checkoutCartItems");
+                    localStorage.removeItem("buyNowItem");
+
+                    Swal.fire({
+                        title: 'ยกเลิกสำเร็จ!',
+                        text: 'คุณได้ยกเลิกคำสั่งซื้อเรียบร้อยแล้ว',
+                        icon: 'success',
+                        confirmButtonColor: '#c62828',
+                        confirmButtonText: 'กลับไปหน้าสินค้า'
+                    }).then(() => {
+                        window.location.href = '/pages/products/products_showall.html';
+                    });
+                }
+            });
+        });
